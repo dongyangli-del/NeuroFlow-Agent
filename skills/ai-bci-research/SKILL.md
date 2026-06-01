@@ -16,6 +16,9 @@ Read only the files needed for the task:
 - `references/repositories.md`: Read for code reproduction, repo-aware edits, dataset setup, or implementation planning.
 - `references/bci-workflows.md`: Read for experiment design, neural signal processing, decoding, reconstruction, and closed-loop BCI tasks.
 - `references/writing-style.md`: Read for abstracts, introductions, related work, rebuttals, figure captions, and reviewer-facing edits.
+- `references/venue-workflows.md`: Read for conference submissions, venue targeting, camera-ready preparation, checklists, and rebuttals.
+- `references/reviewer-objections.md`: Read for pre-review, response-to-reviewer drafts, rebuttals, and paper risk audits.
+- `references/experiment-log-template.md`: Read when planning, recording, comparing, or debugging experiments.
 - `references/update-protocol.md`: Read when the user adds a new paper, repo, dataset, or experimental note.
 
 ## Operating Rules
@@ -48,9 +51,24 @@ Read only the files needed for the task:
 ### Paper Writing
 
 1. Read `references/papers-index.md` and `references/writing-style.md`.
-2. Position the work relative to the user's trajectory: EEG embeddings -> multimodal neural embeddings -> brain-language interaction -> closed-loop modulation.
-3. Keep method descriptions reproducible and reviewer-facing.
-4. Flag missing baselines, missing ablations, weak claims, or unsupported conclusions.
+2. If a venue, deadline, rebuttal, camera-ready, or submission checklist is involved, also read `references/venue-workflows.md`.
+3. Position the work relative to the user's trajectory: EEG embeddings -> multimodal neural embeddings -> brain-language interaction -> closed-loop modulation.
+4. Keep method descriptions reproducible and reviewer-facing.
+5. Flag missing baselines, missing ablations, weak claims, or unsupported conclusions.
+
+### Review and Rebuttal
+
+1. Read `references/reviewer-objections.md`, `references/venue-workflows.md`, and the relevant paper/project references.
+2. Separate factual errors, missing evidence, weak comparisons, unclear writing, and valid limitations.
+3. Lead with blocking issues: leakage, baselines, claim scope, reconstruction metrics, online/offline validity, and reproducibility.
+4. Draft reviewer responses that answer directly, cite concrete evidence, and narrow claims when evidence is missing.
+
+### Experiment Logging
+
+1. Read `references/experiment-log-template.md` and `references/bci-workflows.md`.
+2. Record dataset version, split protocol, seed, model checkpoint, hyperparameters, metrics, command, environment, and output path.
+3. Treat surprising results as bugs until leakage, preprocessing, checkpoint selection, and metric definitions are checked.
+4. Link each experiment to the paper claim, figure, table, or reviewer concern it supports.
 
 ### Research Ideation
 

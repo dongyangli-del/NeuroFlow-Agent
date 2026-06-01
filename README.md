@@ -44,9 +44,19 @@ bash install.sh
 skills/ai-bci-research/
 ├── SKILL.md
 ├── agents/openai.yaml
+├── evals/evals.json
 ├── references/
 └── scripts/
 ```
+
+## Conference Workflow Coverage
+
+The skill includes targeted references for:
+
+- venue-specific submission, camera-ready, and rebuttal workflows;
+- reviewer objection and paper-risk audits;
+- BCI/NeuroAI experiment logging and reproducibility records;
+- eval prompts that test paper writing, experiment planning, rebuttal, and experiment-log behavior.
 
 ## Knowledge Update Workflow
 

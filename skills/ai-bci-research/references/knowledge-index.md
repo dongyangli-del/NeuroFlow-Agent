@@ -8,6 +8,17 @@
 - ## MLLM and Generative Model Integration
 - ## Fast Validation Template
 
+## references/experiment-log-template.md
+- # Experiment Log Template
+- ## Experiment Header
+- ## Data and Splits
+- ## Preprocessing
+- ## Model and Training
+- ## Evaluation
+- ## Results
+- ## Interpretation
+- ## Reproducibility Record
+
 ## references/papers-index.md
 - # Papers Index
 - ## Published and Public Works
@@ -37,12 +48,36 @@
 - ## Preferred Framing
 - ## Guardrails
 
+## references/reviewer-objections.md
+- # Reviewer Objections
+- ## Common Blocking Concerns
+- ### Leakage or Invalid Splits
+- ### Weak Baselines
+- ### Unclear Claim Scope
+- ### Reconstruction Metrics Are Insufficient
+- ### Closed-Loop Validity
+- ### Missing Reproducibility Details
+- ## Reviewer Response Template
+- ## Pre-Submission Red-Team Questions
+
 ## references/update-protocol.md
 - # Update Protocol
 - ## Add a Paper
 - ## Add a Repository
 - ## Add Experiment Notes
 - ## Rebuild Compact Index
+
+## references/venue-workflows.md
+- # Venue Workflows
+- ## Universal Conference Submission Loop
+- ## Venue Priorities
+- ### NeurIPS / ICML / ICLR
+- ### CVPR / ICCV / ECCV / ACM MM
+- ### ACL / EMNLP / NAACL
+- ### Nature / Science / Scientific Data Style
+- ### BCI / NeuroAI / AI4Science Workshops
+- ## Submission Readiness Checklist
+- ## Rebuttal Workflow
 
 ## references/writing-style.md
 - # Writing Style

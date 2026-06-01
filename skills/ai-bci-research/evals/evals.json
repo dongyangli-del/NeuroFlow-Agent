@@ -1,0 +1,85 @@
+{
+  "skill_name": "ai-bci-research",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I am preparing a NeurIPS-style submission on EEG-guided diffusion for closed-loop visual stimulation. Draft a reviewer-facing experiment plan that checks leakage, baselines, ablations, online/offline validity, and statistics.",
+      "expected_output": "A structured conference-ready experiment plan grounded in AI x BCI constraints, with explicit split protocols, leakage checks, strong baselines, ablations, closed-loop controls, metrics, and statistical analysis.",
+      "files": [],
+      "assertions": [
+        {
+          "text": "Output distinguishes offline replay or simulation from live closed-loop human feedback."
+        },
+        {
+          "text": "Output includes leakage checks for subject/session/trial/stimulus splits and model selection."
+        },
+        {
+          "text": "Output proposes at least three strong baselines or controls, including a random/sham/fixed-stimulus control when relevant."
+        },
+        {
+          "text": "Output includes reproducibility details such as seed, dataset/split version, checkpoint, metric definitions, or environment."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Rewrite this contribution paragraph for an ICLR paper: 'Our method is the first robust AGI brain interface that understands human thoughts from EEG and improves general intelligence.' Keep the ambition but make it scientifically credible.",
+      "expected_output": "A cautious, precise rewrite that avoids unsupported AGI and mind-reading claims, ties the contribution to concrete mechanisms, and preserves a strong reviewer-facing contribution frame.",
+      "files": [],
+      "assertions": [
+        {
+          "text": "Output avoids direct mind-reading claims and replaces them with neural decoding, semantic alignment, stimulus reconstruction, or brain-signal-guided generation language."
+        },
+        {
+          "text": "Output ties broad NeuroAI, Physical AI, or AGI framing to concrete technical mechanisms."
+        },
+        {
+          "text": "Output flags unsupported claims or explains what evidence would be needed."
+        },
+        {
+          "text": "Output preserves a concise contribution-oriented style suitable for a top-tier ML venue."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "We got a reviewer concern: the EEG reconstruction results may leak image identity through the split, and the baselines may be too weak. Draft a rebuttal and an action plan.",
+      "expected_output": "A rebuttal/action plan that separates what can be claimed now from what needs verification, proposes concrete split audits, stronger baselines, extra ablations, and careful language for unresolved issues.",
+      "files": [],
+      "assertions": [
+        {
+          "text": "Output separates response text for reviewers from internal action items."
+        },
+        {
+          "text": "Output proposes concrete audits for exact-image, class, subject, session, and augmentation leakage."
+        },
+        {
+          "text": "Output proposes stronger baselines such as linear probes, EEGNet/ShallowFBCSPNet, subject-specific and cross-subject models, or random target embeddings."
+        },
+        {
+          "text": "Output avoids claiming results are fixed before evidence is checked."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Create an experiment log entry template for a BrainFLORA-style multimodal neural embedding run comparing EEG, MEG, and fMRI alignment to CLIP embeddings.",
+      "expected_output": "A reusable experiment log template with dataset/split, modalities, preprocessing, model, baselines, metrics, ablations, seed, checkpoints, environment, expected risks, and next-step fields.",
+      "files": [],
+      "assertions": [
+        {
+          "text": "Output includes dataset version, split protocol, seed, model/checkpoint, hyperparameters, environment, and command fields."
+        },
+        {
+          "text": "Output includes modality-specific preprocessing and alignment target fields."
+        },
+        {
+          "text": "Output includes baseline parity, metric definitions, ablations, and leakage checks."
+        },
+        {
+          "text": "Output includes interpretation, failure mode, and next-action fields."
+        }
+      ]
+    }
+  ]
+}
