@@ -41,3 +41,41 @@ DDPM epsilon prediction assumes a normalized data space compatible with the stan
 ### Reviewer-Facing Interpretation
 
 Do not frame this failure as a model-class limitation until the protocol is fixed. Report it as a scale/normalization and sampling-consistency bug if confirmed. After the fix, rerun the exact same split, image features, metrics, and regression baseline before drawing conclusions about diffusion versus regression.
+
+## Experiment Output Directory Routing Bug
+
+Use this when a shell wrapper, multi-GPU launcher, or benchmark script is intended to write to a new experiment directory but outputs appear in an old directory. This is especially dangerous when rerunning fixed experiments because it can silently contaminate old results.
+
+### Failure Pattern
+
+- The wrapper sets `OUTPUT_DIR=outputs/eeg_diffusion_fixed` or another fixed root.
+- The variable is used for skip checks, status summaries, or log discovery.
+- The variable is not passed to train, sample, or evaluate commands, so child scripts use their own default output path.
+- New fixed runs write into stale output directories and make old-vs-new comparisons invalid.
+
+### Required Checks
+
+1. Stop the current parent script and any orphaned child training, sampling, evaluation, or DataLoader processes before more files are written.
+2. Inspect the actual command lines for train, sample, and evaluate. Confirm `--output_dir`, `--output-root`, or equivalent is passed to every stage.
+3. Check that skip logic, summary logic, logs, checkpoints, predictions, and metrics all refer to the same resolved run directory.
+4. Print the resolved output path at the start of every stage and write it into the config or metadata file.
+5. Compare file modification times in old and new output directories to detect contamination.
+
+### Timestamped Run Directory Pattern
+
+Prefer immutable run directories under a semantic experiment root:
+
+```bash
+RUN_ID="run_$(TZ=Asia/Shanghai date +%Y%m%d_%H%M%S)"
+OUTPUT_DIR="outputs/eeg_diffusion_fixed/${RUN_ID}"
+```
+
+Use UTC only when the whole project standardizes on UTC. For this project, use East 8 / `Asia/Shanghai` timestamps when the user requests local experiment comparison by date.
+
+### Minimal Fix Pattern
+
+- Define one resolved `OUTPUT_DIR` once in the top-level launcher.
+- Pass that same directory explicitly to train, sample, and evaluate.
+- Use the same path for skip checks and summaries.
+- Store the command, git commit, timestamp, timezone, dataset split, checkpoint path, and metric output path inside the run directory.
+- Never reuse a fixed output directory for a corrected run unless it is intentionally overwritten after archiving or deleting stale artifacts.

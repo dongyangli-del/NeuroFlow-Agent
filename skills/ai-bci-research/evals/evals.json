@@ -112,6 +112,35 @@
           "text": "Output explains why explained variance or MSE can collapse under generated-scale explosion."
         }
       ]
+    },
+    {
+      "id": 6,
+      "prompt": "A two-GPU EEG diffusion benchmark script sets OUTPUT_DIR=outputs/eeg_diffusion_fixed. However, the variable is only used for skip checks and summary discovery; train, sample, and evaluate are launched without passing OUTPUT_DIR, so the fixed rerun writes into the old output directory. The user wants timestamped directories in East 8 timezone. Diagnose and propose a robust script fix.",
+      "expected_output": "A script-level debugging answer that stops orphaned jobs, identifies output-dir routing as a contamination risk, requires passing the resolved output directory to every train/sample/evaluate stage, and recommends immutable Asia/Shanghai timestamped run directories.",
+      "files": [],
+      "assertions": [
+        {
+          "text": "Output states that using OUTPUT_DIR only for skip or summary logic is insufficient if child commands do not receive it."
+        },
+        {
+          "text": "Output warns that new fixed runs can contaminate old outputs and invalidate comparisons."
+        },
+        {
+          "text": "Output recommends stopping parent and orphaned child training/sampling/evaluation processes before rerunning."
+        },
+        {
+          "text": "Output explicitly passes the same resolved output directory to train, sample, and evaluate stages."
+        },
+        {
+          "text": "Output recommends timestamped immutable run directories under outputs/eeg_diffusion_fixed."
+        },
+        {
+          "text": "Output uses East 8 / Asia/Shanghai timezone for timestamp generation."
+        },
+        {
+          "text": "Output recommends recording command, git commit, timestamp, timezone, split, checkpoint, and metrics metadata in the run directory."
+        }
+      ]
     }
   ]
 }

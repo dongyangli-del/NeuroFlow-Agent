@@ -16,6 +16,11 @@
 - ### Required Checks
 - ### Minimal Fix Pattern
 - ### Reviewer-Facing Interpretation
+- ## Experiment Output Directory Routing Bug
+- ### Failure Pattern
+- ### Required Checks
+- ### Timestamped Run Directory Pattern
+- ### Minimal Fix Pattern
 
 ## references/experiment-log-template.md
 - # Experiment Log Template
