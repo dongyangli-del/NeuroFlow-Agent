@@ -80,6 +80,38 @@
           "text": "Output includes interpretation, failure mode, and next-action fields."
         }
       ]
+    },
+    {
+      "id": 5,
+      "prompt": "Diffusion conditioned on image features predicts EEG much worse than a linear regression baseline. Regression outputs EEG in the original scale. Diffusion is also evaluated in the original scale, but generated EEG std is around 16 while true repetition-averaged EEG std is around 0.27. The DDPM epsilon loss is low. Diagnose the likely code/protocol bug and propose the minimal fix.",
+      "expected_output": "A debugging diagnosis that treats the result as a diffusion training/sampling protocol bug, prioritizes EEG standardization and inverse normalization, checks feature-EEG alignment and stochastic sampling fairness, and explains why low epsilon loss can coexist with meaningless generated EEG.",
+      "files": [],
+      "assertions": [
+        {
+          "text": "Output states this is likely a training/sampling protocol bug rather than simple evidence that diffusion is worse than regression."
+        },
+        {
+          "text": "Output flags missing EEG standardization before DDPM training as a high-priority root cause."
+        },
+        {
+          "text": "Output explains that epsilon loss on unstandardized small-scale EEG can be low while reverse sampling generates meaningless or badly scaled EEG."
+        },
+        {
+          "text": "Output proposes saving train-set EEG mean/std in the checkpoint and inverse-transforming sampled EEG before original-scale evaluation."
+        },
+        {
+          "text": "Output recommends clipping or constraining predicted normalized x0 during DDPM reverse sampling."
+        },
+        {
+          "text": "Output checks feature filename/image ID/condition index alignment between image features and EEG targets."
+        },
+        {
+          "text": "Output distinguishes stochastic DDPM single-sample evaluation from deterministic regression and suggests multiple samples or conditional-mean evaluation when appropriate."
+        },
+        {
+          "text": "Output explains why explained variance or MSE can collapse under generated-scale explosion."
+        }
+      ]
     }
   ]
 }

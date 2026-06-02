@@ -19,6 +19,7 @@ Read only the files needed for the task:
 - `references/venue-workflows.md`: Read for conference submissions, venue targeting, camera-ready preparation, checklists, and rebuttals.
 - `references/reviewer-objections.md`: Read for pre-review, response-to-reviewer drafts, rebuttals, and paper risk audits.
 - `references/experiment-log-template.md`: Read when planning, recording, comparing, or debugging experiments.
+- `references/debugging-playbooks.md`: Read when an experiment result is suspicious, a generative model underperforms a regression baseline, metrics collapse, generated neural signals have wrong scale, or code/protocol bugs are suspected.
 - `references/update-protocol.md`: Read when the user adds a new paper, repo, dataset, or experimental note.
 
 ## Operating Rules
@@ -62,6 +63,15 @@ Read only the files needed for the task:
 2. Separate factual errors, missing evidence, weak comparisons, unclear writing, and valid limitations.
 3. Lead with blocking issues: leakage, baselines, claim scope, reconstruction metrics, online/offline validity, and reproducibility.
 4. Draft reviewer responses that answer directly, cite concrete evidence, and narrow claims when evidence is missing.
+
+
+### Experiment Debugging
+
+1. Read `references/debugging-playbooks.md` and the relevant workflow reference.
+2. Stop expensive training or sampling jobs before continuing if the run appears broken.
+3. Treat large performance gaps, collapsed metrics, implausible signal scale, or unexpectedly low loss as possible protocol bugs before model limitations.
+4. Check data normalization, train/test alignment, checkpoint selection, sampling/evaluation consistency, metric definitions, and baseline parity.
+5. Propose the smallest code or numeric probe that can confirm or falsify each suspected root cause.
 
 ### Experiment Logging
 

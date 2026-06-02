@@ -8,6 +8,15 @@
 - ## MLLM and Generative Model Integration
 - ## Fast Validation Template
 
+## references/debugging-playbooks.md
+- # Debugging Playbooks
+- ## EEG Diffusion Prediction Underperforms Regression
+- ### Failure Pattern
+- ### Primary Root Cause to Check
+- ### Required Checks
+- ### Minimal Fix Pattern
+- ### Reviewer-Facing Interpretation
+
 ## references/experiment-log-template.md
 - # Experiment Log Template
 - ## Experiment Header
