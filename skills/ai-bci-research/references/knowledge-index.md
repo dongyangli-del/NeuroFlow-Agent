@@ -22,6 +22,7 @@
 - ### Timestamped Run Directory Pattern
 - ### Minimal Fix Pattern
 - ## EEG Diffusion vs Linear Baseline Large Gap
+- ## Conditional EEG Diffusion Objective Mismatch
 
 ## references/experiment-findings.md
 - # Experiment Findings
@@ -31,6 +32,11 @@
 - ### Required Diagnostics
 - ### Model and Training Fix Candidates
 - ### Acceptance Criteria
+- ## EEG Diffusion Objective Diagnosis Update - 2026-06-03
+- ### Added Diagnostics
+- ### Key Results
+- ### Updated Interpretation
+- ### Next Required Runs
 - ### Assumptions and Bookkeeping
 
 ## references/experiment-log-template.md

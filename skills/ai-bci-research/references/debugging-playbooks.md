@@ -83,3 +83,42 @@ Use UTC only when the whole project standardizes on UTC. For this project, use E
 ## EEG Diffusion vs Linear Baseline Large Gap
 
 When diffusion remains far below a linear encoding baseline after scale normalization is fixed, read `references/experiment-findings.md` for the 2026-06-03 ViT feature benchmark snapshot and use it as the diagnostic template. Prioritize evaluator reproduction with linear predictions, train/val/test localization, condition shuffle/zero ablations, stochastic sampling variance, deterministic `x0`/posterior-mean checks, and feature-token alignment before attributing the gap to model capacity.
+
+## Conditional EEG Diffusion Objective Mismatch
+
+Use this when an image-conditioned EEG diffusion model has reasonable denoising validation loss but generated EEG remains much worse than a deterministic encoding baseline after normalization, output routing, and evaluator parity have been fixed.
+
+### Failure Pattern
+
+- Stochastic DDPM samples have low or near-zero correlation with biological EEG and strongly negative explained variance.
+- Deterministic posterior-mean or no-noise sampling improves correlation, but still trails the linear/direct baseline by a large margin.
+- Train-split generated EEG correlation is also low, which points away from pure test overfitting and toward underfit, weak conditioning, or objective mismatch.
+- Real versus shuffled image condition barely changes denoiser output or denoising MSE, while zero condition changes output more.
+- Timestep loss profiles show nearly identical MSE for real and shuffled conditions.
+
+### Interpretation
+
+For low-dimensional EEG targets, epsilon prediction can let the denoiser use noisy query `x_t` and timestep to estimate injected noise while weakly using image-specific condition tokens. This is not equivalent to learning the conditional mean `E[EEG | image]`, which is what correlation and explained-variance encoding metrics usually reward. Single stochastic reverse samples can add variance at the same scale as the weak condition signal.
+
+### Required Probes
+
+1. Evaluate stochastic DDPM and deterministic posterior-mean sampling on train, validation, and test images.
+2. Measure within-condition sampling noise versus across-condition signal using multiple seeds for the same condition.
+3. Under the same `x_t` and timestep, compare denoiser outputs for real, shuffled, and zero image conditions.
+4. At fixed timesteps, compare denoising MSE for real, shuffled, and zero conditions using the same `x_t` and noise.
+5. Train or evaluate an `x0` prediction variant using the same architecture, split, and evaluator.
+6. Train or evaluate a direct deterministic mean predictor `f(image_tokens) -> EEG` using the same condition encoder.
+7. If direct or `x0` improves sharply, treat the epsilon objective and stochastic sampler as the main bottleneck before scaling model size.
+
+### Fix Direction
+
+- Use direct mean prediction as the primary EEG encoding prediction for correlation and explained-variance tables.
+- If generative uncertainty matters, model residuals around the deterministic mean instead of replacing the mean with single stochastic DDPM samples.
+- Prefer `x0` prediction, v-prediction, DDIM deterministic sampling, sample averaging, or posterior-mean reporting over single stochastic DDPM samples for EEG encoding metrics.
+- Add condition-use regularizers or auxiliary objectives only after confirming the direct predictor can learn the same feature-to-EEG mapping.
+- Keep real/shuffle/zero condition ablations in every diffusion report until real condition reliably wins.
+
+### Decision Rule
+
+Do not keep expanding the same epsilon DDPM run if real-vs-shuffle sensitivity is only a few percent of output magnitude and train deterministic correlation remains far below the linear/direct baseline. Switch to `x0` or direct deterministic predictors first, then decide whether diffusion should model residual variability.
+
