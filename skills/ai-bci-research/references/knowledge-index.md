@@ -21,6 +21,17 @@
 - ### Required Checks
 - ### Timestamped Run Directory Pattern
 - ### Minimal Fix Pattern
+- ## EEG Diffusion vs Linear Baseline Large Gap
+
+## references/experiment-findings.md
+- # Experiment Findings
+- ## EEG Diffusion ViT Feature Benchmark Snapshot - 2026-06-03
+- ### Result Snapshot
+- ### Current Interpretation
+- ### Required Diagnostics
+- ### Model and Training Fix Candidates
+- ### Acceptance Criteria
+- ### Assumptions and Bookkeeping
 
 ## references/experiment-log-template.md
 - # Experiment Log Template

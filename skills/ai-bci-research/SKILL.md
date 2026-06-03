@@ -19,6 +19,7 @@ Read only the files needed for the task:
 - `references/venue-workflows.md`: Read for conference submissions, venue targeting, camera-ready preparation, checklists, and rebuttals.
 - `references/reviewer-objections.md`: Read for pre-review, response-to-reviewer drafts, rebuttals, and paper risk audits.
 - `references/experiment-log-template.md`: Read when planning, recording, comparing, or debugging experiments.
+- `references/experiment-findings.md`: Read when interpreting completed experiment batches, comparing model families, preserving diagnostic conclusions, or deciding the next ablation after surprising results.
 - `references/debugging-playbooks.md`: Read when an experiment result is suspicious, a generative model underperforms a regression baseline, metrics collapse, generated neural signals have wrong scale, or code/protocol bugs are suspected.
 - `references/update-protocol.md`: Read when the user adds a new paper, repo, dataset, or experimental note.
 

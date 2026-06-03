@@ -79,3 +79,7 @@ Use UTC only when the whole project standardizes on UTC. For this project, use E
 - Use the same path for skip checks and summaries.
 - Store the command, git commit, timestamp, timezone, dataset split, checkpoint path, and metric output path inside the run directory.
 - Never reuse a fixed output directory for a corrected run unless it is intentionally overwritten after archiving or deleting stale artifacts.
+
+## EEG Diffusion vs Linear Baseline Large Gap
+
+When diffusion remains far below a linear encoding baseline after scale normalization is fixed, read `references/experiment-findings.md` for the 2026-06-03 ViT feature benchmark snapshot and use it as the diagnostic template. Prioritize evaluator reproduction with linear predictions, train/val/test localization, condition shuffle/zero ablations, stochastic sampling variance, deterministic `x0`/posterior-mean checks, and feature-token alignment before attributing the gap to model capacity.

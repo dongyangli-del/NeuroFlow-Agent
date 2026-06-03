@@ -141,6 +141,41 @@
           "text": "Output recommends recording command, git commit, timestamp, timezone, split, checkpoint, and metrics metadata in the run directory."
         }
       ]
+    },
+    {
+      "id": 7,
+      "prompt": "Five ViT-conditioned EEG diffusion experiments are complete. Best mean correlation is about 0.041, while the MindPilot linear ViT baseline is around 0.27-0.29. Unified noise ceiling is lower 0.374877 and upper 0.825916. Diffusion evaluation is intended to match linear encoding; linear uses time_mode=all and predicts the full 17x100 target. After EEG scale normalization, diffusion std is still around 0.45-0.47 versus biological averaged EEG std around 0.288 and linear prediction std around 0.273-0.276. Diagnose whether this is overfitting, evaluation error, model design bug, sampling noise, objective mismatch, or split problem, and propose a correction plan.",
+      "expected_output": "A careful diagnostic plan that does not over-attribute the gap to diffusion being weak. It should preserve confirmed facts, verify evaluation by replaying linear predictions through the diffusion evaluator, test distribution calibration, condition usage, stochastic sampling variance, train/val/test behavior, feature-token alignment, and propose x0/direct or residual diffusion probes with clear acceptance criteria.",
+      "files": [],
+      "assertions": [
+        {
+          "text": "Output states that linear time_mode=all also predicts the full 17x100 EEG target, so the gap is not simply single-timepoint versus all-time prediction."
+        },
+        {
+          "text": "Output requires running the diffusion evaluator on the linear synthetic_eeg_test.npy to reproduce linear metrics before trusting conclusions."
+        },
+        {
+          "text": "Output compares biological EEG, linear prediction, and diffusion prediction distribution statistics including std."
+        },
+        {
+          "text": "Output proposes real-condition versus shuffled-condition versus zero-condition ablations to test whether image features are used."
+        },
+        {
+          "text": "Output separates underfit, overfit, sampling noise, and test generalization using train, val, and test correlations."
+        },
+        {
+          "text": "Output proposes deterministic x0, posterior mean, DDIM, or multi-sample conditional-mean evaluation to reduce DDPM sampling variance."
+        },
+        {
+          "text": "Output checks CLS/patch/full-layer token alignment and feature filename/image ID/EEG condition ordering."
+        },
+        {
+          "text": "Output proposes x0/direct EEG prediction or residual diffusion as a minimal correction before rerunning all models."
+        },
+        {
+          "text": "Output treats old outputs/eeg_diffusion as contaminated and uses East 8 timestamped fixed run directories for conclusions."
+        }
+      ]
     }
   ]
 }
