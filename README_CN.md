@@ -1,4 +1,19 @@
-# NeuroFlow Agent
+<div align="center">
+  <a href="https://github.com/dongyangli-del/NeuroFlow-Agent">
+    <img src="docs/NeuroFlow_logo.png" alt="NeuroFlow Agent" width="760">
+  </a>
+
+  <p>
+    <b>面向 AI x BCI 与 NeuroAI research agents 的持久工作流系统。</b>
+  </p>
+
+  <p>
+    <a href="README.md"><img alt="English README" src="https://img.shields.io/badge/README-English-0f766e"></a>
+    <a href="docs/WORKFLOWS.md"><img alt="Workflows" src="https://img.shields.io/badge/docs-workflows-2563eb"></a>
+    <a href="docs/PLAYBOOKS.md"><img alt="Playbooks" src="https://img.shields.io/badge/docs-playbooks-7c3aed"></a>
+    <a href="docs/VALIDATION.md"><img alt="Validation" src="https://img.shields.io/badge/validation-make%20validate-16a34a"></a>
+  </p>
+</div>
 
 这是一个面向 AI x BCI 研究的持久工作流系统，用于让 agent 在多模态神经解码、EEG 视觉重建、扩散/生成模型、脑语言对齐、闭环脑调控、Physical AI 和 NeuroAI 项目中更像严谨的科研合作者。
 

@@ -1,20 +1,27 @@
-# NeuroFlow Agent
+<div align="center">
+  <a href="https://github.com/dongyangli-del/NeuroFlow-Agent">
+    <img src="docs/NeuroFlow_logo.png" alt="NeuroFlow Agent" width="760">
+  </a>
 
-<p align="center">
-  <b>A persistent workflow system for rigorous AI x BCI research agents</b><br>
-  Custom workflows, research memory, debugging playbooks, and reviewer-facing procedures for EEG decoding, neural reconstruction, brain-language alignment, and closed-loop NeuroAI.
-</p>
+  <p>
+    <b>A persistent workflow system for rigorous AI x BCI research agents.</b><br>
+    Custom workflows, research memory, debugging playbooks, and reviewer-facing procedures for EEG decoding, neural reconstruction, brain-language alignment, and closed-loop NeuroAI.
+  </p>
 
-<p align="center">
-  <a href="README_CN.md">中文</a> | <a href="docs/WORKFLOWS.md">Workflows</a> | <a href="docs/PLAYBOOKS.md">Playbooks</a> | <a href="docs/EXAMPLES.md">Examples</a> | <a href="docs/VALIDATION.md">Validation</a>
-</p>
+  <p>
+    <a href="https://github.com/dongyangli-del/NeuroFlow-Agent/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/dongyangli-del/NeuroFlow-Agent?style=flat&logo=github"></a>
+    <a href="https://github.com/dongyangli-del/NeuroFlow-Agent/forks"><img alt="GitHub forks" src="https://img.shields.io/github/forks/dongyangli-del/NeuroFlow-Agent?style=flat&logo=github"></a>
+    <a href="https://github.com/dongyangli-del/NeuroFlow-Agent/commits/main"><img alt="Last commit" src="https://img.shields.io/github/last-commit/dongyangli-del/NeuroFlow-Agent?style=flat&logo=git"></a>
+    <a href="https://github.com/dongyangli-del/NeuroFlow-Agent/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/dongyangli-del/NeuroFlow-Agent?style=flat&logo=github"></a>
+  </p>
 
-<p align="center">
-  <img alt="Codex skill" src="https://img.shields.io/badge/Codex-Skill-111827">
-  <img alt="Domain" src="https://img.shields.io/badge/Domain-AI%20x%20BCI-2563eb">
-  <img alt="Focus" src="https://img.shields.io/badge/Focus-EEG%20%7C%20NeuroAI%20%7C%20Diffusion-7c3aed">
-  <img alt="Validation" src="https://img.shields.io/badge/Validation-make%20validate-16a34a">
-</p>
+  <p>
+    <a href="README_CN.md"><img alt="中文文档" src="https://img.shields.io/badge/README-中文-0f766e"></a>
+    <a href="docs/WORKFLOWS.md"><img alt="Workflows" src="https://img.shields.io/badge/docs-workflows-2563eb"></a>
+    <a href="docs/PLAYBOOKS.md"><img alt="Playbooks" src="https://img.shields.io/badge/docs-playbooks-7c3aed"></a>
+    <a href="docs/VALIDATION.md"><img alt="Validation" src="https://img.shields.io/badge/validation-make%20validate-16a34a"></a>
+  </p>
+</div>
 
 ---
 
