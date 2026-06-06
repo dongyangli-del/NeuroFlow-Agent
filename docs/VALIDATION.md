@@ -12,7 +12,10 @@ The current validation checks:
 - `SKILL.md` has required frontmatter keys;
 - `evals/evals.json` is valid JSON;
 - local Markdown links resolve;
-- large generated files are not accidentally committed.
+- large generated files are not accidentally committed;
+- obvious local path, private key, and API-token patterns are not present in public files.
+
+Validation ignores local private overlays under `.private/`.
 
 After adding or editing references, rebuild the compact index:
 

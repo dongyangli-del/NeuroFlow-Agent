@@ -13,6 +13,33 @@ In this repository, workflow means a persistent operating procedure, not a one-t
 3. which output is appropriate for the task;
 4. which lesson should be consolidated for future sessions.
 
+## Phase 1 Skill System
+
+The first-stage NeuroFlow skill system separates routing, literature grounding, experiment design, reviewer simulation, memory consolidation, and shared AI x BCI guardrails.
+
+```text
+skills/
+  neuro-orchestrator/     # task routing and session control
+  paper-rag-plus/         # literature grounding and claim-to-citation mapping
+  experiment-copilot/     # experiment matrix, ablations, controls, statistics
+  reviewer-simulator/     # strict conference review and rebuttal planning
+  neuro-memory/           # session compression and long-term memory routing
+  ai-bci-research/        # shared AI x BCI domain guardrails and public workflow memory
+```
+
+Default flow:
+
+```text
+Task enters Neuro-Orchestrator
+-> Paper-RAG++ grounds claims in literature
+-> Experiment-Copilot designs evidence
+-> Reviewer-Simulator audits risk
+-> Neuro-Memory decides what should persist
+-> ai-bci-research supplies shared domain constraints throughout
+```
+
+Use a specialist skill only when it contributes a distinct first-read set, check order, output template, failure mode, or eval.
+
 ## Persistent Memory Loop
 
 Use after any meaningful paper review, repository inspection, experiment debugging session, or rebuttal.
@@ -24,6 +51,24 @@ Use after any meaningful paper review, repository inspection, experiment debuggi
 5. Run validation and verify that the new memory would change a future agent's behavior.
 
 This is the self-evolution path for the repo. The system should improve through consolidation, not by accumulating long transcripts.
+
+## Skill Factory Loop
+
+Use after a real research task when the session contains reusable behavior.
+
+1. Ask the five compression questions: reusable check order, common failure pattern, next first-read file, non-skippable judgment criteria, and memory type.
+2. Emit a `Memory candidate` block with repo decision, target file, minimal patch, leakage risk, and suggested eval.
+3. Route the memory to the smallest durable unit:
+   - workflow: reusable task sequence in `references/workflows/`;
+   - playbook: repeated failure mode in `references/playbooks/` or `references/debugging-playbooks.md`;
+   - finding: dated inspected result in `references/experiment-findings.md`;
+   - case: public demonstration in `references/cases/`;
+   - eval: behavior constraint in `evals/evals.json`;
+   - private: ignored memory under `references/private/` or `.private/`;
+   - no-repo: one-off context that should stay out.
+4. Rebuild `references/knowledge-index.md` and run validation.
+
+The goal is automatic compression into behavior-changing memory, not saving conversation history.
 
 ## BCI-RIGOR Loop
 
@@ -66,7 +111,10 @@ Use these rules to decide where new information belongs.
 | A paper, dataset, venue, or citation-positioning note | `references/papers-index.md` or `references/venue-workflows.md` |
 | A repository setup, structure, or reproducibility note | `references/repositories.md` |
 | A repeated experiment failure mode | `references/debugging-playbooks.md` |
+| A reusable session-level failure mode | `references/playbooks/*.md` |
+| A reusable operating sequence | `references/workflows/*.md` |
 | A dated, inspected result that changes future decisions | `references/experiment-findings.md` |
+| A public demonstration case | `references/cases/*.md` |
 | A claim risk or likely reviewer objection | `references/reviewer-objections.md` |
 | A behavior that future agents must preserve | `evals/evals.json` |
 

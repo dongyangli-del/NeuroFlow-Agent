@@ -1,0 +1,3 @@
+display_name: Neuro Memory
+short_description: Compresses research sessions into durable skill memory.
+default_prompt: Use Neuro-Memory to decide whether this session should become workflow, playbook, finding, case, eval, private memory, or no repo change.

@@ -1,0 +1,51 @@
+{
+  "skill_name": "paper-rag-plus",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Ground this claim: our EEG-guided diffusion method enables general brain-to-image understanding. Identify citation needs and safer wording.",
+      "expected_output": "A claim audit that separates supported evidence from overclaiming, identifies closest literature support and missing citations, and proposes safer reviewer-facing wording.",
+      "files": [
+        "references/claim-grounding.md"
+      ],
+      "assertions": [
+        {
+          "text": "Output does not invent citations or results."
+        },
+        {
+          "text": "Output flags broad brain understanding claims as reviewer risk."
+        },
+        {
+          "text": "Output separates claim, support, weakest link, missing citation, and safer wording."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Using Zotero-derived Paper-RAG++ memory, answer whether an EEG visual reconstruction paper is novel over prior work. The user wants citation suggestions and claim wording.",
+      "expected_output": "A retrieval-constrained novelty answer that distinguishes prior work, method innovation, application innovation, missing citations, reviewer risk, safer wording, and verification needs.",
+      "files": [
+        "references/rag-eval-constraints.md",
+        "references/claim-to-citation.md",
+        "references/paper-taxonomy.md"
+      ],
+      "assertions": [
+        {
+          "text": "Output distinguishes prior work from the user's contribution."
+        },
+        {
+          "text": "Output separately discusses method innovation and application innovation."
+        },
+        {
+          "text": "Output identifies missing or candidate citations instead of inventing verified support."
+        },
+        {
+          "text": "Output flags reviewer risks such as leakage, weak baselines, unsupported first claims, or qualitative-only evidence."
+        },
+        {
+          "text": "Output includes safer wording and verification needed before citation-critical use."
+        }
+      ]
+    }
+  ]
+}

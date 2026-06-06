@@ -17,6 +17,10 @@ Current playbooks include:
 
 Read `references/experiment-findings.md` when interpreting completed experiment batches or choosing the next ablation after surprising results. Findings should be compact, dated, and reusable.
 
+## Session Memory Consolidation
+
+Read `references/workflows/skill-factory.md` and `references/playbooks/session-memory-consolidation.md` when a completed session should become durable skill memory. Use this for reusable check orders, first-read rules, non-skippable criteria, demo cases, and eval prompts.
+
 ## BCI Workflow Guardrails
 
 Read `references/bci-workflows.md` when designing or auditing neural decoding, reconstruction, alignment, or closed-loop BCI experiments.

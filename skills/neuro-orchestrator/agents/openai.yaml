@@ -1,0 +1,3 @@
+display_name: Neuro Orchestrator
+short_description: Routes AI neuroscience research tasks to specialist workflows.
+default_prompt: Use Neuro-Orchestrator to route this AI x neuroscience task, choose the right specialist skills, define the expected artifact, and decide whether the session should update long-term memory.

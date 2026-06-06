@@ -1,0 +1,28 @@
+{
+  "skill_name": "experiment-copilot",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Design the minimum experiment matrix for an EEG-conditioned visual reconstruction claim with limited compute and likely reviewer concerns about leakage and baselines.",
+      "expected_output": "An experiment matrix with must-run, should-run, controls, ablations, statistics, stop rules, and reviewer-facing interpretation.",
+      "files": [
+        "references/experiment-matrix.md",
+        "references/controls-and-ablations.md"
+      ],
+      "assertions": [
+        {
+          "text": "Output separates must-run, should-run, and nice-to-have experiments."
+        },
+        {
+          "text": "Output includes leakage checks and baseline parity."
+        },
+        {
+          "text": "Output includes negative controls and stop rules."
+        },
+        {
+          "text": "Output includes metric definitions or statistical plan."
+        }
+      ]
+    }
+  ]
+}

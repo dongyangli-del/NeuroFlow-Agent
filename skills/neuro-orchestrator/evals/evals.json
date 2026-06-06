@@ -1,0 +1,28 @@
+{
+  "skill_name": "neuro-orchestrator",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I need to turn a rough AI x BCI idea into a paper plan with literature grounding, experiments, reviewer risk, and memory update. Route the work.",
+      "expected_output": "A routed session plan that selects specialist skills, names first reads, defines evidence needed, expected artifacts, validation, and memory candidate handling.",
+      "files": [
+        "references/routing.md",
+        "references/session-plan.md"
+      ],
+      "assertions": [
+        {
+          "text": "Output selects one primary skill and distinct supporting skills."
+        },
+        {
+          "text": "Output includes required first reads and expected artifact."
+        },
+        {
+          "text": "Output routes literature, experiment, reviewer, and memory work to separate specialists."
+        },
+        {
+          "text": "Output includes a memory candidate decision."
+        }
+      ]
+    }
+  ]
+}

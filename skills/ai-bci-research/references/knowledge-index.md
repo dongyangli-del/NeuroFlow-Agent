@@ -8,6 +8,11 @@
 - ## MLLM and Generative Model Integration
 - ## Fast Validation Template
 
+## references/cases/demo-case-template.md
+- # Demo Case Template
+- ## Case Title
+- ## Acceptance Criteria
+
 ## references/debugging-playbooks.md
 - # Debugging Playbooks
 - ## EEG Diffusion Prediction Underperforms Regression
@@ -31,18 +36,14 @@
 
 ## references/experiment-findings.md
 - # Experiment Findings
-- ## EEG Diffusion ViT Feature Benchmark Snapshot - 2026-06-03
+- ## Public Finding Template
+- ## Finding Title - YYYY-MM-DD
 - ### Result Snapshot
-- ### Current Interpretation
+- ### Confirmed Facts
+- ### Interpretation
 - ### Required Diagnostics
-- ### Model and Training Fix Candidates
 - ### Acceptance Criteria
-- ## EEG Diffusion Objective Diagnosis Update - 2026-06-03
-- ### Added Diagnostics
-- ### Key Results
-- ### Updated Interpretation
-- ### Next Required Runs
-- ### Assumptions and Bookkeeping
+- ## Public-Safe Consolidation Rules
 
 ## references/experiment-log-template.md
 - # Experiment Log Template
@@ -57,31 +58,33 @@
 
 ## references/papers-index.md
 - # Papers Index
-- ## Published and Public Works
-- ### Visual Decoding and Reconstruction via EEG Embeddings with Guided Diffusion
-- ### RealMind: Advancing Visual Decoding and Language Interaction via EEG Signals
-- ### BrainFLORA: Uncovering Brain Concept Representation via Multimodal Neural Embeddings
-- ### An EEG Dataset for Multimodal Semantic Alignment and Neural Decoding during Reading and Listening
-- ### Representation, Alignment, and Generation: A Comprehensive Survey of Foundation Models for Non-Invasive Brain Decoding
-- ### D2CAN: Domain-Guided Contrastive Adversarial Network for EEG-Based Cross-Subject Cognitive Workload Decoding
-- ### MindPilot: Closed-loop Visual Stimulation Optimization for Brain Modulation with EEG-guided Diffusion
-- ## Positioning Map
+- ## Public Entry Template
+- ### Paper Title
+- ## Positioning Map Template
 - ## Citation Discipline
+
+## references/playbooks/session-memory-consolidation.md
+- # Session Memory Consolidation Playbook
+- ## Failure Pattern
+- ## When to Trigger
+- ## Required First Reads
+- ## Checks in Order
+- ## Minimal Probe
+- ## Acceptance Criteria
+- ## Reviewer-Facing Interpretation
 
 ## references/repositories.md
 - # Repository Index
-- ## EEG_Image_decode
-- ## BHA Project Page
-- ## ChineseEEG-2
-- ## MindPilot
-- ## BrainFLORA
+- ## Public Repository Entry Template
+- ## Repository Name
+- ## AI x BCI Repository Types
 - ## Local Repo Workflow
 
 ## references/research-profile.md
 - # Research Profile
 - ## Mission
 - ## Research Axis
-- ## Preferred Framing
+- ## Public Positioning Pattern
 - ## Guardrails
 
 ## references/reviewer-objections.md
@@ -103,6 +106,7 @@
 - ## Add a Repository
 - ## Add Experiment Notes
 - ## Consolidate Agent Memory
+- ## Memory Candidate Template
 - ## Rebuild Compact Index
 
 ## references/venue-workflows.md
@@ -116,6 +120,15 @@
 - ### BCI / NeuroAI / AI4Science Workshops
 - ## Submission Readiness Checklist
 - ## Rebuttal Workflow
+
+## references/workflows/skill-factory.md
+- # Skill Factory Workflow
+- ## Trigger
+- ## Five-Question Compression
+- ## Memory Candidate Block
+- ## Routing Rules
+- ## Update Order
+- ## Acceptance Criteria
 
 ## references/writing-style.md
 - # Writing Style

@@ -1,0 +1,51 @@
+{
+  "skill_name": "neuro-memory",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "We found a reusable EEG diffusion debugging order, but the notes include a private local path and unpublished result. Compress this into durable memory.",
+      "expected_output": "A memory candidate that classifies the memory type, strips or reroutes private details, proposes a minimal public patch only for reusable behavior, and suggests an eval if behavior must be enforced.",
+      "files": [
+        "references/memory-routing.md",
+        "references/privacy-policy.md"
+      ],
+      "assertions": [
+        {
+          "text": "Output includes the full Memory candidate block."
+        },
+        {
+          "text": "Output does not include private local paths or unpublished sensitive details in a public target."
+        },
+        {
+          "text": "Output classifies the memory type."
+        },
+        {
+          "text": "Output explains whether an eval is needed."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "A user imported a private Zotero BIB library and wants it available to Paper-RAG++ without leaking local PDF paths or personal notes. Decide what enters public memory and what stays private.",
+      "expected_output": "A Zotero memory policy response that routes raw exports and private notes to ignored private storage, allows cleaned paper indexes and maps into public Paper-RAG++ references, and requires validation and eval updates.",
+      "files": [
+        "references/zotero-memory-policy.md",
+        "references/privacy-policy.md"
+      ],
+      "assertions": [
+        {
+          "text": "Output keeps raw BIB exports, local PDF paths, personal notes, and unpublished judgments out of public files."
+        },
+        {
+          "text": "Output permits cleaned paper index, taxonomy, method map, dataset map, and claim-to-citation map as public memory."
+        },
+        {
+          "text": "Output includes a Memory candidate block."
+        },
+        {
+          "text": "Output requires validation before trusting generated memory."
+        }
+      ]
+    }
+  ]
+}

@@ -48,7 +48,7 @@ Use this when a shell wrapper, multi-GPU launcher, or benchmark script is intend
 
 ### Failure Pattern
 
-- The wrapper sets `OUTPUT_DIR=outputs/eeg_diffusion_fixed` or another fixed root.
+- The wrapper sets `OUTPUT_DIR=outputs/eeg_diffusion_runs` or another fixed root.
 - The variable is used for skip checks, status summaries, or log discovery.
 - The variable is not passed to train, sample, or evaluate commands, so child scripts use their own default output path.
 - New fixed runs write into stale output directories and make old-vs-new comparisons invalid.
@@ -67,7 +67,7 @@ Prefer immutable run directories under a semantic experiment root:
 
 ```bash
 RUN_ID="run_$(TZ=Asia/Shanghai date +%Y%m%d_%H%M%S)"
-OUTPUT_DIR="outputs/eeg_diffusion_fixed/${RUN_ID}"
+OUTPUT_DIR="outputs/eeg_diffusion_runs/${RUN_ID}"
 ```
 
 Use UTC only when the whole project standardizes on UTC. For this project, use East 8 / `Asia/Shanghai` timestamps when the user requests local experiment comparison by date.
@@ -82,7 +82,7 @@ Use UTC only when the whole project standardizes on UTC. For this project, use E
 
 ## EEG Diffusion vs Linear Baseline Large Gap
 
-When diffusion remains far below a linear encoding baseline after scale normalization is fixed, read `references/experiment-findings.md` for the 2026-06-03 ViT feature benchmark snapshot and use it as the diagnostic template. Prioritize evaluator reproduction with linear predictions, train/val/test localization, condition shuffle/zero ablations, stochastic sampling variance, deterministic `x0`/posterior-mean checks, and feature-token alignment before attributing the gap to model capacity.
+When diffusion remains far below a linear encoding baseline after scale normalization is fixed, use `references/experiment-findings.md` as the public finding-template and preserve private numeric results outside the repo. Prioritize evaluator reproduction with linear predictions, train/val/test localization, condition shuffle/zero ablations, stochastic sampling variance, deterministic `x0`/posterior-mean checks, and feature-token alignment before attributing the gap to model capacity.
 
 ## Conditional EEG Diffusion Objective Mismatch
 
@@ -121,4 +121,3 @@ For low-dimensional EEG targets, epsilon prediction can let the denoiser use noi
 ### Decision Rule
 
 Do not keep expanding the same epsilon DDPM run if real-vs-shuffle sensitivity is only a few percent of output magnitude and train deterministic correlation remains far below the linear/direct baseline. Switch to `x0` or direct deterministic predictors first, then decide whether diffusion should model residual variability.
-

@@ -21,6 +21,7 @@ Agent behavior is shaped by three components: model, tools, and workflow. This r
 - Long transcripts that cannot be reused.
 - Unverified citations, invented results, or speculative claims written as facts.
 - Generic neuroscience notes that do not improve agent behavior.
+- Personal paper maps, unpublished experiment findings, private repository notes, and lab-specific strategy. Keep them in `.private/` or a private branch.
 
 ## Change Checklist
 
@@ -30,6 +31,7 @@ Agent behavior is shaped by three components: model, tools, and workflow. This r
 4. Rebuild the knowledge index when references change.
 5. Run `make validate`.
 6. Review the diff for accidental mode changes, generated files, and private data.
+7. For public-facing changes, check [docs/PUBLIC_READY.md](docs/PUBLIC_READY.md).
 
 ## Memory Consolidation Checklist
 

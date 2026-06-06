@@ -27,11 +27,29 @@ This repository is a persistent workflow system. Do not add material merely beca
 
 ## Consolidate Agent Memory
 
-1. Turn repeated failure modes into `debugging-playbooks.md` entries with symptom, checks, minimal probe, and acceptance criteria.
-2. Turn stable inspected results into `experiment-findings.md` entries with date, confirmed facts, interpretation, next action, and caveats.
-3. Turn recurring reviewer concerns into `reviewer-objections.md` entries with risk, evidence needed, and response pattern.
-4. Turn must-preserve behavior into `evals/evals.json` prompts.
-5. Update `docs/WORKFLOWS.md` only when the operating procedure itself changes.
+1. Run the five-question compression in `workflows/skill-factory.md`.
+2. Turn reusable task sequences into `workflows/*.md`.
+3. Turn repeated failure modes into `playbooks/*.md` or `debugging-playbooks.md` entries with symptom, checks, minimal probe, and acceptance criteria.
+4. Turn stable inspected results into `experiment-findings.md` entries with date, confirmed facts, interpretation, next action, and caveats.
+5. Turn real public demonstrations into `cases/*.md` using the fixed case template.
+6. Turn recurring reviewer concerns into `reviewer-objections.md` entries with risk, evidence needed, and response pattern.
+7. Turn must-preserve behavior into `evals/evals.json` prompts.
+8. Update `docs/WORKFLOWS.md` only when the operating procedure itself changes.
+
+## Memory Candidate Template
+
+Use this block at the end of qualifying sessions:
+
+```markdown
+Memory candidate:
+- Should enter repo? yes/no
+- Target file:
+- Minimal patch:
+- Risk of leaking private info:
+- Suggested eval:
+```
+
+Do not add transcript-shaped notes. Public memory must be compact, reusable, and free of sensitive project details.
 
 ## Rebuild Compact Index
 

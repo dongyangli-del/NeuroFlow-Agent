@@ -1,0 +1,3 @@
+display_name: Reviewer Simulator
+short_description: Simulates strict AI neuroscience conference reviewers.
+default_prompt: Use Reviewer-Simulator to audit this AI x neuroscience paper or claim as strict top-tier reviewers and propose experiments, writing fixes, and rebuttal strategy.

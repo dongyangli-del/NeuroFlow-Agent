@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://github.com/dongyangli-del/NeuroFlow-Agent">
-    <img src="docs/NeuroFlow_logo.png" alt="NeuroFlow Agent" width="760">
+    <img src="docs/NeuroFlow_logo.png" alt="NeuroFlow Agent" width="532">
   </a>
 
   <p>
@@ -189,6 +189,7 @@ Project-level docs:
 | [docs/PLAYBOOKS.md](docs/PLAYBOOKS.md) | Catalog of detailed references and when to load them. |
 | [docs/EXAMPLES.md](docs/EXAMPLES.md) | Demo-case template and planned real examples. |
 | [docs/VALIDATION.md](docs/VALIDATION.md) | Local checks and validation expectations. |
+| [docs/PUBLIC_READY.md](docs/PUBLIC_READY.md) | Public-release checklist and private-memory policy. |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | Rules for adding durable skill memory. |
 | [README_CN.md](README_CN.md) | Chinese project overview. |
 

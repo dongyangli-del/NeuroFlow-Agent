@@ -1,0 +1,28 @@
+{
+  "skill_name": "reviewer-simulator",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Simulate reviewers for a paper claiming EEG-guided diffusion improves closed-loop visual stimulation, but the current evidence is mostly offline.",
+      "expected_output": "A strict review simulation that flags online/offline mismatch, leakage, baselines, metrics, reproducibility, and gives reviewer personas plus action plan.",
+      "files": [
+        "references/review-rubric.md",
+        "references/rebuttal-plan.md"
+      ],
+      "assertions": [
+        {
+          "text": "Output leads with blocking issues."
+        },
+        {
+          "text": "Output separates reviewer personas from author action plan."
+        },
+        {
+          "text": "Output flags offline versus online closed-loop validity."
+        },
+        {
+          "text": "Output avoids claiming missing experiments succeeded."
+        }
+      ]
+    }
+  ]
+}

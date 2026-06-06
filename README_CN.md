@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://github.com/dongyangli-del/NeuroFlow-Agent">
-    <img src="docs/NeuroFlow_logo.png" alt="NeuroFlow Agent" width="760">
+    <img src="docs/NeuroFlow_logo.png" alt="NeuroFlow Agent" width="532">
   </a>
 
   <p>
@@ -108,6 +108,7 @@ make validate
 - [Playbook Catalog](docs/PLAYBOOKS.md)：排错和写作 playbook 索引。
 - [Examples](docs/EXAMPLES.md)：真实 demo case 模板和待补案例。
 - [Validation](docs/VALIDATION.md)：验证命令和质量检查。
+- [Public Ready](docs/PUBLIC_READY.md)：公开发布检查清单和 private memory 规则。
 
 ## 明星项目方向
 

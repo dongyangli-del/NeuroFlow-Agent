@@ -1,25 +1,27 @@
 # Research Profile
 
+This public profile defines the open-source mission and guardrails for NeuroFlow Agent. Personal paper maps, unpublished findings, private repositories, and lab-specific strategy should live in a local gitignored private overlay rather than this file.
+
 ## Mission
 
-The user's main research interest is leveraging Multimodal Large Language Models (MLLMs) and Generative Models to construct Bidirectional Brain-Computer Interfaces (BCIs), advancing Physical AI and NeuroAI.
+NeuroFlow Agent helps AI research agents work rigorously on AI x brain-computer interface, NeuroAI, neural decoding, neural reconstruction, brain-language alignment, and closed-loop BCI projects.
 
-The long-term mission is to architect next-generation General Artificial Intelligence by integrating brain-inspired intelligence principles with MLLM capabilities. The work aims to uncover neural mechanisms underlying human perception and motor behavior, then translate those findings into robust physical and linguistic intelligence that enables intelligent agents to genuinely comprehend and collaborate with humans.
+The central goal is to make agents follow domain-appropriate research workflows: inspect evidence before claims, audit fragile experiment protocols, preserve reusable lessons, and separate public scientific conclusions from private project memory.
 
 ## Research Axis
 
 - Multimodal neural decoding: align brain signals with visual, textual, acoustic, and multimodal model representations.
 - Neural reconstruction and generation: use generative models and diffusion models to reconstruct perceived or optimized stimuli from neural embeddings.
-- Brain-language interaction: map EEG signals to semantic representations and support language interaction grounded in neural activity.
+- Brain-language interaction: connect neural signals with semantic representations and language-grounded interaction.
 - Bidirectional BCI: move beyond passive decoding toward closed-loop stimulation, modulation, and interaction.
 - Physical AI and NeuroAI: connect neural mechanisms, embodied interaction, and generalizable intelligent agents.
 
-## Preferred Framing
+## Public Positioning Pattern
 
-Use the following trajectory when positioning new work:
+Use the following public trajectory when no private project trajectory is provided:
 
-1. Brain signals can be embedded into multimodal foundation model spaces.
-2. These aligned representations enable decoding, retrieval, reconstruction, and interaction.
+1. Brain signals can be embedded into multimodal foundation-model spaces.
+2. These aligned representations can support decoding, retrieval, reconstruction, and interaction.
 3. Generative models can turn neural representations into visual or semantic outputs.
 4. Closed-loop systems can optimize stimuli or actions using neural feedback.
 5. Bidirectional BCI can become an interface layer for collaborative human-agent intelligence.

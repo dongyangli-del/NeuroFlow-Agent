@@ -63,7 +63,7 @@
     },
     {
       "id": 4,
-      "prompt": "Create an experiment log entry template for a BrainFLORA-style multimodal neural embedding run comparing EEG, MEG, and fMRI alignment to CLIP embeddings.",
+      "prompt": "Create an experiment log entry template for a multimodal neural embedding run comparing EEG, MEG, and fMRI alignment to vision-language embeddings.",
       "expected_output": "A reusable experiment log template with dataset/split, modalities, preprocessing, model, baselines, metrics, ablations, seed, checkpoints, environment, expected risks, and next-step fields.",
       "files": [],
       "assertions": [
@@ -83,7 +83,7 @@
     },
     {
       "id": 5,
-      "prompt": "Diffusion conditioned on image features predicts EEG much worse than a linear regression baseline. Regression outputs EEG in the original scale. Diffusion is also evaluated in the original scale, but generated EEG std is around 16 while true repetition-averaged EEG std is around 0.27. The DDPM epsilon loss is low. Diagnose the likely code/protocol bug and propose the minimal fix.",
+      "prompt": "Diffusion conditioned on image features predicts EEG much worse than a linear regression baseline. Regression outputs EEG in the original scale. Diffusion is also evaluated in the original scale, but generated EEG variance is orders of magnitude larger than repetition-averaged EEG variance. The DDPM epsilon loss is low. Diagnose the likely code/protocol bug and propose the minimal fix.",
       "expected_output": "A debugging diagnosis that treats the result as a diffusion training/sampling protocol bug, prioritizes EEG standardization and inverse normalization, checks feature-EEG alignment and stochastic sampling fairness, and explains why low epsilon loss can coexist with meaningless generated EEG.",
       "files": [],
       "assertions": [
@@ -115,7 +115,7 @@
     },
     {
       "id": 6,
-      "prompt": "A two-GPU EEG diffusion benchmark script sets OUTPUT_DIR=outputs/eeg_diffusion_fixed. However, the variable is only used for skip checks and summary discovery; train, sample, and evaluate are launched without passing OUTPUT_DIR, so the fixed rerun writes into the old output directory. The user wants timestamped directories in East 8 timezone. Diagnose and propose a robust script fix.",
+      "prompt": "A multi-GPU EEG diffusion benchmark script sets OUTPUT_DIR to a fixed experiment root. However, the variable is only used for skip checks and summary discovery; train, sample, and evaluate are launched without passing OUTPUT_DIR, so the rerun writes into a stale output directory. The user wants timestamped directories in East 8 timezone. Diagnose and propose a robust script fix.",
       "expected_output": "A script-level debugging answer that stops orphaned jobs, identifies output-dir routing as a contamination risk, requires passing the resolved output directory to every train/sample/evaluate stage, and recommends immutable Asia/Shanghai timestamped run directories.",
       "files": [],
       "assertions": [
@@ -132,7 +132,7 @@
           "text": "Output explicitly passes the same resolved output directory to train, sample, and evaluate stages."
         },
         {
-          "text": "Output recommends timestamped immutable run directories under outputs/eeg_diffusion_fixed."
+          "text": "Output recommends timestamped immutable run directories under a resolved experiment root."
         },
         {
           "text": "Output uses East 8 / Asia/Shanghai timezone for timestamp generation."
@@ -144,15 +144,15 @@
     },
     {
       "id": 7,
-      "prompt": "Five ViT-conditioned EEG diffusion experiments are complete. Best mean correlation is about 0.041, while the MindPilot linear ViT baseline is around 0.27-0.29. Unified noise ceiling is lower 0.374877 and upper 0.825916. Diffusion evaluation is intended to match linear encoding; linear uses time_mode=all and predicts the full 17x100 target. After EEG scale normalization, diffusion std is still around 0.45-0.47 versus biological averaged EEG std around 0.288 and linear prediction std around 0.273-0.276. Diagnose whether this is overfitting, evaluation error, model design bug, sampling noise, objective mismatch, or split problem, and propose a correction plan.",
+      "prompt": "Several ViT-conditioned EEG diffusion experiments are complete. The best diffusion correlation is far below a linear ViT encoding baseline. A unified noise ceiling is available. Diffusion evaluation is intended to match linear encoding; the linear baseline predicts the full multichannel time-series target jointly. After EEG scale normalization, diffusion variance remains larger than biological averaged EEG and linear predictions. Diagnose whether this is overfitting, evaluation error, model design bug, sampling noise, objective mismatch, or split problem, and propose a correction plan.",
       "expected_output": "A careful diagnostic plan that does not over-attribute the gap to diffusion being weak. It should preserve confirmed facts, verify evaluation by replaying linear predictions through the diffusion evaluator, test distribution calibration, condition usage, stochastic sampling variance, train/val/test behavior, feature-token alignment, and propose x0/direct or residual diffusion probes with clear acceptance criteria.",
       "files": [],
       "assertions": [
         {
-          "text": "Output states that linear time_mode=all also predicts the full 17x100 EEG target, so the gap is not simply single-timepoint versus all-time prediction."
+          "text": "Output states that the linear baseline also predicts the full multichannel time-series EEG target, so the gap is not simply single-timepoint versus all-time prediction."
         },
         {
-          "text": "Output requires running the diffusion evaluator on the linear synthetic_eeg_test.npy to reproduce linear metrics before trusting conclusions."
+          "text": "Output requires replaying linear predictions through the diffusion evaluator to reproduce linear metrics before trusting conclusions."
         },
         {
           "text": "Output compares biological EEG, linear prediction, and diffusion prediction distribution statistics including std."
@@ -173,7 +173,33 @@
           "text": "Output proposes x0/direct EEG prediction or residual diffusion as a minimal correction before rerunning all models."
         },
         {
-          "text": "Output treats old outputs/eeg_diffusion as contaminated and uses East 8 timestamped fixed run directories for conclusions."
+          "text": "Output treats stale output directories as contaminated and uses timestamped immutable run directories for conclusions."
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "We just finished a research debugging session and found a reusable inspection order plus a privacy-sensitive project detail. Turn the session into NeuroFlow skill memory so future agents behave better.",
+      "expected_output": "A skill-memory consolidation response that uses the Skill Factory flow, asks or answers the five compression questions, emits a Memory candidate block, routes public reusable behavior to the smallest workflow/playbook/case/finding/eval target, and keeps private details out of public files.",
+      "files": [
+        "references/workflows/skill-factory.md",
+        "references/playbooks/session-memory-consolidation.md"
+      ],
+      "assertions": [
+        {
+          "text": "Output identifies the reusable check order before proposing a patch."
+        },
+        {
+          "text": "Output classifies the memory as workflow, playbook, finding, case, eval, private note, or no-repo."
+        },
+        {
+          "text": "Output includes a Memory candidate block with repo decision, target file, minimal patch, leakage risk, and suggested eval."
+        },
+        {
+          "text": "Output refuses to put privacy-sensitive project details, raw transcripts, credentials, local absolute paths, or participant information into public files."
+        },
+        {
+          "text": "Output recommends rebuilding the knowledge index and running validation after memory edits."
         }
       ]
     }

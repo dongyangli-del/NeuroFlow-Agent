@@ -25,8 +25,10 @@ def main() -> int:
     output = references / "knowledge-index.md"
 
     lines = ["# Knowledge Index", ""]
-    for path in sorted(references.glob("*.md")):
+    for path in sorted(references.rglob("*.md")):
         if path.name == output.name:
+            continue
+        if "private" in path.relative_to(references).parts:
             continue
         rel = path.relative_to(root)
         lines.append(f"## {rel}")

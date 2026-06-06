@@ -1,0 +1,3 @@
+display_name: Experiment Copilot
+short_description: Turns AI neuroscience claims into experiment matrices.
+default_prompt: Use Experiment-Copilot to design must-run experiments, ablations, controls, statistics, and stop rules for this AI x neuroscience claim.

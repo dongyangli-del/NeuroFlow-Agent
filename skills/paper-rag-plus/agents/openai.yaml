@@ -1,0 +1,3 @@
+display_name: Paper RAG++
+short_description: Grounds AI neuroscience claims in inspected literature.
+default_prompt: Use Paper-RAG++ to map this AI x neuroscience claim to papers, datasets, methods, metrics, citation support, and reviewer risks.
