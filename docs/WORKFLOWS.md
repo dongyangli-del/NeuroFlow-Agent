@@ -2,6 +2,29 @@
 
 This project is built around a small set of reusable AI x BCI research workflows. Each workflow should give an agent enough structure to act rigorously without loading unrelated memory.
 
+## Agent Workflow Thesis
+
+An agent has three practical components: model, tools, and workflow. The model and tools can usually be shared across domains, but the workflow must be customized for AI x BCI research because it encodes domain-specific inspection order, validity checks, evidence thresholds, and memory updates.
+
+In this repository, workflow means a persistent operating procedure, not a one-time checklist. A good workflow should decide:
+
+1. which memory to replay before acting;
+2. which validity checks must happen before interpretation;
+3. which output is appropriate for the task;
+4. which lesson should be consolidated for future sessions.
+
+## Persistent Memory Loop
+
+Use after any meaningful paper review, repository inspection, experiment debugging session, or rebuttal.
+
+1. Replay only the relevant memory: profile, paper map, repo notes, BCI workflow, debugging playbook, writing style, or reviewer objections.
+2. Execute the domain workflow and keep raw artifacts outside the skill repository.
+3. Distill reusable experience into the smallest durable unit: dated finding, playbook update, reviewer objection, workflow rule, eval prompt, or profile update.
+4. Rebuild `references/knowledge-index.md`.
+5. Run validation and verify that the new memory would change a future agent's behavior.
+
+This is the self-evolution path for the repo. The system should improve through consolidation, not by accumulating long transcripts.
+
 ## BCI-RIGOR Loop
 
 Use for experiment debugging, reproduction, and model-gap diagnosis.
@@ -32,6 +55,20 @@ Use after new logs or debugging results are available.
 3. Add failure-mode procedures to `references/debugging-playbooks.md`.
 4. Rebuild `references/knowledge-index.md`.
 5. Add or update eval prompts when the new workflow should change agent behavior.
+
+## Memory Replay and Consolidation Rules
+
+Use these rules to decide where new information belongs.
+
+| New information | Store as |
+|---|---|
+| A stable research preference or long-term mission shift | `references/research-profile.md` |
+| A paper, dataset, venue, or citation-positioning note | `references/papers-index.md` or `references/venue-workflows.md` |
+| A repository setup, structure, or reproducibility note | `references/repositories.md` |
+| A repeated experiment failure mode | `references/debugging-playbooks.md` |
+| A dated, inspected result that changes future decisions | `references/experiment-findings.md` |
+| A claim risk or likely reviewer objection | `references/reviewer-objections.md` |
+| A behavior that future agents must preserve | `evals/evals.json` |
 
 ## Closed-Loop BCI Planning Loop
 

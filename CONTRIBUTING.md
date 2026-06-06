@@ -1,6 +1,10 @@
 # Contributing
 
-This repository should stay compact, rigorous, and useful to future AI x BCI research agents.
+This repository should stay compact, rigorous, and useful to future AI x BCI research agents. Treat it as a persistent workflow system, not a storage folder for notes.
+
+## Design Principle
+
+Agent behavior is shaped by three components: model, tools, and workflow. This repository customizes the workflow layer for AI x BCI research. Contributions should therefore improve how future agents inspect evidence, replay memory, avoid invalid claims, debug experiments, or consolidate new lessons.
 
 ## What Belongs Here
 
@@ -9,6 +13,7 @@ This repository should stay compact, rigorous, and useful to future AI x BCI res
 - Dated findings distilled from real inspected experiments.
 - Eval prompts that test important behaviors.
 - Small scripts that validate or summarize the skill.
+- Memory replay and consolidation rules that make future sessions more reliable.
 
 ## What Does Not Belong Here
 
@@ -25,6 +30,19 @@ This repository should stay compact, rigorous, and useful to future AI x BCI res
 4. Rebuild the knowledge index when references change.
 5. Run `make validate`.
 6. Review the diff for accidental mode changes, generated files, and private data.
+
+## Memory Consolidation Checklist
+
+Before adding new content, ask whether it will change a future agent's behavior. If yes, place it in the smallest useful home:
+
+- durable mission or scope change -> `research-profile.md`;
+- repeated debugging pattern -> `debugging-playbooks.md`;
+- inspected experiment result -> `experiment-findings.md`;
+- claim or reviewer risk -> `reviewer-objections.md`;
+- reproducibility or setup fact -> `repositories.md`;
+- expected behavior regression test -> `evals/evals.json`.
+
+If the content is only raw context, keep it outside this repository and summarize the reusable lesson.
 
 ## Demo Case Rules
 

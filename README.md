@@ -1,8 +1,8 @@
-# Codex AI x BCI Research Skill
+# NeuroFlow Agent
 
 <p align="center">
-  <b>The Codex Skill for rigorous AI x BCI research</b><br>
-  Research memory, debugging playbooks, and reviewer-facing workflows for EEG decoding, neural reconstruction, brain-language alignment, and closed-loop NeuroAI.
+  <b>A persistent workflow system for rigorous AI x BCI research agents</b><br>
+  Custom workflows, research memory, debugging playbooks, and reviewer-facing procedures for EEG decoding, neural reconstruction, brain-language alignment, and closed-loop NeuroAI.
 </p>
 
 <p align="center">
@@ -18,6 +18,12 @@
 
 ---
 
+## Core Thesis
+
+An agent has three practical components: the model, the tools, and the workflow. In AI x BCI and neuroscience research, the model and tools are increasingly shared infrastructure. The workflow is the part that must be customized for a vertical domain, because it encodes what to inspect first, which failure modes are unacceptable, how evidence becomes a claim, and how useful experience survives across sessions.
+
+This repository is built around that thesis. Its goal is not to publish a small prompt pack or a generic AI x BCI skill. The goal is to build a persistent research workflow system with self-evolution, memory replay, and memory consolidation: every inspected paper, repository, experiment failure, reviewer objection, and debugging procedure should make later agents more reliable.
+
 ## What It Is
 
 `ai-bci-research` is a specialized Codex skill that turns an agent into a more reliable collaborator for AI x brain-computer interface research.
@@ -32,21 +38,33 @@ It is not a generic neuroscience note dump. It is an opinionated operating layer
 | Experiment memory | Distill raw logs into dated findings, playbooks, acceptance criteria, and next probes. |
 | Closed-loop BCI planning | Separate offline replay from online claims and surface safety, calibration, latency, and controls. |
 
+## Why Workflow Is the Vertical Layer
+
+For this project, "workflow" means more than a checklist. It is the durable execution policy that decides how an agent should read context, inspect code, run diagnostics, update memory, and turn results into paper-facing claims.
+
+| Agent component | What is usually shared | What this repo customizes |
+|---|---|---|
+| Model | General reasoning, coding, writing, and multimodal capability. | Domain-specific caution about neural decoding, reconstruction, closed-loop claims, and reviewer evidence. |
+| Tools | Shell, Python, Git, search, plotting, validation, and document utilities. | Small deterministic scripts for repo inventory, knowledge indexing, and skill validation. |
+| Workflow | Generic task decomposition and tool use. | AI x BCI research loops, memory replay, experiment consolidation, leakage audits, baseline checks, and claim discipline. |
+
+The central artifact is therefore not a single `SKILL.md` file. `SKILL.md` is only the router. The durable system lives across references, docs, evals, and scripts that together control how the agent learns from repeated research work.
+
 ## Quick Start
 
 Install with the Codex skill installer:
 
 ```bash
 python3 ~/.codex/skills/.system/skill-installer/scripts/install-skill-from-github.py \
-  --repo dongyangli-del/codex-ai-bci-research-skill \
+  --repo dongyangli-del/NeuroFlow-Agent \
   --path skills/ai-bci-research
 ```
 
 Or install manually:
 
 ```bash
-git clone https://github.com/dongyangli-del/codex-ai-bci-research-skill.git
-cd codex-ai-bci-research-skill
+git clone https://github.com/dongyangli-del/NeuroFlow-Agent.git
+cd NeuroFlow-Agent
 bash install.sh
 ```
 
@@ -66,6 +84,23 @@ Use ai-bci-research to design ablations for an EEG-guided visual reconstruction 
 Use ai-bci-research to turn these experiment logs into reviewer-facing claims and limitations.
 ```
 
+## Persistent Workflow System
+
+The repository is organized as a compact operating system for research agents:
+
+```mermaid
+flowchart TD
+    P[Prompt or research task] --> R[SKILL.md router]
+    R --> M[Memory replay: load only relevant references]
+    M --> W[Domain workflow: debug, write, review, ideate, or plan]
+    W --> E[Evidence checks: splits, baselines, metrics, claims]
+    E --> O[Output: code, plan, paper text, or review]
+    O --> C[Memory consolidation: dated finding, playbook, eval, or index update]
+    C --> M
+```
+
+This loop is designed to become more useful over time. New experience should be distilled into reusable memory rather than left as a one-off chat transcript.
+
 ## The BCI-RIGOR Loop
 
 The core workflow is `BCI-RIGOR`: a repeatable loop for research-grade AI x BCI work.
@@ -82,7 +117,7 @@ flowchart LR
 
 This loop is intentionally conservative: surprising results are treated as possible protocol or implementation bugs until the checks are exhausted.
 
-## Why AI x BCI Needs a Skill
+## Why AI x BCI Needs a Workflow System
 
 General-purpose agents often miss domain-specific failure modes:
 
@@ -92,17 +127,19 @@ General-purpose agents often miss domain-specific failure modes:
 - Epsilon diffusion can learn denoising shortcuts while weakly using image-specific condition tokens.
 - Reconstruction and closed-loop papers require precise claim boundaries and reviewer-ready baselines.
 
-This skill packages those guardrails so future sessions begin with the right defaults.
+This workflow system packages those guardrails so future sessions begin with the right defaults.
 
 ## Architecture
 
 ```mermaid
 flowchart TD
     P[User prompt] --> S[SKILL.md routing]
-    S --> R[Relevant reference]
+    S --> R[Relevant reference memory]
     R --> W[Workflow or playbook]
-    W --> T[Scripts and validation]
+    W --> T[Tools, scripts, and validation]
     T --> O[Grounded output]
+    O --> U[Consolidated memory update]
+    U --> I[knowledge-index.md]
 
     R --> RP[research-profile.md]
     R --> BW[bci-workflows.md]
@@ -147,6 +184,18 @@ Project-level docs:
 | [docs/VALIDATION.md](docs/VALIDATION.md) | Local checks and validation expectations. |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | Rules for adding durable skill memory. |
 | [README_CN.md](README_CN.md) | Chinese project overview. |
+
+## Content Organization Principle
+
+Keep the repo organized by how memory is used, not by where it came from:
+
+- `SKILL.md`: routing, first reads, and high-level operating rules only.
+- `references/`: consolidated research memory that should change future agent behavior.
+- `docs/`: public-facing explanation of workflows, playbooks, examples, and validation.
+- `scripts/`: deterministic maintenance utilities, not research experiments.
+- `evals/`: behavioral tests that prevent regression in agent conduct.
+
+Raw logs, large artifacts, datasets, checkpoints, and private human-subject material should stay outside this repository. Only the durable lesson belongs here.
 
 ## Current Playbooks
 
@@ -193,7 +242,7 @@ Use [docs/EXAMPLES.md](docs/EXAMPLES.md) to add a demo once the underlying artif
 After adding papers, repository notes, datasets, or experiment findings:
 
 ```bash
-cd codex-ai-bci-research-skill/skills/ai-bci-research
+cd NeuroFlow-Agent/skills/ai-bci-research
 python3 scripts/update_knowledge_index.py --root .
 cd ../..
 make validate
@@ -204,11 +253,13 @@ Keep raw logs, checkpoints, private data, and large generated outputs outside th
 ## Roadmap
 
 - Add real, inspected demo cases for EEG diffusion debugging and paper audit workflows.
+- Add an explicit memory replay and consolidation protocol for repeated experiment sessions.
+- Expand self-evolution rules: when a new failure mode becomes a playbook, eval, or profile update.
 - Expand eval prompts for experiment debugging, rebuttal, and closed-loop BCI planning.
 - Add schema checks for `agents/openai.yaml` and eval structure.
-- Publish a compact technical note explaining why AI x BCI agents need domain-specific guardrails.
-- Keep the project narrow and deep: the best Codex skill for AI x BCI research.
+- Publish a compact technical note explaining why workflow, not only model or tool choice, is the vertical layer for AI x BCI agents.
+- Keep the project narrow and deep: the best persistent workflow system for AI x BCI research agents.
 
 ## Quality Bar
 
-A change improves the project only if it makes future agents more reliable. Prefer concise playbooks, dated findings, explicit acceptance criteria, verified project facts, and eval prompts over broad notes or invented examples.
+A change improves the project only if it makes future agents more reliable. Prefer concise playbooks, dated findings, explicit acceptance criteria, verified project facts, replayable workflows, and eval prompts over broad notes or invented examples.

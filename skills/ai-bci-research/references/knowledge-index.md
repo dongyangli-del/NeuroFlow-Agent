@@ -23,6 +23,11 @@
 - ### Minimal Fix Pattern
 - ## EEG Diffusion vs Linear Baseline Large Gap
 - ## Conditional EEG Diffusion Objective Mismatch
+- ### Failure Pattern
+- ### Interpretation
+- ### Required Probes
+- ### Fix Direction
+- ### Decision Rule
 
 ## references/experiment-findings.md
 - # Experiment Findings
@@ -93,9 +98,11 @@
 
 ## references/update-protocol.md
 - # Update Protocol
+- ## Guiding Principle
 - ## Add a Paper
 - ## Add a Repository
 - ## Add Experiment Notes
+- ## Consolidate Agent Memory
 - ## Rebuild Compact Index
 
 ## references/venue-workflows.md
