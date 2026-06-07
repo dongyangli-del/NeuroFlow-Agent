@@ -4,15 +4,15 @@
   </a>
 
   <p>
-    <b>A persistent workflow system for rigorous AI x BCI research agents.</b><br>
-    Custom workflows, research memory, debugging playbooks, and reviewer-facing procedures for EEG decoding, neural reconstruction, brain-language alignment, and closed-loop NeuroAI.
+    <b>A self-evolving workflow system for AI x BCI and NeuroAI research agents.</b><br>
+    Multi-skill orchestration, persistent research memory, task-depth routing, debugging playbooks, and reviewer-facing procedures for neural decoding, reconstruction, brain-language alignment, and closed-loop NeuroAI.
   </p>
 
   <p>
-    <a href="https://github.com/dongyangli-del/NeuroFlow-Agent/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/dongyangli-del/NeuroFlow-Agent?style=flat&logo=github"></a>
-    <a href="https://github.com/dongyangli-del/NeuroFlow-Agent/forks"><img alt="GitHub forks" src="https://img.shields.io/github/forks/dongyangli-del/NeuroFlow-Agent?style=flat&logo=github"></a>
-    <a href="https://github.com/dongyangli-del/NeuroFlow-Agent/commits/main"><img alt="Last commit" src="https://img.shields.io/github/last-commit/dongyangli-del/NeuroFlow-Agent?style=flat&logo=git"></a>
-    <a href="https://github.com/dongyangli-del/NeuroFlow-Agent/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/dongyangli-del/NeuroFlow-Agent?style=flat&logo=github"></a>
+    <img alt="Self-evolving" src="https://img.shields.io/badge/system-self--evolving-0f766e">
+    <img alt="Workflow-centric" src="https://img.shields.io/badge/design-workflow--centric-2563eb">
+    <img alt="Multi-skill" src="https://img.shields.io/badge/orchestration-multi--skill-7c3aed">
+    <img alt="Task depth" src="https://img.shields.io/badge/tasks-shallow%20to%20deep-16a34a">
   </p>
 
   <p>
@@ -27,23 +27,56 @@
 
 ## Core Thesis
 
-An agent has three practical components: the model, the tools, and the workflow. In AI x BCI and neuroscience research, the model and tools are increasingly shared infrastructure. The workflow is the part that must be customized for a vertical domain, because it encodes what to inspect first, which failure modes are unacceptable, how evidence becomes a claim, and how useful experience survives across sessions.
+An agent has three practical components: the model, the tools, and the workflow. In AI x BCI and neuroscience research, the model and tools are increasingly shared infrastructure. The workflow is the vertical layer: it decides which context to replay, which specialist skill should act, how deep the task should go, which validity checks are non-negotiable, how evidence becomes a claim, and what should persist after the session.
 
-This repository is built around that thesis. Its goal is not to publish a small prompt pack or a generic AI x BCI skill. The goal is to build a persistent research workflow system with self-evolution, memory replay, and memory consolidation: every inspected paper, repository, experiment failure, reviewer objection, and debugging procedure should make later agents more reliable.
+This repository is built around that thesis. Its goal is not to publish a small prompt pack or a single generic AI x BCI skill. The goal is to build a self-evolving research workflow system: every inspected paper, repository, experiment failure, reviewer objection, and debugging procedure should be compressed into reusable memory that makes later agents more reliable.
 
 ## What It Is
 
-`ai-bci-research` is a specialized Codex skill that turns an agent into a more reliable collaborator for AI x brain-computer interface research.
+NeuroFlow-Agent is a compact operating layer for rigorous research agents. It combines a multi-skill workflow controller with domain-specific AI x BCI guardrails, literature grounding, experiment planning, reviewer simulation, and memory consolidation.
 
-It is not a generic neuroscience note dump. It is an opinionated operating layer for fragile research work where split leakage, target normalization, feature alignment, stochastic generation, and reviewer-facing claims can silently break conclusions.
+It is not a generic neuroscience note dump. It is an opinionated workflow system for fragile research work where split leakage, target normalization, feature alignment, stochastic generation, weak baselines, and overclaimed paper text can silently break conclusions.
 
-| Use it for | What the skill makes the agent do |
+| Use it for | What the workflow makes the agent do |
 |---|---|
-| EEG diffusion/debugging | Check scale, sampling variance, condition use, train/val/test localization, and evaluator parity before blaming model capacity. |
-| Neural decoding/reconstruction | Audit splits, repetition handling, stimulus identity, baselines, metrics, and noise ceilings. |
-| Paper writing/rebuttal | Convert claims into reviewer-facing, evidence-scoped scientific writing. |
-| Experiment memory | Distill raw logs into dated findings, playbooks, acceptance criteria, and next probes. |
+| Fast questions | Replay only the relevant memory and return a scoped answer without loading the full system. |
+| Literature and positioning | Use paper memory and claim-to-citation mapping before drafting novelty or related work. |
+| Experiment design | Build ablations, controls, metrics, statistics, stop rules, and reproducibility checks. |
+| Debugging and reproduction | Check scale, sampling variance, condition use, split localization, output routing, and evaluator parity before changing model capacity. |
+| Paper writing and rebuttal | Convert claims into reviewer-facing, evidence-scoped scientific writing. |
+| Long research sessions | Coordinate multiple skills, consolidate reusable findings, and update the memory/index/eval layer. |
 | Closed-loop BCI planning | Separate offline replay from online claims and surface safety, calibration, latency, and controls. |
+
+## Multi-Skill Collaboration
+
+The repository contains several skills that cooperate instead of forcing every task through one large prompt. Each skill has a distinct trigger, first-read set, check order, and output style.
+
+| Skill | Role |
+|---|---|
+| `neuro-orchestrator` | Routes tasks, controls session depth, and coordinates specialist skills. |
+| `neuro-idea-finder` | Generates testable EEG/iEEG/fMRI/MEG/LFP/spike/BCI research ideas. |
+| `paper-rag-plus` | Grounds claims in papers, maps claims to citations, and organizes related work. |
+| `eeg-benchmark-hunter` | Finds and audits open benchmarks, access, licenses, splits, baselines, metrics, and leakage risks. |
+| `repro-pack` | Builds reproduction contracts with environment, data, weights, commands, expected outputs, and recovery paths. |
+| `continual-learning-designer` | Designs cross-subject/session/device adaptation, streaming calibration, and forgetting protocols. |
+| `experiment-copilot` | Designs experiment matrices, ablations, controls, statistics, and stop rules. |
+| `reviewer-simulator` | Audits papers, claims, and rebuttals as a strict conference reviewer. |
+| `oral-writer` | Turns evidence into oral-level thesis, figure narrative, and reviewer-facing paper text. |
+| `neuro-memory` | Compresses completed sessions into durable workflow, playbook, finding, case, or eval memory. |
+| `ai-bci-research` | Supplies shared AI x BCI assumptions, failure-mode checks, and public workflow memory. |
+
+The orchestrator can answer shallow tasks with one skill, route medium tasks through one or two specialists, or run deep tasks through literature grounding, experiment design, review simulation, and memory consolidation.
+
+## Task Depths
+
+NeuroFlow is designed for tasks with different scope and depth:
+
+| Depth | Example task | Expected behavior |
+|---|---|---|
+| Shallow | "Explain this metric gap." | Load the smallest relevant memory, identify likely failure modes, and give a concise next check. |
+| Standard | "Design ablations for this EEG reconstruction model." | Use domain guardrails plus experiment planning to produce a reproducible matrix. |
+| Deep | "Prepare this project for a conference submission." | Coordinate literature, experiments, claims, reviewer objections, writing, and limitations. |
+| Persistent | "Turn this debugging session into reusable knowledge." | Compress the lesson into a finding, playbook, workflow rule, eval, or index update. |
 
 ## Why Workflow Is the Vertical Layer
 
@@ -59,15 +92,7 @@ The central artifact is therefore not a single `SKILL.md` file. `SKILL.md` is on
 
 ## Quick Start
 
-Install with the Codex skill installer:
-
-```bash
-python3 ~/.codex/skills/.system/skill-installer/scripts/install-skill-from-github.py \
-  --repo dongyangli-del/NeuroFlow-Agent \
-  --path skills/ai-bci-research
-```
-
-Or install manually:
+Install the full NeuroFlow skill library:
 
 ```bash
 git clone https://github.com/dongyangli-del/NeuroFlow-Agent.git
@@ -75,20 +100,28 @@ cd NeuroFlow-Agent
 bash install.sh
 ```
 
-Restart Codex after installation.
+The installer links every skill under `skills/` into your Codex skills directory. Restart Codex after installation.
+
+To install a single skill with the Codex skill installer, pass its path explicitly:
+
+```bash
+python3 ~/.codex/skills/.system/skill-installer/scripts/install-skill-from-github.py \
+  --repo dongyangli-del/NeuroFlow-Agent \
+  --path skills/neuro-orchestrator
+```
 
 Then ask Codex with the skill name:
 
 ```text
-Use ai-bci-research to debug why my EEG diffusion model is far below the linear baseline.
+Use neuro-orchestrator to turn this EEG reconstruction idea into a paper-ready experiment plan.
 ```
 
 ```text
-Use ai-bci-research to design ablations for an EEG-guided visual reconstruction paper.
+Use eeg-benchmark-hunter to audit candidate open benchmarks for this BCI claim.
 ```
 
 ```text
-Use ai-bci-research to turn these experiment logs into reviewer-facing claims and limitations.
+Use oral-writer to turn these results into an oral-level thesis and figure narrative.
 ```
 
 ## Persistent Workflow System
@@ -97,13 +130,42 @@ The repository is organized as a compact operating system for research agents:
 
 ```mermaid
 flowchart TD
-    P[Prompt or research task] --> R[SKILL.md router]
-    R --> M[Memory replay: load only relevant references]
-    M --> W[Domain workflow: debug, write, review, ideate, or plan]
-    W --> E[Evidence checks: splits, baselines, metrics, claims]
-    E --> O[Output: code, plan, paper text, or review]
-    O --> C[Memory consolidation: dated finding, playbook, eval, or index update]
-    C --> M
+    accTitle: NeuroFlow Persistent Workflow
+    accDescr: A task is routed by depth, executed through one or more specialist skills, checked against AI x BCI evidence rules, and consolidated into durable memory when the result should affect future sessions.
+
+    task[Research task] --> triage[Neuro-Orchestrator<br/>task type and depth]
+    triage --> shallow[Shallow answer<br/>targeted memory replay]
+    triage --> standard[Standard workflow<br/>one or two specialist skills]
+    triage --> deep[Deep workflow<br/>multi-skill collaboration]
+
+    standard --> skill_pool[Skill pool]
+    deep --> skill_pool
+
+    skill_pool --> idea[Neuro-Idea-Finder<br/>testable hypotheses]
+    skill_pool --> rag[Paper-RAG++<br/>literature grounding]
+    skill_pool --> benchmark[EEG-Benchmark-Hunter<br/>datasets and protocols]
+    skill_pool --> repro[Repro-Pack<br/>runnable reproduction]
+    skill_pool --> continual[Continual-Learning-Designer<br/>adaptation protocols]
+    skill_pool --> experiment[Experiment-Copilot<br/>ablations and controls]
+    skill_pool --> review[Reviewer-Simulator<br/>risk audit]
+    skill_pool --> oral[Oral-Writer<br/>thesis and figure narrative]
+    skill_pool --> bci[ai-bci-research<br/>domain guardrails]
+
+    shallow --> evidence[Evidence checks<br/>splits, baselines, metrics, claims]
+    idea --> evidence
+    rag --> evidence
+    benchmark --> evidence
+    repro --> evidence
+    continual --> evidence
+    experiment --> evidence
+    review --> evidence
+    oral --> evidence
+    bci --> evidence
+
+    evidence --> output[Output<br/>answer, code, plan, paper text, or review]
+    output --> memory[Neuro-Memory<br/>finding, playbook, workflow, case, eval, or index]
+    memory --> replay[Future memory replay]
+    replay --> triage
 ```
 
 This loop is designed to become more useful over time. New experience should be distilled into reusable memory rather than left as a one-off chat transcript.
@@ -140,19 +202,47 @@ This workflow system packages those guardrails so future sessions begin with the
 
 ```mermaid
 flowchart TD
-    P[User prompt] --> S[SKILL.md routing]
-    S --> R[Relevant reference memory]
-    R --> W[Workflow or playbook]
-    W --> T[Tools, scripts, and validation]
-    T --> O[Grounded output]
-    O --> U[Consolidated memory update]
-    U --> I[knowledge-index.md]
+    accTitle: NeuroFlow Architecture
+    accDescr: The architecture separates orchestration, specialist skills, shared domain memory, deterministic maintenance scripts, validation, and self-evolution.
 
-    R --> RP[research-profile.md]
-    R --> BW[bci-workflows.md]
-    R --> DP[debugging-playbooks.md]
-    R --> EF[experiment-findings.md]
-    R --> RO[reviewer-objections.md]
+    user[User prompt] --> orchestrator[neuro-orchestrator]
+    orchestrator --> depth[Task-depth policy<br/>shallow, standard, deep, persistent]
+    depth --> specialists[Specialist skills]
+
+    specialists --> paper[paper-rag-plus]
+    specialists --> idea[neuro-idea-finder]
+    specialists --> benchmark[eeg-benchmark-hunter]
+    specialists --> repro[repro-pack]
+    specialists --> continual[continual-learning-designer]
+    specialists --> exp[experiment-copilot]
+    specialists --> reviewer[reviewer-simulator]
+    specialists --> oral[oral-writer]
+    specialists --> memory_skill[neuro-memory]
+    specialists --> shared[ai-bci-research]
+
+    shared --> refs[Reference memory]
+    refs --> profile[research-profile.md]
+    refs --> workflows[bci-workflows.md]
+    refs --> debugging[debugging-playbooks.md]
+    refs --> findings[experiment-findings.md]
+    refs --> objections[reviewer-objections.md]
+    refs --> style[writing-style.md]
+
+    paper --> grounded[Grounded research output]
+    idea --> grounded
+    benchmark --> grounded
+    repro --> grounded
+    continual --> grounded
+    exp --> grounded
+    reviewer --> grounded
+    oral --> grounded
+    shared --> grounded
+
+    grounded --> consolidate[Consolidation decision]
+    consolidate --> durable[Durable memory update]
+    durable --> index[knowledge-index.md]
+    durable --> evals[evals.json]
+    durable --> validation[make validate]
 ```
 
 The design uses progressive disclosure: `SKILL.md` stays compact, and detailed knowledge lives in references that are loaded only when needed.
@@ -187,6 +277,7 @@ Project-level docs:
 |---|---|
 | [docs/WORKFLOWS.md](docs/WORKFLOWS.md) | Named research loops and operating procedures. |
 | [docs/PLAYBOOKS.md](docs/PLAYBOOKS.md) | Catalog of detailed references and when to load them. |
+| [docs/SKILL_LIBRARY_SPEC.md](docs/SKILL_LIBRARY_SPEC.md) | Full 10-skill library gap analysis, contracts, task chains, and phase criteria. |
 | [docs/EXAMPLES.md](docs/EXAMPLES.md) | Demo-case template and planned real examples. |
 | [docs/VALIDATION.md](docs/VALIDATION.md) | Local checks and validation expectations. |
 | [docs/PUBLIC_READY.md](docs/PUBLIC_READY.md) | Public-release checklist and private-memory policy. |
@@ -261,9 +352,10 @@ Keep raw logs, checkpoints, private data, and large generated outputs outside th
 ## Roadmap
 
 - Add real, inspected demo cases for EEG diffusion debugging and paper audit workflows.
-- Add an explicit memory replay and consolidation protocol for repeated experiment sessions.
-- Expand self-evolution rules: when a new failure mode becomes a playbook, eval, or profile update.
-- Expand eval prompts for experiment debugging, rebuttal, and closed-loop BCI planning.
+- Expand task-depth routing evals so shallow, standard, deep, and persistent tasks trigger different memory and skill budgets.
+- Strengthen multi-skill collaboration rules across the full 10-skill library.
+- Expand self-evolution rules: when a new failure mode becomes a finding, playbook, workflow, eval, or profile update.
+- Expand eval prompts for orchestration, experiment debugging, rebuttal, and closed-loop BCI planning.
 - Add schema checks for `agents/openai.yaml` and eval structure.
 - Publish a compact technical note explaining why workflow, not only model or tool choice, is the vertical layer for AI x BCI agents.
 - Keep the project narrow and deep: the best persistent workflow system for AI x BCI research agents.

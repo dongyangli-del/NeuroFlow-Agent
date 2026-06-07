@@ -1,0 +1,25 @@
+{
+  "skill_name": "repro-pack",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Make a reproduction plan for a top-conference EEG decoding repository. The data and checkpoints may be missing.",
+      "expected_output": "A reproduction contract separating smoke run from full reproduction, with environment, data, weights, command, expected output, sanity checks, failure recovery, missing evidence, and next skill handoff.",
+      "files": [
+        "references/repro-contract.md",
+        "references/failure-recovery.md"
+      ],
+      "assertions": [
+        {
+          "text": "Output separates smoke reproduction from full-paper reproduction."
+        },
+        {
+          "text": "Output includes expected output and sanity checks."
+        },
+        {
+          "text": "Output explicitly marks missing data or checkpoints as blockers instead of inventing them."
+        }
+      ]
+    }
+  ]
+}

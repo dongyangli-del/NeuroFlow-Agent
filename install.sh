@@ -2,19 +2,25 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-SKILL_SRC="${ROOT_DIR}/skills/ai-bci-research"
+SKILLS_SRC="${ROOT_DIR}/skills"
 CODEX_HOME_DIR="${CODEX_HOME:-${HOME}/.codex}"
 SKILLS_DIR="${CODEX_HOME_DIR}/skills"
-SKILL_DEST="${SKILLS_DIR}/ai-bci-research"
 
-if [[ ! -f "${SKILL_SRC}/SKILL.md" ]]; then
-  echo "Cannot find skill source: ${SKILL_SRC}" >&2
+if [[ ! -d "${SKILLS_SRC}" ]]; then
+  echo "Cannot find skills source: ${SKILLS_SRC}" >&2
   exit 1
 fi
 
 mkdir -p "${SKILLS_DIR}"
-rm -rf "${SKILL_DEST}"
-cp -R "${SKILL_SRC}" "${SKILL_DEST}"
 
-echo "Installed ai-bci-research to ${SKILL_DEST}"
+for skill_src in "${SKILLS_SRC}"/*; do
+  [[ -d "${skill_src}" ]] || continue
+  [[ -f "${skill_src}/SKILL.md" ]] || continue
+  skill_name="$(basename "${skill_src}")"
+  skill_dest="${SKILLS_DIR}/${skill_name}"
+  rm -rf "${skill_dest}"
+  ln -s "${skill_src}" "${skill_dest}"
+  echo "Installed ${skill_name} -> ${skill_src}"
+done
+
 echo "Restart Codex to pick up the skill."

@@ -1,0 +1,3 @@
+display_name: EEG Benchmark Hunter
+short_description: Finds and audits open neural and BCI benchmarks.
+default_prompt: Use EEG-Benchmark-Hunter to identify and audit candidate neural or BCI benchmarks, including access, license, splits, baselines, metrics, adaptation work, and leakage risks.

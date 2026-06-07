@@ -1,0 +1,25 @@
+{
+  "skill_name": "oral-writer",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Rewrite the framing for an EEG-guided image reconstruction paper aiming for a top AI conference oral. Evidence is incomplete and citations need verification.",
+      "expected_output": "A thesis, contribution stack, evidence-to-claim map, figure narrative, scoped writing, likely reviewer objections, missing evidence, safer wording, and next skill handoff.",
+      "files": [
+        "references/oral-paper-structure.md",
+        "references/figure-narrative.md"
+      ],
+      "assertions": [
+        {
+          "text": "Output does not invent results or citations."
+        },
+        {
+          "text": "Output maps claims to evidence and marks missing evidence."
+        },
+        {
+          "text": "Output includes a figure narrative and reviewer objection preemption."
+        }
+      ]
+    }
+  ]
+}

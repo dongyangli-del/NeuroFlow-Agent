@@ -23,6 +23,46 @@
           "text": "Output includes a memory candidate decision."
         }
       ]
+    },
+    {
+      "id": 2,
+      "prompt": "Route a deep task: generate a novel EEG visual reconstruction idea, verify literature novelty, find suitable benchmarks, design experiments, prepare oral-level writing, and preserve reusable memory.",
+      "expected_output": "A deep routed session plan using the full NeuroFlow library with idea generation, literature grounding, benchmark hunting, experiment design, reviewer simulation, oral writing, and memory consolidation.",
+      "files": [
+        "references/routing.md",
+        "references/session-plan.md"
+      ],
+      "assertions": [
+        {
+          "text": "Output classifies task depth as deep or persistent."
+        },
+        {
+          "text": "Output routes to neuro-idea-finder, paper-rag-plus, eeg-benchmark-hunter, experiment-copilot, reviewer-simulator, oral-writer, and neuro-memory when appropriate."
+        },
+        {
+          "text": "Output includes evidence gates before novelty, benchmark, experiment, and oral-writing claims."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Route a paper reproduction request where the dataset may be gated and the user wants a baseline table.",
+      "expected_output": "A paper-to-repro or benchmark-to-baseline route that uses Paper-RAG++, Repro-Pack, EEG-Benchmark-Hunter, Experiment-Copilot, and Neuro-Memory as needed.",
+      "files": [
+        "references/routing.md",
+        "references/session-plan.md"
+      ],
+      "assertions": [
+        {
+          "text": "Output separates paper verification, reproduction contract, benchmark access, and experiment matrix responsibilities."
+        },
+        {
+          "text": "Output does not treat missing data as available."
+        },
+        {
+          "text": "Output includes expected artifact and stop condition."
+        }
+      ]
     }
   ]
 }

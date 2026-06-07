@@ -1,0 +1,25 @@
+{
+  "skill_name": "eeg-benchmark-hunter",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I need open EEG benchmarks for a visual reconstruction claim. Provide candidate benchmark cards, but do not invent URLs, licenses, or leaderboard numbers.",
+      "expected_output": "Benchmark cards that mark unverified facts, include access/license/split/baseline/metric/adaptation/leakage fields, and recommend next verification steps.",
+      "files": [
+        "references/benchmark-card-template.md",
+        "references/benchmark-risk-checklist.md"
+      ],
+      "assertions": [
+        {
+          "text": "Output marks unknown dataset facts as needs verification."
+        },
+        {
+          "text": "Output includes license, split protocol, baseline, metric, and leakage-risk fields."
+        },
+        {
+          "text": "Output separates benchmark suitability from unsupported broad claims."
+        }
+      ]
+    }
+  ]
+}

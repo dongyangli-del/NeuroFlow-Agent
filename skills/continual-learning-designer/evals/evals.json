@@ -1,0 +1,25 @@
+{
+  "skill_name": "continual-learning-designer",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Design a continual learning protocol for cross-subject EEG decoding with streaming calibration and limited labels.",
+      "expected_output": "A protocol with adaptation goal, stream setting, feedback, memory budget, update rule, baselines, metrics, forgetting checks, calibration, online/offline boundary, safety or latency risks, and experiment handoff.",
+      "files": [
+        "references/continual-bci-design.md",
+        "references/evaluation-protocol.md"
+      ],
+      "assertions": [
+        {
+          "text": "Output includes no-adaptation and simple adaptation baselines."
+        },
+        {
+          "text": "Output includes forgetting, transfer, and calibration metrics."
+        },
+        {
+          "text": "Output separates offline replay from online BCI claims."
+        }
+      ]
+    }
+  ]
+}

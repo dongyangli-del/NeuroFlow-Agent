@@ -1,0 +1,25 @@
+{
+  "skill_name": "neuro-idea-finder",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Generate three EEG visual reconstruction ideas that could become a conference paper, but do not invent results or citations.",
+      "expected_output": "Three idea cards with hypotheses, technical routes, data needs, baselines, metrics, risks, fastest validation experiments, reviewer objections, and next skill handoffs.",
+      "files": [
+        "references/idea-template.md",
+        "references/modality-opportunity-map.md"
+      ],
+      "assertions": [
+        {
+          "text": "Each idea includes hypothesis, required data, strongest baseline, primary metric, key risk, and fastest validation experiment."
+        },
+        {
+          "text": "Output does not claim novelty or cite papers without routing to literature grounding."
+        },
+        {
+          "text": "Output includes leakage, subject/session, or modality-alignment risks where relevant."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+display_name: Continual Learning Designer
+short_description: Designs continual and adaptive BCI learning protocols.
+default_prompt: Use Continual-Learning-Designer to design a continual BCI adaptation protocol with stream setting, feedback, memory, baselines, forgetting metrics, calibration, and online/offline boundaries.

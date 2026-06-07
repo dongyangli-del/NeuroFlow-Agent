@@ -2,6 +2,18 @@
 
 Detailed playbooks live inside `skills/ai-bci-research/references/`. This catalog explains when to load each one.
 
+For full skill-library routing, first read [SKILL_LIBRARY_SPEC.md](SKILL_LIBRARY_SPEC.md) and `skills/MANIFEST.md`.
+
+## Skill-Specific Playbooks
+
+| Skill | First reads |
+|---|---|
+| `neuro-idea-finder` | `references/idea-template.md`, `references/modality-opportunity-map.md` |
+| `eeg-benchmark-hunter` | `references/benchmark-card-template.md`, `references/benchmark-risk-checklist.md` |
+| `repro-pack` | `references/repro-contract.md`, `references/failure-recovery.md` |
+| `continual-learning-designer` | `references/continual-bci-design.md`, `references/evaluation-protocol.md` |
+| `oral-writer` | `references/oral-paper-structure.md`, `references/figure-narrative.md` |
+
 ## Experiment Debugging
 
 Read `references/debugging-playbooks.md` when metrics collapse, generated EEG has the wrong scale, a generative model badly underperforms a deterministic baseline, or run outputs appear in the wrong directory.

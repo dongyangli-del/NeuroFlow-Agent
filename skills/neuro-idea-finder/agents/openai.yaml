@@ -1,0 +1,3 @@
+display_name: Neuro Idea Finder
+short_description: Generates testable AI x neuroscience and BCI research ideas.
+default_prompt: Use Neuro-Idea-Finder to generate testable EEG/iEEG/fMRI/MEG/LFP/spike/BCI research ideas with hypotheses, data, baselines, metrics, risks, and fastest validation experiments.

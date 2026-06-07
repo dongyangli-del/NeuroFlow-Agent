@@ -1,0 +1,3 @@
+display_name: Repro Pack
+short_description: Builds minimal reproduction contracts for papers and repositories.
+default_prompt: Use Repro-Pack to create a minimal runnable reproduction plan with environment, data, weights, commands, expected outputs, sanity checks, and failure recovery.

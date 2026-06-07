@@ -13,32 +13,65 @@ In this repository, workflow means a persistent operating procedure, not a one-t
 3. which output is appropriate for the task;
 4. which lesson should be consolidated for future sessions.
 
-## Phase 1 Skill System
+## Complete Skill System
 
-The first-stage NeuroFlow skill system separates routing, literature grounding, experiment design, reviewer simulation, memory consolidation, and shared AI x BCI guardrails.
+The NeuroFlow skill system separates routing, ideation, literature grounding, benchmark discovery, reproduction, continual adaptation, experiment design, reviewer simulation, oral-level writing, memory consolidation, and shared AI x BCI guardrails.
 
 ```text
 skills/
-  neuro-orchestrator/     # task routing and session control
-  paper-rag-plus/         # literature grounding and claim-to-citation mapping
-  experiment-copilot/     # experiment matrix, ablations, controls, statistics
-  reviewer-simulator/     # strict conference review and rebuttal planning
-  neuro-memory/           # session compression and long-term memory routing
-  ai-bci-research/        # shared AI x BCI domain guardrails and public workflow memory
+  neuro-orchestrator/             # task routing and session control
+  neuro-idea-finder/              # EEG/iEEG/fMRI/MEG/LFP/spike/BCI idea generation
+  paper-rag-plus/                 # literature grounding and claim-to-citation mapping
+  eeg-benchmark-hunter/           # open benchmark discovery, license, split, and leakage audits
+  repro-pack/                     # reproducibility contract and failure recovery
+  continual-learning-designer/    # continual BCI adaptation and personalization design
+  experiment-copilot/             # experiment matrix, ablations, controls, statistics
+  reviewer-simulator/             # strict conference review and rebuttal planning
+  oral-writer/                    # oral-level thesis, figure narrative, and paper writing
+  neuro-memory/                   # session compression and long-term memory routing
+  ai-bci-research/                # shared AI x BCI domain guardrails and public workflow memory
 ```
 
-Default flow:
+Default deep flow:
 
 ```text
 Task enters Neuro-Orchestrator
+-> Neuro-Idea-Finder generates testable hypotheses when ideas are needed
 -> Paper-RAG++ grounds claims in literature
+-> EEG-Benchmark-Hunter audits candidate datasets and protocols when benchmarks are needed
+-> Repro-Pack builds runnable reproduction contracts when papers or repos are involved
+-> Continual-Learning-Designer designs adaptation when personalization or streaming updates are involved
 -> Experiment-Copilot designs evidence
 -> Reviewer-Simulator audits risk
+-> Oral-Writer compresses thesis and figure narrative when writing is needed
 -> Neuro-Memory decides what should persist
 -> ai-bci-research supplies shared domain constraints throughout
 ```
 
 Use a specialist skill only when it contributes a distinct first-read set, check order, output template, failure mode, or eval.
+
+See [SKILL_LIBRARY_SPEC.md](SKILL_LIBRARY_SPEC.md) for the gap analysis, promotion rule, and phased implementation criteria.
+
+## Task Depth Routing
+
+| Depth | Use when | Route behavior |
+|---|---|---|
+| Shallow | The user needs a narrow answer or next check. | One primary skill, minimal first reads, no broad chain. |
+| Standard | The user needs a concrete artifact. | One primary skill plus one supporting validation skill. |
+| Deep | The task spans ideas, papers, benchmarks, experiments, writing, or reproduction. | A named task chain with explicit handoffs. |
+| Persistent | The session should change future agent behavior. | End with `neuro-memory` and a memory candidate. |
+
+## Named Task Chains
+
+| Chain | Route |
+|---|---|
+| idea-to-experiment | `neuro-idea-finder` -> `paper-rag-plus` -> `experiment-copilot` -> `reviewer-simulator` -> `neuro-memory` |
+| paper-to-repro | `paper-rag-plus` -> `repro-pack` -> `experiment-copilot` -> `neuro-memory` |
+| benchmark-to-baseline | `eeg-benchmark-hunter` -> `experiment-copilot` -> `reviewer-simulator` |
+| continual-adaptation | `continual-learning-designer` -> `experiment-copilot` -> `reviewer-simulator` |
+| experiment-to-paper | `experiment-copilot` -> `reviewer-simulator` -> `oral-writer` -> `neuro-memory` |
+| paper-to-rebuttal | `paper-rag-plus` -> `reviewer-simulator` -> `oral-writer` |
+| session-to-memory | `neuro-memory` with `ai-bci-research` guardrails |
 
 ## Persistent Memory Loop
 
