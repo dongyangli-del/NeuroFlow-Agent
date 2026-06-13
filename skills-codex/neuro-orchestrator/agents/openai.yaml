@@ -1,0 +1,3 @@
+display_name: Neuro Orchestrator
+short_description: Single Codex entry point for NeuroFlow workflows.
+default_prompt: Use Neuro-Orchestrator as the single NeuroFlow entry point. Route this AI x BCI or NeuroAI task through the explicit pipeline, choose optional specialist modules, name the artifact, and apply evidence gates.

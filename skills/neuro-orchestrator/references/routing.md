@@ -1,8 +1,14 @@
 # Routing
 
+## Entry Policy
+
+`neuro-orchestrator` is the only default NeuroFlow entry point. Specialist skills are modules selected by the orchestrator, not competing default entry points.
+
+If a specialist skill is unavailable or not automatically triggered, keep going through the selected pipeline and use the specialist's expected fields as an internal checklist.
+
 ## Task Router
 
-| User intent | Primary skill | Supporting skills |
+| User intent | Pipeline module | Supporting modules |
 |---|---|---|
 | Broad research planning | `neuro-orchestrator` | `ai-bci-research`, `neuro-memory` |
 | New research ideas or hypotheses | `neuro-idea-finder` | `paper-rag-plus`, `experiment-copilot`, `ai-bci-research` |
@@ -40,14 +46,15 @@
 ## Routing Checks
 
 1. Identify the task type.
-2. Decide the primary skill.
-3. Name supporting skills only when they add a distinct method or validation layer.
+2. Choose the pipeline chain.
+3. Name optional specialist modules only when they add a distinct method or validation layer.
 4. State the artifact before doing the work.
 5. Decide whether the session should end with a memory candidate.
 6. Use `ai-bci-research` as shared guardrails for neural decoding, reconstruction, alignment, and closed-loop claims.
 
 ## Anti-Patterns
 
+- Treating a specialist skill as the default workflow entry point.
 - Calling every skill for every task.
 - Treating `paper-rag-plus` output as evidence without paper inspection.
 - Designing experiments before defining the claim and evaluation target.

@@ -1,0 +1,26 @@
+{
+  "skill_name": "neuro-orchestrator",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I installed NeuroFlow in Codex and want a full EEG reconstruction paper plan. Route it without assuming other skills will auto-trigger.",
+      "expected_output": "A NeuroFlow pipeline plan that starts from neuro-orchestrator, names optional specialist modules, defines the artifact, evidence gates, and memory decision.",
+      "files": [
+        "references/pipeline.md",
+        "references/routing.md",
+        "references/session-plan.md"
+      ],
+      "assertions": [
+        {
+          "text": "Output treats neuro-orchestrator as the single entry point."
+        },
+        {
+          "text": "Output treats specialist skills as optional modules."
+        },
+        {
+          "text": "Output includes artifact, evidence gates, and stop condition."
+        }
+      ]
+    }
+  ]
+}

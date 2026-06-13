@@ -11,11 +11,17 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SKILLS_DIR = ROOT / "skills"
+CODEX_SKILLS_DIR = ROOT / "skills-codex"
 SKILL_DIR = SKILLS_DIR / "ai-bci-research"
 REQUIRED_FILES = [
+    ROOT / "AGENT_GUIDE.md",
     ROOT / "README.md",
     ROOT / "README_CN.md",
     ROOT / "CONTRIBUTING.md",
+    ROOT / "LICENSE",
+    ROOT / "SECURITY.md",
+    ROOT / ".github" / "workflows" / "validate.yml",
+    ROOT / "skills-codex" / "neuro-orchestrator" / "SKILL.md",
     SKILL_DIR / "SKILL.md",
     SKILL_DIR / "agents" / "openai.yaml",
     SKILL_DIR / "evals" / "evals.json",
@@ -49,7 +55,8 @@ def validate_required_files() -> None:
 
 
 def validate_skill_frontmatter() -> None:
-    for skill_md in sorted(SKILLS_DIR.glob("*/SKILL.md")):
+    skill_files = list(SKILLS_DIR.glob("*/SKILL.md")) + list(CODEX_SKILLS_DIR.glob("*/SKILL.md"))
+    for skill_md in sorted(skill_files):
         text = skill_md.read_text(encoding="utf-8")
         if not text.startswith("---\n"):
             fail(f"{skill_md.relative_to(ROOT)} must start with YAML frontmatter")
@@ -63,14 +70,18 @@ def validate_skill_frontmatter() -> None:
 
 
 def validate_json() -> None:
-    for evals_json in sorted(SKILLS_DIR.glob("*/evals/evals.json")):
+    eval_files = list(SKILLS_DIR.glob("*/evals/evals.json")) + list(CODEX_SKILLS_DIR.glob("*/evals/evals.json"))
+    for evals_json in sorted(eval_files):
         with open(evals_json, encoding="utf-8") as f:
             json.load(f)
 
 
 def validate_skill_structure() -> None:
     missing = []
-    for skill_dir in sorted(path for path in SKILLS_DIR.iterdir() if path.is_dir()):
+    skill_dirs = [path for path in SKILLS_DIR.iterdir() if path.is_dir()]
+    if CODEX_SKILLS_DIR.exists():
+        skill_dirs.extend(path for path in CODEX_SKILLS_DIR.iterdir() if path.is_dir())
+    for skill_dir in sorted(skill_dirs):
         for rel in ("SKILL.md", "agents/openai.yaml", "evals/evals.json"):
             if not (skill_dir / rel).exists():
                 missing.append(str((skill_dir / rel).relative_to(ROOT)))

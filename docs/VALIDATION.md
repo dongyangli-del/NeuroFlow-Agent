@@ -9,6 +9,7 @@ make validate
 The current validation checks:
 
 - required repository and skill files exist;
+- `AGENT_GUIDE.md`, `LICENSE`, `SECURITY.md`, the Codex-specific `neuro-orchestrator`, and the GitHub Actions validation workflow exist;
 - `SKILL.md` has required frontmatter keys;
 - `evals/evals.json` is valid JSON;
 - local Markdown links resolve;

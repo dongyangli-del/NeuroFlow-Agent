@@ -1,21 +1,23 @@
 ---
 name: neuro-orchestrator
-description: AI neuroscience research workflow router and controller. Use for multi-step AI x neuroscience tasks that need routing across literature grounding, experiment design, reviewer simulation, writing, reproduction, and long-term memory consolidation.
+description: Primary and only default NeuroFlow entry point. Use first for AI x BCI, NeuroAI, EEG decoding, neural reconstruction, benchmarks, reproduction, experiments, reviewer simulation, paper writing, rebuttal, and memory tasks. It runs one explicit pipeline and treats specialist skills as optional modules.
 ---
 
 # Neuro-Orchestrator
 
-Use this skill as the first entry point for complex AI x neuroscience research tasks. It should route work to narrower skills and keep the output artifact explicit.
+Use this skill as the single default entry point for NeuroFlow-Agent. It routes work through one explicit pipeline, keeps the output artifact explicit, and treats narrower specialist skills as optional modules.
 
 ## First Reads
 
+- `references/pipeline.md`: Always read first for the single-entry pipeline and artifact contract.
 - `references/routing.md`: Always read first for task routing.
 - `references/session-plan.md`: Read for multi-step task plans, artifacts, and handoff format.
 
 ## Operating Rules
 
-- Do not perform every subtask directly when a specialist skill fits.
-- Use `ai-bci-research` for shared AI x BCI guardrails and domain assumptions.
+- Start here for any non-trivial NeuroFlow task unless the user explicitly names a specialist.
+- Do not wait for automatic specialist skill triggering; execute the selected pipeline even if only this skill is loaded.
+- Use `ai-bci-research` for shared AI x BCI guardrails and domain assumptions, not as the workflow router.
 - Use `neuro-idea-finder` for EEG/iEEG/fMRI/MEG/LFP/spike/BCI idea generation.
 - Use `paper-rag-plus` for literature grounding and claim-to-citation mapping.
 - Use `eeg-benchmark-hunter` for benchmark, dataset, access, license, split, and leakage audits.
@@ -26,14 +28,15 @@ Use this skill as the first entry point for complex AI x neuroscience research t
 - Use `oral-writer` for oral-level thesis compression, figure narrative, and evidence-to-claim writing.
 - Use `neuro-memory` after meaningful sessions to consolidate reusable behavior.
 - For code reproduction or implementation, also use existing general engineering skills such as `modern-python`, `python-testing`, or repo-aware tools when relevant.
+- Use the smallest specialist set that adds distinct evidence or validation.
 
 ## Task Depths
 
 | Depth | Use when | Routing behavior |
 |---|---|---|
-| Shallow | A narrow answer or next check is enough. | Use one primary specialist and minimal first reads. |
-| Standard | The task needs a concrete artifact. | Use one primary specialist plus one supporting validator. |
-| Deep | The task spans ideas, papers, experiments, review, and writing. | Use a task chain with explicit handoffs and evidence gates. |
+| Shallow | A narrow answer or next check is enough. | Use the orchestrator directly with minimal first reads. |
+| Standard | The task needs a concrete artifact. | Use one optional module plus one evidence gate. |
+| Deep | The task spans ideas, papers, experiments, review, and writing. | Use a pipeline chain with explicit handoffs and evidence gates. |
 | Persistent | The session should change future agent behavior. | Route the final lesson to `neuro-memory` and relevant reference/eval targets. |
 
 ## Task Chains
@@ -55,9 +58,9 @@ For routed tasks, produce:
 ```markdown
 Task type:
 Task depth:
-Task chain:
-Primary skill:
-Supporting skills:
+Pipeline chain:
+Primary artifact:
+Optional specialist modules:
 Required first reads:
 Evidence needed:
 Expected artifact:

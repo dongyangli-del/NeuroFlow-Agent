@@ -4,14 +4,14 @@
   </a>
 
   <p>
-    <b>A self-evolving workflow system for AI x BCI and NeuroAI research agents.</b><br>
-    Multi-skill orchestration, persistent research memory, task-depth routing, debugging playbooks, and reviewer-facing procedures for neural decoding, reconstruction, brain-language alignment, and closed-loop NeuroAI.
+    <b>A vertical agent workflow system for AI x brain, behavior, cognition, and embodied intelligence research.</b><br>
+    NeuroFlow-Agent turns frontier AI methods and models into explicit research workflows for neural encoding, decoding, analysis, representation, modulation, cognitive science, psychology, brain-inspired algorithms, and embodied AI.
   </p>
 
   <p>
     <img alt="Self-evolving" src="https://img.shields.io/badge/system-self--evolving-0f766e">
     <img alt="Workflow-centric" src="https://img.shields.io/badge/design-workflow--centric-2563eb">
-    <img alt="Multi-skill" src="https://img.shields.io/badge/orchestration-multi--skill-7c3aed">
+    <img alt="Single entry" src="https://img.shields.io/badge/entry-neuro--orchestrator-7c3aed">
     <img alt="Task depth" src="https://img.shields.io/badge/tasks-shallow%20to%20deep-16a34a">
   </p>
 
@@ -25,70 +25,98 @@
 
 ---
 
-## Core Thesis
+## Core Thesis: Workflow Is the Vertical Layer
 
-An agent has three practical components: the model, the tools, and the workflow. In AI x BCI and neuroscience research, the model and tools are increasingly shared infrastructure. The workflow is the vertical layer: it decides which context to replay, which specialist skill should act, how deep the task should go, which validity checks are non-negotiable, how evidence becomes a claim, and what should persist after the session.
+An agent has three practical components: the model, the tools, and the workflow. Models and tools are increasingly shared infrastructure. The vertical layer is the workflow: the domain-specific execution policy that decides which context to replay, which evidence gates are non-negotiable, how deep the task should go, how a result becomes a claim, and what should persist after the session.
 
-This repository is built around that thesis. Its goal is not to publish a small prompt pack or a single generic AI x BCI skill. The goal is to build a self-evolving research workflow system: every inspected paper, repository, experiment failure, reviewer objection, and debugging procedure should be compressed into reusable memory that makes later agents more reliable.
+NeuroFlow-Agent is built around that thesis. It is not a prompt pack, a generic neuroscience note dump, or a collection of narrow downstream-task helpers. It is a vertical agent workflow system for research at the intersection of AI, brain data, behavior, cognition, psychology, BCI, NeuroAI, brain-inspired algorithms, and embodied intelligence.
 
-## What It Is
+The system is designed to make frontier AI methods usable in fragile scientific settings: multimodal large language models, generative models, representation learning, foundation models, agents, continual learning, reinforcement learning, world models, and embodied AI should be routed through rigorous research workflows before they become experiments, papers, claims, or memory.
 
-NeuroFlow-Agent is a compact operating layer for rigorous research agents. It combines a multi-skill workflow controller with domain-specific AI x BCI guardrails, literature grounding, experiment planning, reviewer simulation, and memory consolidation.
+## What NeuroFlow-Agent Is
 
-It is not a generic neuroscience note dump. It is an opinionated workflow system for fragile research work where split leakage, target normalization, feature alignment, stochastic generation, weak baselines, and overclaimed paper text can silently break conclusions.
+NeuroFlow-Agent is a compact operating layer for rigorous AI x brain research agents. It uses `neuro-orchestrator` as the single default workflow entry point, then selects optional specialist modules for literature grounding, benchmark auditing, reproduction, experiment design, reviewer simulation, writing, and durable memory.
+
+The project covers a broad research surface:
+
+| Research surface | What NeuroFlow controls |
+|---|---|
+| Neural encoding | Stimulus-to-brain modeling, feature alignment, encoding metrics, and baseline parity. |
+| Neural decoding | Brain-to-label, brain-to-language, brain-to-image, and brain-to-action decoding with leakage checks. |
+| Neural data analysis | EEG/iEEG/fMRI/MEG/LFP/spike preprocessing assumptions, split validity, statistics, and reproducibility. |
+| Representation learning | Brain-language, brain-vision, multimodal, latent-space, and mechanistic representation alignment. |
+| Modulation and closed-loop BCI | Offline/online boundaries, safety, calibration, latency, feedback, and human-subject constraints. |
+| Behavior, cognition, and psychology | Behavioral signals, cognitive variables, task design, interpretation boundaries, and causal caution. |
+| Brain-inspired algorithms | Inductive biases, learning rules, memory, attention, adaptation, and biologically motivated architectures. |
+| Embodied AI and physical agents | Perception-action loops, world models, multimodal grounding, and closed-loop interaction claims. |
+| Frontier AI methods | MLLMs, generative models, diffusion, foundation models, agents, RL, continual learning, and test-time adaptation. |
+
+NeuroFlow does not treat these as isolated downstream tasks. It treats them as connected research workflows where data assumptions, model assumptions, experimental evidence, reviewer risk, and long-term memory have to stay aligned.
 
 | Use it for | What the workflow makes the agent do |
 |---|---|
-| Fast questions | Replay only the relevant memory and return a scoped answer without loading the full system. |
-| Literature and positioning | Use paper memory and claim-to-citation mapping before drafting novelty or related work. |
+| Scientific triage | Replay the smallest relevant memory and identify the next valid check. |
+| Research framing | Convert broad AI x brain ideas into scoped claims, evidence needs, baselines, and reviewer risks. |
+| Literature and positioning | Ground novelty, closest prior work, datasets, metrics, and method claims before writing. |
 | Experiment design | Build ablations, controls, metrics, statistics, stop rules, and reproducibility checks. |
 | Debugging and reproduction | Check scale, sampling variance, condition use, split localization, output routing, and evaluator parity before changing model capacity. |
 | Paper writing and rebuttal | Convert claims into reviewer-facing, evidence-scoped scientific writing. |
-| Long research sessions | Coordinate multiple skills, consolidate reusable findings, and update the memory/index/eval layer. |
-| Closed-loop BCI planning | Separate offline replay from online claims and surface safety, calibration, latency, and controls. |
+| Closed-loop and embodied planning | Separate offline replay from online interaction claims and surface safety, calibration, latency, and controls. |
+| Long research sessions | Consolidate reusable findings into workflow memory, evals, playbooks, and future first-read rules. |
 
-## Multi-Skill Collaboration
+## Single Entry Pipeline and Optional Modules
 
-The repository contains several skills that cooperate instead of forcing every task through one large prompt. Each skill has a distinct trigger, first-read set, check order, and output style.
+The repository contains several specialist skills, but users should not rely on Codex to auto-trigger them. The default entry is always `neuro-orchestrator`. It classifies the task, chooses one pipeline chain, names the artifact, applies evidence gates, and then uses specialist skills only as optional modules.
 
 | Skill | Role |
 |---|---|
-| `neuro-orchestrator` | Routes tasks, controls session depth, and coordinates specialist skills. |
-| `neuro-idea-finder` | Generates testable EEG/iEEG/fMRI/MEG/LFP/spike/BCI research ideas. |
+| `neuro-orchestrator` | Single default entry point; routes tasks, controls session depth, chooses the pipeline, and coordinates optional modules. |
+| `neuro-idea-finder` | Generates testable AI x neural/cognitive/behavioral hypotheses. |
 | `paper-rag-plus` | Grounds claims in papers, maps claims to citations, and organizes related work. |
-| `eeg-benchmark-hunter` | Finds and audits open benchmarks, access, licenses, splits, baselines, metrics, and leakage risks. |
+| `eeg-benchmark-hunter` | Finds and audits open neural, behavioral, and BCI benchmarks, access, licenses, splits, baselines, metrics, and leakage risks. |
 | `repro-pack` | Builds reproduction contracts with environment, data, weights, commands, expected outputs, and recovery paths. |
-| `continual-learning-designer` | Designs cross-subject/session/device adaptation, streaming calibration, and forgetting protocols. |
+| `continual-learning-designer` | Designs cross-subject/session/device adaptation, streaming calibration, forgetting protocols, and online/offline boundaries. |
 | `experiment-copilot` | Designs experiment matrices, ablations, controls, statistics, and stop rules. |
 | `reviewer-simulator` | Audits papers, claims, and rebuttals as a strict conference reviewer. |
 | `oral-writer` | Turns evidence into oral-level thesis, figure narrative, and reviewer-facing paper text. |
 | `neuro-memory` | Compresses completed sessions into durable workflow, playbook, finding, case, or eval memory. |
-| `ai-bci-research` | Supplies shared AI x BCI assumptions, failure-mode checks, and public workflow memory. |
+| `ai-bci-research` | Supplies shared AI x BCI assumptions, failure-mode checks, and public workflow memory; not the default router. |
 
-The orchestrator can answer shallow tasks with one skill, route medium tasks through one or two specialists, or run deep tasks through literature grounding, experiment design, review simulation, and memory consolidation.
+The orchestrator can answer shallow tasks directly, route standard tasks through one optional module plus an evidence gate, or run deep tasks through literature grounding, benchmark selection, reproduction, experiment design, review simulation, writing, and memory consolidation.
 
-## Task Depths
+## Task Depths and Research Modes
 
 NeuroFlow is designed for tasks with different scope and depth:
 
 | Depth | Example task | Expected behavior |
 |---|---|---|
 | Shallow | "Explain this metric gap." | Load the smallest relevant memory, identify likely failure modes, and give a concise next check. |
-| Standard | "Design ablations for this EEG reconstruction model." | Use domain guardrails plus experiment planning to produce a reproducible matrix. |
-| Deep | "Prepare this project for a conference submission." | Coordinate literature, experiments, claims, reviewer objections, writing, and limitations. |
+| Standard | "Design ablations for this neural representation model." | Use domain guardrails plus experiment planning to produce a reproducible matrix. |
+| Deep | "Prepare this AI x brain project for a conference submission." | Coordinate literature, benchmarks, experiments, claims, reviewer objections, writing, and limitations. |
 | Persistent | "Turn this debugging session into reusable knowledge." | Compress the lesson into a finding, playbook, workflow rule, eval, or index update. |
+
+NeuroFlow also separates research modes before acting:
+
+| Mode | Question the workflow asks |
+|---|---|
+| Encoding | What stimulus, task, or model feature explains neural or behavioral responses? |
+| Decoding | What information can be recovered from neural or behavioral signals under valid splits? |
+| Analysis | What preprocessing, statistics, uncertainty, and controls make the interpretation defensible? |
+| Representation | Which latent spaces are being aligned, compared, or causally interpreted? |
+| Modulation | What feedback, stimulation, intervention, or closed-loop claim is actually supported? |
+| Embodied interaction | What perception-action loop, world model, or online agent behavior is being claimed? |
 
 ## Why Workflow Is the Vertical Layer
 
-For this project, "workflow" means more than a checklist. It is the durable execution policy that decides how an agent should read context, inspect code, run diagnostics, update memory, and turn results into paper-facing claims.
+For this project, "workflow" means more than a checklist. It is the durable execution policy that decides how an agent should read context, inspect code, run diagnostics, update memory, and turn results into paper-facing claims across AI, neural data, behavior, cognition, psychology, and embodied interaction.
 
 | Agent component | What is usually shared | What this repo customizes |
 |---|---|---|
-| Model | General reasoning, coding, writing, and multimodal capability. | Domain-specific caution about neural decoding, reconstruction, closed-loop claims, and reviewer evidence. |
-| Tools | Shell, Python, Git, search, plotting, validation, and document utilities. | Small deterministic scripts for repo inventory, knowledge indexing, and skill validation. |
-| Workflow | Generic task decomposition and tool use. | AI x BCI research loops, memory replay, experiment consolidation, leakage audits, baseline checks, and claim discipline. |
+| Model | General reasoning, coding, writing, multimodal generation, and tool use. | How frontier AI methods should be constrained by scientific evidence and domain validity. |
+| Tools | Shell, Python, Git, search, plotting, validation, and document utilities. | Deterministic maintenance scripts for repo inventory, knowledge indexing, and skill validation. |
+| Workflow | Generic task decomposition and tool use. | AI x brain research loops, memory replay, experiment consolidation, leakage audits, baseline checks, safety boundaries, and claim discipline. |
 
-The central artifact is therefore not a single `SKILL.md` file. `SKILL.md` is only the router. The durable system lives across references, docs, evals, and scripts that together control how the agent learns from repeated research work.
+The central artifact is the explicit NeuroFlow pipeline. `neuro-orchestrator` is the entry point; specialist skills are optional modules; durable behavior lives across references, docs, evals, and scripts.
 
 ## Quick Start
 
@@ -100,29 +128,27 @@ cd NeuroFlow-Agent
 bash install.sh
 ```
 
-The installer links every skill under `skills/` into your Codex skills directory. Restart Codex after installation.
+The installer links every specialist skill into your Codex skills directory and installs the Codex-specific `neuro-orchestrator` override from `skills-codex/`. Restart Codex after installation.
 
-To install a single skill with the Codex skill installer, pass its path explicitly:
+To install only the default entry with the Codex skill installer, pass the Codex-specific path explicitly:
 
 ```bash
 python3 ~/.codex/skills/.system/skill-installer/scripts/install-skill-from-github.py \
   --repo dongyangli-del/NeuroFlow-Agent \
-  --path skills/neuro-orchestrator
+  --path skills-codex/neuro-orchestrator
 ```
 
 Then ask Codex with the skill name:
 
 ```text
-Use neuro-orchestrator to turn this EEG reconstruction idea into a paper-ready experiment plan.
+Use neuro-orchestrator as the NeuroFlow entry point to turn this EEG reconstruction idea into a paper-ready experiment plan.
 ```
 
 ```text
-Use eeg-benchmark-hunter to audit candidate open benchmarks for this BCI claim.
+Use neuro-orchestrator to route this BCI benchmark question through the NeuroFlow pipeline and produce the right artifact.
 ```
 
-```text
-Use oral-writer to turn these results into an oral-level thesis and figure narrative.
-```
+AI agents should also read [AGENT_GUIDE.md](AGENT_GUIDE.md), which defines `neuro-orchestrator` as the only default entry point and specialist skills as optional modules.
 
 ## Persistent Workflow System
 
@@ -131,14 +157,14 @@ The repository is organized as a compact operating system for research agents:
 ```mermaid
 flowchart TD
     accTitle: NeuroFlow Persistent Workflow
-    accDescr: A task is routed by depth, executed through one or more specialist skills, checked against AI x BCI evidence rules, and consolidated into durable memory when the result should affect future sessions.
+    accDescr: A task enters through Neuro-Orchestrator, follows one explicit pipeline, optionally uses specialist modules, checks AI x BCI evidence rules, and consolidates durable memory when needed.
 
     task[Research task] --> triage[Neuro-Orchestrator<br/>task type and depth]
     triage --> shallow[Shallow answer<br/>targeted memory replay]
-    triage --> standard[Standard workflow<br/>one or two specialist skills]
-    triage --> deep[Deep workflow<br/>multi-skill collaboration]
+    triage --> standard[Standard workflow<br/>one optional module plus evidence gate]
+    triage --> deep[Deep workflow<br/>explicit pipeline chain]
 
-    standard --> skill_pool[Skill pool]
+    standard --> skill_pool[Optional specialist modules]
     deep --> skill_pool
 
     skill_pool --> idea[Neuro-Idea-Finder<br/>testable hypotheses]
@@ -186,28 +212,29 @@ flowchart LR
 
 This loop is intentionally conservative: surprising results are treated as possible protocol or implementation bugs until the checks are exhausted.
 
-## Why AI x BCI Needs a Workflow System
+## Why AI x Brain Research Needs a Workflow System
 
-General-purpose agents often miss domain-specific failure modes:
+General-purpose agents often miss domain-specific failure modes that determine whether an AI x brain result is scientifically meaningful:
 
-- EEG repetitions, session splits, subject splits, and stimulus identities can leak silently.
-- DNN features and EEG targets can be off by one image, layer, token format, or split order.
-- Generated EEG can have plausible correlation but broken explained variance due to scale errors.
-- Epsilon diffusion can learn denoising shortcuts while weakly using image-specific condition tokens.
-- Reconstruction and closed-loop papers require precise claim boundaries and reviewer-ready baselines.
+- Neural and behavioral datasets can leak through subject, session, stimulus, repetition, or task structure.
+- Encoding and decoding targets can be misaligned by image, token, layer, time window, trial order, or preprocessing version.
+- Representation comparisons can confuse geometric similarity, predictive utility, causal interpretation, and mechanistic explanation.
+- Generative and foundation-model pipelines can produce plausible outputs while failing scale, variance, condition-use, or subject-generalization checks.
+- Modulation, closed-loop, and embodied-agent claims require clear online/offline boundaries, safety constraints, calibration, latency, and feedback assumptions.
+- Cognitive science and psychology interpretations require task validity, behavioral controls, uncertainty, and careful separation of correlation from mechanism.
 
-This workflow system packages those guardrails so future sessions begin with the right defaults.
+This workflow system packages those guardrails so future sessions begin with the right defaults before applying stronger models, larger datasets, or more complex agents.
 
 ## Architecture
 
 ```mermaid
 flowchart TD
     accTitle: NeuroFlow Architecture
-    accDescr: The architecture separates orchestration, specialist skills, shared domain memory, deterministic maintenance scripts, validation, and self-evolution.
+    accDescr: The architecture uses Neuro-Orchestrator as the single entry point, then selects optional specialist modules, shared domain memory, deterministic maintenance scripts, validation, and self-evolution.
 
     user[User prompt] --> orchestrator[neuro-orchestrator]
     orchestrator --> depth[Task-depth policy<br/>shallow, standard, deep, persistent]
-    depth --> specialists[Specialist skills]
+    depth --> specialists[Optional specialist modules]
 
     specialists --> paper[paper-rag-plus]
     specialists --> idea[neuro-idea-finder]
@@ -226,7 +253,7 @@ flowchart TD
     refs --> debugging[debugging-playbooks.md]
     refs --> findings[experiment-findings.md]
     refs --> objections[reviewer-objections.md]
-    refs --> style[writing-style.md]
+    refs --> writing_style_ref[writing-style.md]
 
     paper --> grounded[Grounded research output]
     idea --> grounded
@@ -282,6 +309,7 @@ Project-level docs:
 | [docs/VALIDATION.md](docs/VALIDATION.md) | Local checks and validation expectations. |
 | [docs/PUBLIC_READY.md](docs/PUBLIC_READY.md) | Public-release checklist and private-memory policy. |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | Rules for adding durable skill memory. |
+| [LICENSE](LICENSE) | MIT license for public use and reuse. |
 | [README_CN.md](README_CN.md) | Chinese project overview. |
 
 ## Content Organization Principle
@@ -322,7 +350,7 @@ make index
 make validate
 ```
 
-A GitHub Actions workflow template is provided at [docs/ci-validate.yml](docs/ci-validate.yml). Copy it to `.github/workflows/validate.yml` when pushing with a token that has GitHub `workflow` scope.
+The GitHub Actions validation workflow lives at [.github/workflows/validate.yml](.github/workflows/validate.yml) and runs `make validate` on push and pull requests.
 
 ## Demo Cases
 
@@ -353,7 +381,7 @@ Keep raw logs, checkpoints, private data, and large generated outputs outside th
 
 - Add real, inspected demo cases for EEG diffusion debugging and paper audit workflows.
 - Expand task-depth routing evals so shallow, standard, deep, and persistent tasks trigger different memory and skill budgets.
-- Strengthen multi-skill collaboration rules across the full 10-skill library.
+- Strengthen single-entry pipeline rules across the full optional-module library.
 - Expand self-evolution rules: when a new failure mode becomes a finding, playbook, workflow, eval, or profile update.
 - Expand eval prompts for orchestration, experiment debugging, rebuttal, and closed-loop BCI planning.
 - Add schema checks for `agents/openai.yaml` and eval structure.
@@ -363,3 +391,7 @@ Keep raw logs, checkpoints, private data, and large generated outputs outside th
 ## Quality Bar
 
 A change improves the project only if it makes future agents more reliable. Prefer concise playbooks, dated findings, explicit acceptance criteria, verified project facts, replayable workflows, and eval prompts over broad notes or invented examples.
+
+## License
+
+NeuroFlow-Agent is released under the [MIT License](LICENSE).

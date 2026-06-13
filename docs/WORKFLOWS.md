@@ -15,11 +15,11 @@ In this repository, workflow means a persistent operating procedure, not a one-t
 
 ## Complete Skill System
 
-The NeuroFlow skill system separates routing, ideation, literature grounding, benchmark discovery, reproduction, continual adaptation, experiment design, reviewer simulation, oral-level writing, memory consolidation, and shared AI x BCI guardrails.
+The NeuroFlow skill system has one default entry point, `neuro-orchestrator`. It separates routing from optional modules for ideation, literature grounding, benchmark discovery, reproduction, continual adaptation, experiment design, reviewer simulation, oral-level writing, memory consolidation, and shared AI x BCI guardrails.
 
 ```text
 skills/
-  neuro-orchestrator/             # task routing and session control
+  neuro-orchestrator/             # single entry point, task routing, and session control
   neuro-idea-finder/              # EEG/iEEG/fMRI/MEG/LFP/spike/BCI idea generation
   paper-rag-plus/                 # literature grounding and claim-to-citation mapping
   eeg-benchmark-hunter/           # open benchmark discovery, license, split, and leakage audits
@@ -36,19 +36,15 @@ Default deep flow:
 
 ```text
 Task enters Neuro-Orchestrator
--> Neuro-Idea-Finder generates testable hypotheses when ideas are needed
--> Paper-RAG++ grounds claims in literature
--> EEG-Benchmark-Hunter audits candidate datasets and protocols when benchmarks are needed
--> Repro-Pack builds runnable reproduction contracts when papers or repos are involved
--> Continual-Learning-Designer designs adaptation when personalization or streaming updates are involved
--> Experiment-Copilot designs evidence
--> Reviewer-Simulator audits risk
--> Oral-Writer compresses thesis and figure narrative when writing is needed
--> Neuro-Memory decides what should persist
--> ai-bci-research supplies shared domain constraints throughout
+-> choose one pipeline chain
+-> invoke optional modules only when their check order is needed
+-> apply evidence gates
+-> produce the requested artifact
+-> decide whether Neuro-Memory should persist the lesson
+-> use ai-bci-research as shared domain constraints throughout
 ```
 
-Use a specialist skill only when it contributes a distinct first-read set, check order, output template, failure mode, or eval.
+Use an optional module only when it contributes a distinct first-read set, check order, output template, failure mode, or eval. The workflow should still make progress when only `neuro-orchestrator` is loaded.
 
 See [SKILL_LIBRARY_SPEC.md](SKILL_LIBRARY_SPEC.md) for the gap analysis, promotion rule, and phased implementation criteria.
 
@@ -56,14 +52,14 @@ See [SKILL_LIBRARY_SPEC.md](SKILL_LIBRARY_SPEC.md) for the gap analysis, promoti
 
 | Depth | Use when | Route behavior |
 |---|---|---|
-| Shallow | The user needs a narrow answer or next check. | One primary skill, minimal first reads, no broad chain. |
-| Standard | The user needs a concrete artifact. | One primary skill plus one supporting validation skill. |
-| Deep | The task spans ideas, papers, benchmarks, experiments, writing, or reproduction. | A named task chain with explicit handoffs. |
+| Shallow | The user needs a narrow answer or next check. | Orchestrator direct answer, minimal first reads, no broad chain. |
+| Standard | The user needs a concrete artifact. | One optional module plus one evidence gate. |
+| Deep | The task spans ideas, papers, benchmarks, experiments, writing, or reproduction. | A named pipeline chain with explicit handoffs. |
 | Persistent | The session should change future agent behavior. | End with `neuro-memory` and a memory candidate. |
 
-## Named Task Chains
+## Named Pipeline Chains
 
-| Chain | Route |
+| Chain | Optional module route |
 |---|---|
 | idea-to-experiment | `neuro-idea-finder` -> `paper-rag-plus` -> `experiment-copilot` -> `reviewer-simulator` -> `neuro-memory` |
 | paper-to-repro | `paper-rag-plus` -> `repro-pack` -> `experiment-copilot` -> `neuro-memory` |

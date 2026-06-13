@@ -5,13 +5,13 @@
 
   <p>
     <b>面向 AI x BCI 与 NeuroAI research agents 的自进化工作流系统。</b><br>
-    支持多 skills 协作、任务深度路由、持久研究记忆、实验排错 playbook 与 reviewer-facing 论文工作流。
+    以 neuro-orchestrator 作为唯一默认入口，显式调度 NeuroFlow pipeline，并把 specialist skills 作为可选模块使用。
   </p>
 
   <p>
     <img alt="自进化" src="https://img.shields.io/badge/system-self--evolving-0f766e">
     <img alt="工作流中心" src="https://img.shields.io/badge/design-workflow--centric-2563eb">
-    <img alt="多 skill 协作" src="https://img.shields.io/badge/orchestration-multi--skill-7c3aed">
+    <img alt="唯一入口" src="https://img.shields.io/badge/entry-neuro--orchestrator-7c3aed">
     <img alt="任务深度" src="https://img.shields.io/badge/tasks-shallow%20to%20deep-16a34a">
   </p>
 
@@ -23,11 +23,11 @@
   </p>
 </div>
 
-这是一个面向 AI x BCI 研究的自进化工作流系统，用于让 agent 在多模态神经解码、EEG 视觉重建、扩散/生成模型、脑语言对齐、闭环脑调控、Physical AI 和 NeuroAI 项目中更像严谨的科研合作者。
+这是一个面向 AI x BCI 研究的自进化工作流系统，用于让 agent 在多模态神经解码、EEG 视觉重建、扩散/生成模型、脑语言对齐、闭环脑调控、Physical AI 和 NeuroAI 项目中更像严谨的科研合作者。默认入口是 `neuro-orchestrator`；其他 specialist skills 是由它选择的可选模块。
 
-仓库的核心思想不是“做一个简单的 AI 与脑机交叉 skill”，而是把 agent 在垂直科研场景中真正需要被定制的部分沉淀下来。Agent 通常由三部分组成：模型、工具和 workflow。模型和工具越来越像通用基础设施，唯独 workflow 需要根据具体研究领域、实验脆弱点、任务深度、审稿标准和长期项目记忆来定制。因此，本仓库的目标是打造一个具有多 skills 协作、自进化、记忆重放和记忆巩固能力的 AI x BCI 持久工作流系统。
+仓库的核心思想不是“做一个简单的 AI 与脑机交叉 skill”，而是把 agent 在垂直科研场景中真正需要被定制的部分沉淀下来。Agent 通常由三部分组成：模型、工具和 workflow。模型和工具越来越像通用基础设施，唯独 workflow 需要根据具体研究领域、实验脆弱点、任务深度、审稿标准和长期项目记忆来定制。因此，本仓库的目标是打造一个由 `neuro-orchestrator` 显式调度、specialist skills 作为可选模块、自进化、记忆重放和记忆巩固能力的 AI x BCI 持久工作流系统。
 
-`SKILL.md` 只负责精简路由，`references/` 保存可重放的研究记忆和细分工作流，`scripts/` 保存确定性辅助脚本，`evals/` 保存行为评测 prompt，`docs/` 解释这些机制如何组织成一个可持续迭代的系统。浅层任务可以只读取最小记忆并快速回答；标准任务可以调用一到两个 specialist skills；深度任务可以跨 literature grounding、experiment design、review simulation 和 memory consolidation 协同执行。
+`neuro-orchestrator/SKILL.md` 负责唯一入口和显式 pipeline 路由，`references/` 保存可重放的研究记忆和细分工作流，`scripts/` 保存确定性辅助脚本，`evals/` 保存行为评测 prompt，`docs/` 解释这些机制如何组织成一个可持续迭代的系统。浅层任务可以只读取最小记忆并快速回答；标准任务可以调用一个可选模块并通过证据检查；深度任务可以跨 literature grounding、experiment design、review simulation 和 memory consolidation 显式执行。
 
 ## 为什么核心是 Workflow
 
@@ -47,14 +47,14 @@
 ```mermaid
 flowchart TD
     accTitle: NeuroFlow 持久工作流
-    accDescr: 任务先按类型和深度路由，再由一个或多个 specialist skills 执行，并在证据检查后把可复用经验巩固成长期记忆。
+    accDescr: 任务先进入 Neuro-Orchestrator，再按类型和深度选择一个显式 pipeline，可选调用 specialist modules，并在证据检查后把可复用经验巩固成长期记忆。
 
     task[研究任务] --> triage[Neuro-Orchestrator<br/>任务类型与深度]
     triage --> shallow[浅层任务<br/>最小记忆重放]
-    triage --> standard[标准任务<br/>一到两个 specialist skills]
-    triage --> deep[深度任务<br/>多 skills 协作]
+    triage --> standard[标准任务<br/>一个可选模块和证据检查]
+    triage --> deep[深度任务<br/>显式 pipeline chain]
 
-    standard --> skill_pool[Skill pool]
+    standard --> skill_pool[可选 specialist modules]
     deep --> skill_pool
 
     skill_pool --> idea[Neuro-Idea-Finder<br/>可验证假设]
@@ -86,11 +86,13 @@ flowchart TD
 
 这个系统希望每一次真实研究工作都能留下可复用的痕迹：失败模式变成 playbook，稳定结论变成 dated finding，常见审稿风险变成 reviewer objection，重要行为变成 eval。
 
-## 多 Skills 协作
+## 唯一入口与可选模块
+
+Codex 用户不应该依赖系统自动调动多个 skills。默认入口始终是 `neuro-orchestrator`，由它判断任务深度、选择 pipeline chain、命名输出 artifact，再按需调用 specialist skills。
 
 | Skill | 角色 |
 |---|---|
-| `neuro-orchestrator` | 判断任务类型和深度，并协调 specialist skills。 |
+| `neuro-orchestrator` | 唯一默认入口；判断任务类型和深度，选择 pipeline，并协调可选模块。 |
 | `neuro-idea-finder` | 生成可验证的 EEG/iEEG/fMRI/MEG/LFP/spike/BCI 创新点。 |
 | `paper-rag-plus` | 做文献 grounding、claim-to-citation mapping 和 related work 组织。 |
 | `eeg-benchmark-hunter` | 发现并审计开源 benchmark、license、split、baseline、metric 和 leakage 风险。 |
@@ -100,7 +102,7 @@ flowchart TD
 | `reviewer-simulator` | 按严格会议审稿标准检查 claim、证据和 rebuttal 风险。 |
 | `oral-writer` | 把证据压缩成 Oral 级 thesis、figure narrative 和 reviewer-facing 论文文本。 |
 | `neuro-memory` | 把完成的 session 压缩成可复用的 workflow、playbook、finding、case 或 eval。 |
-| `ai-bci-research` | 提供 AI x BCI 的共享领域假设、有效性检查和长期研究记忆。 |
+| `ai-bci-research` | 提供 AI x BCI 的共享领域假设、有效性检查和长期研究记忆；不是默认路由器。 |
 
 ## 任务深度
 
@@ -140,14 +142,20 @@ cd NeuroFlow-Agent
 bash install.sh
 ```
 
-`install.sh` 会把 `skills/` 下的所有 skill 链接到 Codex skills 目录。安装后重启 Codex。
+`install.sh` 会把 specialist skills 链接到 Codex skills 目录，并优先安装 `skills-codex/neuro-orchestrator` 作为 Codex 的同名强入口。安装后重启 Codex。
 
-如果只想用 Codex skill installer 安装单个 skill，可以显式指定路径：
+如果只想用 Codex skill installer 安装唯一默认入口，可以显式指定路径：
 
 ```bash
 python3 ~/.codex/skills/.system/skill-installer/scripts/install-skill-from-github.py \
   --repo dongyangli-del/NeuroFlow-Agent \
-  --path skills/neuro-orchestrator
+  --path skills-codex/neuro-orchestrator
+```
+
+默认使用方式：
+
+```text
+Use neuro-orchestrator as the NeuroFlow entry point to route this AI x BCI task.
 ```
 
 ## 更新知识
@@ -168,6 +176,7 @@ make validate
 ## 文档入口
 
 - [Workflows](docs/WORKFLOWS.md)：核心研究工作流。
+- [Agent Guide](AGENT_GUIDE.md)：AI agent 冷启动入口和唯一默认入口规则。
 - [Playbook Catalog](docs/PLAYBOOKS.md)：排错和写作 playbook 索引。
 - [Skill Library Spec](docs/SKILL_LIBRARY_SPEC.md)：完整 10-skill library 的 gap analysis、contracts、task chains 和阶段验收标准。
 - [Examples](docs/EXAMPLES.md)：真实 demo case 模板和待补案例。

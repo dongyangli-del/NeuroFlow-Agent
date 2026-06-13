@@ -2,9 +2,13 @@
 
 ## Complete NeuroFlow Skills
 
+Default entry point: `neuro-orchestrator`.
+
+Specialist skills are optional modules selected by the orchestrator. `ai-bci-research` provides shared AI x BCI guardrails and public memory; it is not the default workflow router.
+
 | Skill | Role | Use when |
 |---|---|---|
-| `neuro-orchestrator` | AI research workflow controller | A task needs routing across ideas, literature, benchmarks, reproduction, experiments, review, writing, and memory |
+| `neuro-orchestrator` | Single NeuroFlow workflow entry point | Any non-trivial AI x BCI or NeuroAI task needing routing, artifact definition, evidence gates, or memory decision |
 | `neuro-idea-finder` | Research idea generator | A task needs EEG/iEEG/fMRI/MEG/LFP/spike/BCI hypotheses, technical routes, baselines, risks, and fast validation |
 | `paper-rag-plus` | Literature grounding | A claim needs paper support, citation mapping, or related-work structure |
 | `eeg-benchmark-hunter` | Benchmark discovery and audit | A task needs open datasets, benchmark suitability, access, license, splits, baselines, metrics, or leakage checks |
@@ -14,21 +18,17 @@
 | `reviewer-simulator` | Review risk audit | A paper, claim, or rebuttal needs strict conference-review simulation |
 | `oral-writer` | Oral-level paper writing | A paper needs thesis compression, figure narrative, evidence-to-claim alignment, or reviewer-objection preemption |
 | `neuro-memory` | Long-term memory consolidation | A completed session may contain reusable workflow, playbook, finding, case, or eval memory |
-| `ai-bci-research` | Shared AI x BCI guardrails | A task needs domain assumptions, BCI validity checks, or existing public workflow memory |
+| `ai-bci-research` | Shared AI x BCI guardrails | A routed task needs domain assumptions, BCI validity checks, or existing public workflow memory |
 
-## Default Deep Flow
+## Default Pipeline Flow
 
 ```text
 neuro-orchestrator
--> neuro-idea-finder when ideas are needed
--> paper-rag-plus
--> eeg-benchmark-hunter when benchmarks are needed
--> repro-pack when reproduction is needed
--> continual-learning-designer when adaptation is needed
--> experiment-copilot
--> reviewer-simulator
--> oral-writer when writing is needed
--> neuro-memory
+-> choose one task chain
+-> call optional specialist modules only when needed
+-> enforce evidence gates
+-> produce the artifact
+-> decide whether to update neuro-memory
 ```
 
 `ai-bci-research` supplies shared domain constraints throughout the flow.

@@ -4,20 +4,21 @@
     {
       "id": 1,
       "prompt": "I need to turn a rough AI x BCI idea into a paper plan with literature grounding, experiments, reviewer risk, and memory update. Route the work.",
-      "expected_output": "A routed session plan that selects specialist skills, names first reads, defines evidence needed, expected artifacts, validation, and memory candidate handling.",
+      "expected_output": "A routed session plan that starts from neuro-orchestrator, selects optional specialist modules, names first reads, defines evidence needed, expected artifacts, validation, and memory candidate handling.",
       "files": [
+        "references/pipeline.md",
         "references/routing.md",
         "references/session-plan.md"
       ],
       "assertions": [
         {
-          "text": "Output selects one primary skill and distinct supporting skills."
+          "text": "Output treats neuro-orchestrator as the single default entry point."
         },
         {
           "text": "Output includes required first reads and expected artifact."
         },
         {
-          "text": "Output routes literature, experiment, reviewer, and memory work to separate specialists."
+          "text": "Output routes literature, experiment, reviewer, and memory work to optional specialist modules."
         },
         {
           "text": "Output includes a memory candidate decision."
@@ -27,8 +28,9 @@
     {
       "id": 2,
       "prompt": "Route a deep task: generate a novel EEG visual reconstruction idea, verify literature novelty, find suitable benchmarks, design experiments, prepare oral-level writing, and preserve reusable memory.",
-      "expected_output": "A deep routed session plan using the full NeuroFlow library with idea generation, literature grounding, benchmark hunting, experiment design, reviewer simulation, oral writing, and memory consolidation.",
+      "expected_output": "A deep NeuroFlow pipeline plan using optional modules for idea generation, literature grounding, benchmark hunting, experiment design, reviewer simulation, oral writing, and memory consolidation.",
       "files": [
+        "references/pipeline.md",
         "references/routing.md",
         "references/session-plan.md"
       ],
@@ -37,7 +39,7 @@
           "text": "Output classifies task depth as deep or persistent."
         },
         {
-          "text": "Output routes to neuro-idea-finder, paper-rag-plus, eeg-benchmark-hunter, experiment-copilot, reviewer-simulator, oral-writer, and neuro-memory when appropriate."
+          "text": "Output names neuro-idea-finder, paper-rag-plus, eeg-benchmark-hunter, experiment-copilot, reviewer-simulator, oral-writer, and neuro-memory as optional modules when appropriate."
         },
         {
           "text": "Output includes evidence gates before novelty, benchmark, experiment, and oral-writing claims."
@@ -47,8 +49,9 @@
     {
       "id": 3,
       "prompt": "Route a paper reproduction request where the dataset may be gated and the user wants a baseline table.",
-      "expected_output": "A paper-to-repro or benchmark-to-baseline route that uses Paper-RAG++, Repro-Pack, EEG-Benchmark-Hunter, Experiment-Copilot, and Neuro-Memory as needed.",
+      "expected_output": "A paper-to-repro or benchmark-to-baseline pipeline that starts at neuro-orchestrator and uses Paper-RAG++, Repro-Pack, EEG-Benchmark-Hunter, Experiment-Copilot, and Neuro-Memory as optional modules as needed.",
       "files": [
+        "references/pipeline.md",
         "references/routing.md",
         "references/session-plan.md"
       ],

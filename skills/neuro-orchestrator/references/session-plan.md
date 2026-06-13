@@ -5,11 +5,11 @@
 ```markdown
 Task type:
 Task depth:
-Task chain:
+Pipeline chain:
 Primary claim or question:
 Current artifact:
 Known constraints:
-Skills to use:
+Optional specialist modules:
 First reads:
 Work order:
 Expected output:

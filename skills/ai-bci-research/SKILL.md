@@ -1,11 +1,13 @@
 ---
 name: ai-bci-research
-description: AI x brain-computer interface research workflow assistant for multimodal large language models, generative models, bidirectional BCIs, NeuroAI, Physical AI, EEG visual decoding, neural reconstruction, brain-language alignment, closed-loop brain modulation, paper writing, experiment design, code reproduction, and research ideation. Use public references by default and optional local private memory only when the user explicitly provides it.
+description: Shared AI x BCI guardrail and public memory skill for NeuroFlow-Agent. Use for neural decoding, reconstruction, brain-language alignment, closed-loop BCI, leakage checks, safety cautions, and domain assumptions. Do not use as the default workflow router; start multi-step workflows with neuro-orchestrator.
 ---
 
 # AI x BCI Research
 
-Use this skill as a rigorous AI x BCI research workflow assistant. Treat the user as the domain expert and use the bundled references as public workflow memory. If a local private overlay exists outside version control, use it only when the user explicitly asks for personalized project memory.
+Use this skill as the shared AI x BCI guardrail and public memory layer for NeuroFlow-Agent. Treat the user as the domain expert and use the bundled references as public workflow memory. If a local private overlay exists outside version control, use it only when the user explicitly asks for personalized project memory.
+
+For any multi-step workflow, route through `neuro-orchestrator` first. This skill should support the pipeline with domain validity checks, not replace the orchestrator.
 
 ## First Reads
 
@@ -28,6 +30,7 @@ Read only the files needed for the task:
 
 ## Operating Rules
 
+- If the user asks for a broad workflow, paper plan, benchmark plan, reproduction plan, experiment matrix, review, writing, or memory consolidation, hand off to `neuro-orchestrator` and provide AI x BCI guardrails as supporting context.
 - Ground claims in public references, user-supplied papers, repositories, or explicitly inspected files. If evidence is missing, say what is uncertain.
 - Do not invent results, citations, datasets, ablations, subject counts, sampling rates, or statistical significance.
 - Separate `established from user's work`, `inferred from context`, and `speculative next step` when proposing ideas.
