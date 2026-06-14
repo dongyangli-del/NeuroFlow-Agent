@@ -7,6 +7,7 @@
       "expected_output": "A NeuroFlow pipeline plan that starts from neuro-orchestrator, names optional specialist modules, defines the artifact, evidence gates, and memory decision.",
       "files": [
         "references/pipeline.md",
+        "references/research-supervision-gates.md",
         "references/routing.md",
         "references/session-plan.md"
       ],
@@ -19,6 +20,9 @@
         },
         {
           "text": "Output includes artifact, evidence gates, and stop condition."
+        },
+        {
+          "text": "Output applies research supervision gates before polishing ideas, figures, benchmark recommendations, or paper claims."
         }
       ]
     }

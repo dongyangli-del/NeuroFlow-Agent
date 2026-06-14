@@ -28,3 +28,15 @@
 - Qualitative reconstruction without retrieval, classification, or semantic metrics.
 - No deterministic baseline.
 - Cross-paper numbers not comparable.
+
+## Benchmark Substance Gate
+
+A neural, behavioral, or BCI benchmark should define what capability boundary it measures. Check:
+
+- Evaluation gap: which existing benchmark or protocol cannot diagnose the target failure?
+- Construction path: how are stimuli, tasks, labels, neural signals, behavioral traces, or annotations produced?
+- Quality control: how are ambiguity, artifacts, noisy labels, leakage, and preprocessing errors detected?
+- Evaluation taxonomy: what dimensions, difficulty tiers, error types, cognitive conditions, or neural conditions are reported?
+- Baseline suite: which deterministic, neural, behavioral, and model-family baselines make the benchmark interpretable?
+- Empirical findings: what actionable capability boundary should future work learn from the benchmark?
+- Governance: what access, license, privacy, human-subject, consent, and redistribution constraints apply?

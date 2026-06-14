@@ -12,6 +12,7 @@ Use this skill as the single default entry point for NeuroFlow-Agent. It routes 
 - `references/pipeline.md`: Always read first for the single-entry pipeline and artifact contract.
 - `references/routing.md`: Always read first for task routing.
 - `references/session-plan.md`: Read for multi-step task plans, artifacts, and handoff format.
+- `references/research-supervision-gates.md`: Read when committing to an idea, structuring a paper, designing a benchmark, planning figures, reviewing before submission, or using AI-assisted research workflows.
 
 ## Operating Rules
 
@@ -29,6 +30,7 @@ Use this skill as the single default entry point for NeuroFlow-Agent. It routes 
 - Use `neuro-memory` after meaningful sessions to consolidate reusable behavior.
 - For code reproduction or implementation, also use existing general engineering skills such as `modern-python`, `python-testing`, or repo-aware tools when relevant.
 - Use the smallest specialist set that adds distinct evidence or validation.
+- Apply research supervision gates before polishing ideas, paper text, figures, benchmarks, or claims.
 
 ## Task Depths
 

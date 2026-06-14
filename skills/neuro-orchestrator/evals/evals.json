@@ -7,6 +7,7 @@
       "expected_output": "A routed session plan that starts from neuro-orchestrator, selects optional specialist modules, names first reads, defines evidence needed, expected artifacts, validation, and memory candidate handling.",
       "files": [
         "references/pipeline.md",
+        "references/research-supervision-gates.md",
         "references/routing.md",
         "references/session-plan.md"
       ],
@@ -21,6 +22,9 @@
           "text": "Output routes literature, experiment, reviewer, and memory work to optional specialist modules."
         },
         {
+          "text": "Output applies idea commitment and paper logic supervision gates before committing to claims."
+        },
+        {
           "text": "Output includes a memory candidate decision."
         }
       ]
@@ -31,6 +35,7 @@
       "expected_output": "A deep NeuroFlow pipeline plan using optional modules for idea generation, literature grounding, benchmark hunting, experiment design, reviewer simulation, oral writing, and memory consolidation.",
       "files": [
         "references/pipeline.md",
+        "references/research-supervision-gates.md",
         "references/routing.md",
         "references/session-plan.md"
       ],
@@ -43,6 +48,9 @@
         },
         {
           "text": "Output includes evidence gates before novelty, benchmark, experiment, and oral-writing claims."
+        },
+        {
+          "text": "Output includes supervision gates for idea commitment, benchmark substance, figure narrative, and pre-submission review."
         }
       ]
     },
@@ -52,6 +60,7 @@
       "expected_output": "A paper-to-repro or benchmark-to-baseline pipeline that starts at neuro-orchestrator and uses Paper-RAG++, Repro-Pack, EEG-Benchmark-Hunter, Experiment-Copilot, and Neuro-Memory as optional modules as needed.",
       "files": [
         "references/pipeline.md",
+        "references/research-supervision-gates.md",
         "references/routing.md",
         "references/session-plan.md"
       ],
@@ -64,6 +73,9 @@
         },
         {
           "text": "Output includes expected artifact and stop condition."
+        },
+        {
+          "text": "Output applies benchmark substance or pre-submission severity gates before recommending paper-facing claims."
         }
       ]
     }

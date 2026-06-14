@@ -15,8 +15,9 @@ Specialist skills are optional modules. Use them when a subtask needs their chec
 3. Name the primary artifact before detailed work.
 4. Load only the first-read files needed for the chosen chain.
 5. Use optional specialist modules for distinct subtasks.
-6. Enforce evidence gates before claims, experiments, writing, or memory updates.
-7. End with a stop condition and memory candidate decision.
+6. Apply the relevant research supervision gates from `references/research-supervision-gates.md`.
+7. Enforce evidence gates before claims, experiments, writing, or memory updates.
+8. End with a stop condition and memory candidate decision.
 
 ## Pipeline Chains
 
@@ -63,3 +64,7 @@ Recommended durable artifact names:
 - Reproduction claims require environment, data, weights, commands, expected outputs, and sanity checks.
 - Closed-loop claims require online/offline boundary, safety, calibration, latency, and human-subject constraints.
 - Memory updates require privacy filtering and a target file or eval.
+
+## Supervision Gates
+
+Use `references/research-supervision-gates.md` when a task involves idea commitment, paper logic, benchmark substance, figure narrative, pre-submission review, or AI-assisted research integrity. These gates prevent the workflow from polishing weak science.

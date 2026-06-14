@@ -12,6 +12,7 @@ Use this skill as the single default entry point for NeuroFlow-Agent in Codex. D
 - `references/pipeline.md`: Always read first for the single-entry pipeline and artifact contract.
 - `references/routing.md`: Read when choosing task type, depth, and specialist modules.
 - `references/session-plan.md`: Read when producing a multi-step plan or handoff.
+- `references/research-supervision-gates.md`: Read when committing to an idea, structuring a paper, designing a benchmark, planning figures, reviewing before submission, or using AI-assisted research workflows.
 
 ## Entry Rules
 
@@ -20,6 +21,7 @@ Use this skill as the single default entry point for NeuroFlow-Agent in Codex. D
 - If a specialist skill is not triggered or not installed, still execute the corresponding pipeline stage from this skill.
 - Name the expected artifact before doing detailed work.
 - Use the smallest pipeline chain that can satisfy the user request.
+- Apply research supervision gates before polishing ideas, paper text, figures, benchmarks, or claims.
 
 ## Optional Specialist Modules
 

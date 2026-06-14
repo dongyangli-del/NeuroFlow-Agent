@@ -11,9 +11,10 @@ Codex skill triggering is opportunistic, so this entry skill must be able to run
 3. Name the primary artifact.
 4. Load only the needed first reads.
 5. Invoke or emulate optional specialist modules.
-6. Apply evidence gates.
-7. Produce the requested artifact.
-8. Decide whether memory should be updated.
+6. Apply research supervision gates from `references/research-supervision-gates.md`.
+7. Apply evidence gates.
+8. Produce the requested artifact.
+9. Decide whether memory should be updated.
 
 ## Pipeline Chains
 
@@ -50,3 +51,7 @@ Memory candidate:
 - Reproduction: environment, data, weights, command, expected output, sanity check.
 - Closed loop: online/offline boundary, safety, calibration, latency, human-subject constraints.
 - Memory: privacy filter and explicit target.
+
+## Supervision Gates
+
+Read `references/research-supervision-gates.md` for advisor-style checks on idea commitment, paper logic, benchmark substance, figure narrative, pre-submission review, and AI-assisted research integrity.

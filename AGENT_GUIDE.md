@@ -19,6 +19,7 @@ neuro-orchestrator
 -> classify task type and depth
 -> select one pipeline chain
 -> load AI x BCI guardrails when needed
+-> apply research supervision gates before committing claims
 -> invoke optional specialist modules only for distinct subtasks
 -> produce the requested artifact
 -> decide whether the session should update durable memory
@@ -69,4 +70,9 @@ Use durable artifact names when a session spans multiple turns or tools:
 - Letting `ai-bci-research` swallow a multi-step workflow without routing through `neuro-orchestrator`.
 - Calling every specialist for every task instead of selecting the smallest useful chain.
 - Producing polished ideas, paper text, or benchmark recommendations before evidence gates.
+- Using AI to outsource novelty, citations, experiment design, or result interpretation instead of using it as a supervised accelerator.
 - Saving raw private logs, human-subject material, unpublished results, or credentials into public memory.
+
+## External Methodology Inspirations
+
+NeuroFlow may use license-safe abstractions inspired by public research-supervision resources. One example is HKUSTDial/Supervisor-Skills (https://github.com/HKUSTDial/Supervisor-Skills), which motivates advisor-style checks for idea commitment, paper logic, benchmark substance, figure narrative, and pre-submission review. Do not copy its CC BY-NC-SA 4.0 text into NeuroFlow; use NeuroFlow's own `research-supervision-gates.md` wording.
