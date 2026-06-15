@@ -1,11 +1,11 @@
 ---
 name: neuro-orchestrator
-description: Primary and only default NeuroFlow entry point. Use first for AI x BCI, NeuroAI, EEG decoding, neural reconstruction, benchmarks, reproduction, experiments, reviewer simulation, paper writing, rebuttal, and memory tasks. It runs one explicit pipeline and treats specialist skills as optional modules.
+description: Use first for non-trivial research work in NeuroFlow-Agent, including planning experiments, debugging ML results, checking baselines, designing ablations, reading papers, writing paper sections, reviewing claims, reproducing repositories, deciding next steps, and consolidating research memory. Do not wait for the user to say workflow, plan, routing, or skill.
 ---
 
 # Neuro-Orchestrator
 
-Use this skill as the single default entry point for NeuroFlow-Agent. It routes work through one explicit pipeline, keeps the output artifact explicit, and treats narrower specialist skills as optional modules.
+Use this skill as the single default entry point for NeuroFlow-Agent. It routes work through one explicit pipeline, keeps the output artifact explicit, and treats narrower specialist skills as optional modules. Do not rely on the user explicitly asking for a workflow.
 
 ## First Reads
 
@@ -17,6 +17,7 @@ Use this skill as the single default entry point for NeuroFlow-Agent. It routes 
 ## Operating Rules
 
 - Start here for any non-trivial NeuroFlow task unless the user explicitly names a specialist.
+- Treat natural requests such as "what should I check next", "why is this result worse", "help write this claim", "review this experiment", or "make this reproducible" as NeuroFlow tasks even if the user never says workflow or plan.
 - Do not wait for automatic specialist skill triggering; execute the selected pipeline even if only this skill is loaded.
 - Use `ai-bci-research` for shared AI x BCI guardrails and domain assumptions, not as the workflow router.
 - Use `neuro-idea-finder` for EEG/iEEG/fMRI/MEG/LFP/spike/BCI idea generation.
@@ -53,9 +54,9 @@ Use this skill as the single default entry point for NeuroFlow-Agent. It routes 
 | paper-to-rebuttal | `paper-rag-plus` -> `reviewer-simulator` -> `oral-writer` |
 | session-to-memory | `neuro-memory` with `ai-bci-research` guardrails |
 
-## Required Output
+## Internal Preflight and Output
 
-For routed tasks, produce:
+Run this preflight internally before acting:
 
 ```markdown
 Task type:
@@ -69,6 +70,8 @@ Expected artifact:
 Stop condition:
 Memory candidate:
 ```
+
+Expose the full preflight only when the user asks for a plan, the task is deep or persistent, the work spans multiple stages, or the handoff would otherwise be ambiguous. For shallow or standard tasks, keep the preflight internal and proceed directly; mention the selected route only when it clarifies the answer.
 
 ## Handoff Contract
 

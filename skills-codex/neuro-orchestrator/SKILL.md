@@ -1,11 +1,11 @@
 ---
 name: neuro-orchestrator
-description: Primary and only default NeuroFlow entry point for Codex. Use first for AI x BCI, NeuroAI, EEG decoding, neural reconstruction, benchmarks, reproduction, experiments, reviewer simulation, paper writing, rebuttal, and memory tasks. It runs one explicit pipeline and treats specialist skills as optional modules, not required automatic triggers.
+description: Use first for non-trivial research work in NeuroFlow-Agent, including planning experiments, debugging ML results, checking baselines, designing ablations, reading papers, writing paper sections, reviewing claims, reproducing repositories, deciding next steps, and consolidating research memory. Do not wait for the user to say workflow, plan, routing, or skill.
 ---
 
 # Neuro-Orchestrator for Codex
 
-Use this skill as the single default entry point for NeuroFlow-Agent in Codex. Do not rely on Codex automatically triggering multiple specialist skills. Route the session explicitly and use specialist modules only when they add a distinct check order or output template.
+Use this skill as the single default entry point for NeuroFlow-Agent in Codex. Do not rely on Codex automatically triggering multiple specialist skills or on the user explicitly asking for a workflow. Route the session explicitly and use specialist modules only when they add a distinct check order or output template.
 
 ## First Reads
 
@@ -17,6 +17,7 @@ Use this skill as the single default entry point for NeuroFlow-Agent in Codex. D
 ## Entry Rules
 
 - Start every non-trivial NeuroFlow task here unless the user explicitly names another skill.
+- Treat natural requests such as "what should I check next", "why is this result worse", "help write this claim", "review this experiment", or "make this reproducible" as NeuroFlow tasks even if the user never says workflow or plan.
 - Treat `ai-bci-research` as shared AI x BCI guardrails and public memory, not the default router.
 - If a specialist skill is not triggered or not installed, still execute the corresponding pipeline stage from this skill.
 - Name the expected artifact before doing detailed work.
@@ -36,7 +37,9 @@ Use this skill as the single default entry point for NeuroFlow-Agent in Codex. D
 - `neuro-memory`: durable workflow, playbook, finding, case, eval, or private-memory routing.
 - `ai-bci-research`: BCI validity, leakage, signal-processing, closed-loop, and safety guardrails.
 
-## Required Output
+## Internal Preflight and Output
+
+Run this preflight internally before acting:
 
 ```markdown
 Task type:
@@ -51,10 +54,13 @@ Stop condition:
 Memory candidate:
 ```
 
+Expose the full preflight only when the user asks for a plan, the task is deep or persistent, the work spans multiple stages, or the handoff would otherwise be ambiguous. For shallow or standard tasks, keep the preflight internal and proceed directly; mention the selected route only when it clarifies the answer.
+
 ## Failure Modes
 
 - Starting from `ai-bci-research` for a multi-step workflow instead of routing here.
 - Waiting for automatic specialist skill triggering before making progress.
+- Waiting for the user to explicitly say workflow, plan, routing, or skill before applying NeuroFlow.
 - Calling every specialist for every task.
 - Writing claims before evidence gates.
 - Saving private data, unpublished results, or raw logs into public memory.

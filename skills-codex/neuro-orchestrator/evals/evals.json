@@ -25,6 +25,54 @@
           "text": "Output applies research supervision gates before polishing ideas, figures, benchmark recommendations, or paper claims."
         }
       ]
+    },
+    {
+      "id": 2,
+      "prompt": "My EEG reconstruction result is worse than the baseline. What should I check next?",
+      "expected_output": "The answer applies NeuroFlow without the user mentioning workflow or plan, routes the task through experiment or benchmark debugging, and checks split protocol, metric parity, baseline parity, leakage, normalization, checkpoint choice, and evaluator consistency before suggesting model changes.",
+      "files": [
+        "references/pipeline.md",
+        "references/research-supervision-gates.md",
+        "references/routing.md"
+      ],
+      "assertions": [
+        {
+          "text": "Output does not wait for the user to say workflow, plan, routing, or skill."
+        },
+        {
+          "text": "Output starts from neuro-orchestrator or clearly applies its internal preflight."
+        },
+        {
+          "text": "Output keeps the preflight concise instead of forcing the full template for a next-check request."
+        },
+        {
+          "text": "Output checks split, metric, baseline parity, leakage, normalization, checkpoint choice, and evaluator consistency before proposing model changes."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Help me turn these experiment results into a paper claim.",
+      "expected_output": "The answer applies the experiment-to-paper route without the user mentioning workflow, checks evidence, ablations, statistics, and reviewer risk before polishing the claim, and scopes the claim language to inspected results.",
+      "files": [
+        "references/pipeline.md",
+        "references/research-supervision-gates.md",
+        "references/routing.md"
+      ],
+      "assertions": [
+        {
+          "text": "Output routes through experiment-to-paper or an equivalent neuro-orchestrator preflight."
+        },
+        {
+          "text": "Output checks evidence, ablations, statistics, and reviewer risk before writing a strong claim."
+        },
+        {
+          "text": "Output scopes claim language instead of inventing unsupported significance or generality."
+        },
+        {
+          "text": "Output keeps the full preflight internal unless a multi-stage plan is needed."
+        }
+      ]
     }
   ]
 }

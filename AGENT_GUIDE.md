@@ -1,12 +1,12 @@
 # NeuroFlow Agent Guide
 
-AI agents should read this file first when working with NeuroFlow-Agent.
+This document explains the NeuroFlow workflow model. Repository-level agents should follow `AGENTS.md` first; this guide provides the longer rationale, routing details, and artifact conventions.
 
 ## Entry Rule
 
 `neuro-orchestrator` is the only default entry point.
 
-Do not begin a NeuroFlow session by choosing a specialist skill directly unless the user explicitly names that specialist. Start with `neuro-orchestrator`, classify the task, choose the pipeline stage, and then call or emulate specialist workflows as optional modules.
+Do not begin a NeuroFlow session by choosing a specialist skill directly unless the user explicitly names that specialist. Start with `neuro-orchestrator`, classify the task, choose the pipeline stage, and then call or emulate specialist workflows as optional modules. Agents should do this for natural research requests even when the user does not mention workflow, plan, routing, or skills.
 
 `ai-bci-research` is a shared domain-guardrail and memory skill. It is not the default workflow entry point.
 
@@ -37,9 +37,9 @@ neuro-orchestrator
 | paper-to-rebuttal | A draft, review, or rebuttal needs evidence-scoped response. | `paper-rag-plus`, `reviewer-simulator`, `oral-writer` |
 | session-to-memory | A completed session contains reusable behavior. | `neuro-memory`, `ai-bci-research` |
 
-## Artifact Contract
+## Preflight and Artifact Contract
 
-Every routed session should name the artifact before doing detailed work:
+Every routed session should internally name the artifact before doing detailed work:
 
 ```markdown
 Task type:
@@ -52,6 +52,8 @@ Evidence gates:
 Stop condition:
 Memory candidate:
 ```
+
+Expose the full contract when the user asks for a plan, the task is deep or persistent, or a multi-stage handoff would be ambiguous. For shallow and standard work, keep this as an internal preflight and proceed directly.
 
 Use durable artifact names when a session spans multiple turns or tools:
 
