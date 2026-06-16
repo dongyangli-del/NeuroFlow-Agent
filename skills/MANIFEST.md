@@ -6,19 +6,33 @@ Default entry point: `neuro-orchestrator`.
 
 Specialist skills are optional modules selected by the orchestrator. `ai-bci-research` provides shared AI x BCI guardrails and public memory; it is not the default workflow router.
 
-| Skill | Role | Use when |
-|---|---|---|
-| `neuro-orchestrator` | Single NeuroFlow workflow entry point | Any non-trivial AI x BCI or NeuroAI task needing routing, artifact definition, evidence gates, or memory decision |
-| `neuro-idea-finder` | Research idea generator | A task needs EEG/iEEG/fMRI/MEG/LFP/spike/BCI hypotheses, technical routes, baselines, risks, and fast validation |
-| `paper-rag-plus` | Literature grounding | A claim needs paper support, citation mapping, or related-work structure |
-| `eeg-benchmark-hunter` | Benchmark discovery and audit | A task needs open datasets, benchmark suitability, access, license, splits, baselines, metrics, or leakage checks |
-| `repro-pack` | Reproduction contract builder | A paper or repository needs environment, data, weights, commands, expected outputs, sanity checks, or failure recovery |
-| `continual-learning-designer` | Continual BCI adaptation design | A task needs cross-subject/session/device adaptation, streaming calibration, forgetting checks, or test-time adaptation |
-| `experiment-copilot` | Experiment design | A claim needs experiments, ablations, controls, statistics, or stop rules |
-| `reviewer-simulator` | Review risk audit | A paper, claim, or rebuttal needs strict conference-review simulation |
-| `oral-writer` | Oral-level paper writing | A paper needs thesis compression, figure narrative, evidence-to-claim alignment, or reviewer-objection preemption |
-| `neuro-memory` | Long-term memory consolidation | A completed session may contain reusable workflow, playbook, finding, case, or eval memory |
-| `ai-bci-research` | Shared AI x BCI guardrails | A routed task needs domain assumptions, BCI validity checks, or existing public workflow memory |
+| Skill | Status | Role | Natural triggers |
+|---|---|---|---|
+| `neuro-orchestrator` | Stable | Single NeuroFlow workflow entry point | "what should I check next", "why is this result worse", "help me plan this experiment", "下一步查什么" |
+| `neuro-idea-finder` | Stable | Research idea generator | "new EEG idea", "hypothesis", "fast validation", "研究 idea" |
+| `paper-rag-plus` | Stable | Literature grounding | "support this claim", "closest prior work", "citation map", "相关工作" |
+| `eeg-benchmark-hunter` | Stable | Benchmark discovery and audit | "find EEG dataset", "is this benchmark fair", "leakage risk", "找 EEG 数据集" |
+| `repro-pack` | Stable | Reproduction contract builder | "make this reproducible", "smoke test", "baseline table", "复现" |
+| `continual-learning-designer` | Beta | Continual BCI adaptation design | "online adaptation", "cross-session", "forgetting", "持续学习" |
+| `experiment-copilot` | Stable | Experiment design | "design ablations", "baseline is stronger", "metric gap", "实验矩阵" |
+| `reviewer-simulator` | Stable | Review risk audit | "review this claim", "what will reviewers attack", "rebuttal plan", "审稿风险" |
+| `oral-writer` | Beta | Oral-level paper writing | "write abstract", "paper claim", "figure story", "写摘要" |
+| `neuro-memory` | Stable | Long-term memory consolidation | "make this reusable", "save this lesson", "memory candidate", "沉淀经验" |
+| `ai-bci-research` | Stable | Shared AI x BCI guardrails | "BCI validity", "signal leakage", "closed loop", "脑机接口检查" |
+
+## Shared Resources
+
+Shared workflow primitives live under `skills/_shared/core/`. They are resource files, not triggerable skills:
+
+| Shared file | Use |
+|---|---|
+| `evidence-gates.md` | Novelty, benchmark, experiment, reproduction, closed-loop, and memory gates. |
+| `claim-discipline.md` | Claim ladder, safer wording, and paper-facing checks. |
+| `bci-validity.md` | Split, signal alignment, baseline fairness, and interpretation boundaries. |
+| `reviewer-risk.md` | Blocking reviewer risks and rebuttal discipline. |
+| `output-contracts.md` | Compact artifacts for next checks, benchmark cards, claim rewrites, and memory candidates. |
+
+High-use skills may include `manifest.yaml` files that declare status, natural triggers, always-loaded references, task axes, and on-demand shared resources.
 
 ## Default Pipeline Flow
 

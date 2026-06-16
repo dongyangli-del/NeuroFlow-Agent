@@ -1,0 +1,26 @@
+name: reviewer-simulator
+version: 0.2.0
+status: stable
+purpose: Audit AI x brain papers, claims, rebuttals, and experiment plans as strict conference reviewers.
+natural_triggers:
+  - "review this paper"
+  - "what will reviewers attack"
+  - "rebuttal plan"
+  - "acceptance risk"
+  - "审稿风险"
+  - "帮我模拟 reviewer"
+always_load:
+  - references/review-rubric.md
+  - ../_shared/core/reviewer-risk.md
+  - ../_shared/core/claim-discipline.md
+axes:
+  venue:
+    ai: NeurIPS, ICML, ICLR, CVPR, ACL, or AI4Science style evidence pressure.
+    neuro: BCI, NeuroAI, neuroscience, cognition, or human-subject constraints.
+  artifact:
+    draft: Full paper risk audit.
+    claim: Narrow claim-to-evidence audit.
+    rebuttal: Response plan and missing evidence triage.
+on_demand:
+  - condition: neural data or BCI protocol risk
+    load: ../_shared/core/bci-validity.md

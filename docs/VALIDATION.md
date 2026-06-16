@@ -12,6 +12,7 @@ The current validation checks:
 - `AGENT_GUIDE.md`, `LICENSE`, `SECURITY.md`, the Codex-specific `neuro-orchestrator`, and the GitHub Actions validation workflow exist;
 - `SKILL.md` has required frontmatter keys;
 - `evals/evals.json` is valid JSON;
+- optional `manifest.yaml` files include required routing fields;
 - local Markdown links resolve;
 - large generated files are not accidentally committed;
 - obvious local path, private key, and API-token patterns are not present in public files.
@@ -25,4 +26,4 @@ make index
 make validate
 ```
 
-Future validation should add schema checks for eval structure, `agents/openai.yaml`, and optional smoke tests for bundled scripts.
+Future validation should add deeper schema checks for eval structure, `agents/openai.yaml`, manifest path references, and optional smoke tests for bundled scripts.

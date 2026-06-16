@@ -55,6 +55,27 @@ If any property is missing, keep the capability as a reference, playbook, or wor
 | `oral-writer` | User asks for oral-level paper framing or writing. | `references/oral-paper-structure.md`, `references/figure-narrative.md` | compress thesis, align evidence, build figure story, preempt objections | oral-ready outline/text | hype, unsupported first claims, weak figure flow | thesis-evidence-figure alignment |
 | `neuro-memory` | Session contains reusable lessons. | memory routing references | compress and route memory | memory candidate | saving raw transcript, leaking private data | durable memory routing |
 
+## Manifest and Shared Fragment Contract
+
+High-use skills may include a `manifest.yaml` file. The manifest is a lightweight routing index, not a replacement for `SKILL.md`.
+
+Required manifest fields:
+
+1. `name`
+2. `version`
+3. `status`
+4. `purpose`
+5. `natural_triggers`
+
+Recommended manifest fields:
+
+- `always_load`: short references or shared fragments to read for most uses.
+- `axes`: task dimensions such as depth, artifact, modality, audit type, or venue.
+- `on_demand`: conditional references loaded only when the task needs them.
+- `optional_modules`: specialist modules selected by `neuro-orchestrator`.
+
+Shared fragments live under `skills/_shared/core/` and must remain non-triggerable. They should capture cross-cutting behavior such as evidence gates, claim discipline, BCI validity checks, reviewer risk, and compact output contracts.
+
 ## Phased Implementation
 
 | Phase | Scope | Acceptance criteria |

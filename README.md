@@ -19,6 +19,8 @@
     <a href="README_CN.md"><img alt="中文文档" src="https://img.shields.io/badge/README-中文-0f766e"></a>
     <a href="docs/WORKFLOWS.md"><img alt="Workflows" src="https://img.shields.io/badge/docs-workflows-2563eb"></a>
     <a href="docs/PLAYBOOKS.md"><img alt="Playbooks" src="https://img.shields.io/badge/docs-playbooks-7c3aed"></a>
+    <a href="docs/DEMO_GALLERY.md"><img alt="Demos" src="https://img.shields.io/badge/docs-demo%20gallery-0f766e"></a>
+    <a href="docs/TROUBLESHOOTING.md"><img alt="Troubleshooting" src="https://img.shields.io/badge/docs-troubleshooting-92400e"></a>
     <a href="docs/VALIDATION.md"><img alt="Validation" src="https://img.shields.io/badge/validation-make%20validate-16a34a"></a>
   </p>
 </div>
@@ -68,21 +70,23 @@ NeuroFlow does not treat these as isolated downstream tasks. It treats them as c
 
 The repository contains several specialist skills, but users should not rely on Codex to auto-trigger them. The default entry is always `neuro-orchestrator`. It classifies the task, chooses one pipeline chain, names the artifact, applies evidence gates, and then uses specialist skills only as optional modules.
 
-| Skill | Role |
-|---|---|
-| `neuro-orchestrator` | Single default entry point; routes tasks, controls session depth, chooses the pipeline, and coordinates optional modules. |
-| `neuro-idea-finder` | Generates testable AI x neural/cognitive/behavioral hypotheses. |
-| `paper-rag-plus` | Grounds claims in papers, maps claims to citations, and organizes related work. |
-| `eeg-benchmark-hunter` | Finds and audits open neural, behavioral, and BCI benchmarks, access, licenses, splits, baselines, metrics, and leakage risks. |
-| `repro-pack` | Builds reproduction contracts with environment, data, weights, commands, expected outputs, and recovery paths. |
-| `continual-learning-designer` | Designs cross-subject/session/device adaptation, streaming calibration, forgetting protocols, and online/offline boundaries. |
-| `experiment-copilot` | Designs experiment matrices, ablations, controls, statistics, and stop rules. |
-| `reviewer-simulator` | Audits papers, claims, and rebuttals as a strict conference reviewer. |
-| `oral-writer` | Turns evidence into oral-level thesis, figure narrative, and reviewer-facing paper text. |
-| `neuro-memory` | Compresses completed sessions into durable workflow, playbook, finding, case, or eval memory. |
-| `ai-bci-research` | Supplies shared AI x BCI assumptions, failure-mode checks, and public workflow memory; not the default router. |
+| Skill | Status | Purpose | Natural triggers |
+|---|---|---|---|
+| `neuro-orchestrator` | Stable | Single default entry point; routes tasks, controls depth, chooses the pipeline, and coordinates optional modules. | "what should I check next", "why is this result worse", "help me plan this experiment", "下一步查什么" |
+| `neuro-idea-finder` | Stable | Generates testable AI x neural/cognitive/behavioral hypotheses. | "new EEG idea", "hypothesis", "fast validation", "研究 idea" |
+| `paper-rag-plus` | Stable | Grounds claims in papers, maps claims to citations, and organizes related work. | "support this claim", "closest prior work", "citation map", "相关工作" |
+| `eeg-benchmark-hunter` | Stable | Finds and audits open neural, behavioral, and BCI benchmarks, access, licenses, splits, baselines, metrics, and leakage risks. | "find EEG dataset", "is this benchmark fair", "leakage risk", "找 EEG 数据集" |
+| `repro-pack` | Stable | Builds reproduction contracts with environment, data, weights, commands, expected outputs, and recovery paths. | "make this reproducible", "smoke test", "baseline table", "复现" |
+| `continual-learning-designer` | Beta | Designs cross-subject/session/device adaptation, streaming calibration, forgetting protocols, and online/offline boundaries. | "online adaptation", "cross-session", "forgetting", "持续学习" |
+| `experiment-copilot` | Stable | Designs experiment matrices, ablations, controls, statistics, and stop rules. | "design ablations", "baseline is stronger", "metric gap", "实验矩阵" |
+| `reviewer-simulator` | Stable | Audits papers, claims, and rebuttals as strict conference reviewers. | "review this claim", "what will reviewers attack", "rebuttal plan", "审稿风险" |
+| `oral-writer` | Beta | Turns evidence into thesis, figure narrative, scoped claims, and reviewer-facing paper text. | "write abstract", "paper claim", "figure story", "写摘要" |
+| `neuro-memory` | Stable | Compresses completed sessions into durable workflow, playbook, finding, case, or eval memory. | "make this reusable", "save this lesson", "memory candidate", "沉淀经验" |
+| `ai-bci-research` | Stable | Supplies shared AI x BCI assumptions, failure-mode checks, and public workflow memory; not the default router. | "BCI validity", "signal leakage", "closed loop", "脑机接口检查" |
 
 The orchestrator can answer shallow tasks directly, route standard tasks through one optional module plus an evidence gate, or run deep tasks through literature grounding, benchmark selection, reproduction, experiment design, review simulation, writing, and memory consolidation.
+
+Each high-use skill may also include a `manifest.yaml` that declares status, natural triggers, default reads, task axes, and on-demand references. Shared workflow primitives live in `skills/_shared/core/` so specialist skills can reuse evidence gates, claim discipline, BCI validity checks, reviewer risk checks, and output contracts without duplicating long instructions.
 
 ## Task Depths and Research Modes
 
@@ -138,17 +142,17 @@ python3 ~/.codex/skills/.system/skill-installer/scripts/install-skill-from-githu
   --path skills-codex/neuro-orchestrator
 ```
 
-Then ask Codex with the skill name:
+Then ask Codex naturally. The `AGENTS.md` and `neuro-orchestrator` entry should apply the internal preflight even if you do not mention workflow or skills:
 
 ```text
-Use neuro-orchestrator as the NeuroFlow entry point to turn this EEG reconstruction idea into a paper-ready experiment plan.
+My EEG reconstruction result is worse than the baseline. What should I check next?
 ```
 
 ```text
-Use neuro-orchestrator to route this BCI benchmark question through the NeuroFlow pipeline and produce the right artifact.
+Help me turn these experiment results into a paper claim.
 ```
 
-AI agents should also read [AGENT_GUIDE.md](AGENT_GUIDE.md), which defines `neuro-orchestrator` as the only default entry point and specialist skills as optional modules.
+If Codex gives a generic answer, see [Troubleshooting](docs/TROUBLESHOOTING.md). For concrete before/after workflows, see the [Demo Gallery](docs/DEMO_GALLERY.md). AI agents should follow [AGENTS.md](AGENTS.md) first; [AGENT_GUIDE.md](AGENT_GUIDE.md) provides the longer explanation.
 
 ## Persistent Workflow System
 

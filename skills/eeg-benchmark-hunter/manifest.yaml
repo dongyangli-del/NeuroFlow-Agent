@@ -1,0 +1,29 @@
+name: eeg-benchmark-hunter
+version: 0.2.0
+status: stable
+purpose: Find and audit neural, behavioral, and BCI benchmarks for access, license, splits, metrics, baselines, and leakage.
+natural_triggers:
+  - "find EEG dataset"
+  - "is this benchmark fair"
+  - "leakage risk"
+  - "baseline protocol"
+  - "leaderboard"
+  - "找 EEG 数据集"
+  - "这个 benchmark 靠谱吗"
+  - "有没有 leakage"
+always_load:
+  - references/benchmark-card-template.md
+  - references/benchmark-risk-checklist.md
+  - ../_shared/core/bci-validity.md
+  - ../_shared/core/output-contracts.md
+axes:
+  audit:
+    access: Verify download, license, human-subject, and use restrictions.
+    split: Verify subject, session, stimulus, repetition, and temporal split risks.
+    metric: Verify metric supports the stated claim.
+    baseline: Verify comparable preprocessing, split, model, and evaluator.
+on_demand:
+  - condition: claim or paper positioning
+    load: ../_shared/core/claim-discipline.md
+  - condition: conference-facing benchmark recommendation
+    load: ../_shared/core/reviewer-risk.md

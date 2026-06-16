@@ -19,6 +19,8 @@
     <a href="README.md"><img alt="English README" src="https://img.shields.io/badge/README-English-0f766e"></a>
     <a href="docs/WORKFLOWS.md"><img alt="Workflows" src="https://img.shields.io/badge/docs-workflows-2563eb"></a>
     <a href="docs/PLAYBOOKS.md"><img alt="Playbooks" src="https://img.shields.io/badge/docs-playbooks-7c3aed"></a>
+    <a href="docs/DEMO_GALLERY.md"><img alt="Demos" src="https://img.shields.io/badge/docs-demo%20gallery-0f766e"></a>
+    <a href="docs/TROUBLESHOOTING.md"><img alt="Troubleshooting" src="https://img.shields.io/badge/docs-troubleshooting-92400e"></a>
     <a href="docs/VALIDATION.md"><img alt="Validation" src="https://img.shields.io/badge/validation-make%20validate-16a34a"></a>
   </p>
 </div>
@@ -90,19 +92,21 @@ flowchart TD
 
 Codex 用户不应该依赖系统自动调动多个 skills。默认入口始终是 `neuro-orchestrator`，由它判断任务深度、选择 pipeline chain、命名输出 artifact，再按需调用 specialist skills。
 
-| Skill | 角色 |
-|---|---|
-| `neuro-orchestrator` | 唯一默认入口；判断任务类型和深度，选择 pipeline，并协调可选模块。 |
-| `neuro-idea-finder` | 生成可验证的 EEG/iEEG/fMRI/MEG/LFP/spike/BCI 创新点。 |
-| `paper-rag-plus` | 做文献 grounding、claim-to-citation mapping 和 related work 组织。 |
-| `eeg-benchmark-hunter` | 发现并审计开源 benchmark、license、split、baseline、metric 和 leakage 风险。 |
-| `repro-pack` | 生成一键复现契约：环境、数据、权重、命令、expected output、sanity check 和 failure recovery。 |
-| `continual-learning-designer` | 设计跨 subject/session/device adaptation、streaming calibration 和 forgetting protocol。 |
-| `experiment-copilot` | 设计实验矩阵、ablation、control、统计检验和 stop rule。 |
-| `reviewer-simulator` | 按严格会议审稿标准检查 claim、证据和 rebuttal 风险。 |
-| `oral-writer` | 把证据压缩成 Oral 级 thesis、figure narrative 和 reviewer-facing 论文文本。 |
-| `neuro-memory` | 把完成的 session 压缩成可复用的 workflow、playbook、finding、case 或 eval。 |
-| `ai-bci-research` | 提供 AI x BCI 的共享领域假设、有效性检查和长期研究记忆；不是默认路由器。 |
+| Skill | 状态 | 角色 | 自然触发词 |
+|---|---|---|---|
+| `neuro-orchestrator` | Stable | 唯一默认入口；判断任务类型和深度，选择 pipeline，并协调可选模块。 | “下一步查什么”, “实验为什么更差”, “帮我规划实验”, “review 这个 claim” |
+| `neuro-idea-finder` | Stable | 生成可验证的 EEG/iEEG/fMRI/MEG/LFP/spike/BCI 创新点。 | “研究 idea”, “hypothesis”, “fast validation” |
+| `paper-rag-plus` | Stable | 做文献 grounding、claim-to-citation mapping 和 related work 组织。 | “相关工作”, “closest prior work”, “citation map” |
+| `eeg-benchmark-hunter` | Stable | 发现并审计开源 benchmark、license、split、baseline、metric 和 leakage 风险。 | “找 EEG 数据集”, “benchmark 靠谱吗”, “有没有 leakage” |
+| `repro-pack` | Stable | 生成复现契约：环境、数据、权重、命令、expected output、sanity check 和 failure recovery。 | “复现”, “smoke test”, “baseline table” |
+| `continual-learning-designer` | Beta | 设计跨 subject/session/device adaptation、streaming calibration 和 forgetting protocol。 | “持续学习”, “online adaptation”, “cross-session” |
+| `experiment-copilot` | Stable | 设计实验矩阵、ablation、control、统计检验和 stop rule。 | “设计消融”, “baseline 比不过”, “metric gap” |
+| `reviewer-simulator` | Stable | 按严格会议审稿标准检查 claim、证据和 rebuttal 风险。 | “审稿风险”, “模拟 reviewer”, “rebuttal plan” |
+| `oral-writer` | Beta | 把证据压缩成 Oral 级 thesis、figure narrative 和 reviewer-facing 论文文本。 | “写摘要”, “论文 claim”, “figure story” |
+| `neuro-memory` | Stable | 把完成的 session 压缩成可复用的 workflow、playbook、finding、case 或 eval。 | “沉淀经验”, “make this reusable”, “memory candidate” |
+| `ai-bci-research` | Stable | 提供 AI x BCI 的共享领域假设、有效性检查和长期研究记忆；不是默认路由器。 | “BCI validity”, “signal leakage”, “closed loop” |
+
+高频 skill 可以包含 `manifest.yaml`，用于声明状态、自然触发词、默认读取文件、任务轴和按需加载的参考片段。跨 skill 的公共证据门、claim discipline、BCI 有效性检查、reviewer risk 和输出契约放在 `skills/_shared/core/`，避免每个 skill 重复维护长规则。
 
 ## 任务深度
 
@@ -152,10 +156,14 @@ python3 ~/.codex/skills/.system/skill-installer/scripts/install-skill-from-githu
   --path skills-codex/neuro-orchestrator
 ```
 
-默认使用方式：
+默认使用方式可以很自然，不必显式说 workflow 或 skill：
 
 ```text
-Use neuro-orchestrator as the NeuroFlow entry point to route this AI x BCI task.
+我的 EEG reconstruction 结果比 baseline 差，下一步应该查什么？
+```
+
+```text
+帮我把这些实验结果写成论文 claim。
 ```
 
 ## 更新知识
@@ -179,6 +187,8 @@ make validate
 - [Agent Guide](AGENT_GUIDE.md)：AI agent 冷启动入口和唯一默认入口规则。
 - [Playbook Catalog](docs/PLAYBOOKS.md)：排错和写作 playbook 索引。
 - [Skill Library Spec](docs/SKILL_LIBRARY_SPEC.md)：完整 10-skill library 的 gap analysis、contracts、task chains 和阶段验收标准。
+- [Demo Gallery](docs/DEMO_GALLERY.md)：常见任务的 before/after workflow 示例。
+- [Troubleshooting](docs/TROUBLESHOOTING.md)：Codex 没有自然触发 NeuroFlow 时的安装和验证检查。
 - [Examples](docs/EXAMPLES.md)：真实 demo case 模板和待补案例。
 - [Validation](docs/VALIDATION.md)：验证命令和质量检查。
 - [Public Ready](docs/PUBLIC_READY.md)：公开发布检查清单和 private memory 规则。

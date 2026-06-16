@@ -14,6 +14,28 @@ fi
 
 mkdir -p "${SKILLS_DIR}"
 
+install_shared_resources() {
+  local shared_src="${SKILLS_SRC}/_shared"
+  local shared_dest="${SKILLS_DIR}/_shared"
+
+  [[ -d "${shared_src}" ]] || return
+
+  if [[ -L "${shared_dest}" ]]; then
+    current_target="$(readlink "${shared_dest}")"
+    if [[ "${current_target}" != "${shared_src}" ]]; then
+      echo "Skipping _shared: existing symlink points to ${current_target}" >&2
+      return
+    fi
+    rm "${shared_dest}"
+  elif [[ -e "${shared_dest}" ]]; then
+    echo "Skipping _shared: ${shared_dest} already exists and is not a symlink" >&2
+    return
+  fi
+
+  ln -s "${shared_src}" "${shared_dest}"
+  echo "Installed _shared -> ${shared_src}"
+}
+
 install_skill() {
   local skill_src="$1"
   local skill_name="$2"
@@ -37,8 +59,11 @@ install_skill() {
   echo "Installed ${skill_name} -> ${skill_src}"
 }
 
+install_shared_resources
+
 for skill_src in "${SKILLS_SRC}"/*; do
   [[ -d "${skill_src}" ]] || continue
+  [[ "$(basename "${skill_src}")" == _* ]] && continue
   [[ -f "${skill_src}/SKILL.md" ]] || continue
   skill_name="$(basename "${skill_src}")"
   codex_override="${CODEX_SKILLS_SRC}/${skill_name}"

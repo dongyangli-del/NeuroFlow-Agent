@@ -14,12 +14,15 @@ SKILLS_DIR = ROOT / "skills"
 CODEX_SKILLS_DIR = ROOT / "skills-codex"
 SKILL_DIR = SKILLS_DIR / "ai-bci-research"
 REQUIRED_FILES = [
+    ROOT / "AGENTS.md",
     ROOT / "AGENT_GUIDE.md",
     ROOT / "README.md",
     ROOT / "README_CN.md",
     ROOT / "CONTRIBUTING.md",
     ROOT / "LICENSE",
     ROOT / "SECURITY.md",
+    ROOT / "docs" / "DEMO_GALLERY.md",
+    ROOT / "docs" / "TROUBLESHOOTING.md",
     ROOT / ".github" / "workflows" / "validate.yml",
     ROOT / "skills-codex" / "neuro-orchestrator" / "SKILL.md",
     SKILL_DIR / "SKILL.md",
@@ -76,11 +79,21 @@ def validate_json() -> None:
             json.load(f)
 
 
+def validate_manifests() -> None:
+    manifest_files = list(SKILLS_DIR.glob("*/manifest.yaml")) + list(CODEX_SKILLS_DIR.glob("*/manifest.yaml"))
+    required_fields = ("name:", "version:", "status:", "purpose:", "natural_triggers:")
+    for manifest in sorted(manifest_files):
+        text = manifest.read_text(encoding="utf-8")
+        for field in required_fields:
+            if field not in text:
+                fail(f"{manifest.relative_to(ROOT)} missing {field}")
+
+
 def validate_skill_structure() -> None:
     missing = []
-    skill_dirs = [path for path in SKILLS_DIR.iterdir() if path.is_dir()]
+    skill_dirs = [path for path in SKILLS_DIR.iterdir() if path.is_dir() and not path.name.startswith("_")]
     if CODEX_SKILLS_DIR.exists():
-        skill_dirs.extend(path for path in CODEX_SKILLS_DIR.iterdir() if path.is_dir())
+        skill_dirs.extend(path for path in CODEX_SKILLS_DIR.iterdir() if path.is_dir() and not path.name.startswith("_"))
     for skill_dir in sorted(skill_dirs):
         for rel in ("SKILL.md", "agents/openai.yaml", "evals/evals.json"):
             if not (skill_dir / rel).exists():
@@ -162,6 +175,7 @@ def main() -> None:
     validate_skill_structure()
     validate_skill_frontmatter()
     validate_json()
+    validate_manifests()
     validate_local_links()
     validate_no_large_files()
     validate_public_leakage()

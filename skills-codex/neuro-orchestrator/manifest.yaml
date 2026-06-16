@@ -1,0 +1,39 @@
+name: neuro-orchestrator
+version: 0.2.0
+status: stable
+purpose: Codex-specific single NeuroFlow entry point for routing research tasks into the smallest useful workflow.
+natural_triggers:
+  - "what should I check next"
+  - "why is this result worse"
+  - "help me plan this experiment"
+  - "review this claim"
+  - "make this reproducible"
+  - "下一步查什么"
+  - "实验不 work"
+  - "帮我规划 paper"
+always_load:
+  - references/pipeline.md
+  - ../_shared/core/evidence-gates.md
+  - ../_shared/core/output-contracts.md
+axes:
+  depth:
+    shallow: One next check or scoped answer.
+    standard: One artifact plus one evidence gate.
+    deep: Multi-stage literature, benchmark, experiment, review, or writing workflow.
+    persistent: Any depth plus durable memory decision.
+  chain:
+    idea-to-experiment: idea -> literature -> experiments -> reviewer risk -> memory
+    paper-to-repro: paper facts -> reproduction contract -> access checks -> smoke path -> memory
+    benchmark-to-baseline: benchmark card -> split/leakage -> baseline matrix -> reviewer risk
+    experiment-to-paper: claim -> evidence -> ablations/statistics -> reviewer risk -> figure story
+optional_modules:
+  - neuro-idea-finder
+  - paper-rag-plus
+  - eeg-benchmark-hunter
+  - repro-pack
+  - continual-learning-designer
+  - experiment-copilot
+  - reviewer-simulator
+  - oral-writer
+  - neuro-memory
+  - ai-bci-research

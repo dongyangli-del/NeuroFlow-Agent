@@ -4,6 +4,8 @@ Detailed playbooks live inside `skills/ai-bci-research/references/`. This catalo
 
 For full skill-library routing, first read [SKILL_LIBRARY_SPEC.md](SKILL_LIBRARY_SPEC.md) and `skills/MANIFEST.md`.
 
+Shared workflow primitives live in `skills/_shared/core/`. These are not triggerable skills; they are reusable fragments for evidence gates, claim discipline, BCI validity, reviewer risk, and output contracts.
+
 ## Skill-Specific Playbooks
 
 | Skill | First reads |
@@ -14,6 +16,17 @@ For full skill-library routing, first read [SKILL_LIBRARY_SPEC.md](SKILL_LIBRARY
 | `repro-pack` | `references/repro-contract.md`, `references/failure-recovery.md` |
 | `continual-learning-designer` | `references/continual-bci-design.md`, `references/evaluation-protocol.md` |
 | `oral-writer` | `references/oral-paper-structure.md`, `references/figure-narrative.md` |
+
+## Manifest-Based Loading
+
+High-use skills may include `manifest.yaml` files. Use them to decide natural triggers, default reads, task axes, and on-demand shared fragments before opening longer references.
+
+| Manifest field | Meaning |
+|---|---|
+| `natural_triggers` | User phrases that should activate the skill through `neuro-orchestrator`. |
+| `always_load` | Short references that should be loaded for most uses of the skill. |
+| `axes` | Task dimensions such as depth, artifact, modality, benchmark audit type, or venue. |
+| `on_demand` | Shared or local references loaded only when a condition appears. |
 
 ## Research Supervision Gates
 

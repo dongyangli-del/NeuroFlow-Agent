@@ -1,0 +1,28 @@
+name: oral-writer
+version: 0.2.0
+status: beta
+purpose: Turn inspected evidence into thesis, figure narrative, scoped claims, and reviewer-facing paper text.
+natural_triggers:
+  - "write abstract"
+  - "paper claim"
+  - "figure story"
+  - "rewrite introduction"
+  - "contribution framing"
+  - "写摘要"
+  - "论文 claim"
+  - "figure narrative"
+always_load:
+  - references/oral-paper-structure.md
+  - ../_shared/core/claim-discipline.md
+  - ../_shared/core/output-contracts.md
+axes:
+  artifact:
+    abstract: Thesis, gap, method, evidence, and scope.
+    introduction: Problem, closest limitation, principle, method, and contributions.
+    figure: Visual order, takeaway captions, and evidence flow.
+    rebuttal: Claim narrowing, evidence response, and reviewer objection handling.
+on_demand:
+  - condition: figure or caption work
+    load: references/figure-narrative.md
+  - condition: reviewer-facing risk
+    load: ../_shared/core/reviewer-risk.md
