@@ -31,12 +31,15 @@ Reviewer-facing interpretation:
 ```markdown
 Benchmark:
 Verification status:
+Source evidence:
 Access route:
 License or restrictions:
 Split protocol:
 Metrics:
 Known baselines:
 Leakage risks:
+Missing information:
+Deviations from convention:
 Use for:
 Do not use for:
 ```
@@ -46,6 +49,7 @@ Do not use for:
 ```markdown
 Original claim:
 Evidence available:
+Source evidence:
 Unsupported parts:
 Safer claim:
 Missing evidence:
@@ -57,6 +61,7 @@ Reviewer risk:
 ```markdown
 Memory type:
 Reusable lesson:
+Verification status:
 Target file:
 Privacy risk:
 Suggested eval:

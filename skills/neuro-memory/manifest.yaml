@@ -1,0 +1,30 @@
+name: neuro-memory
+version: 0.2.0
+status: stable
+verification_status: user-validated
+purpose: Compress meaningful sessions into reusable workflow, playbook, finding, case, eval, or private memory with explicit verification state.
+natural_triggers:
+  - "make this reusable"
+  - "save this lesson"
+  - "turn this into memory"
+  - "case to eval"
+  - "沉淀经验"
+  - "写入记忆"
+always_load:
+  - references/memory-routing.md
+  - references/privacy-policy.md
+  - ../_shared/core/source-traceability.md
+  - ../_shared/core/output-contracts.md
+axes:
+  memory_type:
+    workflow: Reusable task sequence or first-read rule.
+    playbook: Repeated failure mode or recovery sequence.
+    finding: Dated inspected result that changes future decisions.
+    case: Public example showing workflow value.
+    eval: Behavior future agents must preserve.
+    private: Sensitive or unpublished context outside public files.
+on_demand:
+  - condition: producing memory candidate
+    load: references/compression-template.md
+  - condition: literature or Zotero memory
+    load: references/zotero-memory-policy.md

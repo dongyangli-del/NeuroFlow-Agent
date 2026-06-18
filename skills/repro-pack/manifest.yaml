@@ -1,0 +1,27 @@
+name: repro-pack
+version: 0.2.0
+status: stable
+verification_status: source-traced
+purpose: Build minimal runnable reproduction contracts with source-traced environment, data, weights, commands, outputs, and blockers.
+natural_triggers:
+  - "make this reproducible"
+  - "smoke test"
+  - "reproduce this repo"
+  - "baseline table"
+  - "复现"
+  - "跑通 repo"
+always_load:
+  - references/repro-contract.md
+  - ../_shared/core/source-traceability.md
+  - ../_shared/core/output-contracts.md
+axes:
+  target:
+    smoke: Minimal command and expected output.
+    figure: Paper figure or qualitative output reproduction.
+    table: Baseline or metric table reproduction.
+    checkpoint: Weight, config, and inference path validation.
+on_demand:
+  - condition: setup, data, weights, or command failure
+    load: references/failure-recovery.md
+  - condition: dataset access or split protocol
+    load: ../_shared/core/bci-validity.md

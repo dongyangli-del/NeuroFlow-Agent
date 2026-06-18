@@ -1,6 +1,7 @@
 name: eeg-benchmark-hunter
 version: 0.2.0
 status: stable
+verification_status: source-traced
 purpose: Find and audit neural, behavioral, and BCI benchmarks for access, license, splits, metrics, baselines, and leakage.
 natural_triggers:
   - "find EEG dataset"
@@ -15,6 +16,7 @@ always_load:
   - references/benchmark-card-template.md
   - references/benchmark-risk-checklist.md
   - ../_shared/core/bci-validity.md
+  - ../_shared/core/source-traceability.md
   - ../_shared/core/output-contracts.md
 axes:
   audit:

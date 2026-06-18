@@ -19,18 +19,24 @@ Use this skill when a research claim needs an executable experiment plan.
 - Separate must-run, should-run, and nice-to-have experiments.
 - Match evaluation protocol across baseline and proposed method.
 - Check leakage, normalization, checkpoint selection, metric definitions, and split protocol.
+- Trace key parameters, metrics, baselines, and dataset choices to a paper, config, log, dataset page, or user-validated source.
+- List missing information and deviations from convention before paper-facing interpretation.
 - Use `statistical-analysis`, `ablation-planner`, and `experiment-results-notebook` when deeper analysis is needed.
 
 ## Required Output
 
 ```markdown
 Claim:
+Verification status:
 Minimum viable experiment:
 Main table:
 Ablation matrix:
 Negative controls:
 Robustness checks:
 Statistics:
+Source evidence:
+Missing information:
+Deviations from convention:
 Expected failure patterns:
 Stop rule:
 Reviewer-facing interpretation:

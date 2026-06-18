@@ -1,6 +1,7 @@
 name: experiment-copilot
 version: 0.2.0
 status: stable
+verification_status: source-traced
 purpose: Convert claims into executable experiment matrices, ablations, controls, statistics, and stop rules.
 natural_triggers:
   - "design ablations"
@@ -14,6 +15,7 @@ natural_triggers:
 always_load:
   - references/experiment-matrix.md
   - ../_shared/core/evidence-gates.md
+  - ../_shared/core/source-traceability.md
   - ../_shared/core/output-contracts.md
 axes:
   task:
@@ -29,3 +31,5 @@ on_demand:
     load: ../_shared/core/bci-validity.md
   - condition: paper-facing interpretation or reviewer risk
     load: ../_shared/core/reviewer-risk.md
+  - condition: deep experiment planning or submission-facing claim
+    load: ../_shared/core/research-planning-protocol.md

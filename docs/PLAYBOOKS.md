@@ -4,7 +4,7 @@ Detailed playbooks live inside `skills/ai-bci-research/references/`. This catalo
 
 For full skill-library routing, first read [SKILL_LIBRARY_SPEC.md](SKILL_LIBRARY_SPEC.md) and `skills/MANIFEST.md`.
 
-Shared workflow primitives live in `skills/_shared/core/`. These are not triggerable skills; they are reusable fragments for evidence gates, claim discipline, BCI validity, reviewer risk, and output contracts.
+Shared workflow primitives live in `skills/_shared/core/`. These are not triggerable skills; they are reusable fragments for evidence gates, source traceability, research planning, claim discipline, BCI validity, reviewer risk, and output contracts.
 
 ## Skill-Specific Playbooks
 
@@ -24,6 +24,7 @@ High-use skills may include `manifest.yaml` files. Use them to decide natural tr
 | Manifest field | Meaning |
 |---|---|
 | `natural_triggers` | User phrases that should activate the skill through `neuro-orchestrator`. |
+| `verification_status` | Evidence state behind the workflow or memory: unverified, source-traced, reproduced, user-validated, or expert-reviewed. |
 | `always_load` | Short references that should be loaded for most uses of the skill. |
 | `axes` | Task dimensions such as depth, artifact, modality, benchmark audit type, or venue. |
 | `on_demand` | Shared or local references loaded only when a condition appears. |

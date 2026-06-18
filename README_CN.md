@@ -106,7 +106,9 @@ Codex 用户不应该依赖系统自动调动多个 skills。默认入口始终�
 | `neuro-memory` | Stable | 把完成的 session 压缩成可复用的 workflow、playbook、finding、case 或 eval。 | “沉淀经验”, “make this reusable”, “memory candidate” |
 | `ai-bci-research` | Stable | 提供 AI x BCI 的共享领域假设、有效性检查和长期研究记忆；不是默认路由器。 | “BCI validity”, “signal leakage”, “closed loop” |
 
-高频 skill 可以包含 `manifest.yaml`，用于声明状态、自然触发词、默认读取文件、任务轴和按需加载的参考片段。跨 skill 的公共证据门、claim discipline、BCI 有效性检查、reviewer risk 和输出契约放在 `skills/_shared/core/`，避免每个 skill 重复维护长规则。
+高频 skill 可以包含 `manifest.yaml`，用于声明功能状态、可信度状态、自然触发词、默认读取文件、任务轴和按需加载的参考片段。`status` 表示 workflow 成熟度；`verification_status` 表示事实或规则的证据状态，例如 `unverified`、`source-traced`、`reproduced`、`user-validated` 或 `expert-reviewed`。
+
+跨 skill 的公共证据门、source traceability、claim discipline、BCI 有效性检查、reviewer risk、research planning protocol 和输出契约放在 `skills/_shared/core/`，避免每个 skill 重复维护长规则。
 
 ## 任务深度
 

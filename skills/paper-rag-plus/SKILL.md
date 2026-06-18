@@ -24,6 +24,7 @@ Use this skill to ground AI x neuroscience claims in inspected literature. It sh
 - Mark uncertain metadata as needs verification.
 - Separate paper facts from inferred relevance to the user's project.
 - Treat Zotero-derived maps as retrieval memory, not final citation proof.
+- Record source location, verification status, missing information, and deviations from convention for citation-critical facts.
 - For novelty or related-work answers, distinguish prior work, method innovation, application innovation, missing citations, and safer claim wording.
 
 ## Output Formats
@@ -39,6 +40,10 @@ Method:
 Dataset:
 Metric:
 Main claim:
+Source evidence:
+Verification status:
+Missing information:
+Deviations from convention:
 Reusable insight:
 Limitations:
 Relation to user's work:
@@ -51,8 +56,12 @@ For a claim:
 ```markdown
 Claim:
 Closest support:
+Source evidence:
+Verification status:
 Weakest link:
 Missing citation:
+Missing information:
+Deviations from convention:
 Reviewer risk:
 Safer wording:
 ```

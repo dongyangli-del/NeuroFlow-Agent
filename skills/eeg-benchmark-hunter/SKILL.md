@@ -20,6 +20,7 @@ Use this skill when the user needs candidate datasets, benchmarks, leaderboards,
 - Mark unverified fields as `needs verification`.
 - Separate public access facts from inferred adaptation difficulty.
 - Always check license, human-subject restrictions, split protocol, stimulus overlap, and baseline parity.
+- Record source evidence, verification status, missing information, and deviations from convention for every benchmark recommendation.
 - Prefer benchmark cards over narrative lists.
 
 ## Workflow
@@ -35,6 +36,7 @@ Use this skill when the user needs candidate datasets, benchmarks, leaderboards,
 ```markdown
 Benchmark:
 Verification status:
+Source evidence:
 Signal modality:
 Task:
 Access route:
@@ -46,6 +48,8 @@ Metrics:
 Adaptation work:
 Leakage risks:
 Compute/storage risk:
+Missing information:
+Deviations from convention:
 Use for:
 Do not use for:
 Next skill:

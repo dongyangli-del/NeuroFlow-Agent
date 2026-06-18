@@ -81,12 +81,27 @@ def validate_json() -> None:
 
 def validate_manifests() -> None:
     manifest_files = list(SKILLS_DIR.glob("*/manifest.yaml")) + list(CODEX_SKILLS_DIR.glob("*/manifest.yaml"))
-    required_fields = ("name:", "version:", "status:", "purpose:", "natural_triggers:")
+    required_fields = ("name:", "version:", "status:", "verification_status:", "purpose:", "natural_triggers:")
+    allowed_verification_statuses = {
+        "unverified",
+        "source-traced",
+        "reproduced",
+        "user-validated",
+        "expert-reviewed",
+    }
     for manifest in sorted(manifest_files):
         text = manifest.read_text(encoding="utf-8")
         for field in required_fields:
             if field not in text:
                 fail(f"{manifest.relative_to(ROOT)} missing {field}")
+        match = re.search(r"^verification_status:\s*([A-Za-z0-9_-]+)\s*$", text, re.MULTILINE)
+        if not match:
+            fail(f"{manifest.relative_to(ROOT)} has malformed verification_status")
+        if match.group(1) not in allowed_verification_statuses:
+            fail(
+                f"{manifest.relative_to(ROOT)} has invalid verification_status "
+                f"{match.group(1)!r}; expected one of {sorted(allowed_verification_statuses)}"
+            )
 
 
 def validate_skill_structure() -> None:

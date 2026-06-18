@@ -1,0 +1,28 @@
+name: paper-rag-plus
+version: 0.2.0
+status: stable
+verification_status: source-traced
+purpose: Ground claims, citations, dataset facts, method facts, and related work in inspected literature and traceable sources.
+natural_triggers:
+  - "support this claim"
+  - "closest prior work"
+  - "citation map"
+  - "literature grounding"
+  - "相关工作"
+  - "引用依据"
+always_load:
+  - references/claim-grounding.md
+  - references/rag-eval-constraints.md
+  - ../_shared/core/source-traceability.md
+  - ../_shared/core/claim-discipline.md
+axes:
+  task:
+    claim: Map a claim to inspected citations and weak links.
+    paper: Extract reusable method, dataset, metric, and limitation facts.
+    novelty: Separate closest prior work from method or application novelty.
+    dataset: Verify dataset facts before benchmark or reproduction use.
+on_demand:
+  - condition: benchmark, dataset, or split facts
+    load: ../_shared/core/bci-validity.md
+  - condition: paper-facing claim or rebuttal
+    load: ../_shared/core/reviewer-risk.md

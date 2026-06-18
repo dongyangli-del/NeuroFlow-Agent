@@ -21,6 +21,7 @@ Use this skill to decide what a completed AI x neuroscience session should prese
 - Private or sensitive notes must go to ignored private overlays, not public skill files.
 - Add evals when the future behavior must be enforced.
 - Use `skill-creator` when a repeated memory pattern should become a new or updated skill.
+- Store the memory's verification status so future agents know whether it is unverified, source-traced, reproduced, user-validated, or expert-reviewed.
 
 ## Required Output
 
@@ -28,6 +29,8 @@ Use this skill to decide what a completed AI x neuroscience session should prese
 Memory candidate:
 - Should enter repo? yes/no
 - Type: workflow/playbook/finding/case/eval/private/no-repo
+- Verification status:
+- Source evidence:
 - Target file:
 - Minimal patch:
 - Risk of leaking private info:

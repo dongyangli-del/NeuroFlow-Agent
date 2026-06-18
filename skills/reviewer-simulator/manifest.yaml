@@ -1,6 +1,7 @@
 name: reviewer-simulator
 version: 0.2.0
 status: stable
+verification_status: source-traced
 purpose: Audit AI x brain papers, claims, rebuttals, and experiment plans as strict conference reviewers.
 natural_triggers:
   - "review this paper"
@@ -13,6 +14,7 @@ always_load:
   - references/review-rubric.md
   - ../_shared/core/reviewer-risk.md
   - ../_shared/core/claim-discipline.md
+  - ../_shared/core/source-traceability.md
 axes:
   venue:
     ai: NeurIPS, ICML, ICLR, CVPR, ACL, or AI4Science style evidence pressure.

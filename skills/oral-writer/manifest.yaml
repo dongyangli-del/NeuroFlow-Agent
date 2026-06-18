@@ -1,6 +1,7 @@
 name: oral-writer
 version: 0.2.0
 status: beta
+verification_status: source-traced
 purpose: Turn inspected evidence into thesis, figure narrative, scoped claims, and reviewer-facing paper text.
 natural_triggers:
   - "write abstract"
@@ -14,6 +15,7 @@ natural_triggers:
 always_load:
   - references/oral-paper-structure.md
   - ../_shared/core/claim-discipline.md
+  - ../_shared/core/source-traceability.md
   - ../_shared/core/output-contracts.md
 axes:
   artifact:

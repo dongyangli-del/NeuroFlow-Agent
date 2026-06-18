@@ -64,8 +64,19 @@ Required manifest fields:
 1. `name`
 2. `version`
 3. `status`
-4. `purpose`
-5. `natural_triggers`
+4. `verification_status`
+5. `purpose`
+6. `natural_triggers`
+
+`status` describes workflow maturity. `verification_status` describes the evidence behind the workflow or memory:
+
+| Status | Meaning |
+|---|---|
+| `unverified` | Proposed or retrieved but not checked. |
+| `source-traced` | Grounded in inspected paper, repo, dataset page, config, log, or reference file. |
+| `reproduced` | Confirmed by running code, checking outputs, or reproducing a metric/path. |
+| `user-validated` | Confirmed by the project user from private or unpublished context. |
+| `expert-reviewed` | Checked by a domain expert or stable project owner judgment. |
 
 Recommended manifest fields:
 
@@ -74,7 +85,7 @@ Recommended manifest fields:
 - `on_demand`: conditional references loaded only when the task needs them.
 - `optional_modules`: specialist modules selected by `neuro-orchestrator`.
 
-Shared fragments live under `skills/_shared/core/` and must remain non-triggerable. They should capture cross-cutting behavior such as evidence gates, claim discipline, BCI validity checks, reviewer risk, and compact output contracts.
+Shared fragments live under `skills/_shared/core/` and must remain non-triggerable. They should capture cross-cutting behavior such as evidence gates, source traceability, research planning, claim discipline, BCI validity checks, reviewer risk, and compact output contracts.
 
 ## Phased Implementation
 

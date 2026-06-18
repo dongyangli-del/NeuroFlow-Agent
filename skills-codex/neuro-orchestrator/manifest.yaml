@@ -1,6 +1,7 @@
 name: neuro-orchestrator
 version: 0.2.0
 status: stable
+verification_status: user-validated
 purpose: Codex-specific single NeuroFlow entry point for routing research tasks into the smallest useful workflow.
 natural_triggers:
   - "what should I check next"
@@ -14,6 +15,7 @@ natural_triggers:
 always_load:
   - references/pipeline.md
   - ../_shared/core/evidence-gates.md
+  - ../_shared/core/source-traceability.md
   - ../_shared/core/output-contracts.md
 axes:
   depth:

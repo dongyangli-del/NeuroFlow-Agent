@@ -86,7 +86,9 @@ The repository contains several specialist skills, but users should not rely on 
 
 The orchestrator can answer shallow tasks directly, route standard tasks through one optional module plus an evidence gate, or run deep tasks through literature grounding, benchmark selection, reproduction, experiment design, review simulation, writing, and memory consolidation.
 
-Each high-use skill may also include a `manifest.yaml` that declares status, natural triggers, default reads, task axes, and on-demand references. Shared workflow primitives live in `skills/_shared/core/` so specialist skills can reuse evidence gates, claim discipline, BCI validity checks, reviewer risk checks, and output contracts without duplicating long instructions.
+Each high-use skill may also include a `manifest.yaml` that declares status, verification status, natural triggers, default reads, task axes, and on-demand references. `status` describes workflow maturity; `verification_status` describes the evidence behind the workflow or memory, such as `unverified`, `source-traced`, `reproduced`, `user-validated`, or `expert-reviewed`.
+
+Shared workflow primitives live in `skills/_shared/core/` so specialist skills can reuse evidence gates, source traceability, claim discipline, BCI validity checks, reviewer risk checks, research planning protocol, and output contracts without duplicating long instructions.
 
 ## Task Depths and Research Modes
 

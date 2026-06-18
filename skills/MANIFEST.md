@@ -27,12 +27,22 @@ Shared workflow primitives live under `skills/_shared/core/`. They are resource 
 | Shared file | Use |
 |---|---|
 | `evidence-gates.md` | Novelty, benchmark, experiment, reproduction, closed-loop, and memory gates. |
+| `source-traceability.md` | Source location, verification status, missing information, and deviations from convention. |
+| `research-planning-protocol.md` | Research question, assumptions, failure modes, and decision gates for deep tasks. |
 | `claim-discipline.md` | Claim ladder, safer wording, and paper-facing checks. |
 | `bci-validity.md` | Split, signal alignment, baseline fairness, and interpretation boundaries. |
 | `reviewer-risk.md` | Blocking reviewer risks and rebuttal discipline. |
 | `output-contracts.md` | Compact artifacts for next checks, benchmark cards, claim rewrites, and memory candidates. |
 
-High-use skills may include `manifest.yaml` files that declare status, natural triggers, always-loaded references, task axes, and on-demand shared resources.
+High-use skills may include `manifest.yaml` files that declare status, verification status, natural triggers, always-loaded references, task axes, and on-demand shared resources. `status` is workflow maturity; `verification_status` is the confidence level behind the workflow or memory.
+
+Allowed verification statuses:
+
+- `unverified`
+- `source-traced`
+- `reproduced`
+- `user-validated`
+- `expert-reviewed`
 
 ## Default Pipeline Flow
 

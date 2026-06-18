@@ -22,6 +22,8 @@ Use this skill when the user wants to reproduce a paper, repository, benchmark b
 - Record environment, data path, weights, command, expected output, sanity check, and known failure recovery.
 - Do not assume unseen scripts, checkpoints, or dataset availability.
 - Separate smoke reproduction from full-paper reproduction.
+- Separate source-traced setup instructions from outputs actually reproduced locally.
+- List missing assets, ambiguous parameters, and deviations from the paper or repository convention.
 
 ## Workflow
 
@@ -36,15 +38,19 @@ Use this skill when the user wants to reproduce a paper, repository, benchmark b
 ```markdown
 Target artifact:
 Repository status:
+Verification status:
 Environment:
 Data:
 Weights:
 Minimal command:
 Expected output:
+Source evidence:
 Sanity checks:
 Full reproduction path:
 Failure recovery:
 Missing evidence:
+Missing information:
+Deviations from convention:
 Next skill:
 Memory candidate:
 ```
