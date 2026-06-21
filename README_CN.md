@@ -168,6 +168,17 @@ python3 ~/.codex/skills/.system/skill-installer/scripts/install-skill-from-githu
 帮我把这些实验结果写成论文 claim。
 ```
 
+如果需要生成可追踪的 workflow scaffold，可以使用轻量 runtime registry：
+
+```bash
+python3 scripts/neuroflow_runtime/cli.py list --kind chains
+python3 scripts/neuroflow_runtime/cli.py run --chain paper-to-repro --task "reproduce this paper baseline"
+```
+
+runtime 默认把私有 trace 和 artifact scaffold 写到 `.private/runs/`，记录选中的 chain、模块、必读文件、证据门和停止条件。它只是执行骨架，具体科研判断仍需要 agent 用真实证据填充。
+
+这个 runtime 层的价值是让深度任务即使在普通对话中也有显式 chain、私有 `trace.json` 和可填写的 artifact，例如 `REPRO_CONTRACT.md`、`BENCHMARK_AUDIT.md` 或 `PAPER_NARRATIVE.md`，减少 agent 忘记 workflow 或跳过证据门的概率。
+
 ## 更新知识
 
 添加论文、仓库笔记、数据集或实验结论后：

@@ -156,6 +156,17 @@ Help me turn these experiment results into a paper claim.
 
 If Codex gives a generic answer, see [Troubleshooting](docs/TROUBLESHOOTING.md). For concrete before/after workflows, see the [Demo Gallery](docs/DEMO_GALLERY.md). AI agents should follow [AGENTS.md](AGENTS.md) first; [AGENT_GUIDE.md](AGENT_GUIDE.md) provides the longer explanation.
 
+For traceable workflow scaffolds, use the lightweight runtime registry:
+
+```bash
+python3 scripts/neuroflow_runtime/cli.py list --kind chains
+python3 scripts/neuroflow_runtime/cli.py run --chain paper-to-repro --task "reproduce this paper baseline"
+```
+
+Runtime runs write private traces and artifact scaffolds under `.private/runs/` by default. They record the selected chain, modules, required reads, evidence gates, and stop condition; the agent still has to fill the artifact with inspected evidence.
+
+This runtime layer makes the workflow explicit even when a chat session would otherwise drift into ad hoc reasoning. It gives every deep task a named chain, a private `trace.json`, and a fillable artifact such as `REPRO_CONTRACT.md`, `BENCHMARK_AUDIT.md`, or `PAPER_NARRATIVE.md`.
+
 ## Persistent Workflow System
 
 The repository is organized as a compact operating system for research agents:

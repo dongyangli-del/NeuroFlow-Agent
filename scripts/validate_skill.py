@@ -7,6 +7,7 @@ import json
 import re
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -185,6 +186,31 @@ def validate_high_precision_maps() -> None:
         subprocess.run([sys.executable, str(script)], cwd=ROOT, check=True)
 
 
+def validate_runtime_registry() -> None:
+    cli = ROOT / "scripts" / "neuroflow_runtime" / "cli.py"
+    if not cli.exists():
+        fail("Missing runtime registry CLI: scripts/neuroflow_runtime/cli.py")
+    subprocess.run([sys.executable, str(cli), "list", "--kind", "chains"], cwd=ROOT, check=True, stdout=subprocess.DEVNULL)
+    with tempfile.TemporaryDirectory() as tmpdir:
+        subprocess.run(
+            [
+                sys.executable,
+                str(cli),
+                "run",
+                "--chain",
+                "paper-to-repro",
+                "--task",
+                "validate runtime registry",
+                "--output-root",
+                tmpdir,
+                "--dry-run",
+            ],
+            cwd=ROOT,
+            check=True,
+            stdout=subprocess.DEVNULL,
+        )
+
+
 def main() -> None:
     validate_required_files()
     validate_skill_structure()
@@ -195,6 +221,7 @@ def main() -> None:
     validate_no_large_files()
     validate_public_leakage()
     validate_high_precision_maps()
+    validate_runtime_registry()
     print("Skill repository validation passed.")
 
 

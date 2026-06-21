@@ -69,6 +69,24 @@ See [SKILL_LIBRARY_SPEC.md](SKILL_LIBRARY_SPEC.md) for the gap analysis, promoti
 | paper-to-rebuttal | `paper-rag-plus` -> `reviewer-simulator` -> `oral-writer` |
 | session-to-memory | `neuro-memory` with `ai-bci-research` guardrails |
 
+## Runtime Registry
+
+NeuroFlow includes a lightweight runtime registry inspired by workflow-platform patterns such as named workflow registration and trace export. It does not replace Codex or the skill instructions. It makes the selected workflow explicit and creates a private run scaffold that future agents can inspect.
+
+```bash
+python3 scripts/neuroflow_runtime/cli.py list --kind all
+python3 scripts/neuroflow_runtime/cli.py run \
+  --chain paper-to-repro \
+  --task "reproduce this paper baseline"
+```
+
+The runtime writes private outputs under `.private/runs/` by default:
+
+- `trace.json`: chain name, task, steps, modules, required reads, evidence gates, and stop condition.
+- `artifacts/<ARTIFACT>.md`: a fillable scaffold such as `REPRO_CONTRACT.md`, `BENCHMARK_AUDIT.md`, or `PAPER_NARRATIVE.md`.
+
+Runtime traces are execution scaffolds, not scientific conclusions. A run becomes trustworthy only after the agent fills the artifact with inspected evidence and applies the relevant evidence gates.
+
 ## Persistent Memory Loop
 
 Use after any meaningful paper review, repository inspection, experiment debugging session, or rebuttal.

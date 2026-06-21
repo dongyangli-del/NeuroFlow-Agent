@@ -13,6 +13,7 @@ The current validation checks:
 - `SKILL.md` has required frontmatter keys;
 - `evals/evals.json` is valid JSON;
 - optional `manifest.yaml` files include required routing and verification fields;
+- the lightweight runtime registry can list chains and create a dry-run private trace scaffold;
 - local Markdown links resolve;
 - large generated files are not accidentally committed;
 - obvious local path, private key, and API-token patterns are not present in public files.
