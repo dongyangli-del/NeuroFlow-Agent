@@ -15,7 +15,8 @@ Shared workflow primitives live in `skills/_shared/core/`. These are not trigger
 | `eeg-benchmark-hunter` | `references/benchmark-card-template.md`, `references/benchmark-risk-checklist.md` |
 | `repro-pack` | `references/repro-contract.md`, `references/failure-recovery.md` |
 | `continual-learning-designer` | `references/continual-bci-design.md`, `references/evaluation-protocol.md` |
-| `oral-writer` | `references/oral-paper-structure.md`, `references/figure-narrative.md` |
+| `reviewer-simulator` | `references/review-rubric.md`, `references/review-diagnosis.md`, `references/rebuttal-plan.md` |
+| `oral-writer` | `references/oral-paper-structure.md`, `references/writing-operations.md`, `references/figure-narrative.md`, `references/table-writing.md` |
 
 ## Manifest-Based Loading
 

@@ -1,16 +1,18 @@
 ---
 name: oral-writer
-description: Oral-level AI, ML, NeuroAI, and BCI paper writing skill. Use for turning evidence into a clear thesis, novelty compression, figure narrative, claim-evidence alignment, limitations, and reviewer-objection preemption for top-tier conference submissions.
+description: Oral-level AI, ML, NeuroAI, and BCI paper writing skill. Use for turning evidence into a clear thesis, novelty compression, figure narrative, claim-evidence alignment, limitations, reviewer-objection preemption, paper polishing, LaTeX/Word rewriting, logic checks, anti-AI-style cleanup, captions, and experiment analysis for top-tier conference submissions.
 ---
 
 # Oral-Writer
 
-Use this skill when the user wants oral-level paper framing, abstract/introduction rewriting, figure story, contribution framing, rebuttal polish, or submission narrative.
+Use this skill when the user wants oral-level paper framing, abstract/introduction rewriting, figure story, contribution framing, rebuttal polish, submission narrative, Chinese-to-English academic rewriting, English-to-Chinese reading translation, shortening, expansion, logic checking, anti-AI-style cleanup, figure/table titles, captions, LaTeX result tables, or experiment-result analysis.
 
 ## First Reads
 
 - `references/oral-paper-structure.md`: Always read for thesis and section structure.
+- `references/writing-operations.md`: Always read for writing operation taxonomy, format targets, and operation-specific gates.
 - `references/figure-narrative.md`: Read for figure order, captions, and evidence flow.
+- `references/table-writing.md`: Read for LaTeX tables, result-table captions, metric directions, best-value marking, and uncertainty reporting.
 - Use `paper-rag-plus` before novelty or related-work claims.
 - Use `experiment-copilot` to verify that the evidence supports the written claims.
 - Use `reviewer-simulator` to preempt objections before final text.
@@ -23,24 +25,35 @@ Use this skill when the user wants oral-level paper framing, abstract/introducti
 - Avoid hype words unless the evidence is specified.
 - Do not invent results, citations, ablations, or reviewer reactions.
 - Make figure captions state the takeaway, not just the contents.
+- Classify the requested writing operation before rewriting.
+- Preserve formulas, citations, labels, variables, metrics, datasets, and experimental conditions unless the user explicitly asks to remove them.
+- Respect the target surface: LaTeX output stays clean LaTeX, Word output stays plain text, and direct-copy outputs avoid Markdown decorations.
+- For anti-AI-style cleanup, remove mechanical transitions and vague flourish without changing technical meaning.
+- For experiment analysis, only state trends and conclusions present in the supplied data.
+- For result tables, preserve all supplied numbers, define metric direction, mark best values only under comparable protocols, and never imply statistical significance without uncertainty or tests.
 
 ## Workflow
 
 1. State the thesis, closest prior work, and evidence boundary.
-2. Build the contribution stack: problem, gap, method, evidence, limitation.
-3. Define the figure narrative before rewriting sections.
-4. Rewrite text with concrete nouns, scoped claims, and reviewer-facing caveats.
-5. Run objection preemption and identify missing evidence.
+2. Classify the writing operation and target surface.
+3. Build the contribution stack: problem, gap, method, evidence, limitation.
+4. Define the figure narrative before rewriting sections, captions, or titles.
+5. Rewrite text with concrete nouns, scoped claims, and reviewer-facing caveats.
+6. Run operation-specific checks for format, logic, evidence, and meaning preservation.
+7. Run objection preemption and identify missing evidence when the output makes or strengthens a paper claim.
 
 ## Required Output
 
 ```markdown
 Thesis:
 Closest prior work to verify:
+Writing operation:
+Target surface:
 Contribution stack:
 Evidence-to-claim map:
 Figure narrative:
-Oral-level abstract or section:
+Rewritten text or requested writing artifact:
+Operation checks:
 Likely reviewer objection:
 Missing evidence:
 Safer wording:
@@ -55,3 +68,6 @@ Memory candidate:
 - Hiding limitations instead of framing them precisely.
 - Treating qualitative figures as sufficient for strong quantitative claims.
 - Skipping reviewer objection preemption.
+- Changing technical meaning during polishing, translation, shortening, or anti-AI-style cleanup.
+- Producing Markdown, escaped LaTeX, or prose formatting that conflicts with the target surface.
+- Turning experiment tables into unsupported narrative claims.

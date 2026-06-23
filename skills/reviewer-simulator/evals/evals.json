@@ -7,6 +7,7 @@
       "expected_output": "A strict review simulation that flags online/offline mismatch, leakage, baselines, metrics, reproducibility, and gives reviewer personas plus action plan.",
       "files": [
         "references/review-rubric.md",
+        "references/review-diagnosis.md",
         "references/rebuttal-plan.md"
       ],
       "assertions": [
@@ -21,6 +22,30 @@
         },
         {
           "text": "Output avoids claiming missing experiments succeeded."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Review this draft claim: We demonstrate robust cross-subject EEG decoding. Current results only include within-subject accuracy on BCI-IV-2a; the cross-subject table is missing, and the introduction uses broad language about generalization. Tell me whether this is a method flaw or a writing problem and whether it is fixable before submission.",
+      "expected_output": "A strict diagnosis that separates the unsupported cross-subject claim from fixable wording issues, classifies root cause and fixability, and recommends either adding cross-subject evidence or narrowing the claim.",
+      "files": [
+        "references/review-rubric.md",
+        "references/review-diagnosis.md",
+        "references/rebuttal-plan.md"
+      ],
+      "assertions": [
+        {
+          "text": "Output identifies the missing cross-subject evidence as more than a wording-only problem."
+        },
+        {
+          "text": "Output includes root cause, defect type, fixability, reviewer consequence, and best repair."
+        },
+        {
+          "text": "Output distinguishes claim narrowing from adding a real cross-subject experiment."
+        },
+        {
+          "text": "Output does not imply the paper has proven robust cross-subject decoding."
         }
       ]
     }

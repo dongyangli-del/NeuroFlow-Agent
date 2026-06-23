@@ -1,17 +1,24 @@
 name: reviewer-simulator
-version: 0.2.0
+version: 0.3.0
 status: stable
 verification_status: source-traced
-purpose: Audit AI x brain papers, claims, rebuttals, and experiment plans as strict conference reviewers.
+purpose: Audit AI x brain papers, claims, rebuttals, and experiment plans as strict conference reviewers with root-cause and fixability diagnosis.
 natural_triggers:
   - "review this paper"
   - "what will reviewers attack"
   - "rebuttal plan"
   - "acceptance risk"
+  - "is this fixable"
+  - "method flaw or writing problem"
+  - "root cause"
   - "审稿风险"
   - "帮我模拟 reviewer"
+  - "这个问题能救吗"
+  - "方法问题还是表述问题"
+  - "根因是什么"
 always_load:
   - references/review-rubric.md
+  - references/review-diagnosis.md
   - ../_shared/core/reviewer-risk.md
   - ../_shared/core/claim-discipline.md
   - ../_shared/core/source-traceability.md
@@ -23,6 +30,12 @@ axes:
     draft: Full paper risk audit.
     claim: Narrow claim-to-evidence audit.
     rebuttal: Response plan and missing evidence triage.
+    diagnosis: Root-cause, fixability, and method-versus-presentation classification.
+  fixability:
+    quick_revision: Wording, caption, limitation, table clarification, or citation verification.
+    feasible_extra_experiment: Small controlled run, ablation, seed sweep, or analysis using existing data.
+    major_new_evidence: New dataset, baseline family, human study, online experiment, or full rerun.
+    structural_method_risk: Current method or protocol cannot support the main claim.
 on_demand:
   - condition: neural data or BCI protocol risk
     load: ../_shared/core/bci-validity.md

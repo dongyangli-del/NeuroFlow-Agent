@@ -7,6 +7,7 @@
       "expected_output": "A thesis, contribution stack, evidence-to-claim map, figure narrative, scoped writing, likely reviewer objections, missing evidence, safer wording, and next skill handoff.",
       "files": [
         "references/oral-paper-structure.md",
+        "references/writing-operations.md",
         "references/figure-narrative.md"
       ],
       "assertions": [
@@ -18,6 +19,114 @@
         },
         {
           "text": "Output includes a figure narrative and reviewer objection preemption."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "帮我把这段中文草稿润色成英文 LaTeX 论文风格：我们的方法在 BCI-IV-2a 上比 EEGNet 高 2.1%，但是跨被试结果还不稳定。公式 $L=L_cls+lambda L_align$ 不要改。",
+      "expected_output": "The skill should classify the request as a Chinese-to-English LaTeX writing operation, preserve the dataset, baseline, metric delta, limitation, and formula, and produce clean evidence-scoped LaTeX prose without requiring the user to say workflow.",
+      "files": [
+        "references/oral-paper-structure.md",
+        "references/writing-operations.md"
+      ],
+      "assertions": [
+        {
+          "text": "Output preserves BCI-IV-2a, EEGNet, 2.1%, the cross-subject limitation, and the formula."
+        },
+        {
+          "text": "Output does not invent citations, extra datasets, or stronger claims."
+        },
+        {
+          "text": "Output treats the natural polishing request as an oral-writer workflow even though the user did not mention workflow or skill."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "This paragraph sounds too AI-ish. Clean it up for a paper, but do not change the claim: Our robust and general framework significantly revolutionizes neural decoding by seamlessly leveraging multimodal representations.",
+      "expected_output": "The skill should classify the request as anti-AI-style polishing, remove vague hype, preserve the limited claim scope, and flag that terms such as robust, general, significant, and revolutionizes need evidence.",
+      "files": [
+        "references/oral-paper-structure.md",
+        "references/writing-operations.md"
+      ],
+      "assertions": [
+        {
+          "text": "Output removes or scopes vague hype rather than replacing it with new hype."
+        },
+        {
+          "text": "Output marks missing evidence for robustness, generality, and significance."
+        },
+        {
+          "text": "Output does not introduce new experiments or citations."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "根据这张表写一段实验分析：Method A 72.3, Method B 74.1, Ours 75.0 on within-subject accuracy; no variance reported.",
+      "expected_output": "The skill should classify the request as experiment-analysis, write only claims supported by the supplied values, compute or describe the visible comparisons cautiously, and note the missing variance.",
+      "files": [
+        "references/oral-paper-structure.md",
+        "references/writing-operations.md"
+      ],
+      "assertions": [
+        {
+          "text": "Output only uses Method A, Method B, Ours, 72.3, 74.1, 75.0, and within-subject accuracy."
+        },
+        {
+          "text": "Output does not claim statistical significance or robustness without variance."
+        },
+        {
+          "text": "Output names the missing uncertainty or variance as a limitation."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "给这张图起一个英文标题：图里比较了不同被试上跨 session EEG decoding 的准确率，主要想说明个体化校准能减少性能下降。",
+      "expected_output": "The skill should classify the request as a figure-title or caption operation and produce a direct, evidence-scoped English title that states the comparison and intended takeaway without ornamental wording.",
+      "files": [
+        "references/oral-paper-structure.md",
+        "references/writing-operations.md",
+        "references/figure-narrative.md"
+      ],
+      "assertions": [
+        {
+          "text": "Output mentions cross-session EEG decoding and individualized calibration."
+        },
+        {
+          "text": "Output avoids unsupported claims such as proven robustness or universal generalization."
+        },
+        {
+          "text": "Output uses a direct title/caption style rather than a long explanation unless requested."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "把下面结果写成 LaTeX 论文表格，booktabs 风格，并给一个 caption。BCI-IV-2a within-subject accuracy: EEGNet 72.3, DeepConvNet 74.1, Ours 75.0. 没有方差和显著性检验。",
+      "expected_output": "The skill should classify the request as latex-table work, produce a booktabs-style LaTeX table, preserve all numbers and protocol details, mark metric direction, and avoid significance claims because variance and tests are missing.",
+      "files": [
+        "references/oral-paper-structure.md",
+        "references/writing-operations.md",
+        "references/table-writing.md"
+      ],
+      "assertions": [
+        {
+          "text": "Output preserves BCI-IV-2a, within-subject accuracy, EEGNet 72.3, DeepConvNet 74.1, and Ours 75.0."
+        },
+        {
+          "text": "Output uses booktabs-style LaTeX with top, mid, and bottom rules."
+        },
+        {
+          "text": "Output marks or states the metric direction for accuracy."
+        },
+        {
+          "text": "Output does not claim statistical significance, robustness, or generalization without variance or tests."
+        },
+        {
+          "text": "Output includes a scoped caption and evidence boundary or table note."
         }
       ]
     }

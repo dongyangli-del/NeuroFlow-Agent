@@ -79,8 +79,8 @@ The repository contains several specialist skills, but users should not rely on 
 | `repro-pack` | Stable | Builds reproduction contracts with environment, data, weights, commands, expected outputs, and recovery paths. | "make this reproducible", "smoke test", "baseline table", "复现" |
 | `continual-learning-designer` | Beta | Designs cross-subject/session/device adaptation, streaming calibration, forgetting protocols, and online/offline boundaries. | "online adaptation", "cross-session", "forgetting", "持续学习" |
 | `experiment-copilot` | Stable | Designs experiment matrices, ablations, controls, statistics, and stop rules. | "design ablations", "baseline is stronger", "metric gap", "实验矩阵" |
-| `reviewer-simulator` | Stable | Audits papers, claims, and rebuttals as strict conference reviewers. | "review this claim", "what will reviewers attack", "rebuttal plan", "审稿风险" |
-| `oral-writer` | Beta | Turns evidence into thesis, figure narrative, scoped claims, and reviewer-facing paper text. | "write abstract", "paper claim", "figure story", "写摘要" |
+| `reviewer-simulator` | Stable | Audits papers, claims, rebuttals, root causes, fixability, and method-vs-presentation risks as strict conference reviewers. | "review this claim", "what will reviewers attack", "is this fixable", "方法问题还是表述问题" |
+| `oral-writer` | Beta | Turns evidence into thesis, figure narrative, scoped claims, reviewer-facing paper text, writing operations, captions, and LaTeX result tables. | "write abstract", "polish this paragraph", "booktabs table", "去 AI 味" |
 | `neuro-memory` | Stable | Compresses completed sessions into durable workflow, playbook, finding, case, or eval memory. | "make this reusable", "save this lesson", "memory candidate", "沉淀经验" |
 | `ai-bci-research` | Stable | Supplies shared AI x BCI assumptions, failure-mode checks, and public workflow memory; not the default router. | "BCI validity", "signal leakage", "closed loop", "脑机接口检查" |
 

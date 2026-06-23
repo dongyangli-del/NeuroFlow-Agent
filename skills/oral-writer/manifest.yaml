@@ -1,19 +1,41 @@
 name: oral-writer
-version: 0.2.0
+version: 0.3.0
 status: beta
 verification_status: source-traced
-purpose: Turn inspected evidence into thesis, figure narrative, scoped claims, and reviewer-facing paper text.
+purpose: Turn inspected evidence into thesis, figure narrative, scoped claims, reviewer-facing paper text, and format-aware paper writing operations.
 natural_triggers:
   - "write abstract"
   - "paper claim"
   - "figure story"
   - "rewrite introduction"
   - "contribution framing"
+  - "polish this paragraph"
+  - "make this sound less AI"
+  - "shorten this"
+  - "expand this"
+  - "write a caption"
+  - "write a latex table"
+  - "booktabs table"
+  - "result table"
+  - "analyze these results"
+  - "logic check"
   - "写摘要"
   - "论文 claim"
   - "figure narrative"
+  - "润色这段"
+  - "去 AI 味"
+  - "缩写"
+  - "扩写"
+  - "逻辑检查"
+  - "图标题"
+  - "表标题"
+  - "LaTeX 表格"
+  - "结果表"
+  - "booktabs"
+  - "实验分析"
 always_load:
   - references/oral-paper-structure.md
+  - references/writing-operations.md
   - ../_shared/core/claim-discipline.md
   - ../_shared/core/source-traceability.md
   - ../_shared/core/output-contracts.md
@@ -23,8 +45,37 @@ axes:
     introduction: Problem, closest limitation, principle, method, and contributions.
     figure: Visual order, takeaway captions, and evidence flow.
     rebuttal: Claim narrowing, evidence response, and reviewer objection handling.
+    paragraph: Format-aware polishing, shortening, expansion, or translation.
+    caption: Figure/table title or caption with takeaway and evidence boundary.
+    table: LaTeX result table with metric direction, comparable-row grouping, caption, and evidence boundary.
+    experiment_analysis: Result paragraph grounded only in supplied data.
+  operation:
+    zh_to_en_latex: Chinese notes to English LaTeX paper prose with formulas and citations preserved.
+    en_to_zh_reading: English paper text to Chinese reading translation without silent logic repair.
+    zh_to_en_word: Chinese notes to Word-friendly English paper prose without Markdown.
+    zh_to_zh_word: Chinese notes to formal Chinese academic prose.
+    shorten: Compress wording without removing evidence, numbers, or limitations.
+    expand: Add supported logical bridges without inventing evidence.
+    polish_en: Improve English clarity while preserving claim scope.
+    polish_zh: Improve Chinese academic style while preserving author intent.
+    logic_check: Report material contradictions, ambiguous terms, and unsupported claims.
+    anti_ai_style: Remove mechanical transitions and vague flourish without changing meaning.
+    architecture_figure_plan: Turn method description into module and data-flow figure plan.
+    plot_recommendation: Choose a plot type based on result structure and intended claim.
+    latex_table: Turn supplied results into a LaTeX paper table with booktabs-style structure and scoped caption.
+    figure_or_table_title: Generate direct, evidence-scoped figure or table titles.
+    experiment_analysis: Convert supplied results into a scoped paper paragraph.
+    reviewer_view_audit: Audit the paper from a strict reviewer perspective.
+    model_choice_rationale: Justify model choice from task, data, modality, and baseline constraints.
+  surface:
+    latex: Preserve valid LaTeX, math, labels, citations, and necessary escapes.
+    word: Plain direct-copy text without Markdown or LaTeX-specific escaping.
+    plain_text: Minimal-label prose for direct use or review.
+    review_report: Issue-first report with concrete repairs.
 on_demand:
   - condition: figure or caption work
     load: references/figure-narrative.md
+  - condition: table or result-table work
+    load: references/table-writing.md
   - condition: reviewer-facing risk
     load: ../_shared/core/reviewer-risk.md

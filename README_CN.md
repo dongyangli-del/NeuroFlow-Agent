@@ -101,8 +101,8 @@ Codex 用户不应该依赖系统自动调动多个 skills。默认入口始终�
 | `repro-pack` | Stable | 生成复现契约：环境、数据、权重、命令、expected output、sanity check 和 failure recovery。 | “复现”, “smoke test”, “baseline table” |
 | `continual-learning-designer` | Beta | 设计跨 subject/session/device adaptation、streaming calibration 和 forgetting protocol。 | “持续学习”, “online adaptation”, “cross-session” |
 | `experiment-copilot` | Stable | 设计实验矩阵、ablation、control、统计检验和 stop rule。 | “设计消融”, “baseline 比不过”, “metric gap” |
-| `reviewer-simulator` | Stable | 按严格会议审稿标准检查 claim、证据和 rebuttal 风险。 | “审稿风险”, “模拟 reviewer”, “rebuttal plan” |
-| `oral-writer` | Beta | 把证据压缩成 Oral 级 thesis、figure narrative 和 reviewer-facing 论文文本。 | “写摘要”, “论文 claim”, “figure story” |
+| `reviewer-simulator` | Stable | 按严格会议审稿标准检查 claim、证据、rebuttal 风险、根因、可救性，以及方法缺陷 vs 表述缺陷。 | “审稿风险”, “模拟 reviewer”, “这个问题能救吗”, “方法问题还是表述问题” |
+| `oral-writer` | Beta | 把证据压缩成 Oral 级 thesis、figure narrative、reviewer-facing 论文文本、写作操作、caption 和 LaTeX 结果表。 | “写摘要”, “润色这段”, “booktabs”, “去 AI 味” |
 | `neuro-memory` | Stable | 把完成的 session 压缩成可复用的 workflow、playbook、finding、case 或 eval。 | “沉淀经验”, “make this reusable”, “memory candidate” |
 | `ai-bci-research` | Stable | 提供 AI x BCI 的共享领域假设、有效性检查和长期研究记忆；不是默认路由器。 | “BCI validity”, “signal leakage”, “closed loop” |
 
