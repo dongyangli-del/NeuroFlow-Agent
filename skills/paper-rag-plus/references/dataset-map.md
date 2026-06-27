@@ -561,3 +561,29 @@ Unresolved dataset assignments: 1422
 - Evidence that the dataset is used or introduced: Abstract This dataset, colloquially known as the Mother Of Unification Studies (MOUS) dataset, contains multimodal neuroimaging data that has been acquired from 204 healthy human subjects.
 - Dataset evidence class: direct sentence from BIB title/abstract/keywords
 - Task context: Speech/language decoding, Dataset/benchmark; evidence: A 204-subject multimodal neuroimaging dataset to study language processing.
+
+## Remaining-Field Source-Traced Dataset Addendum
+
+Generated: 2026-06-27
+
+This addendum records dataset facts verified during the remaining-field pass. These entries are `agent-source-traced`; they are not human-reviewed or expert-reviewed.
+
+### Primary or Evaluation Datasets
+
+- `Can Language Understand Depth?`: NYU Depth v2 for zero-shot monocular depth estimation evaluation; 120K RGB-depth pairs from 464 indoor scenes, with 36,253 training images and 654 test images. Sources: https://arxiv.org/html/2207.01077; https://dl.acm.org/doi/10.1145/3503161.3549201
+- `Does the brain represent words? An evaluation of brain decoding studies of language understanding`: Pereira et al. sentence-decoding fMRI dataset with 384 sentences and associated subject brain images. Sources: https://arxiv.org/abs/1806.00591; https://ar5iv.org/pdf/1806.00591
+- `DiffEditor: Boosting Accuracy and Flexibility on Diffusion-Based Image Editing`: LAION training data processed to 512x512; evaluation includes DragonDiff's 800 aligned CelebA-HQ faces and 16 samples for each object-pasting, object-moving, and appearance-replacing task. Sources: https://openaccess.thecvf.com/content/CVPR2024/papers/Mou_DiffEditor_Boosting_Accuracy_and_Flexibility_on_Diffusion-based_Image_Editing_CVPR_2024_paper.pdf; https://openaccess.thecvf.com/content/CVPR2024/html/Mou_DiffEditor_Boosting_Accuracy_and_Flexibility_on_Diffusion-based_Image_Editing_CVPR_2024_paper.html
+
+### Review or Perspective Articles With No Primary Dataset
+
+- `How to build a cognitive map`: no primary dataset; Nature review article states no data were generated. Source: https://www.nature.com/articles/s41593-022-01153-y
+- `Mental state decoders: game-changers or wishful thinking?`: no primary dataset; review/opinion article about fMRI-based mental and perceptual state decoders. Sources: https://pubmed.ncbi.nlm.nih.gov/38991876/; https://doi.org/10.1016/j.tics.2024.06.004
+- `Neuroscience-Inspired Artificial Intelligence`: no primary dataset; review article surveying interactions between neuroscience and AI. Sources: https://pubmed.ncbi.nlm.nih.gov/28728020/; https://doi.org/10.1016/j.neuron.2017.06.011
+- `Predictive processing of scenes and objects`: no primary dataset; Nature Reviews Psychology review synthesizing behavioural and neural findings. Source: https://www.nature.com/articles/s44159-023-00254-0
+- `Shared Neural Mechanisms of Visual Perception and Imagery`: no primary dataset; review of neuroimaging studies comparing visual perception and imagery. Sources: https://pubmed.ncbi.nlm.nih.gov/30876729/; https://doi.org/10.1016/j.tics.2019.02.004
+- `The Future of Memory: Remembering, Imagining, and the Brain`: no primary dataset; review of memory, imagination, and future thinking. Sources: https://pmc.ncbi.nlm.nih.gov/articles/PMC3815616/; https://doi.org/10.1016/j.neuron.2012.11.001
+- `What Learning Systems do Intelligent Agents Need? Complementary Learning Systems Theory Updated`: no primary dataset; review/update of complementary learning systems theory. Sources: https://pubmed.ncbi.nlm.nih.gov/27315762/; https://doi.org/10.1016/j.tics.2016.05.004
+- `Category selectivity in human visual cortex: Beyond visual object recognition`: no primary dataset; review article on category selectivity in human visual cortex. Sources: https://pubmed.ncbi.nlm.nih.gov/28377161/; https://doi.org/10.1016/j.neuropsychologia.2017.03.033
+- `Convergent multi-modular architecturefor adaptive learning in Drosophila and artificial intelligence`: no primary dataset; iScience Perspective reviewing Drosophila olfactory learning and AI analogues. Sources: https://pmc.ncbi.nlm.nih.gov/articles/PMC12616022/; https://doi.org/10.1016/j.isci.2025.113799
+- `Data-Driven Approaches to Understanding Visual Neuron Activity`: no primary dataset; review of statistical and data-driven models for visual neuron activity. Sources: https://pubmed.ncbi.nlm.nih.gov/31386605/; https://doi.org/10.1146/annurev-vision-091718-014731
+- `Decoding the brain: From neural representations to mechanistic models`: no primary dataset; Cell Perspective/review on neural encoding and decoding. Sources: https://pmc.ncbi.nlm.nih.gov/articles/PMC11637322/; https://doi.org/10.1016/j.cell.2024.08.051

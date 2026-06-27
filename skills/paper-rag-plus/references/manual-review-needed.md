@@ -4,11 +4,11 @@ This report lists fields that could not be verified from cleaned Zotero BIB meta
 
 ## Summary
 
-- dataset: 17
+- dataset: 1
 - signal modality: 0
-- metric: 20
+- metric: 15
 - method: 0
-- limitations: 33
+- limitations: 5
 - task: 0
 - doi: 4
 - venue: 0
@@ -27,11 +27,11 @@ Auto matched title: Hopfield Networks is All You Need
 Auto source URL: https://www.semanticscholar.org/paper/804a6d7c23335bbca6eec3b7d3c8366dcbe395a5
 Auto verified fields: year=2020, venue=International Conference on Learning Representations
 
-Missing or unresolved: limitations
+Missing or unresolved: none
 Suggested next action: inspect paper text or trusted public source for the remaining unresolved fields.
 
 Auto field verification status: source-traced field pass
-Auto unresolved after field pass: limitations
+Auto unresolved after field pass: none
 
 Agent field verification status: agent-source-traced
 Agent verified dataset: Immune repertoire classification datasets; MIL benchmarks Tiger, Fox, Elephant, UCSB Breast Cancer; UCI small classification benchmark collection; drug-design datasets HIV, BACE, BBBP, and SIDER.
@@ -59,7 +59,12 @@ Agent field evidence (task): OpenReview abstract says broad applicability is dem
 Agent field confidence (task): high
 Agent field sources (task): https://openreview.net/forum?id=tL89RnzIiCd; https://arxiv.org/abs/2008.02217
 
-Agent unresolved after preview: limitations
+Agent verified limitations: Experimental boundary: the BERT attention-head analysis used the BERT-small setting, with 12 layers, 4 heads, reduced hidden size and sequence length shortened to 128 to keep training time manageable; broader transformer-scale conclusions should be read within that setup.
+Agent field evidence (limitations): The arXiv/OpenReview paper states that transformer architectures have high computational demands and that the authors adopted BERT-small and shortened sequence length to keep training manageable.
+Agent field confidence (limitations): high
+Agent field source tier (limitations): tier1_paper_text
+Agent field sources (limitations): https://openreview.net/forum?id=tL89RnzIiCd; https://arxiv.org/abs/2008.02217; https://arxiv.org/pdf/2008.02217
+Agent unresolved after preview: none
 
 ### Neural Encoding and Decoding at Scale
 
@@ -968,11 +973,11 @@ Auto matched title: Accelerating scientific discovery with Co-Scientist
 Auto source URL: https://doi.org/10.1038/s41586-026-10644-y
 Auto verified fields: year=2026, venue=Nature, doi=10.1038/s41586-026-10644-y
 
-Missing or unresolved: limitations
+Missing or unresolved: none
 Suggested next action: inspect paper text or trusted public source for the remaining unresolved fields.
 
 Auto field verification status: source-traced field pass
-Auto unresolved after field pass: limitations
+Auto unresolved after field pass: none
 
 Agent field verification status: agent-source-traced
 Agent verified dataset: Empirical scientific-discovery case studies rather than a named dataset.
@@ -997,7 +1002,13 @@ Agent field evidence (metric): Nature supplementary information states that the 
 Agent field confidence (metric): high
 Agent field source tier (metric): tier1_paper_text
 Agent field sources (metric): https://www.nature.com/articles/s41586-026-10644-y; https://static-content.springer.com/esm/art%3A10.1038%2Fs41586-026-10644-y/MediaObjects/41586_2026_10644_MOESM1_ESM.pdf
-Agent unresolved after preview: limitations
+
+Agent verified limitations: The evaluation includes preliminary human-seeded refinement findings, resource-intensive human expert evaluation supplemented by LLM-as-a-judge, single-institution oncologist review, drug-repurposing proposals not yet supported by randomized phase III trials, and a pilot proposal-evaluation rubric that omits full grant-review axes and still needs validation.
+Agent field evidence (limitations): Nature supplementary text calls the human-seeded refinement result preliminary, describes human expert review as the gold standard but resource-intensive, notes the single-institution expert panel, states that proposed drug candidates lack randomized phase III trials, and says the rubric is a pilot framework that omits detailed grant-review elements and requires further validation.
+Agent field confidence (limitations): high
+Agent field source tier (limitations): tier1_paper_text
+Agent field sources (limitations): https://www.nature.com/articles/s41586-026-10644-y; https://static-content.springer.com/esm/art%3A10.1038%2Fs41586-026-10644-y/MediaObjects/41586_2026_10644_MOESM1_ESM.pdf
+Agent unresolved after preview: none
 
 ### Adversarial Decoding: Generating Readable Documents for Adversarial Objectives
 
@@ -1175,6 +1186,7 @@ Agent field evidence (metric): The ICLR paper's Evaluation Metrics section evalu
 Agent field confidence (metric): high
 Agent field source tier (metric): tier1_paper_text
 Agent field sources (metric): https://openreview.net/forum?id=NAQvF08TcyG; https://openreview.net/pdf?id=NAQvF08TcyG
+
 Agent unresolved after preview: none
 
 ### AnyGrasp: Robust and Efficient Grasp Perception in Spatial and Temporal Domains
@@ -1463,7 +1475,7 @@ Auto matched title: Conditional Diffusion with Ordinal Regression: Longitudinal 
 Auto source URL: https://www.semanticscholar.org/paper/5226db152c2623596f552c31e956085000b54b21
 Auto verified fields: year=2025, venue=International Conference on Learning Representations
 
-Missing or unresolved: doi, metric
+Missing or unresolved: doi
 Suggested next action: inspect paper text or trusted public source for the remaining unresolved fields.
 
 Auto field verification status: source-traced field pass
@@ -1476,7 +1488,7 @@ Auto field source (method): Zotero BIB title/abstract/keywords
 Auto verified limitations: source-traced limitation/caveat sentence
 Auto field evidence (limitations): However, scarcity of longitudinal data and complex disease dynamics make the analysis highly challenging.
 Auto field source (limitations): Zotero BIB title/abstract/keywords
-Auto unresolved after field pass: doi, metric
+Auto unresolved after field pass: doi
 
 Agent field verification status: agent-source-traced
 Agent verified dataset: Longitudinal neurodegenerative-disease data with experiments on four Alzheimer's disease biomarkers.
@@ -1488,7 +1500,12 @@ Agent field evidence (signal modality): OpenReview abstract describes longitudin
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://openreview.net/forum?id=9UGfOJBuL8
 
-Agent unresolved after preview: doi, metric
+Agent verified metric: Wasserstein distance (WD), root mean squared error (RMSE), and Jensen-Shannon divergence (JSD); the multi-domain table also reports test-set generation time and per-sequence generation time.
+Agent field evidence (metric): The official ICLR PDF states that three metrics were used to evaluate generated samples versus test data: WD, RMSE, and JSD. Tables 1-2 report WD/RMSE/JSD, with Table 2 additionally reporting generation time columns.
+Agent field confidence (metric): high
+Agent field source tier (metric): tier1_paper_text
+Agent field sources (metric): https://proceedings.iclr.cc/paper_files/paper/2025/hash/524ef58c2bd075775861234266e5e020-Abstract-Conference.html; https://proceedings.iclr.cc/paper_files/paper/2025/file/524ef58c2bd075775861234266e5e020-Paper-Conference.pdf
+Agent unresolved after preview: doi
 
 ### CONDITIONAL DIFFUSION WITH ORDINAL REGRES- SION: LONGITUDINAL DATA GENERATION FOR NEURODEGENERATIVE DISEASE STUDIES
 
@@ -1501,7 +1518,7 @@ Auto matched title: Conditional Diffusion with Ordinal Regression: Longitudinal 
 Auto source URL: https://www.semanticscholar.org/paper/5226db152c2623596f552c31e956085000b54b21
 Auto verified fields: year=2025, venue=International Conference on Learning Representations
 
-Missing or unresolved: doi, metric
+Missing or unresolved: doi
 Suggested next action: inspect paper text or trusted public source for the remaining unresolved fields.
 
 Auto field verification status: source-traced field pass
@@ -1514,7 +1531,7 @@ Auto field source (method): Zotero BIB title/abstract/keywords
 Auto verified limitations: source-traced limitation/caveat sentence
 Auto field evidence (limitations): However, scarcity of longitudinal data and complex disease dynamics make the analysis highly challenging.
 Auto field source (limitations): Zotero BIB title/abstract/keywords
-Auto unresolved after field pass: doi, metric
+Auto unresolved after field pass: doi
 
 Agent field verification status: agent-source-traced
 Agent verified dataset: Longitudinal neurodegenerative-disease data with experiments on four Alzheimer's disease biomarkers.
@@ -1526,7 +1543,12 @@ Agent field evidence (signal modality): OpenReview abstract describes longitudin
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://openreview.net/forum?id=9UGfOJBuL8
 
-Agent unresolved after preview: doi, metric
+Agent verified metric: Wasserstein distance (WD), root mean squared error (RMSE), and Jensen-Shannon divergence (JSD); the multi-domain table also reports test-set generation time and per-sequence generation time.
+Agent field evidence (metric): The official ICLR PDF states that three metrics were used to evaluate generated samples versus test data: WD, RMSE, and JSD. Tables 1-2 report WD/RMSE/JSD, with Table 2 additionally reporting generation time columns.
+Agent field confidence (metric): high
+Agent field source tier (metric): tier1_paper_text
+Agent field sources (metric): https://proceedings.iclr.cc/paper_files/paper/2025/hash/524ef58c2bd075775861234266e5e020-Abstract-Conference.html; https://proceedings.iclr.cc/paper_files/paper/2025/file/524ef58c2bd075775861234266e5e020-Paper-Conference.pdf
+Agent unresolved after preview: doi
 
 ### Can Language Understand Depth?
 
@@ -1539,7 +1561,7 @@ Auto matched title: Can Language Understand Depth?
 Auto source URL: https://doi.org/10.1145/3503161.3549201
 Auto verified fields: year=2022, venue=Proceedings of the 30th ACM International Conference on Multimedia, doi=10.1145/3503161.3549201
 
-Missing or unresolved: dataset, metric
+Missing or unresolved: none
 Suggested next action: inspect paper text or trusted public source for the remaining unresolved fields.
 
 Auto field verification status: source-traced field pass
@@ -1549,7 +1571,7 @@ Auto field source (method): Zotero BIB title/abstract/keywords
 Auto verified limitations: source-traced limitation/caveat sentence
 Auto field evidence (limitations): However, it's still challenging to transfer semantic knowledge learned from CLIP into more intricate tasks of quantified targets, such as depth estimation with geometric information.
 Auto field source (limitations): Zotero BIB title/abstract/keywords
-Auto unresolved after field pass: dataset, metric
+Auto unresolved after field pass: none
 
 Agent field verification status: agent-source-traced
 Agent verified signal modality: RGB image inputs paired with language/CLIP semantic representations.
@@ -1561,7 +1583,17 @@ Agent field evidence (task): Semantic Scholar abstract states the paper proposes
 Agent field confidence (task): high
 Agent field sources (task): https://doi.org/10.1145/3503161.3549201; https://arxiv.org/abs/2207.01077; https://www.semanticscholar.org/paper/9d0afe58801fe9e5537902e853d6e9e385340a92
 
-Agent unresolved after preview: dataset, metric
+Agent verified dataset: NYU Depth v2 for zero-shot monocular depth estimation evaluation: 120K RGB-depth pairs captured with Microsoft Kinect across 464 indoor scenes; training split 36,253 images from 249 scenes and test split 654 images from 215 scenes.
+Agent field evidence (dataset): The paper's Experiments/Datasets section states that DepthCLIP is evaluated on NYU Depth v2, describes 120K RGB-depth image pairs from 464 indoor scenes, and gives the training/testing split sizes.
+Agent field confidence (dataset): high
+Agent field source tier (dataset): tier1_paper_text
+Agent field sources (dataset): https://arxiv.org/html/2207.01077; https://dl.acm.org/doi/10.1145/3503161.3549201
+Agent verified metric: Mean absolute relative error (rel), root mean square error (rmse), absolute log10 error, and threshold accuracy delta_i for thresholds 1.25, 1.25^2, and 1.25^3.
+Agent field evidence (metric): The paper's Evaluation Metrics section says the quantitative metrics are rel, rmse, log10, and threshold accuracy delta_i; Table 1 reports delta < 1.25, delta < 1.25^2, delta < 1.25^3, rel, log10, and rmse.
+Agent field confidence (metric): high
+Agent field source tier (metric): tier1_paper_text
+Agent field sources (metric): https://doi.org/10.1145/3503161.3549201; https://arxiv.org/pdf/2207.01077
+Agent unresolved after preview: none
 
 ### Computational framework to predict and shape human–machine interactions in closed-loop, co-adaptive neural interfaces
 
@@ -1664,7 +1696,7 @@ Auto matched title: Does the brain represent words? An evaluation of brain decod
 Auto source URL: https://doi.org/10.32470/ccn.2018.1237-0
 Auto verified fields: year=2018, venue=2018 Conference on Cognitive Computational Neuroscience, doi=10.32470/ccn.2018.1237-0
 
-Missing or unresolved: dataset, metric
+Missing or unresolved: none
 Suggested next action: inspect paper text or trusted public source for the remaining unresolved fields.
 
 Auto field verification status: source-traced field pass
@@ -1674,7 +1706,7 @@ Auto field source (task): Zotero BIB title/abstract/keywords
 Auto verified limitations: source-traced limitation/caveat sentence
 Auto field evidence (limitations): (2018), showing how standard evaluations fail to distinguish between language processing models which deploy different mechanisms and which are optimized to solve very different tasks.
 Auto field source (limitations): Zotero BIB title/abstract/keywords
-Auto unresolved after field pass: dataset, metric
+Auto unresolved after field pass: none
 
 Agent field verification status: agent-source-traced
 Agent verified method: Evaluation of brain decoding studies of language understanding.
@@ -1687,7 +1719,18 @@ Agent field evidence (signal modality): The paper describes Pereira et al.-style
 Agent field confidence (signal modality): high
 Agent field source tier (signal modality): tier1_paper_text
 Agent field sources (signal modality): https://arxiv.org/abs/1806.00591; https://arxiv.org/pdf/1806.00591
-Agent unresolved after preview: dataset, metric
+
+Agent verified dataset: Pereira et al. sentence-decoding fMRI dataset: 384 sentences and associated subject brain images used to train/evaluate decoders.
+Agent field evidence (dataset): The arXiv paper states that decoders are trained on the 384 sentences used by Pereira et al. and the associated brain images, and evaluates predictions against representations of those 384 sentences.
+Agent field confidence (dataset): high
+Agent field source tier (dataset): tier1_paper_text
+Agent field sources (dataset): https://arxiv.org/abs/1806.00591; https://ar5iv.org/pdf/1806.00591
+Agent verified metric: Mean average rank (MAR) for learned decoders, plus r2 for pairwise regression evaluation of model representations; figures report bootstrap 95% confidence intervals for MAR.
+Agent field evidence (metric): The paper's Evaluation method says learned decoders are evaluated using mean average rank. It also states that Figure 3 reports the r2 metric for each pairwise regression evaluation, while Figure 2 reports MAR with bootstrap 95% confidence intervals.
+Agent field confidence (metric): high
+Agent field source tier (metric): tier1_paper_text
+Agent field sources (metric): https://arxiv.org/pdf/1806.00591; https://www.foldl.me/uploads/papers/ccn2018.pdf
+Agent unresolved after preview: none
 
 ### Dynamic memristor-based reservoir computing for high-efficiency temporal signal processing
 
@@ -1791,11 +1834,11 @@ Auto matched title: Electrophysiological correlates of semantic dissimilarity re
 Auto source URL: https://www.semanticscholar.org/paper/288136ff52b0db694f735a3ab2931c5f16d41869
 Auto verified fields: year=2017, venue=bioRxiv, doi=10.1101/193201
 
-Missing or unresolved: limitations
+Missing or unresolved: none
 Suggested next action: inspect paper text or trusted public source for the remaining unresolved fields.
 
 Auto field verification status: source-traced field pass
-Auto unresolved after field pass: limitations
+Auto unresolved after field pass: none
 
 Agent field verification status: agent-source-traced
 Agent verified dataset: Dryad/OpenNeuro naturalistic speech EEG data; healthy adults listened to audiobook segments from The Old Man and the Sea.
@@ -1819,7 +1862,12 @@ Agent field evidence (task): The title and abstract state semantic dissimilarity
 Agent field confidence (task): high
 Agent field sources (task): https://www.biorxiv.org/content/10.1101/193201v1; https://datadryad.org/dataset/doi:10.5061/dryad.070jc; https://openneuro.org/datasets/ds004408/versions/1.0.8; https://www.cell.com/current-biology/fulltext/S0960-9822(18)30146-5
 
-Agent unresolved after preview: limitations
+Agent verified limitations: Experimental boundary: the study derives EEG temporal response functions for semantic dissimilarity during natural narrative speech, and the authors note that subjects have marked limitations in reporting unattended-speech content when interpreting unattended-speech semantic processing.
+Agent field evidence (limitations): The bioRxiv full text describes the natural-speech EEG/TRF paradigm and, in the unattended-speech discussion, notes marked limitations in subjects' ability to report unattended-speech content.
+Agent field confidence (limitations): medium
+Agent field source tier (limitations): tier1_paper_text
+Agent field sources (limitations): https://www.biorxiv.org/content/10.1101/193201v1.full; https://doi.org/10.1101/193201
+Agent unresolved after preview: none
 
 ### End-to-end privacy preserving deep learning on multi-institutional medical imaging
 
@@ -1832,11 +1880,11 @@ Auto matched title: End-to-end privacy preserving deep learning on multi-institu
 Auto source URL: https://doi.org/10.1038/s42256-021-00337-8
 Auto verified fields: year=2021, venue=Nature Machine Intelligence, doi=10.1038/s42256-021-00337-8
 
-Missing or unresolved: limitations
+Missing or unresolved: none
 Suggested next action: inspect paper text or trusted public source for the remaining unresolved fields.
 
 Auto field verification status: source-traced field pass
-Auto unresolved after field pass: limitations
+Auto unresolved after field pass: none
 
 Agent field verification status: agent-source-traced
 Agent verified dataset: Multi-institutional paediatric chest X-ray case study.
@@ -1860,7 +1908,12 @@ Agent field evidence (task): Abstract states the case study classifies paediatri
 Agent field confidence (task): high
 Agent field sources (task): https://doi.org/10.1038/s42256-021-00337-8; https://portal.fis.tum.de/en/publications/end-to-end-privacy-preserving-deep-learning-on-multi-institutiona/; https://cris.fau.de/publications/290551499/
 
-Agent unresolved after preview: limitations
+Agent verified limitations: Experimental boundary: PriMIA is demonstrated on a paediatric chest-X-ray classification case study, with encrypted remote inference using secure multi-party computation; the Nature page also notes confidential test sets that cannot be publicly shared.
+Agent field evidence (limitations): The Nature abstract says the framework is tested using a real-life paediatric chest-X-ray case study and encrypted remote inference, and the data availability statement says test sets 1 and 2 contain confidential patient information and cannot be shared publicly.
+Agent field confidence (limitations): high
+Agent field source tier (limitations): tier1_paper_text
+Agent field sources (limitations): https://www.nature.com/articles/s42256-021-00337-8
+Agent unresolved after preview: none
 
 ### ExBody2: Advanced Expressive Humanoid Whole-Body Control
 
@@ -1964,11 +2017,11 @@ Auto matched title: How to build a cognitive map
 Auto source URL: https://doi.org/10.1038/s41593-022-01153-y
 Auto verified fields: year=2022, venue=Nature Neuroscience, doi=10.1038/s41593-022-01153-y
 
-Missing or unresolved: dataset, limitations, metric
+Missing or unresolved: metric
 Suggested next action: inspect paper text or trusted public source for the remaining unresolved fields.
 
 Auto field verification status: source-traced field pass
-Auto unresolved after field pass: dataset, limitations, metric
+Auto unresolved after field pass: metric
 
 Agent field verification status: agent-source-traced
 Agent verified method: Perspective/review synthesizing computational models of hippocampal formation cognitive maps into a common language.
@@ -1984,7 +2037,17 @@ Agent field evidence (task): Abstract frames the aim as understanding learning a
 Agent field confidence (task): high
 Agent field sources (task): https://doi.org/10.1038/s41593-022-01153-y; https://arxiv.org/abs/2202.01682
 
-Agent unresolved after preview: dataset, limitations, metric
+Agent verified dataset: No primary dataset; review article. The article explicitly states that no data were generated in the Review.
+Agent field evidence (dataset): Nature labels the article as a Review Article and the Data availability section states that no data were generated in the Review.
+Agent field confidence (dataset): high
+Agent field source tier (dataset): tier1_paper_text
+Agent field sources (dataset): https://www.nature.com/articles/s41593-022-01153-y
+Agent verified limitations: Paper-type boundary: this is a Review that organizes existing cognitive-map models into an ontology rather than reporting new empirical data; the article states that no data were generated.
+Agent field evidence (limitations): The Nature Neuroscience page identifies the article as a Review and states in data availability that no data were generated in the review.
+Agent field confidence (limitations): high
+Agent field source tier (limitations): tier1_paper_text
+Agent field sources (limitations): https://www.nature.com/articles/s41593-022-01153-y
+Agent unresolved after preview: metric
 
 ### Human-in-the-Loop Optimization for Deep Stimulus Encoding in Visual Prostheses
 
@@ -2119,6 +2182,7 @@ Agent field evidence (doi): The OpenReview ICLR 2024 page and arXiv page identif
 Agent field confidence (doi): high
 Agent field source tier (doi): tier0_metadata
 Agent field sources (doi): https://openreview.net/forum?id=YEPlTU5mZC; https://arxiv.org/abs/2309.16746; https://dblp.org/rec/journals/corr/abs-2309-16746.bib; https://api.datacite.org/dois/10.48550/arXiv.2309.16746; https://api.openalex.org/works/doi:10.48550/arXiv.2309.16746
+
 Agent unresolved after preview: none
 
 ### Improved protein structure prediction using potentials from deep learning
@@ -2224,14 +2288,14 @@ Auto matched title: Interactive Search for Image Categories by Mental Matching
 Auto source URL: https://doi.org/10.1109/iccv.2007.4409072
 Auto verified fields: year=2007, venue=2007 IEEE 11th International Conference on Computer Vision, doi=10.1109/iccv.2007.4409072
 
-Missing or unresolved: metric
+Missing or unresolved: none
 Suggested next action: inspect paper text or trusted public source for the remaining unresolved fields.
 
 Auto field verification status: source-traced field pass
 Auto verified limitations: source-traced limitation/caveat sentence
 Auto field evidence (limitations): However, when the image database is unstructured, and when the category is semantic and resides only in the mind of the user, there is no obvious way to begin (the “page zero” problem).
 Auto field source (limitations): Zotero BIB title/abstract/keywords
-Auto unresolved after field pass: metric
+Auto unresolved after field pass: none
 
 Agent field verification status: agent-source-traced
 Agent verified dataset: Unstructured image database/random image samples used in an interactive category-search setting.
@@ -2251,7 +2315,12 @@ Agent field evidence (task): Abstract identifies the page-zero problem for seman
 Agent field confidence (task): high
 Agent field sources (task): https://doi.org/10.1109/iccv.2007.4409072; https://ieeexplore.ieee.org/document/4409072/; https://dblp.org/rec/conf/iccv/FerecatuG07; https://www.scilit.com/publications/79f56b0af2b9f96e6be818a6514014b9
 
-Agent unresolved after preview: metric
+Agent verified metric: Number of iterations necessary to display an instance from the user's target category.
+Agent field evidence (metric): The official IEEE Xplore abstract states that at each iteration the user selects the displayed image closest to the category and that performance is measured by the number of iterations necessary to display an instance.
+Agent field confidence (metric): high
+Agent field source tier (metric): tier1_paper_text
+Agent field sources (metric): https://ieeexplore.ieee.org/document/4409072/; https://doi.org/10.1109/iccv.2007.4409072
+Agent unresolved after preview: none
 
 ### MapGuide: A Simple yet Effective Method to Reconstruct Continuous Language from Brain Activities
 
@@ -2352,11 +2421,11 @@ Auto matched title: Mastering the game of Go with deep neural networks and tree 
 Auto source URL: https://doi.org/10.1038/nature16961
 Auto verified fields: year=2016, venue=Nature, doi=10.1038/nature16961
 
-Missing or unresolved: limitations
+Missing or unresolved: none
 Suggested next action: inspect paper text or trusted public source for the remaining unresolved fields.
 
 Auto field verification status: source-traced field pass
-Auto unresolved after field pass: limitations
+Auto unresolved after field pass: none
 
 Agent field verification status: agent-source-traced
 Agent verified dataset: 30 million expert Go positions from the KGS Go Server plus self-play games for reinforcement learning/value training.
@@ -2380,7 +2449,12 @@ Agent field evidence (task): Title and abstract define the task as mastering Go.
 Agent field confidence (task): high
 Agent field sources (task): https://doi.org/10.1038/nature16961; https://www.nature.com/articles/nature16961; https://staroceans.org.s3.amazonaws.com/documents/deepmind-mastering-go.pdf; https://www.researchgate.net/publication/292074166_Mastering_the_game_of_Go_with_deep_neural_networks_and_tree_search
 
-Agent unresolved after preview: limitations
+Agent verified limitations: Experimental boundary: AlphaGo is evaluated in the full-sized game of Go, against other Go programs and the European Go champion; the paper does not establish performance outside the Go domain.
+Agent field evidence (limitations): The Nature abstract frames the contribution as computer Go, reports a 99.8% win rate against other Go programs, and reports a 5-0 match win against the European Go champion in full-sized Go.
+Agent field confidence (limitations): high
+Agent field source tier (limitations): tier1_paper_text
+Agent field sources (limitations): https://www.nature.com/articles/nature16961
+Agent unresolved after preview: none
 
 ### Mental state decoders: game-changers or wishful thinking?
 
@@ -2393,11 +2467,11 @@ Auto matched title: Mental state decoders: game-changers or wishful thinking?
 Auto source URL: https://doi.org/10.1016/j.tics.2024.06.004
 Auto verified fields: year=2024, venue=Trends in Cognitive Sciences, doi=10.1016/j.tics.2024.06.004
 
-Missing or unresolved: dataset, metric
+Missing or unresolved: metric
 Suggested next action: inspect paper text or trusted public source for the remaining unresolved fields.
 
 Auto field verification status: source-traced field pass
-Auto unresolved after field pass: dataset, metric
+Auto unresolved after field pass: metric
 
 Agent field verification status: agent-source-traced
 Agent verified limitations: The article argues fMRI decoders are mainly predictive rather than explanatory, difficult to interpret physiologically, and may not generalize from evoked laboratory states to clinical or spontaneous states.
@@ -2417,7 +2491,12 @@ Agent field evidence (task): Title and abstract frame the paper as assessing cla
 Agent field confidence (task): high
 Agent field sources (task): https://doi.org/10.1016/j.tics.2024.06.004; https://pubmed.ncbi.nlm.nih.gov/38991876/; https://iannettilab.net/pdfs/mental_state_decoders.pdf
 
-Agent unresolved after preview: dataset, metric
+Agent verified dataset: No primary dataset; review/opinion article about fMRI-based mental and perceptual state decoders.
+Agent field evidence (dataset): PubMed/E-utilities lists the publication type as Review and the abstract describes an opinion article arguing about fMRI-based decoders rather than reporting a new dataset.
+Agent field confidence (dataset): high
+Agent field source tier (dataset): tier1_paper_text
+Agent field sources (dataset): https://pubmed.ncbi.nlm.nih.gov/38991876/; https://doi.org/10.1016/j.tics.2024.06.004
+Agent unresolved after preview: metric
 
 ### ModaVerse: Efficiently Transforming Modalities with LLMs
 
@@ -2566,11 +2645,11 @@ Auto matched title: Neuroscience-Inspired Artificial Intelligence
 Auto source URL: https://doi.org/10.1016/j.neuron.2017.06.011
 Auto verified fields: year=2017, venue=Neuron, doi=10.1016/j.neuron.2017.06.011
 
-Missing or unresolved: dataset, limitations, metric
+Missing or unresolved: limitations, metric
 Suggested next action: inspect paper text or trusted public source for the remaining unresolved fields.
 
 Auto field verification status: source-traced field pass
-Auto unresolved after field pass: dataset, limitations, metric
+Auto unresolved after field pass: limitations, metric
 
 Agent field verification status: agent-source-traced
 Agent verified method: Perspective/review surveying historical and current interactions between neuroscience and AI.
@@ -2586,7 +2665,12 @@ Agent field evidence (task): Abstract states the article argues better understan
 Agent field confidence (task): high
 Agent field sources (task): https://doi.org/10.1016/j.neuron.2017.06.011; https://pubmed.ncbi.nlm.nih.gov/28728020/; https://www.cell.com/neuron/abstract/S0896-6273(17)30509-3
 
-Agent unresolved after preview: dataset, limitations, metric
+Agent verified dataset: No primary dataset; review article surveying interactions between neuroscience and AI and AI advances inspired by neural computation.
+Agent field evidence (dataset): PubMed/E-utilities lists the publication type as Review and the abstract says the article surveys historical interactions between AI and neuroscience and emphasizes AI advances inspired by neural computation.
+Agent field confidence (dataset): high
+Agent field source tier (dataset): tier1_paper_text
+Agent field sources (dataset): https://pubmed.ncbi.nlm.nih.gov/28728020/; https://doi.org/10.1016/j.neuron.2017.06.011
+Agent unresolved after preview: limitations, metric
 
 ### Neuroscience-Inspired Artificial Intelligence
 
@@ -2599,11 +2683,11 @@ Auto matched title: Neuroscience-Inspired Artificial Intelligence
 Auto source URL: https://doi.org/10.1016/j.neuron.2017.06.011
 Auto verified fields: year=2017, venue=Neuron, doi=10.1016/j.neuron.2017.06.011
 
-Missing or unresolved: dataset, limitations, metric
+Missing or unresolved: limitations, metric
 Suggested next action: inspect paper text or trusted public source for the remaining unresolved fields.
 
 Auto field verification status: source-traced field pass
-Auto unresolved after field pass: dataset, limitations, metric
+Auto unresolved after field pass: limitations, metric
 
 Agent field verification status: agent-source-traced
 Agent verified method: Perspective/review surveying historical and current interactions between neuroscience and AI.
@@ -2619,7 +2703,12 @@ Agent field evidence (task): Abstract states the article argues better understan
 Agent field confidence (task): high
 Agent field sources (task): https://doi.org/10.1016/j.neuron.2017.06.011; https://pubmed.ncbi.nlm.nih.gov/28728020/; https://www.cell.com/neuron/abstract/S0896-6273(17)30509-3
 
-Agent unresolved after preview: dataset, limitations, metric
+Agent verified dataset: No primary dataset; review article surveying interactions between neuroscience and AI and AI advances inspired by neural computation.
+Agent field evidence (dataset): PubMed/E-utilities lists the publication type as Review and the abstract says the article surveys historical interactions between AI and neuroscience and emphasizes AI advances inspired by neural computation.
+Agent field confidence (dataset): high
+Agent field source tier (dataset): tier1_paper_text
+Agent field sources (dataset): https://pubmed.ncbi.nlm.nih.gov/28728020/; https://doi.org/10.1016/j.neuron.2017.06.011
+Agent unresolved after preview: limitations, metric
 
 ### OminiControl: Minimal and Universal Control for Diffusion Transformer
 
@@ -2664,6 +2753,7 @@ Agent field evidence (metric): The ICCV CVF paper states that spatially aligned 
 Agent field confidence (metric): high
 Agent field source tier (metric): tier1_paper_text
 Agent field sources (metric): https://openaccess.thecvf.com/content/ICCV2025/html/Tan_OminiControl_Minimal_and_Universal_Control_for_Diffusion_Transformer_ICCV_2025_paper.html; https://openaccess.thecvf.com/content/ICCV2025/papers/Tan_OminiControl_Minimal_and_Universal_Control_for_Diffusion_Transformer_ICCV_2025_paper.pdf
+
 Agent unresolved after preview: none
 
 ### Online dynamical learning and sequence memory with neuromorphic nanowire networks
@@ -2754,6 +2844,7 @@ Agent field evidence (metric): The CVPR CVF paper's Evaluation Metrics section s
 Agent field confidence (metric): high
 Agent field source tier (metric): tier1_paper_text
 Agent field sources (metric): https://openaccess.thecvf.com/content/CVPR2024/papers/Zhang_PIA_Your_Personalized_Image_Animator_via_Plug-and-Play_Modules_in_Text-to-Image_CVPR_2024_paper.pdf; https://openaccess.thecvf.com/CVPR2024?day=2024-06-19
+
 Agent unresolved after preview: none
 
 ### Photogrammetry-based stereoscopic optode registration method for functional near-infrared spectroscopy
@@ -2901,11 +2992,11 @@ Auto matched title: Predictive processing of scenes and objects
 Auto source URL: https://doi.org/10.1038/s44159-023-00254-0
 Auto verified fields: year=2023, venue=Nature Reviews Psychology, doi=10.1038/s44159-023-00254-0
 
-Missing or unresolved: dataset, limitations, metric
+Missing or unresolved: metric
 Suggested next action: inspect paper text or trusted public source for the remaining unresolved fields.
 
 Auto field verification status: source-traced field pass
-Auto unresolved after field pass: dataset, limitations, metric
+Auto unresolved after field pass: metric
 
 Agent field verification status: agent-source-traced
 Agent verified method: Narrative review and synthesis of behavioral, cognitive-neuroscience and computational evidence on predictive scene-object processing.
@@ -2921,7 +3012,17 @@ Agent field evidence (task): Search snippet says context-based expectations infl
 Agent field confidence (task): high
 Agent field sources (task): https://doi.org/10.1038/s44159-023-00254-0; https://repository.ubn.ru.nl/bitstream/handle/2066/298960/1/298960.pdf; https://www.researchgate.net/publication/375884443_Predictive_processing_of_scenes_and_objects
 
-Agent unresolved after preview: dataset, limitations, metric
+Agent verified dataset: No primary dataset; Nature Reviews Psychology review synthesizing behavioural and neural findings on object and scene processing.
+Agent field evidence (dataset): Nature labels the article as a Review Article, and the abstract says it synthesizes behavioural and neural findings on mechanisms of scene and object recognition rather than reporting a new experiment or dataset.
+Agent field confidence (dataset): medium
+Agent field source tier (dataset): tier1_paper_text
+Agent field sources (dataset): https://www.nature.com/articles/s44159-023-00254-0
+Agent verified limitations: The review identifies open questions rather than a closed empirical test: it is unknown which scene or object cues drive the reviewed perceptual effects, whether attention or conscious recognition is required, how automatic feedback signalling is, and modelling of contextual effects in neural networks needs improvement.
+Agent field evidence (limitations): The publisher-version PDF's summary/future-directions section lists unknown cue contributions, attention/conscious-recognition and task-demand questions, and states that improving modelling of contextual effects in neural networks is an important avenue for future research.
+Agent field confidence (limitations): high
+Agent field source tier (limitations): tier1_paper_text
+Agent field sources (limitations): https://www.nature.com/articles/s44159-023-00254-0; https://drive.google.com/file/d/1irmQH_8EdxTD-bAilgQ9egmNTH3OYAjF/view?usp=drive_link
+Agent unresolved after preview: metric
 
 ### Proposal for an accurate TMS-MRI co-registration process via 3D laser scanning
 
@@ -3159,11 +3260,11 @@ Auto matched title: Shared neural mechanisms of visual perception and imagery
 Auto source URL: https://doi.org/10.31234/osf.io/d8fru
 Auto verified fields: year=2019, doi=10.31234/osf.io/d8fru
 
-Missing or unresolved: dataset, limitations, metric
+Missing or unresolved: metric
 Suggested next action: inspect paper text or trusted public source for the remaining unresolved fields.
 
 Auto field verification status: source-traced field pass
-Auto unresolved after field pass: dataset, limitations, metric
+Auto unresolved after field pass: metric
 
 Agent field verification status: agent-source-traced
 Agent verified method: Review/synthesis of behavioral and neuroimaging evidence on overlap between visual perception and visual mental imagery.
@@ -3179,7 +3280,17 @@ Agent field evidence (task): The paper topic is the relation between perceived a
 Agent field confidence (task): high
 Agent field sources (task): https://www.researchgate.net/publication/331691523_Shared_Neural_Mechanisms_of_Visual_Perception_and_Imagery; https://doi.org/10.1016/j.tics.2019.02.004; https://doi.org/10.31234/osf.io/d8fru
 
-Agent unresolved after preview: dataset, limitations, metric
+Agent verified dataset: No primary dataset; review of neuroimaging studies comparing visual perception and visual imagery.
+Agent field evidence (dataset): PubMed/E-utilities lists the publication type as Review and the abstract states that the article reviews recent neuroimaging studies comparing perception and imagery.
+Agent field confidence (dataset): high
+Agent field source tier (dataset): tier1_paper_text
+Agent field sources (dataset): https://pubmed.ncbi.nlm.nih.gov/30876729/; https://doi.org/10.1016/j.tics.2019.02.004; https://doi.org/10.31234/osf.io/d8fru
+Agent verified limitations: The review flags unresolved questions: temporal jitter in imagery onset can obscure fine-grained temporal dynamics, conclusions about temporal dynamics are hard to draw, imagery deficits without perceptual issues show the two simulations are not identical, and future work must test other modalities and how the brain separates real from imagined sensory content.
+Agent field evidence (limitations): The Trends in Cognitive Sciences PDF lists outstanding questions and future perspectives, including temporal uncertainty during imagery, unsolved questions, extension to other modalities, and mechanisms for distinguishing imagery from perception.
+Agent field confidence (limitations): high
+Agent field source tier (limitations): tier1_paper_text
+Agent field sources (limitations): https://www.sanderbosch.com/files/2019_dijkstra_tics.pdf; https://doi.org/10.1016/j.tics.2019.02.004
+Agent unresolved after preview: metric
 
 ### Spatio-temporal correlations and visual signalling in a complete neuronal population
 
@@ -3192,11 +3303,11 @@ Auto matched title: Spatio-temporal correlations and visual signalling in a comp
 Auto source URL: https://doi.org/10.1038/nature07140
 Auto verified fields: year=2008, venue=Nature, doi=10.1038/nature07140
 
-Missing or unresolved: limitations
+Missing or unresolved: none
 Suggested next action: inspect paper text or trusted public source for the remaining unresolved fields.
 
 Auto field verification status: source-traced field pass
-Auto unresolved after field pass: limitations
+Auto unresolved after field pass: none
 
 Agent field verification status: agent-source-traced
 Agent verified dataset: Physiological spike-response data from a complete population of macaque parasol retinal ganglion cells.
@@ -3220,7 +3331,12 @@ Agent field evidence (task): Abstract says the goal is understanding the role of
 Agent field confidence (task): high
 Agent field sources (task): https://www.nature.com/articles/nature07140; https://doi.org/10.1038/nature07140
 
-Agent unresolved after preview: limitations
+Agent verified limitations: Experimental boundary: the study analyzes correlated firing in a complete population of macaque parasol retinal ganglion cells using a fitted multi-neuron spike-response model for retinal coding of visual stimuli.
+Agent field evidence (limitations): The Nature abstract states that the analysis concerns a complete population of macaque parasol retinal ganglion cells, with model parameters fit to physiological data, and interprets correlated activity in retinal coding of visual stimuli.
+Agent field confidence (limitations): high
+Agent field source tier (limitations): tier1_paper_text
+Agent field sources (limitations): https://www.nature.com/articles/nature07140
+Agent unresolved after preview: none
 
 ### State-dependent pupil dilation rapidly shifts visual feature selectivity
 
@@ -3233,11 +3349,11 @@ Auto matched title: State-dependent pupil dilation rapidly shifts visual feature
 Auto source URL: https://doi.org/10.1038/s41586-022-05270-3
 Auto verified fields: year=2022, venue=Nature, doi=10.1038/s41586-022-05270-3
 
-Missing or unresolved: limitations
+Missing or unresolved: none
 Suggested next action: inspect paper text or trusted public source for the remaining unresolved fields.
 
 Auto field verification status: source-traced field pass
-Auto unresolved after field pass: limitations
+Auto unresolved after field pass: none
 
 Agent field verification status: agent-source-traced
 Agent verified dataset: Stimulus images and neuronal data stored at GIN/g-node for Franke_Willeke_2022.
@@ -3261,7 +3377,12 @@ Agent field evidence (task): Abstract describes state-dependent modulation of st
 Agent field confidence (task): high
 Agent field sources (task): https://www.nature.com/articles/s41586-022-05270-3; https://gin.g-node.org/cajal/Franke_Willeke_2022
 
-Agent unresolved after preview: limitations
+Agent verified limitations: Experimental boundary: the reported mechanism is established in mouse visual cortex using population imaging in behaving mice, pharmacology and deep neural network modelling, in the context of coloured natural scenes and ethological stimuli.
+Agent field evidence (limitations): The Nature abstract says the authors studied behavioural-state modulation in mouse visual cortex with coloured natural scenes, using population imaging in behaving mice, pharmacology and deep neural network modelling.
+Agent field confidence (limitations): high
+Agent field source tier (limitations): tier1_paper_text
+Agent field sources (limitations): https://www.nature.com/articles/s41586-022-05270-3
+Agent unresolved after preview: none
 
 ### Subspace communication in the hippocampal–retrosplenial axis
 
@@ -3274,14 +3395,14 @@ Auto matched title: Subspace communication in the hippocampal-retrosplenial axis
 Auto source URL: https://doi.org/10.64898/2025.12.31.697203
 Auto verified fields: year=2026, doi=10.64898/2025.12.31.697203
 
-Missing or unresolved: limitations
+Missing or unresolved: none
 Suggested next action: inspect paper text or trusted public source for the remaining unresolved fields.
 
 Auto field verification status: source-traced field pass
 Auto verified metric: correlation
 Auto field evidence (metric): Based on a linear dimensionality reduction technique known as partial canonical correlation analysis, we identify low-dimensional communication subspaces 1 between two regions while accounting for measured third-area influences.
 Auto field source (metric): public abstract/title evidence
-Auto unresolved after field pass: limitations
+Auto unresolved after field pass: none
 
 Agent field verification status: agent-source-traced
 Agent verified dataset: Datasets released in DANDI dandiset 001695 in NWB format; Allen Institute Visual Coding Dataset also used.
@@ -3301,7 +3422,12 @@ Agent field evidence (task): Abstract describes subspaces linking hippocampal in
 Agent field confidence (task): high
 Agent field sources (task): https://www.nature.com/articles/s41586-026-10481-z; https://dandiarchive.org/dandiset/001695/0.260319.2023; https://allensdk.readthedocs.io/en/latest/visual_coding_neuropixels.html
 
-Agent unresolved after preview: limitations
+Agent verified limitations: Experimental boundary: the study uses large-scale, up to 1,024-channel, recordings across hippocampal-retrosplenial cortex circuits in behaving mice, accessing DG, CA3, CA2, CA1 and RSC during spatial and non-spatial tasks and post-experience sleep.
+Agent field evidence (limitations): The Nature article abstract states that the work uses up to 1,024-channel recordings across the hippocampal-retrosplenial circuit in behaving mice and maps subspaces during spatial and non-spatial tasks, with post-experience sleep reactivation analyses.
+Agent field confidence (limitations): high
+Agent field source tier (limitations): tier1_paper_text
+Agent field sources (limitations): https://www.nature.com/articles/s41586-026-10481-z; https://www.biorxiv.org/content/10.64898/2025.12.31.697203v1.full-text
+Agent unresolved after preview: none
 
 ### Testing the Limits of Fine-Tuning for Improving Visual Cognition in Vision Language Models
 
@@ -3347,6 +3473,7 @@ Agent field evidence (doi): PMLR/OpenReview identify the ICML 2025 paper title a
 Agent field confidence (doi): high
 Agent field source tier (doi): tier0_metadata
 Agent field sources (doi): https://proceedings.mlr.press/v267/schulze-buschoff25a.html; https://openreview.net/forum?id=jSxU7ZGe3B; https://arxiv.org/abs/2502.15678; https://api.datacite.org/dois/10.48550/arXiv.2502.15678; https://api.openalex.org/works/doi:10.48550/arXiv.2502.15678
+
 Agent unresolved after preview: none
 
 ### The Bayesian image retrieval system, PicHunter: theory, implementation, and psychophysical experiments
@@ -3360,11 +3487,11 @@ Auto matched title: The Bayesian image retrieval system, PicHunter: theory, impl
 Auto source URL: https://doi.org/10.1109/83.817596
 Auto verified fields: year=2000, venue=IEEE Transactions on Image Processing, doi=10.1109/83.817596
 
-Missing or unresolved: limitations
+Missing or unresolved: none
 Suggested next action: inspect paper text or trusted public source for the remaining unresolved fields.
 
 Auto field verification status: source-traced field pass
-Auto unresolved after field pass: limitations
+Auto unresolved after field pass: none
 
 Agent field verification status: agent-source-traced
 Agent verified dataset: Image-retrieval experiments used image databases including the Corel stock photo library.
@@ -3388,7 +3515,12 @@ Agent field evidence (task): Abstract describes a prototype content-based image 
 Agent field confidence (task): high
 Agent field sources (task): https://doi.org/10.1109/83.817596; https://www.researchgate.net/publication/220501904_The_Bayesian_image_retrieval_system_PicHunter_Theory_implementation_and_psychophysical_experiments_vol_9_pg_20_2000; https://www0.cs.ucl.ac.uk/staff/I.Cox/Content/papers/2000/ip00.pdf
 
-Agent unresolved after preview: limitations
+Agent verified limitations: Experimental boundary: PicHunter is presented as a prototype content-based image retrieval system, and the paper reports psychophysical experiments conducted to address key issues arising during its development rather than a general-purpose evaluation of all image-search settings.
+Agent field evidence (limitations): The IEEE Xplore PDF/metadata and abstract describe PicHunter as a prototype CBIR system and state that the paper presents the rationale, design and results of psychophysical experiments addressing issues from PicHunter's development.
+Agent field confidence (limitations): medium
+Agent field source tier (limitations): tier1_paper_text
+Agent field sources (limitations): https://ieeexplore.ieee.org/document/817596; https://ieeexplore.ieee.org/iel5/83/17727/00817596.pdf
+Agent unresolved after preview: none
 
 ### The Future of Memory: Remembering, Imagining, and the Brain
 
@@ -3401,11 +3533,11 @@ Auto matched title: The Future of Memory: Remembering, Imagining, and the Brain
 Auto source URL: https://doi.org/10.1016/j.neuron.2012.11.001
 Auto verified fields: year=2012, venue=Neuron, doi=10.1016/j.neuron.2012.11.001
 
-Missing or unresolved: dataset, limitations, metric
+Missing or unresolved: limitations, metric
 Suggested next action: inspect paper text or trusted public source for the remaining unresolved fields.
 
 Auto field verification status: source-traced field pass
-Auto unresolved after field pass: dataset, limitations, metric
+Auto unresolved after field pass: limitations, metric
 
 Agent field verification status: agent-source-traced
 Agent verified method: Review/synthesis of cognitive neuroscience research on memory, imagination and future thinking.
@@ -3421,7 +3553,12 @@ Agent field evidence (task): Abstract states the article examines remembering th
 Agent field confidence (task): high
 Agent field sources (task): https://pmc.ncbi.nlm.nih.gov/articles/PMC3815616/; https://doi.org/10.1016/j.neuron.2012.11.001; https://www.researchgate.net/publication/233768009_The_Future_of_Memory_Remembering_Imagining_and_the_Brain
 
-Agent unresolved after preview: dataset, limitations, metric
+Agent verified dataset: No primary dataset; review of research on memory, imagination, and future thinking, focused on human-subject studies.
+Agent field evidence (dataset): The PMC full text states that the article reviews progress since 2007 and focuses on studies with human subjects; no dataset or original data collection is reported as the target dataset.
+Agent field confidence (dataset): high
+Agent field source tier (dataset): tier1_paper_text
+Agent field sources (dataset): https://pmc.ncbi.nlm.nih.gov/articles/PMC3815616/; https://doi.org/10.1016/j.neuron.2012.11.001
+Agent unresolved after preview: limitations, metric
 
 ### The features underlying the memorability of objects
 
@@ -3434,11 +3571,11 @@ Auto matched title: The Features Underlying the Memorability of Objects
 Auto source URL: https://doi.org/10.1101/2022.04.29.490104
 Auto verified fields: year=2022, doi=10.1101/2022.04.29.490104
 
-Missing or unresolved: limitations
+Missing or unresolved: none
 Suggested next action: inspect paper text or trusted public source for the remaining unresolved fields.
 
 Auto field verification status: source-traced field pass
-Auto unresolved after field pass: limitations
+Auto unresolved after field pass: none
 
 Agent field verification status: agent-source-traced
 Agent verified dataset: More than 1 million memory ratings for a naturalistic dataset of 26,107 object images.
@@ -3462,7 +3599,12 @@ Agent field evidence (task): Title and abstract define the goal as uncovering fe
 Agent field confidence (task): high
 Agent field sources (task): https://doi.org/10.1101/2022.04.29.490104; https://doi.org/10.1126/sciadv.add2981; https://www.researchgate.net/publication/370362744_The_features_underlying_the_memorability_of_objects
 
-Agent unresolved after preview: limitations
+Agent verified limitations: The authors frame prior work as limited by constrained stimulus sets; their own scope is a large but object-focused THINGS image set, and they identify future work on neuroimaging markers, other stimulus domains such as movies, scenes and non-visual stimuli, and biases in the typicality-memorability relationship.
+Agent field evidence (limitations): The bioRxiv/Science Advances text says prior studies relied on constrained stimulus sets, notes that THINGS samples concrete object concepts, and the conclusion/future-work text calls for neuroimaging work and extension beyond objects to dynamic stimuli, scenes and non-visual stimuli.
+Agent field confidence (limitations): high
+Agent field source tier (limitations): tier1_paper_text
+Agent field sources (limitations): https://www.biorxiv.org/content/10.1101/2022.04.29.490104v1.full-text; https://www.science.org/doi/10.1126/sciadv.add2981; https://pure.mpg.de/rest/items/item_3508311_2/component/file_3597286/content
+Agent unresolved after preview: none
 
 ### The neural network RTNet exhibits the signatures of human perceptual decision-making
 
@@ -3653,14 +3795,14 @@ Auto matched title: Unsupervised Embedding Learning via Invariant and Spreading 
 Auto source URL: https://doi.org/10.1109/cvpr.2019.00637
 Auto verified fields: year=2019, venue=2019 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), doi=10.1109/cvpr.2019.00637
 
-Missing or unresolved: limitations
+Missing or unresolved: none
 Suggested next action: inspect paper text or trusted public source for the remaining unresolved fields.
 
 Auto field verification status: source-traced field pass
 Auto verified metric: accuracy
 Auto field evidence (metric): It achieves significantly faster learning speed and higher accuracy than all existing methods.
 Auto field source (metric): public abstract/title evidence
-Auto unresolved after field pass: limitations
+Auto unresolved after field pass: none
 
 Agent field verification status: agent-source-traced
 Agent verified dataset: CIFAR-10, STL-10, CUB200-2011, Stanford Online Products and Cars196.
@@ -3680,7 +3822,12 @@ Agent field evidence (task): Abstract says the paper studies unsupervised embedd
 Agent field confidence (task): high
 Agent field sources (task): https://openaccess.thecvf.com/content_CVPR_2019/html/Ye_Unsupervised_Embedding_Learning_via_Invariant_and_Spreading_Instance_Feature_CVPR_2019_paper.html; https://arxiv.org/abs/1904.03436
 
-Agent unresolved after preview: limitations
+Agent verified limitations: The method assumes randomly sampled batch instances can be treated as negatives; the authors explicitly note this assumption may not always hold and batches may contain false negatives. Evaluation is bounded to seen-category and unseen-category image classification/embedding benchmarks with cosine similarity.
+Agent field evidence (limitations): The CVF paper states that treating randomly selected batch instances as negatives may not always hold and that batches may contain false negatives; its experiments are organized around seen and unseen testing-category protocols on CIFAR-10, STL-10, CUB200, Product and Car196.
+Agent field confidence (limitations): high
+Agent field source tier (limitations): tier1_paper_text
+Agent field sources (limitations): https://openaccess.thecvf.com/content_CVPR_2019/html/Ye_Unsupervised_Embedding_Learning_via_Invariant_and_Spreading_Instance_Feature_CVPR_2019_paper.html; https://openaccess.thecvf.com/content_CVPR_2019/papers/Ye_Unsupervised_Embedding_Learning_via_Invariant_and_Spreading_Instance_Feature_CVPR_2019_paper.pdf
+Agent unresolved after preview: none
 
 ### VISION-XL: High Definition Video Inverse Problem Solver using Latent Image Diffusion Models
 
@@ -3693,14 +3840,14 @@ Auto matched title: VISION-XL: High Definition Video Inverse Problem Solver usin
 Auto source URL: https://doi.org/10.1109/iccv51701.2025.00974
 Auto verified fields: year=2025, venue=2025 IEEE/CVF International Conference on Computer Vision (ICCV), doi=10.1109/iccv51701.2025.00974
 
-Missing or unresolved: limitations
+Missing or unresolved: none
 Suggested next action: inspect paper text or trusted public source for the remaining unresolved fields.
 
 Auto field verification status: source-traced field pass
 Auto verified method: Diffusion/generative model
 Auto field evidence (method): VISION-XL: High Definition Video Inverse Problem Solver using Latent Image Diffusion Models.
 Auto field source (method): Zotero BIB title/abstract/keywords
-Auto unresolved after field pass: limitations
+Auto unresolved after field pass: none
 
 Agent field verification status: agent-source-traced
 Agent verified dataset: DAVIS and Pexels high-resolution video subsets; supplementary extension also uses GoPro for blind video deblurring.
@@ -3720,7 +3867,12 @@ Agent field evidence (task): Abstract and experiments describe high-definition v
 Agent field confidence (task): high
 Agent field sources (task): https://arxiv.org/html/2412.00156; https://openaccess.thecvf.com/content/ICCV2025/papers/Kwon_VISION-XL_High_Definition_Video_Inverse_Problem_Solver_using_Latent_Image_ICCV_2025_paper.pdf
 
-Agent unresolved after preview: limitations
+Agent verified limitations: Experimental scope is bounded to an SDXL-based latent image diffusion solver for high-definition video inverse problems, evaluated on spatio-temporal degradations such as deblurring, super-resolution and inpainting, with runtime claims tied to a single NVIDIA 4090 GPU and landscape/vertical/square aspect ratios.
+Agent field evidence (limitations): CVF paper states the method addresses spatio-temporal inverse problems including deblurring, super-resolution and inpainting, supports landscape/vertical/square formats, and reports HD reconstruction under 6 seconds per frame on a single NVIDIA 4090 GPU; this supports an experimental-boundary limitation rather than a separate explicit limitations section.
+Agent field confidence (limitations): medium
+Agent field source tier (limitations): tier1_paper_text
+Agent field sources (limitations): https://openaccess.thecvf.com/content/ICCV2025/papers/Kwon_VISION-XL_High_Definition_Video_Inverse_Problem_Solver_using_Latent_Image_ICCV_2025_paper.pdf
+Agent unresolved after preview: none
 
 ### What Learning Systems do Intelligent Agents Need? Complementary Learning Systems Theory Updated
 
@@ -3733,11 +3885,11 @@ Auto matched title: What Learning Systems do Intelligent Agents Need? Complement
 Auto source URL: https://doi.org/10.1016/j.tics.2016.05.004
 Auto verified fields: year=2016, venue=Trends in Cognitive Sciences, doi=10.1016/j.tics.2016.05.004
 
-Missing or unresolved: dataset, limitations, metric
+Missing or unresolved: metric
 Suggested next action: inspect paper text or trusted public source for the remaining unresolved fields.
 
 Auto field verification status: source-traced field pass
-Auto unresolved after field pass: dataset, limitations, metric
+Auto unresolved after field pass: metric
 
 Agent field verification status: agent-source-traced
 Agent verified method: Review/theoretical update of complementary learning systems theory.
@@ -3753,7 +3905,17 @@ Agent field evidence (task): Abstract says the paper broadens CLS theory and not
 Agent field confidence (task): high
 Agent field sources (task): https://pubmed.ncbi.nlm.nih.gov/27315762/; https://doi.org/10.1016/j.tics.2016.05.004
 
-Agent unresolved after preview: dataset, limitations, metric
+Agent verified dataset: No primary dataset; review/update of complementary learning systems theory connecting neuroscience and machine learning.
+Agent field evidence (dataset): PubMed/E-utilities lists the publication type as Review and the abstract says the article updates complementary learning systems theory and highlights links between neuroscience and machine learning.
+Agent field confidence (dataset): high
+Agent field source tier (dataset): tier1_paper_text
+Agent field sources (dataset): https://pubmed.ncbi.nlm.nih.gov/27315762/; https://doi.org/10.1016/j.tics.2016.05.004
+Agent verified limitations: The authors explicitly describe limitations of single-system learning: a structured neocortical parametric system alone cannot rapidly use individual experiences and suffers catastrophic interference, while a hippocampal system alone has capacity limitations and limited generalization.
+Agent field evidence (limitations): Author manuscript states a parametric structured system alone has two drastic limitations, including individual-experience use and catastrophic interference; it also states a hippocampal system alone would be insufficient due to capacity limitations and limited generalization.
+Agent field confidence (limitations): high
+Agent field source tier (limitations): tier1_paper_text
+Agent field sources (limitations): https://web.stanford.edu/~jlmcc/papers/KumaranHassabisMcClelland16FinalMS.pdf
+Agent unresolved after preview: metric
 
 ### A 7T fMRI dataset of synthetic images for out-of-distribution modeling of vision
 
@@ -3809,14 +3971,14 @@ Auto matched title: A Brain-Inspired Way of Reducing the Network Complexity via 
 Auto source URL: https://doi.org/10.1609/aaai.v38i1.27811
 Auto verified fields: year=2024, venue=Proceedings of the AAAI Conference on Artificial Intelligence, doi=10.1609/aaai.v38i1.27811
 
-Missing or unresolved: limitations
+Missing or unresolved: none
 Suggested next action: inspect paper text or trusted public source for the remaining unresolved fields.
 
 Auto field verification status: source-traced field pass
 Auto verified task: Visual reconstruction, Representation alignment, Emotion/cognitive state recognition, Dataset/benchmark
 Auto field evidence (task): Visual reconstruction, Representation alignment, Emotion/cognitive state recognition, Dataset/benchmark; evidence: A Brain-Inspired Way of Reducing the Network Complexity via Concept-Regularized Coding for Emotion Recognition.
 Auto field source (task): Zotero BIB title/abstract/keywords
-Auto unresolved after field pass: limitations
+Auto unresolved after field pass: none
 
 Agent field verification status: agent-source-traced
 Agent verified dataset: RAF-DB, AffectNet and FED-RO facial emotion recognition datasets.
@@ -3836,7 +3998,12 @@ Agent field evidence (signal modality): The paper uses facial images for AI emot
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://ojs.aaai.org/index.php/AAAI/article/view/27811; https://openreview.net/pdf/3af5daef2d93a4db3d041fd1d9d06490ef3a1e10.pdf
 
-Agent unresolved after preview: limitations
+Agent verified limitations: Experimental boundary: the paper validates the framework through FER experiments and IMAGEN style/identity analyses, including AnimeGAN-transformed faces, and does not present a separate author limitations section.
+Agent field evidence (limitations): The AAAI/OpenReview paper describes IMAGEN test splits, AnimeGAN-transformed animated faces, t-SNE analyses of emotion/non-emotion features, and concludes that experiments validate the framework's performance, effectiveness and generality.
+Agent field confidence (limitations): medium
+Agent field source tier (limitations): tier1_paper_text
+Agent field sources (limitations): https://openreview.net/pdf/3af5daef2d93a4db3d041fd1d9d06490ef3a1e10.pdf
+Agent unresolved after preview: none
 
 ### A Level Set Theory for Neural Implicit Evolution Under Explicit Flows
 
@@ -3850,14 +4017,14 @@ Auto matched title: A Level Set Theory for Neural Implicit Evolution Under Expli
 Auto source URL: https://doi.org/10.1007/978-3-031-20086-1_41
 Auto verified fields: year=2022, venue=Lecture Notes in Computer Science, doi=10.1007/978-3-031-20086-1_41
 
-Missing or unresolved: limitations
+Missing or unresolved: none
 Suggested next action: inspect paper text or trusted public source for the remaining unresolved fields.
 
 Auto field verification status: source-traced field pass
 Auto verified task: Representation alignment
 Auto field evidence (task): Representation alignment; evidence: Coordinate-based neural networks parameterizing implicit surfaces have emerged as efficient representations of geometry.
 Auto field source (task): Zotero BIB title/abstract/keywords
-Auto unresolved after field pass: limitations
+Auto unresolved after field pass: none
 
 Agent field verification status: agent-source-traced
 Agent verified dataset: Empirical evaluations use implicit surfaces/meshes and high-genus inverse-rendering shapes; no named dataset was identified in the main paper text.
@@ -3877,7 +4044,12 @@ Agent field evidence (signal modality): Computer vision/graphics neural implicit
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://arxiv.org/abs/2204.07159; https://cseweb.ucsd.edu/~ravir/ishiteccv22.pdf
 
-Agent unresolved after preview: limitations
+Agent verified limitations: Experimental boundary: the framework evolves neural implicit surfaces by extracting a Lagrangian surface, deriving an explicit mesh-based flow field, and updating the implicit geometry; validation is shown on surface smoothing/mean-curvature flow, inverse rendering and user-defined shape editing.
+Agent field evidence (limitations): The paper says the method repeats surface extraction, mesh-based flow derivation and Eulerian flow-based implicit evolution, and validates on three settings: curvature-based deformation, inverse rendering and user-defined editing.
+Agent field confidence (limitations): medium
+Agent field source tier (limitations): tier1_paper_text
+Agent field sources (limitations): https://cseweb.ucsd.edu/~ravir/ishiteccv22.pdf
+Agent unresolved after preview: none
 
 ### A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning
 
@@ -3978,14 +4150,14 @@ Auto matched title: A brain machine interface control algorithm designed from a 
 Auto source URL: https://doi.org/10.1109/embc.2012.6346180
 Auto verified fields: year=2012, venue=2012 Annual International Conference of the IEEE Engineering in Medicine and Biology Society, doi=10.1109/embc.2012.6346180
 
-Missing or unresolved: limitations
+Missing or unresolved: none
 Suggested next action: inspect paper text or trusted public source for the remaining unresolved fields.
 
 Auto field verification status: source-traced field pass
 Auto verified task: Closed-loop BCI
 Auto field evidence (task): Closed-loop BCI; evidence: A brain machine interface control algorithm designed from a feedback control perspective.
 Auto field source (task): Zotero BIB title/abstract/keywords
-Auto unresolved after field pass: limitations
+Auto unresolved after field pass: none
 
 Agent field verification status: agent-source-traced
 Agent verified dataset: Online neural control experiments from one male rhesus macaque implanted with a 96-electrode Utah array in PMd/M1 during 2D cursor control.
@@ -4005,7 +4177,12 @@ Agent field evidence (signal modality): Paper describes thresholded spike events
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://users.ece.cmu.edu/~byronyu/papers/GiljaEMBS2012.pdf; https://pubmed.ncbi.nlm.nih.gov/23366141/
 
-Agent unresolved after preview: limitations
+Agent verified limitations: Experimental boundary and modeling caveat: the study tested ReFIT-KF in one adult male rhesus macaque with a 96-electrode PMd/M1 array on a 2D center-out-and-back cursor task, and assumes the user internalizes cursor position feedback with complete certainty.
+Agent field evidence (limitations): The paper states experiments used an adult male rhesus macaque implanted with a 96-electrode Utah array in PMd/M1, describes the 2D center-out-and-back target task, and explicitly says the filter presumes the user internalizes estimated cursor position with complete certainty.
+Agent field confidence (limitations): high
+Agent field source tier (limitations): tier1_paper_text
+Agent field sources (limitations): https://users.ece.cmu.edu/~byronyu/papers/GiljaEMBS2012.pdf
+Agent unresolved after preview: none
 
 ### A brain-to-text framework of decoding natural tonal sentences
 
@@ -4060,14 +4237,14 @@ Auto matched title: A distributional code for value in dopamine-based reinforcem
 Auto source URL: https://doi.org/10.1038/s41586-019-1924-6
 Auto verified fields: year=2020, venue=Nature, doi=10.1038/s41586-019-1924-6
 
-Missing or unresolved: limitations
+Missing or unresolved: none
 Suggested next action: inspect paper text or trusted public source for the remaining unresolved fields.
 
 Auto field verification status: source-traced field pass
 Auto verified method: Reinforcement learning/bandit
 Auto field evidence (method): A distributional code for value in dopamine-based reinforcement learning.
 Auto field source (method): Zotero BIB title/abstract/keywords
-Auto unresolved after field pass: limitations
+Auto unresolved after field pass: none
 
 Agent field verification status: agent-source-traced
 Agent verified dataset: Single-unit recordings from mouse ventral tegmental area; neuronal data are available through OSF.
@@ -4087,7 +4264,12 @@ Agent field evidence (task): Abstract states the hypothesis that future rewards 
 Agent field confidence (task): high
 Agent field sources (task): https://www.nature.com/articles/s41586-019-1924-6; https://doi.org/10.17605/OSF.IO/UX5RG
 
-Agent unresolved after preview: limitations
+Agent verified limitations: Experimental boundary: the empirical test of the distributional reinforcement-learning account used single-unit recordings from mouse ventral tegmental area, with neuronal data made available separately.
+Agent field evidence (limitations): Nature abstract states the empirical predictions were tested using single-unit recordings from mouse ventral tegmental area; data availability identifies the neuronal data analysed in the work.
+Agent field confidence (limitations): medium
+Agent field source tier (limitations): tier1_paper_text
+Agent field sources (limitations): https://www.nature.com/articles/s41586-019-1924-6
+Agent unresolved after preview: none
 
 ### A generalist vision–language foundation model for diverse biomedical tasks
 
@@ -4100,14 +4282,14 @@ Auto matched title: A generalist vision–language foundation model for diverse 
 Auto source URL: https://doi.org/10.1038/s41591-024-03185-2
 Auto verified fields: year=2024, venue=Nature Medicine, doi=10.1038/s41591-024-03185-2
 
-Missing or unresolved: limitations
+Missing or unresolved: none
 Suggested next action: inspect paper text or trusted public source for the remaining unresolved fields.
 
 Auto field verification status: source-traced field pass
 Auto verified task: Foundation model/pretraining
 Auto field evidence (task): Foundation model/pretraining; evidence: A generalist vision–language foundation model for diverse biomedical tasks.
 Auto field source (task): Zotero BIB title/abstract/keywords
-Auto unresolved after field pass: limitations
+Auto unresolved after field pass: none
 
 Agent field verification status: agent-source-traced
 Agent verified dataset: Public biomedical image, vision-language, clinical text and dialogue datasets including IU X-ray, MedICat, PathVQA, SLAKE, DeepLesion, CheXpert, MIMIC-CXR, MedNLI, MedMNIST v2, ROCO and others.
@@ -4127,7 +4309,12 @@ Agent field evidence (signal modality): Biomedical vision-language AI model usin
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://www.nature.com/articles/s41591-024-03185-2; https://github.com/taokz/BiomedGPT
 
-Agent unresolved after preview: limitations
+Agent verified limitations: The authors outline several limitations: data diversity and large-scale high-quality biomedical data constrain unified biomedical AI; automatic evaluation of generative biomedical tasks is imperfect; expanding modalities risks negative transfer; scaling is constrained by compute/storage and brings fine-tuning, speed and memory challenges; text understanding and multiple-input processing remain underdeveloped.
+Agent field evidence (limitations): Discussion explicitly says it delves into limitations. It identifies public dataset imbalance and scarce large-scale multimodal biomedical data, challenges in automatic evaluation of freeform biomedical generation, negative transfer when expanding modalities, constrained model scaling, and not fully established text comprehension/multiple-input processing.
+Agent field confidence (limitations): high
+Agent field source tier (limitations): tier1_paper_text
+Agent field sources (limitations): https://ar5iv.labs.arxiv.org/html/2305.17100; https://arxiv.org/abs/2305.17100; https://www.nature.com/articles/s41591-024-03185-2
+Agent unresolved after preview: none
 
 ### A streaming brain-to-voice neuroprosthesis to restore naturalistic communication
 
@@ -4140,14 +4327,14 @@ Auto matched title: A streaming brain-to-voice neuroprosthesis to restore natura
 Auto source URL: https://doi.org/10.1038/s41593-025-01905-6
 Auto verified fields: year=2025, venue=Nature Neuroscience, doi=10.1038/s41593-025-01905-6
 
-Missing or unresolved: limitations
+Missing or unresolved: none
 Suggested next action: inspect paper text or trusted public source for the remaining unresolved fields.
 
 Auto field verification status: source-traced field pass
 Auto verified task: Neural decoding
 Auto field evidence (task): Neural decoding; evidence: A streaming brain-to-voice neuroprosthesis to restore naturalistic communication.
 Auto field source (task): Zotero BIB title/abstract/keywords
-Auto unresolved after field pass: limitations
+Auto unresolved after field pass: none
 
 Agent field verification status: agent-source-traced
 Agent verified dataset: Clinical-trial participant with severe paralysis/anarthria recorded with high-density surface ECoG; related ECoG, EMG and MEA data are linked in data availability.
@@ -4167,7 +4354,12 @@ Agent field evidence (signal modality): Abstract states high-density surface rec
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://www.nature.com/articles/s41593-025-01905-6; https://doi.org/10.7910/DVN/8TQKC8; https://www.researchgate.net/publication/390354721_A_streaming_brain-to-voice_neuroprosthesis_to_restore_naturalistic_communication
 
-Agent unresolved after preview: limitations
+Agent verified limitations: Experimental boundary: online results were demonstrated in a single clinical-trial participant with severe paralysis and anarthria using high-density surface recordings; data sharing is restricted by the clinical protocol and participant anonymity constraints.
+Agent field evidence (limitations): Nature abstract states the system used high-density surface recordings from one clinical-trial participant with severe paralysis and anarthria. Data availability says relevant data are restricted under the clinical trial protocol and cannot be made publicly available, with identifying information excluded.
+Agent field confidence (limitations): medium
+Agent field source tier (limitations): tier1_paper_text
+Agent field sources (limitations): https://www.nature.com/articles/s41593-025-01905-6
+Agent unresolved after preview: none
 
 ### Accurate digitization of EEG electrode locations by electromagnetic tracking system: The proposed head rotation method and comparison against optical system
 
@@ -4266,14 +4458,14 @@ Auto matched title: Accurate transition state generation with an object-aware eq
 Auto source URL: https://doi.org/10.1038/s43588-023-00563-7
 Auto verified fields: year=2023, venue=Nature Computational Science, doi=10.1038/s43588-023-00563-7
 
-Missing or unresolved: limitations
+Missing or unresolved: none
 Suggested next action: inspect paper text or trusted public source for the remaining unresolved fields.
 
 Auto field verification status: source-traced field pass
 Auto verified method: Diffusion/generative model
 Auto field evidence (method): Accurate transition state generation with an object-aware equivariant elementary reaction diffusion model.
 Auto field source (method): Zotero BIB title/abstract/keywords
-Auto unresolved after field pass: limitations
+Auto unresolved after field pass: none
 
 Agent field verification status: agent-source-traced
 Agent verified dataset: Transition1x dataset.
@@ -4293,7 +4485,12 @@ Agent field evidence (task): Abstract states the model generates reactant, trans
 Agent field confidence (task): high
 Agent field sources (task): https://www.nature.com/articles/s43588-023-00563-7; https://arxiv.org/abs/2304.06174; https://gitlab.com/matschreiner/Transition1x
 
-Agent unresolved after preview: limitations
+Agent verified limitations: The authors explicitly state two major limitations: representing each elementary reaction as reactant, transition-state and product structures creates a 3N-atom system whose scalar message passing becomes a bottleneck for systems over 100 atoms on a single GPU; the diffusion model's stochastic nature causes sample-quality uncertainty and accumulated runtime from repeated sampling, despite the confidence model workaround.
+Agent field evidence (limitations): The arXiv/paper text says the current OA-ReactDiff approach has two major limitations: the 3N representation and fully connected graph bottleneck for chemical systems over 100 atoms on one GPU, and unavoidable stochasticity causing uncertainty in generated transition-state quality and repeated-runtime cost.
+Agent field confidence (limitations): high
+Agent field source tier (limitations): tier1_paper_text
+Agent field sources (limitations): https://arxiv.org/abs/2304.06174; https://www.nature.com/articles/s43588-023-00563-7
+Agent unresolved after preview: none
 
 ### Addressing Spatial-Temporal Heterogeneity: General Mixed Time Series Analysis via Latent Continuity Recovery and Alignment
 
@@ -4694,14 +4891,14 @@ Auto matched title: Better models of human high-level visual cortex emerge from 
 Auto source URL: https://doi.org/10.1038/s42256-023-00753-y
 Auto verified fields: year=2023, venue=Nat. Mac. Intell., doi=10.1038/S42256-023-00753-Y
 
-Missing or unresolved: limitations
+Missing or unresolved: none
 Suggested next action: inspect paper text or trusted public source for the remaining unresolved fields.
 
 Auto field verification status: source-traced field pass
 Auto verified task: Visual reconstruction, Speech/language decoding, Dataset/benchmark
 Auto field evidence (task): Visual reconstruction, Speech/language decoding, Dataset/benchmark; evidence: Better models of human high-level visual cortex emerge from natural language supervision with a large and diverse dataset.
 Auto field source (task): Zotero BIB title/abstract/keywords
-Auto unresolved after field pass: limitations
+Auto unresolved after field pass: none
 
 Agent field verification status: agent-source-traced
 Agent verified dataset: Natural Scenes Dataset (NSD), a large-scale fMRI dataset of participants viewing thousands of natural images.
@@ -4721,7 +4918,12 @@ Agent field evidence (signal modality): NSD is described as an fMRI dataset of p
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://www.nature.com/articles/s42256-023-00753-y; https://doi.org/10.1038/s42256-023-00753-y
 
-Agent unresolved after preview: limitations
+Agent verified limitations: Experimental boundary: the study uses CLIP-based voxelwise encoding models to predict human high-level visual cortex responses to real-world images from the Natural Scenes Dataset; findings are bounded to this NSD fMRI setting and the compared CLIP/ImageNet/BERT-style model families.
+Agent field evidence (limitations): Nature abstract states the authors used CLIP-pretrained models and voxelwise encoding models to predict brain responses to real-world images, reporting high-level visual cortex results; data availability states they used the Natural Scenes Dataset, a large-scale fMRI dataset of participants viewing thousands of natural images.
+Agent field confidence (limitations): medium
+Agent field source tier (limitations): tier1_paper_text
+Agent field sources (limitations): https://www.nature.com/articles/s42256-023-00753-y
+Agent unresolved after preview: none
 
 ### Better models of human high-level visual cortex emerge from natural language supervision with a large and diverse dataset
 
@@ -4736,14 +4938,14 @@ Auto matched title: Better models of human high-level visual cortex emerge from 
 Auto source URL: https://doi.org/10.1038/s42256-023-00753-y
 Auto verified fields: year=2023, venue=Nat. Mac. Intell., doi=10.1038/S42256-023-00753-Y
 
-Missing or unresolved: limitations
+Missing or unresolved: none
 Suggested next action: inspect paper text or trusted public source for the remaining unresolved fields.
 
 Auto field verification status: source-traced field pass
 Auto verified task: Visual reconstruction, Speech/language decoding, Dataset/benchmark
 Auto field evidence (task): Visual reconstruction, Speech/language decoding, Dataset/benchmark; evidence: Better models of human high-level visual cortex emerge from natural language supervision with a large and diverse dataset.
 Auto field source (task): Zotero BIB title/abstract/keywords
-Auto unresolved after field pass: limitations
+Auto unresolved after field pass: none
 
 Agent field verification status: agent-source-traced
 Agent verified dataset: Natural Scenes Dataset (NSD), a large-scale fMRI dataset of participants viewing thousands of natural images.
@@ -4763,7 +4965,12 @@ Agent field evidence (signal modality): NSD is described as an fMRI dataset of p
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://www.nature.com/articles/s42256-023-00753-y; https://doi.org/10.1038/s42256-023-00753-y
 
-Agent unresolved after preview: limitations
+Agent verified limitations: Experimental boundary: the study uses CLIP-based voxelwise encoding models to predict human high-level visual cortex responses to real-world images from the Natural Scenes Dataset; findings are bounded to this NSD fMRI setting and the compared CLIP/ImageNet/BERT-style model families.
+Agent field evidence (limitations): Nature abstract states the authors used CLIP-pretrained models and voxelwise encoding models to predict brain responses to real-world images, reporting high-level visual cortex results; data availability states they used the Natural Scenes Dataset, a large-scale fMRI dataset of participants viewing thousands of natural images.
+Agent field confidence (limitations): medium
+Agent field source tier (limitations): tier1_paper_text
+Agent field sources (limitations): https://www.nature.com/articles/s42256-023-00753-y
+Agent unresolved after preview: none
 
 ### BeyondMimic: From Motion Tracking to Versatile Humanoid Control via Guided Diffusion
 
@@ -5199,14 +5406,14 @@ Auto matched title: Category selectivity in human visual cortex: Beyond visual o
 Auto source URL: https://doi.org/10.1016/j.neuropsychologia.2017.03.033
 Auto verified fields: year=2017, venue=Neuropsychologia, doi=10.1016/j.neuropsychologia.2017.03.033
 
-Missing or unresolved: dataset, metric
+Missing or unresolved: metric
 Suggested next action: inspect paper text or trusted public source for the remaining unresolved fields.
 
 Auto field verification status: source-traced field pass
 Auto verified task: Encoding model, Visual reconstruction, Representation alignment
 Auto field evidence (task): Encoding model, Visual reconstruction, Representation alignment; evidence: Category selectivity in human visual cortex: Beyond visual object recognition.
 Auto field source (task): Zotero BIB title/abstract/keywords
-Auto unresolved after field pass: dataset, metric
+Auto unresolved after field pass: metric
 
 Agent field verification status: agent-source-traced
 Agent verified limitations: The authors argue that a visual-object-recognition-only account is unlikely to fully explain category selectivity because category-selective regions are also implicated in navigation, social cognition, tool use, reading, and nonvisual conditions.
@@ -5222,7 +5429,12 @@ Agent field evidence (signal modality): The paper centers on category-selective 
 Agent field confidence (signal modality): medium
 Agent field sources (signal modality): https://pubmed.ncbi.nlm.nih.gov/28377161/; https://repository.ubn.ru.nl/bitstream/handle/2066/178519/1/178519.pdf
 
-Agent unresolved after preview: dataset, metric
+Agent verified dataset: No primary dataset; review article on category selectivity in human visual cortex beyond visual object recognition.
+Agent field evidence (dataset): PubMed labels the article as a Review, lists publication type Review, and the abstract argues a conceptual account of category selectivity rather than reporting a dataset.
+Agent field confidence (dataset): high
+Agent field source tier (dataset): tier1_paper_text
+Agent field sources (dataset): https://pubmed.ncbi.nlm.nih.gov/28377161/; https://doi.org/10.1016/j.neuropsychologia.2017.03.033
+Agent unresolved after preview: metric
 
 ### CheckManual: A New Challenge and Benchmark for Manual-based Appliance Manipulation
 
@@ -5410,7 +5622,7 @@ Auto matched title: Convergent multi-modular architecturefor adaptive learning i
 Auto source URL: https://doi.org/10.1016/j.isci.2025.113799
 Auto verified fields: year=2025, venue=iScience, doi=10.1016/j.isci.2025.113799
 
-Missing or unresolved: dataset, metric
+Missing or unresolved: metric
 Suggested next action: inspect paper text or trusted public source for the remaining unresolved fields.
 
 Auto field verification status: source-traced field pass
@@ -5420,7 +5632,7 @@ Auto field source (task): Zotero BIB title/abstract/keywords
 Auto verified limitations: source-traced limitation/caveat sentence
 Auto field evidence (limitations): Faced with dynamic, uncertain environments, a common goal of biological intelligence (BI) and artificial intelligence (AI) is to develop robust adaptive learning capabilities, despite different origins.
 Auto field source (limitations): Zotero BIB title/abstract/keywords
-Auto unresolved after field pass: dataset, metric
+Auto unresolved after field pass: metric
 
 Agent field verification status: agent-source-traced
 Agent verified method: Perspective/review comparing Drosophila olfactory learning anatomy and function with AI multi-modular methods, especially ensemble learning and mixture-of-experts.
@@ -5432,7 +5644,12 @@ Agent field evidence (signal modality): The biological component concerns Drosop
 Agent field confidence (signal modality): medium
 Agent field sources (signal modality): https://pubmed.ncbi.nlm.nih.gov/41244560/; https://www.cell.com/iscience/pdf/S2589-0042%2825%2902060-7.pdf
 
-Agent unresolved after preview: dataset, metric
+Agent verified dataset: No primary dataset; iScience Perspective reviewing Drosophila olfactory learning/mushroom body architecture and AI analogues. It discusses cited datasets/benchmarks such as SIFT, GLOVE, MNIST, Split CIFAR-100, and Atari only as examples from prior work.
+Agent field evidence (dataset): PMC full text identifies the article type as Perspective, says it reviews recent studies of the Drosophila olfactory learning system, and mentions SIFT/GLOVE/MNIST, Split CIFAR-100, and Atari as validation examples in cited prior work rather than a new dataset for this article.
+Agent field confidence (dataset): high
+Agent field source tier (dataset): tier1_paper_text
+Agent field sources (dataset): https://pmc.ncbi.nlm.nih.gov/articles/PMC12616022/; https://doi.org/10.1016/j.isci.2025.113799
+Agent unresolved after preview: metric
 
 ### Data-Driven Approaches to Understanding Visual Neuron Activity
 
@@ -5445,7 +5662,7 @@ Auto matched title: Data-Driven Approaches to Understanding Visual Neuron Activi
 Auto source URL: https://doi.org/10.1146/annurev-vision-091718-014731
 Auto verified fields: year=2019, venue=Annual Review of Vision Science, doi=10.1146/annurev-vision-091718-014731
 
-Missing or unresolved: dataset, metric
+Missing or unresolved: metric
 Suggested next action: inspect paper text or trusted public source for the remaining unresolved fields.
 
 Auto field verification status: source-traced field pass
@@ -5455,7 +5672,7 @@ Auto field source (task): Zotero BIB title/abstract/keywords
 Auto verified limitations: source-traced limitation/caveat sentence
 Auto field evidence (limitations): However, models that are able to more accurately reproduce observed neural activity often defy simple interpretations.
 Auto field source (limitations): Zotero BIB title/abstract/keywords
-Auto unresolved after field pass: dataset, metric
+Auto unresolved after field pass: metric
 
 Agent field verification status: agent-source-traced
 Agent verified method: Review of data-driven/statistical modeling approaches for visual neuron activity, including receptive-field, neural-network, and machine-learning models used to predict and interpret neural responses.
@@ -5467,7 +5684,12 @@ Agent field evidence (signal modality): The paper focuses on neurophysiological 
 Agent field confidence (signal modality): medium
 Agent field sources (signal modality): https://www.annualreviews.org/content/journals/10.1146/annurev-vision-091718-014731
 
-Agent unresolved after preview: dataset, metric
+Agent verified dataset: No primary dataset; review of statistical and data-driven models for understanding visual neuron activity.
+Agent field evidence (dataset): PubMed/E-utilities lists the publication type as Review and the abstract describes different forms of statistical models used to relate neural activity data to models rather than reporting a specific dataset collected by the article.
+Agent field confidence (dataset): high
+Agent field source tier (dataset): tier1_paper_text
+Agent field sources (dataset): https://pubmed.ncbi.nlm.nih.gov/31386605/; https://doi.org/10.1146/annurev-vision-091718-014731
+Agent unresolved after preview: metric
 
 ### Decoding Neuronal Ensembles in the Human Hippocampus
 
@@ -5567,14 +5789,14 @@ Auto matched title: Decoding the brain: From neural representations to mechanist
 Auto source URL: https://doi.org/10.1016/j.cell.2024.08.051
 Auto verified fields: year=2024, venue=Cell, doi=10.1016/j.cell.2024.08.051
 
-Missing or unresolved: dataset, metric
+Missing or unresolved: metric
 Suggested next action: inspect paper text or trusted public source for the remaining unresolved fields.
 
 Auto field verification status: source-traced field pass
 Auto verified task: Neural decoding, Encoding model, Visual reconstruction, Speech/language decoding, Representation alignment
 Auto field evidence (task): Neural decoding, Encoding model, Visual reconstruction, Speech/language decoding, Representation alignment; evidence: Decoding the brain: From neural representations to mechanistic models.
 Auto field source (task): Zotero BIB title/abstract/keywords
-Auto unresolved after field pass: dataset, metric
+Auto unresolved after field pass: metric
 
 Agent field verification status: agent-source-traced
 Agent verified limitations: The Perspective emphasizes that decoder algorithms do not necessarily link to neural mechanisms, that dataset scale and timescale are major challenges for generalization, and that the field should move toward causal modeling.
@@ -5590,7 +5812,12 @@ Agent field evidence (signal modality): The paper discusses recording from neuro
 Agent field confidence (signal modality): medium
 Agent field sources (signal modality): https://pmc.ncbi.nlm.nih.gov/articles/PMC11637322/; https://www.cell.com/cell/fulltext/S0092-8674(24)00980-2
 
-Agent unresolved after preview: dataset, metric
+Agent verified dataset: No primary dataset; Cell Perspective/review on neural encoding/decoding. It discusses dataset-scale requirements and cites examples such as MICrONS and Neural Latents Benchmark as prior resources, not as a newly generated dataset.
+Agent field evidence (dataset): PMC full text identifies the article as a Perspective and states that it reviews encoding-decoding principles and case studies; it discusses dataset scale needs and prior resources such as MICrONS and Neural Latents Benchmark without reporting a new article-specific dataset.
+Agent field confidence (dataset): high
+Agent field source tier (dataset): tier1_paper_text
+Agent field sources (dataset): https://pmc.ncbi.nlm.nih.gov/articles/PMC11637322/; https://doi.org/10.1016/j.cell.2024.08.051
+Agent unresolved after preview: metric
 
 ### Decoding the brain: From neural representations to mechanistic models
 
@@ -5603,14 +5830,14 @@ Auto matched title: Decoding the brain: From neural representations to mechanist
 Auto source URL: https://doi.org/10.1016/j.cell.2024.08.051
 Auto verified fields: year=2024, venue=Cell, doi=10.1016/j.cell.2024.08.051
 
-Missing or unresolved: dataset, metric
+Missing or unresolved: metric
 Suggested next action: inspect paper text or trusted public source for the remaining unresolved fields.
 
 Auto field verification status: source-traced field pass
 Auto verified task: Neural decoding, Encoding model, Visual reconstruction, Speech/language decoding, Representation alignment
 Auto field evidence (task): Neural decoding, Encoding model, Visual reconstruction, Speech/language decoding, Representation alignment; evidence: Decoding the brain: From neural representations to mechanistic models.
 Auto field source (task): Zotero BIB title/abstract/keywords
-Auto unresolved after field pass: dataset, metric
+Auto unresolved after field pass: metric
 
 Agent field verification status: agent-source-traced
 Agent verified limitations: The Perspective emphasizes that decoder algorithms do not necessarily link to neural mechanisms, that dataset scale and timescale are major challenges for generalization, and that the field should move toward causal modeling.
@@ -5626,7 +5853,12 @@ Agent field evidence (signal modality): The paper discusses recording from neuro
 Agent field confidence (signal modality): medium
 Agent field sources (signal modality): https://pmc.ncbi.nlm.nih.gov/articles/PMC11637322/; https://www.cell.com/cell/fulltext/S0092-8674(24)00980-2
 
-Agent unresolved after preview: dataset, metric
+Agent verified dataset: No primary dataset; Cell Perspective/review on neural encoding/decoding. It discusses dataset-scale requirements and cites examples such as MICrONS and Neural Latents Benchmark as prior resources, not as a newly generated dataset.
+Agent field evidence (dataset): PMC full text identifies the article as a Perspective and states that it reviews encoding-decoding principles and case studies; it discusses dataset scale needs and prior resources such as MICrONS and Neural Latents Benchmark without reporting a new article-specific dataset.
+Agent field confidence (dataset): high
+Agent field source tier (dataset): tier1_paper_text
+Agent field sources (dataset): https://pmc.ncbi.nlm.nih.gov/articles/PMC11637322/; https://doi.org/10.1016/j.cell.2024.08.051
+Agent unresolved after preview: metric
 
 ### Deep Neural Networks Reveal a Gradient in the Complexity of Neural Representations across the Ventral Stream
 
@@ -5815,7 +6047,7 @@ Auto matched title: DiffEditor: Boosting Accuracy and Flexibility on Diffusion-B
 Auto source URL: https://doi.org/10.1109/cvpr52733.2024.00811
 Auto verified fields: year=2024, venue=2024 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), doi=10.1109/cvpr52733.2024.00811
 
-Missing or unresolved: dataset
+Missing or unresolved: none
 Suggested next action: inspect paper text or trusted public source for the remaining unresolved fields.
 
 Auto field verification status: source-traced field pass
@@ -5825,7 +6057,7 @@ Auto field source (method): Zotero BIB title/abstract/keywords
 Auto verified metric: accuracy
 Auto field evidence (metric): DiffEditor: Boosting Accuracy and Flexibility on Diffusion-Based Image Editing.
 Auto field source (metric): public abstract/title evidence
-Auto unresolved after field pass: dataset
+Auto unresolved after field pass: none
 
 Agent field verification status: agent-source-traced
 Agent verified limitations: The authors state that the method still struggles with large content imagination, such as rotating a car by dragging its front, because the base Stable Diffusion model lacks 3D perception of individual objects.
@@ -5841,7 +6073,12 @@ Agent field evidence (task): The abstract and task description list fine-grained
 Agent field confidence (task): high
 Agent field sources (task): https://openaccess.thecvf.com/content/CVPR2024/papers/Mou_DiffEditor_Boosting_Accuracy_and_Flexibility_on_Diffusion-based_Image_Editing_CVPR_2024_paper.pdf; https://arxiv.org/abs/2402.02583
 
-Agent unresolved after preview: dataset
+Agent verified dataset: LAION training data for image-prompt training, processed to 512x512; evaluation includes the same DragonDiff face-manipulation test set of 800 aligned CelebA-HQ training-set faces and 16 editing samples for each object pasting, object moving, and appearance replacing task.
+Agent field evidence (dataset): The CVF paper states that image prompt training uses LAION data at 512x512, the face-manipulation comparison uses DragonDiff's 800 aligned faces from CelebA-HQ training set, and object pasting/moving/replacing quantization uses 16 editing samples per task.
+Agent field confidence (dataset): high
+Agent field source tier (dataset): tier1_paper_text
+Agent field sources (dataset): https://openaccess.thecvf.com/content/CVPR2024/papers/Mou_DiffEditor_Boosting_Accuracy_and_Flexibility_on_Diffusion-based_Image_Editing_CVPR_2024_paper.pdf; https://openaccess.thecvf.com/content/CVPR2024/html/Mou_DiffEditor_Boosting_Accuracy_and_Flexibility_on_Diffusion-based_Image_Editing_CVPR_2024_paper.html
+Agent unresolved after preview: none
 
 ### Diffusion Schrödinger Bridge Matching
 
@@ -6415,7 +6652,7 @@ Auto matched title: EgoLM: Multi-Modal Language Model of Egocentric Motions
 Auto source URL: https://doi.org/10.1109/cvpr52734.2025.00503
 Auto verified fields: year=2025, venue=2025 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), doi=10.1109/cvpr52734.2025.00503
 
-Missing or unresolved: limitations
+Missing or unresolved: none
 Suggested next action: inspect paper text or trusted public source for the remaining unresolved fields.
 
 Auto field verification status: source-traced field pass
@@ -6425,7 +6662,7 @@ Auto field source (signal modality): Zotero BIB title/abstract/keywords
 Auto verified method: Large language model
 Auto field evidence (method): EgoLM: Multi-Modal Language Model of Egocentric Motions.
 Auto field source (method): Zotero BIB title/abstract/keywords
-Auto unresolved after field pass: limitations
+Auto unresolved after field pass: none
 
 Agent field verification status: agent-source-traced
 Agent verified dataset: Nymeria dataset: Xsens full-body motion, Aria egocentric videos, and human motion narrations; tracking train/test are 147.89/41.93 hours, understanding train/test are 16,673/7,468 segments.
@@ -6441,7 +6678,12 @@ Agent field evidence (task): Abstract says it unifies motion narration from vide
 Agent field confidence (task): high
 Agent field sources (task): https://openaccess.thecvf.com/content/CVPR2025/papers/Hong_EgoLM_Multi-Modal_Language_Model_of_Egocentric_Motions_CVPR_2025_paper.pdf; https://arxiv.org/abs/2409.18127
 
-Agent unresolved after preview: limitations
+Agent verified limitations: The authors explicitly list three limitations: the motion tokenizer introduces reconstruction errors and bounds tracking performance; CLIP compresses each video frame to a one-dimensional vector, making object interaction identification difficult; EgoLM can hallucinate like other language models.
+Agent field evidence (limitations): CVF paper Discussion has a Limitations paragraph stating these three issues directly after the discussion of EgoLM's multimodal multi-task training.
+Agent field confidence (limitations): high
+Agent field source tier (limitations): tier1_paper_text
+Agent field sources (limitations): https://openaccess.thecvf.com/content/CVPR2025/papers/Hong_EgoLM_Multi-Modal_Language_Model_of_Egocentric_Motions_CVPR_2025_paper.pdf
+Agent unresolved after preview: none
 
 ### EmotionKD: A Cross-Modal Knowledge Distillation Framework for Emotion Recognition Based on Physiological Signals
 
@@ -6486,6 +6728,7 @@ Agent field evidence (metric): The paper tables for DEAP and HCI-Tagging compare
 Agent field confidence (metric): medium
 Agent field source tier (metric): tier2_author_uploaded_paper_text
 Agent field sources (metric): https://dl.acm.org/doi/10.1145/3581783.3612277; https://www.researchgate.net/publication/375032220_EmotionKD_A_Cross-Modal_Knowledge_Distillation_Framework_for_Emotion_Recognition_Based_on_Physiological_Signals
+
 Agent unresolved after preview: none
 
 ### EnerVerse-AC: Envisioning Embodied Environments with Action Condition
@@ -6799,14 +7042,14 @@ Auto matched title: Generalized radiograph representation learning via cross-sup
 Auto source URL: https://doi.org/10.1038/s42256-021-00425-9
 Auto verified fields: year=2022, venue=Nature Machine Intelligence, doi=10.1038/s42256-021-00425-9
 
-Missing or unresolved: limitations
+Missing or unresolved: none
 Suggested next action: inspect paper text or trusted public source for the remaining unresolved fields.
 
 Auto field verification status: source-traced field pass
 Auto verified task: Representation alignment
 Auto field evidence (task): Representation alignment; evidence: Generalized radiograph representation learning via cross-supervision between images and free-text radiology reports.
 Auto field source (task): Zotero BIB title/abstract/keywords
-Auto unresolved after field pass: limitations
+Auto unresolved after field pass: none
 
 Agent field verification status: agent-source-traced
 Agent verified dataset: MIMIC-CXR-JPG, NIH Chest X-ray, VinBigData Chest X-Ray Abnormalities Detection, Shenzhen Tuberculosis, and COVID-19 Image Data Collection are listed in data availability; article says evaluation used four well-known X-ray datasets under limited supervision.
@@ -6827,7 +7070,13 @@ Agent field evidence (metric): Nature Machine Intelligence extended-data caption
 Agent field confidence (metric): high
 Agent field source tier (metric): tier1_paper_text
 Agent field sources (metric): https://www.nature.com/articles/s42256-021-00425-9
-Agent unresolved after preview: limitations
+
+Agent verified limitations: Experimental boundary: REFERS is a radiograph representation pretraining method using free-text radiology reports and multi-view patient studies, evaluated on four X-ray datasets under extremely limited supervision; data sources include MIMIC-CXR-JPG, NIH Chest X-ray, VinBigData, Shenzhen Tuberculosis and COVID-19 image collections.
+Agent field evidence (limitations): Nature abstract describes REFERS as using original radiology reports and multiple views within each patient study, outperforming baselines on four X-ray datasets under extremely limited supervision. Data availability lists the specific radiograph datasets used.
+Agent field confidence (limitations): medium
+Agent field source tier (limitations): tier1_paper_text
+Agent field sources (limitations): https://www.nature.com/articles/s42256-021-00425-9
+Agent unresolved after preview: none
 
 ### Generating Long Videos of Dynamic Scenes
 
@@ -6970,7 +7219,7 @@ Auto matched title: Grounded Language-Image Pre-training
 Auto source URL: https://doi.org/10.1109/cvpr52688.2022.01069
 Auto verified fields: year=2022, venue=2022 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), doi=10.1109/cvpr52688.2022.01069
 
-Missing or unresolved: limitations
+Missing or unresolved: none
 Suggested next action: inspect paper text or trusted public source for the remaining unresolved fields.
 
 Auto field verification status: source-traced field pass
@@ -6980,7 +7229,7 @@ Auto field source (task): Zotero BIB title/abstract/keywords
 Auto verified method: Masked autoencoder/pretraining
 Auto field evidence (method): This paper presents a grounded language-image pretraining (GLIP) model for learning object-level, languageaware, and semantic-rich visual representations.
 Auto field source (method): Zotero BIB title/abstract/keywords
-Auto unresolved after field pass: limitations
+Auto unresolved after field pass: none
 
 Agent field verification status: agent-source-traced
 Agent verified dataset: 27M grounding data for pre-training, including 3M human-annotated and 24M web-crawled image-text pairs; evaluated on COCO, LVIS, and 13 downstream detection tasks.
@@ -6996,7 +7245,12 @@ Agent field evidence (signal modality): The paper unifies object detection and p
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://openaccess.thecvf.com/content/CVPR2022/html/Li_Grounded_Language-Image_Pre-Training_CVPR_2022_paper.html; https://openaccess.thecvf.com/content/CVPR2022/papers/Li_Grounded_Language-Image_Pre-Training_CVPR_2022_paper.pdf; https://arxiv.org/abs/2112.03857
 
-Agent unresolved after preview: limitations
+Agent verified limitations: The authors leave a detailed study of how GLIP scales with text-image data size to future work.
+Agent field evidence (limitations): CVF paper conclusion states that GLIP shows promising zero-shot and fine-tuning results on established benchmarks and 13 downstream tasks, then explicitly leaves detailed study of scaling with text-image data size to future work.
+Agent field confidence (limitations): high
+Agent field source tier (limitations): tier1_paper_text
+Agent field sources (limitations): https://openaccess.thecvf.com/content/CVPR2022/papers/Li_Grounded_Language-Image_Pre-Training_CVPR_2022_paper.pdf; https://openaccess.thecvf.com/content/CVPR2022/html/Li_Grounded_Language-Image_Pre-Training_CVPR_2022_paper.html
+Agent unresolved after preview: none
 
 ### Growing a Neural Network in Breadth, Depth, and Time
 
