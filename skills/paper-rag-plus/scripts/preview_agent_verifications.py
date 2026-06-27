@@ -41,7 +41,17 @@ FIELD_ALIASES = {
     "limitations": "limitations",
     "method": "method",
     "metric": "metric",
+    "metric_status": "metric_status",
+    "metric status": "metric_status",
+    "paper_type": "paper_type",
+    "paper type": "paper_type",
+    "dataset_role": "dataset_role",
+    "dataset role": "dataset_role",
+    "limitation_source": "limitation_source",
+    "limitation source": "limitation_source",
     "task": "task",
+    "task_taxonomy": "task_taxonomy",
+    "task taxonomy": "task_taxonomy",
     "venue": "venue",
     "year": "year",
 }
@@ -150,8 +160,14 @@ def source_tier_allows(field_name: str, source_tier: str) -> tuple[bool, str]:
 
 def parse_unresolved(body: list[str]) -> set[str]:
     unresolved: set[str] = set()
+    section = ""
     for line in body:
-        if line.startswith("Auto unresolved after field pass:"):
+        if line in {"Bibliographic:", "Paper type:", "Evidence fields:", "Verification:", "Field evidence:", "Identity trace:"}:
+            section = line[:-1]
+            continue
+        if section == "Verification" and line.startswith("- final_unresolved_fields:"):
+            values = line.split(":", 1)[1]
+        elif line.startswith("Auto unresolved after field pass:"):
             values = line.split(":", 1)[1]
         elif line.startswith("Missing or unresolved:"):
             values = line.split(":", 1)[1]
@@ -159,7 +175,7 @@ def parse_unresolved(body: list[str]) -> set[str]:
             continue
         for value in values.split(","):
             field_name = canonical_field(value)
-            if field_name and field_name not in {"none", "n/a", "null"}:
+            if field_name and field_name not in {"none", "n/a", "null", "unresolved"}:
                 unresolved.add(field_name)
     return unresolved
 
@@ -273,6 +289,8 @@ def validate_record(
     for raw_field, raw_value in verified_fields.items():
         field_name = canonical_field(raw_field)
         action = clean(record.get("action", "accept")).lower()
+        if action == "not_applicable" and field_name == "metric_status":
+            field_name = "metric_status"
         if action in {"keep_unresolved", "needs_human"}:
             rejected.append(RejectedField(idx=idx, title=entry.title, field=field_name, reason=f"action={action}"))
             continue
@@ -283,7 +301,8 @@ def validate_record(
         if not value or value.lower() in {"none", "null", "n/a"}:
             rejected.append(RejectedField(idx=idx, title=entry.title, field=field_name, reason="empty/null value"))
             continue
-        if field_name not in entry.unresolved:
+        unresolved_field = "metric" if field_name == "metric_status" and value == "not_applicable" else field_name
+        if unresolved_field not in entry.unresolved:
             rejected.append(RejectedField(idx=idx, title=entry.title, field=field_name, reason="field not currently unresolved"))
             continue
         field_evidence = clean(evidence.get(raw_field) or evidence.get(field_name))
@@ -325,6 +344,8 @@ def validate_normalized_record(
     rejected: list[RejectedField] = []
     field_name = canonical_field(clean(record.get("field")))
     action = clean(record.get("action", "accept")).lower()
+    if action == "not_applicable" and field_name == "metric":
+        field_name = "metric_status"
     if action in {"keep_unresolved", "needs_human"}:
         rejected.append(RejectedField(idx=entry.idx, title=entry.title, field=field_name, reason=f"action={action}"))
         return accepted, rejected
@@ -335,7 +356,11 @@ def validate_normalized_record(
     if not value or value.lower() in {"none", "null", "n/a"}:
         rejected.append(RejectedField(idx=entry.idx, title=entry.title, field=field_name, reason="empty/null value"))
         return accepted, rejected
-    if field_name not in entry.unresolved:
+    if field_name == "metric_status" and value != "not_applicable":
+        rejected.append(RejectedField(idx=entry.idx, title=entry.title, field=field_name, reason="metric_status only supports not_applicable updates"))
+        return accepted, rejected
+    unresolved_field = "metric" if field_name == "metric_status" and value == "not_applicable" else field_name
+    if unresolved_field not in entry.unresolved:
         rejected.append(RejectedField(idx=entry.idx, title=entry.title, field=field_name, reason="field not currently unresolved"))
         return accepted, rejected
     evidence = clean(record.get("evidence"))
@@ -380,7 +405,7 @@ def build_preview(
         accepted_by_idx.setdefault(item.idx, []).append(item)
     remaining_by_idx = {entry.idx: set(entry.unresolved) for entry in entries}
     for item in accepted:
-        remaining_by_idx.setdefault(item.idx, set()).discard(item.field)
+        remaining_by_idx.setdefault(item.idx, set()).discard("metric" if item.field == "metric_status" else item.field)
     touched_entries = sorted(accepted_by_idx)
     remaining_touched = sum(len(remaining_by_idx.get(idx, set())) for idx in touched_entries)
 
@@ -491,10 +516,20 @@ def strip_previous_agent_lines(body: list[str], updated_fields: set[str] | None 
     return stripped
 
 
-def rewrite_entry_body(body: list[str], remaining: set[str], updated_fields: set[str]) -> list[str]:
+def rewrite_entry_body(
+    body: list[str],
+    remaining: set[str],
+    updated_fields: set[str],
+    update_values: dict[str, str] | None = None,
+) -> list[str]:
+    update_values = update_values or {}
     rewritten: list[str] = []
     for line in strip_previous_agent_lines(body, updated_fields):
-        if line.startswith("Missing or unresolved:"):
+        if line.startswith("- final_unresolved_fields:"):
+            rewritten.append(f"- final_unresolved_fields: {format_unresolved(remaining)}")
+        elif line.startswith("- metric_status:") and "metric_status" in update_values:
+            rewritten.append(f"- metric_status: {update_values['metric_status']}")
+        elif line.startswith("Missing or unresolved:"):
             rewritten.append(f"Missing or unresolved: {format_unresolved(remaining)}")
         elif line.startswith("Auto unresolved after field pass:"):
             rewritten.append(f"Auto unresolved after field pass: {format_unresolved(remaining)}")
@@ -511,9 +546,10 @@ def update_prefix_summary(prefix: list[str], remaining_by_idx: dict[int, set[str
 
     output: list[str] = []
     for line in prefix:
-        match = re.fullmatch(r"- ([a-z ]+): \d+", line)
+        match = re.fullmatch(r"- (?:unresolved )?([a-z_ ]+): \d+", line)
         if match and match.group(1) in counts:
-            output.append(f"- {match.group(1)}: {counts[match.group(1)]}")
+            label = "unresolved " if line.startswith("- unresolved ") else ""
+            output.append(f"- {label}{match.group(1)}: {counts[match.group(1)]}")
         else:
             output.append(line)
     return output
@@ -526,7 +562,7 @@ def apply_manual_review(path: Path, entries: list[ManualEntry], accepted: list[A
 
     remaining_by_idx = {entry.idx: set(entry.unresolved) for entry in entries}
     for item in accepted:
-        remaining_by_idx.setdefault(item.idx, set()).discard(item.field)
+        remaining_by_idx.setdefault(item.idx, set()).discard("metric" if item.field == "metric_status" else item.field)
 
     output: list[str] = []
     prefix, _ = parse_manual_review(path)
@@ -537,7 +573,8 @@ def apply_manual_review(path: Path, entries: list[ManualEntry], accepted: list[A
         output.append(f"### {entry.title}")
         updates = accepted_by_idx.get(entry.idx, [])
         updated_fields = {item.field for item in updates}
-        rewritten_body = rewrite_entry_body(entry.body, remaining_by_idx.get(entry.idx, set()), updated_fields)
+        update_values = {item.field: item.value for item in updates}
+        rewritten_body = rewrite_entry_body(entry.body, remaining_by_idx.get(entry.idx, set()), updated_fields, update_values)
         output.extend(rewritten_body)
         if updates:
             if output and output[-1] != "":

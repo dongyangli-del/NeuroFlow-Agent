@@ -1780,3 +1780,21 @@ Residual unresolved entries are retained because trusted sources did not directl
 - limitations: source-traced limitation/caveat sentence [Zotero BIB title/abstract/keywords]
   Evidence: Existing methods, which often rely on coarsely-aligned video pairs, are typically constrained to learning global or task-level features.
 - Unresolved: dataset, method, metric, signal modality
+
+## Structured Manual-Review Schema Addendum
+
+The manual-review artifact has been migrated from flat `Missing or unresolved` lines into a structured schema with four blocks:
+
+- Bibliographic: `year`, `venue`, `doi`.
+- Paper type: `primary_research`, `review`, `perspective`, `theory`, `benchmark`, `dataset`, or `system`.
+- Evidence fields: `signal_modality`, `input_modality`, `task_taxonomy`, `paper_objective`, `method_family`, `method_summary`, `dataset`, `dataset_role`, `metric`, `metric_status`, `limitations`, and `limitation_source`.
+- Verification: `final_unresolved_fields`, `verification_status`, `evidence_sources`, `evidence_tier`, and `confidence`.
+
+Multi-agent review plus public-source checks found that most remaining `metric` and one `dataset` residue were applicability issues, not missing facts. Review, perspective, theory, and survey entries without paper-specific quantitative evaluation now use `metric_status: not_applicable` and `dataset_role: none_review` where appropriate.
+
+After restructuring, the active manual-review queue contains only applicable unresolved targets:
+
+- DOI: 4 workshop/OpenReview-style records where no trusted canonical DOI has been accepted.
+- Limitations: 2 empirical primary-research records that still require original-paper limitation evidence.
+
+The export and preview scripts now parse `final_unresolved_fields`, preserve structured status metadata, and avoid re-exporting `metric_status: not_applicable` as a missing `metric`.

@@ -33,22 +33,31 @@ For a paper:
 
 ```markdown
 Title:
-Venue/year:
-Signal modality:
-Task:
-Method:
-Dataset:
-Metric:
-Main claim:
-Source evidence:
-Verification status:
-Missing information:
-Deviations from convention:
-Reusable insight:
-Limitations:
-Relation to user's work:
-Use when:
-Do not cite for:
+Bibliographic:
+- year:
+- venue:
+- doi:
+Paper type:
+- type: primary_research | review | perspective | theory | benchmark | dataset | system
+Evidence fields:
+- signal_modality:
+- input_modality:
+- task_taxonomy:
+- paper_objective:
+- method_family:
+- method_summary:
+- dataset:
+- dataset_role:
+- metric:
+- metric_status: applicable | not_applicable | unresolved
+- limitations:
+- limitation_source:
+Verification:
+- final_unresolved_fields:
+- verification_status:
+- evidence_sources:
+- evidence_tier:
+- confidence:
 ```
 
 For a claim:

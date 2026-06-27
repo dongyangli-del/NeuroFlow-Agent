@@ -24,7 +24,7 @@ python3 skills/paper-rag-plus/scripts/import_zotero_bib.py \
 - `references/method-map.md`: method-to-paper map.
 - `references/dataset-map.md`: dataset-to-paper map.
 - `references/claim-to-citation.md`: claim-to-candidate-citation map.
-- `references/manual-review-needed.md`: fields that could not be verified from Zotero BIB or public web metadata.
+- `references/manual-review-needed.md`: structured field applicability and verification state for entries that still need trusted-source review.
 - `references/source-verification-report.md`: strict title-match verification results from DBLP, Crossref, and Semantic Scholar.
 
 ## Private Outputs
@@ -63,8 +63,9 @@ Disallowed public fields:
 5. Manually fill unresolved fields only after inspecting the paper or a trusted public source.
 6. Run `verify_paper_terms.py` when `manual-review-needed.md` contains paper-title candidates that can be checked against public metadata.
 7. Run `verify_manual_review_fields.py` after title matching to auto-upgrade source-traced fields from matched metadata and short public/Zotero evidence snippets.
-8. Run `make validate`.
-9. Use `neuro-memory` to decide whether the import produced a reusable workflow, playbook, finding, case, or eval update.
+8. Run `structure_manual_review.py` to normalize manual review into the current Bibliographic / Paper type / Evidence fields / Verification schema.
+9. Run `make validate`.
+10. Use `neuro-memory` to decide whether the import produced a reusable workflow, playbook, finding, case, or eval update.
 
 ## Source Verification
 
@@ -83,6 +84,43 @@ python3 skills/paper-rag-plus/scripts/verify_manual_review_fields.py --drop-reso
 ```
 
 This pass reads title-matched entries and upgrades fields only when source-traced evidence is available. Bibliographic fields come from the strict title match first, with OpenAlex or Semantic Scholar used only to fill missing values. Content fields use short title/abstract/keyword evidence snippets and keep unsupported fields in `manual-review-needed.md`.
+
+## Structured Manual Review Schema
+
+Manual review entries must separate identity, applicability, content evidence, and verification state:
+
+```markdown
+Bibliographic:
+- year:
+- venue:
+- doi:
+
+Paper type:
+- type: primary_research | review | perspective | theory | benchmark | dataset | system
+
+Evidence fields:
+- signal_modality:
+- input_modality:
+- task_taxonomy:
+- paper_objective:
+- method_family:
+- method_summary:
+- dataset:
+- dataset_role:
+- metric:
+- metric_status: applicable | not_applicable | unresolved
+- limitations:
+- limitation_source: explicit | discussion | experimental_boundary | unresolved
+
+Verification:
+- final_unresolved_fields:
+- verification_status:
+- evidence_sources:
+- evidence_tier:
+- confidence:
+```
+
+`final_unresolved_fields` should contain only applicable fields that are still unsupported by trusted sources. A review, perspective, or theory article with no paper-specific quantitative evaluation should use `metric_status: not_applicable` rather than leaving `metric` unresolved.
 
 ## Citation Discipline
 

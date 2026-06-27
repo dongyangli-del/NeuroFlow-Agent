@@ -25,6 +25,7 @@ class ManualEntry:
     known: dict[str, str] = field(default_factory=dict)
     source_url: str = ""
     missing: list[str] = field(default_factory=list)
+    statuses: dict[str, str] = field(default_factory=dict)
 
 
 def clean(value: str) -> str:
@@ -32,6 +33,17 @@ def clean(value: str) -> str:
 
 
 def parse_missing(body: list[str]) -> list[str]:
+    section = ""
+    for line in body:
+        if line in {"Bibliographic:", "Paper type:", "Evidence fields:", "Verification:", "Field evidence:", "Identity trace:"}:
+            section = line[:-1]
+            continue
+        if section == "Verification" and line.startswith("- final_unresolved_fields:"):
+            return [
+                clean(value)
+                for value in line.split(":", 1)[1].split(",")
+                if clean(value) and clean(value).lower() not in {"none", "n/a", "null", "unresolved"}
+            ]
     for prefix in ("Auto unresolved after field pass:", "Missing or unresolved:"):
         for line in body:
             if line.startswith(prefix):
@@ -45,21 +57,61 @@ def parse_missing(body: list[str]) -> list[str]:
 
 def parse_known(body: list[str]) -> dict[str, str]:
     known: dict[str, str] = {}
+    section = ""
+    for line in body:
+        if line in {"Bibliographic:", "Paper type:", "Evidence fields:", "Verification:", "Field evidence:", "Identity trace:"}:
+            section = line[:-1]
+            continue
+        if section == "Bibliographic" and line.startswith("- ") and ":" in line:
+            key, value = line[2:].split(":", 1)
+            key = clean(key).lower()
+            if key in {"year", "venue", "doi"}:
+                known[key] = clean(value)
     for key in ("Year", "Venue", "DOI"):
         for line in body:
             if line.startswith(f"{key}:"):
-                known[key.lower()] = clean(line.split(":", 1)[1])
+                known.setdefault(key.lower(), clean(line.split(":", 1)[1]))
                 break
         else:
-            known[key.lower()] = ""
+            known.setdefault(key.lower(), "")
     return known
 
 
 def parse_source_url(body: list[str]) -> str:
+    section = ""
     for line in body:
+        if line in {"Bibliographic:", "Paper type:", "Evidence fields:", "Verification:", "Field evidence:", "Identity trace:"}:
+            section = line[:-1]
+            continue
+        if section == "Identity trace" and line.startswith("- auto_source_url:"):
+            return clean(line.split(":", 1)[1])
+        if section == "Verification" and line.startswith("- evidence_sources:"):
+            sources = clean(line.split(":", 1)[1])
+            if sources and sources != "unresolved":
+                return clean(sources.split(";", 1)[0])
         if line.startswith("Auto source URL:"):
             return clean(line.split(":", 1)[1])
     return ""
+
+
+def parse_statuses(body: list[str]) -> dict[str, str]:
+    statuses: dict[str, str] = {}
+    section = ""
+    for line in body:
+        if line in {"Bibliographic:", "Paper type:", "Evidence fields:", "Verification:", "Field evidence:", "Identity trace:"}:
+            section = line[:-1]
+            continue
+        if section == "Paper type" and line.startswith("- type:"):
+            statuses["paper_type"] = clean(line.split(":", 1)[1])
+        elif section == "Evidence fields" and line.startswith("- metric_status:"):
+            statuses["metric_status"] = clean(line.split(":", 1)[1])
+        elif section == "Evidence fields" and line.startswith("- dataset_role:"):
+            statuses["dataset_role"] = clean(line.split(":", 1)[1])
+        elif section == "Evidence fields" and line.startswith("- limitation_source:"):
+            statuses["limitation_source"] = clean(line.split(":", 1)[1])
+        elif section == "Verification" and line.startswith("- verification_status:"):
+            statuses["verification_status"] = clean(line.split(":", 1)[1])
+    return statuses
 
 
 def parse_manual_review(path: Path) -> list[ManualEntry]:
@@ -79,6 +131,7 @@ def parse_manual_review(path: Path) -> list[ManualEntry]:
                         known=parse_known(current_body),
                         source_url=parse_source_url(current_body),
                         missing=parse_missing(current_body),
+                        statuses=parse_statuses(current_body),
                     )
                 )
             current_title = line[4:].strip()
@@ -95,6 +148,7 @@ def parse_manual_review(path: Path) -> list[ManualEntry]:
                 known=parse_known(current_body),
                 source_url=parse_source_url(current_body),
                 missing=parse_missing(current_body),
+                statuses=parse_statuses(current_body),
             )
         )
     return entries
@@ -107,6 +161,7 @@ def entry_to_dict(entry: ManualEntry) -> dict[str, object]:
         "known": entry.known,
         "source_url": entry.source_url,
         "missing": entry.missing,
+        "statuses": entry.statuses,
     }
 
 
@@ -118,6 +173,7 @@ def field_record_to_dict(entry: ManualEntry, field_name: str) -> dict[str, objec
         "known": entry.known,
         "source_url": entry.source_url,
         "missing": entry.missing,
+        "statuses": entry.statuses,
     }
 
 
@@ -145,6 +201,7 @@ Rules:
 - Use `signal_modality` as the JSON key for signal modality.
 - If a paper is non-neural AI, set signal_modality to "Non-neural AI baseline" with evidence.
 - If a paper has no named dataset, describe the empirical data only when supported; otherwise leave dataset unresolved.
+- If the paper is review/perspective/theory and has no paper-specific quantitative evaluation, set metric_status to not_applicable and do not return metric as unresolved.
 - If no DOI is found in trusted sources, leave DOI unresolved.
 - Limitations must come from author discussion, limitations, conclusion, explicit caveats, or clearly stated experimental boundaries.
 - Do not return Markdown or commentary outside the JSON array.
@@ -180,9 +237,11 @@ Required JSONL keys:
 
 Rules:
 - Use action=accept only when the field is directly supported.
+- Use action=not_applicable only for field=metric_status with value="not_applicable" when paper_type and source evidence show no paper-specific quantitative evaluation.
 - Use action=keep_unresolved with value="" when the field cannot be verified from trusted sources.
 - DOI requires tier0_metadata or tier1_paper_text evidence.
 - Dataset, metric, and limitations require paper text, official PDF, PMC, OpenReview, CVF, PMLR, ACL, publisher full text, or equivalent official paper evidence.
+- A metric target for a review/perspective/theory article may be closed by returning field=metric_status, value=not_applicable, action=not_applicable, and evidence from paper type/no primary evaluation.
 - Official GitHub, Zenodo, OSF, or Hugging Face can support dataset access details but cannot alone support paper metric or limitations.
 - Blogs, WeChat posts, tutorials, and media articles are only leads; mark them action=needs_human and source_tier=tier3_grey_literature.
 - Limitations must come from explicit author limitations, discussion/conclusion caveats, or clearly stated experimental boundaries. Do not invent generic critiques.
@@ -212,6 +271,7 @@ def filter_entries(entries: list[ManualEntry], fields: set[str]) -> list[ManualE
                 known=entry.known,
                 source_url=entry.source_url,
                 missing=missing,
+                statuses=entry.statuses,
             )
         )
     return filtered
