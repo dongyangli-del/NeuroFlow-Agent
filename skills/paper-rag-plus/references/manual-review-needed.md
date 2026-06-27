@@ -5,12 +5,12 @@ This report lists fields that could not be verified from cleaned Zotero BIB meta
 ## Summary
 
 - dataset: 17
-- signal modality: 1
-- metric: 26
+- signal modality: 0
+- metric: 20
 - method: 0
 - limitations: 33
 - task: 0
-- doi: 6
+- doi: 4
 - venue: 0
 
 ## Priority Entries
@@ -58,6 +58,7 @@ Agent verified task: General ML method evaluation across transformer analysis, m
 Agent field evidence (task): OpenReview abstract says broad applicability is demonstrated across MIL, immune repertoire classification, UCI small classification tasks, and drug-design datasets.
 Agent field confidence (task): high
 Agent field sources (task): https://openreview.net/forum?id=tL89RnzIiCd; https://arxiv.org/abs/2008.02217
+
 Agent unresolved after preview: limitations
 
 ### Neural Encoding and Decoding at Scale
@@ -103,6 +104,7 @@ Agent verified signal modality: Neuropixels spike-sorted neural activity; append
 Agent field evidence (signal modality): Dataset section states trial-aligned, spike-sorted Neuropixels recordings.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://proceedings.mlr.press/v267/zhang25bw.html; https://arxiv.org/abs/2504.08201
+
 Agent unresolved after preview: none
 
 ### Neural Encoding and Decoding at Scale
@@ -148,6 +150,7 @@ Agent verified signal modality: Neuropixels spike-sorted neural activity; append
 Agent field evidence (signal modality): Duplicate entry verified from the same dataset and appendix text as idx 2.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://proceedings.mlr.press/v267/zhang25bw.html; https://arxiv.org/abs/2504.08201
+
 Agent unresolved after preview: none
 
 ### SecureLLM: New private and confidential interfaces with LLMs
@@ -191,6 +194,7 @@ Agent verified task: Private/confidential LLM interfaces for access-controlled s
 Agent field evidence (task): Abstract lists user, group, and organization-level LLM security capabilities.
 Agent field confidence (task): high
 Agent field sources (task): https://ceur-ws.org/Vol-3957/; https://ceur-ws.org/Vol-3957/MIND-paper04.pdf
+
 Agent unresolved after preview: doi
 
 ### TOPONETS: HIGH PERFORMING VISION AND LAN- GUAGE MODELS WITH BRAIN-LIKE TOPOGRAPHY
@@ -237,6 +241,7 @@ Agent verified task: Induce brain-like topographic organization in vision and la
 Agent field evidence (task): OpenReview abstract states the goal is inducing topography in AI models.
 Agent field confidence (task): high
 Agent field sources (task): https://openreview.net/forum?id=THqWPzL00e; https://arxiv.org/abs/2501.16396
+
 Agent unresolved after preview: none
 
 ### Towards Brain-to-Text Generation: Neural Decoding with Pre-trained Encoder-Decoder Models
@@ -282,6 +287,7 @@ Agent verified venue: NeurIPS 2021 AI for Science Workshop: Mind the Gaps / Neur
 Agent field evidence (venue): OpenReview lists NeurIPS-AI4Science Poster.
 Agent field confidence (venue): high
 Agent field sources (venue): https://openreview.net/forum?id=13IJlk221xG; https://openreview.net/pdf?id=13IJlk221xG
+
 Agent unresolved after preview: doi
 
 ### 1000 Layer Networks for Self-Supervised RL: Scaling Depth Can Enable New Goal-Reaching Capabilities
@@ -328,6 +334,7 @@ Agent verified signal modality: Non-neural AI baseline
 Agent field evidence (signal modality): Self-supervised reinforcement learning on simulated tasks, not neural signals.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://papers.nips.cc/paper_files/paper/2025/hash/e74ee34cc0f2d0780f34ee77d8fba25b-Abstract-Conference.html; https://arxiv.org/abs/2503.14858
+
 Agent unresolved after preview: none
 
 ### A Unified Latent Schrodinger Bridge Diffusion Model for Unsupervised Anomaly Detection and Localization
@@ -370,6 +377,7 @@ Agent verified signal modality: Non-neural AI baseline
 Agent field evidence (signal modality): Computer vision anomaly detection/localization using images, not neural recordings.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://openaccess.thecvf.com/content/CVPR2025/html/Akshay_A_Unified_Latent_Schrodinger_Bridge_Diffusion_Model_for_Unsupervised_Anomaly_CVPR_2025_paper.html
+
 Agent unresolved after preview: none
 
 ### Go to Zero: Towards Zero-shot Motion Generation with Million-scale Data
@@ -414,6 +422,7 @@ Agent verified task: Zero-shot text-to-motion / human motion generation from tex
 Agent field evidence (task): Abstract states zero-shot text-to-motion generation.
 Agent field confidence (task): high
 Agent field sources (task): https://openaccess.thecvf.com/content/ICCV2025/papers/Fan_Go_to_Zero_Towards_Zero-shot_Motion_Generation_with_Million-scale_Data_ICCV_2025_paper.pdf
+
 Agent unresolved after preview: none
 
 ### MG-MotionLLM: A Unified Framework for Motion Comprehension and Generation across Multiple Granularities
@@ -458,6 +467,7 @@ Agent verified task: Unified multi-granular motion comprehension and generation.
 Agent field evidence (task): Abstract and task table list multi-granular motion tasks.
 Agent field confidence (task): high
 Agent field sources (task): https://openaccess.thecvf.com/content/CVPR2025/html/Wu_MG-MotionLLM_A_Unified_Framework_for_Motion_Comprehension_and_Generation_across_CVPR_2025_paper.html
+
 Agent unresolved after preview: none
 
 ### MG-MotionLLM: A Unified Framework for Motion Comprehension and Generation across Multiple Granularities
@@ -502,6 +512,7 @@ Agent verified task: Multi-granular human motion-language tasks.
 Agent field evidence (task): Abstract and experiments name text-to-motion, motion-to-text, localization, and editing tasks.
 Agent field confidence (task): high
 Agent field sources (task): https://openaccess.thecvf.com/content/CVPR2025/html/Wu_MG-MotionLLM_A_Unified_Framework_for_Motion_Comprehension_and_Generation_across_CVPR_2025_paper.html
+
 Agent unresolved after preview: none
 
 ### MiSO: Optimizing brain stimulation to create neural population activity states
@@ -543,6 +554,7 @@ Agent verified signal modality: Multi-electrode spiking activity in macaque pref
 Agent field evidence (signal modality): Paper states spiking activity was recorded from a multi-electrode array implanted in PFC.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://proceedings.neurips.cc/paper_files/paper/2024/hash/2af641762dc02035c31a9314b2d090b6-Abstract-Conference.html
+
 Agent unresolved after preview: none
 
 ### ScaMo: Exploring the Scaling Law in Autoregressive Motion Generation Model
@@ -587,6 +599,7 @@ Agent verified task: Text-driven human motion generation and scaling-law analysi
 Agent field evidence (task): Paper frames the work as text-driven motion generation and scaling-law verification.
 Agent field confidence (task): high
 Agent field sources (task): https://arxiv.org/abs/2412.14559
+
 Agent unresolved after preview: none
 
 ### ScaMo: Exploring the Scaling Law in Autoregressive Motion Generation Model
@@ -631,6 +644,7 @@ Agent verified task: Text-driven human motion generation and scaling-law analysi
 Agent field evidence (task): Duplicate entry verified from same ScaMo source as idx 13.
 Agent field confidence (task): high
 Agent field sources (task): https://arxiv.org/abs/2412.14559
+
 Agent unresolved after preview: none
 
 ### World Action Models are Zero-shot Policies
@@ -675,6 +689,7 @@ Agent verified signal modality: Non-neural AI baseline
 Agent field evidence (signal modality): Robot video, actions, proprioception, and language instructions; no neural signals.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://arxiv.org/abs/2602.15922
+
 Agent unresolved after preview: none
 
 ### 🦩 Flamingo: a Visual Language Model for Few-Shot Learning
@@ -715,6 +730,7 @@ Agent verified metric: CIDEr for captioning, top-1/accuracy for VQA/classificati
 Agent field evidence (metric): PDF tables label COCO/VATEX with CIDEr and OKVQA/VQAv2 with top1.
 Agent field confidence (metric): high
 Agent field sources (metric): https://arxiv.org/abs/2204.14198
+
 Agent unresolved after preview: none
 
 ### A Brain-Media Deep Framework Towards Seeing Imaginations Inside Brains
@@ -760,6 +776,7 @@ Agent verified task: EEG-based visualization/reconstruction of image-evoked brai
 Agent field evidence (task): Paper frames the goal as visualizing brain activities evoked by natural images.
 Agent field confidence (task): high
 Agent field sources (task): https://doi.org/10.1109/tmm.2020.2999183
+
 Agent unresolved after preview: none
 
 ### A Perovskite Memristor with Large Dynamic Space for Analog-Encoded Image Recognition
@@ -802,6 +819,7 @@ Agent verified task: Analog-encoded image recognition / Fashion-MNIST image clas
 Agent field evidence (task): Title and abstract identify analog-encoded image recognition and Fashion-MNIST classification.
 Agent field confidence (task): high
 Agent field sources (task): https://pubmed.ncbi.nlm.nih.gov/36519795/
+
 Agent unresolved after preview: none
 
 ### A multi-agent system for automating scientific discovery
@@ -846,6 +864,7 @@ Agent verified task: Automated scientific discovery for experimental biology and
 Agent field evidence (task): Abstract states Robin identifies therapeutic candidates and supports hypothesis generation/data analysis.
 Agent field confidence (task): high
 Agent field sources (task): https://www.nature.com/articles/s41586-026-10652-y; https://arxiv.org/abs/2505.13400
+
 Agent unresolved after preview: none
 
 ### A spatiotemporal style transfer algorithm for dynamic visual stimulus generation
@@ -890,6 +909,7 @@ Agent verified task: Dynamic visual stimulus generation for vision science and m
 Agent field evidence (task): Abstract says STST manipulates and synthesizes video stimuli for vision research.
 Agent field confidence (task): high
 Agent field sources (task): https://www.nature.com/articles/s43588-024-00746-w; https://arxiv.org/abs/2403.04940
+
 Agent unresolved after preview: none
 
 ### A unified acoustic-to-speech-to-language embedding space captures the neural basis of natural language processing in everyday conversations
@@ -934,6 +954,7 @@ Agent verified task: Predict and characterize neural activity during speech comp
 Agent field evidence (task): Abstract states the goal was linking acoustic, speech, and linguistic structures to neural language processing in everyday conversations.
 Agent field confidence (task): high
 Agent field sources (task): https://www.nature.com/articles/s41562-025-02105-9
+
 Agent unresolved after preview: none
 
 ### Accelerating scientific discovery with Co-Scientist
@@ -947,11 +968,11 @@ Auto matched title: Accelerating scientific discovery with Co-Scientist
 Auto source URL: https://doi.org/10.1038/s41586-026-10644-y
 Auto verified fields: year=2026, venue=Nature, doi=10.1038/s41586-026-10644-y
 
-Missing or unresolved: limitations, metric
+Missing or unresolved: limitations
 Suggested next action: inspect paper text or trusted public source for the remaining unresolved fields.
 
 Auto field verification status: source-traced field pass
-Auto unresolved after field pass: limitations, metric
+Auto unresolved after field pass: limitations
 
 Agent field verification status: agent-source-traced
 Agent verified dataset: Empirical scientific-discovery case studies rather than a named dataset.
@@ -970,7 +991,13 @@ Agent verified task: Automating and accelerating scientific hypothesis generatio
 Agent field evidence (task): The title and article context directly frame the task as accelerating scientific discovery.
 Agent field confidence (task): high
 Agent field sources (task): https://www.nature.com/articles/s41586-026-10644-y
-Agent unresolved after preview: limitations, metric
+
+Agent verified metric: Elo auto-evaluation rating; GPQA accuracy/top-1 accuracy; LLM-as-a-judge preference ranking; classifier AUC in ablations
+Agent field evidence (metric): Nature supplementary information states that the Elo auto-evaluation rating is a key metric, analyzes concordance with GPQA accuracy, reports top-1 accuracy, describes LLM-as-a-judge preference ranking, and reports classifier AUC for correctness in ablations.
+Agent field confidence (metric): high
+Agent field source tier (metric): tier1_paper_text
+Agent field sources (metric): https://www.nature.com/articles/s41586-026-10644-y; https://static-content.springer.com/esm/art%3A10.1038%2Fs41586-026-10644-y/MediaObjects/41586_2026_10644_MOESM1_ESM.pdf
+Agent unresolved after preview: limitations
 
 ### Adversarial Decoding: Generating Readable Documents for Adversarial Objectives
 
@@ -1013,6 +1040,7 @@ Agent verified task: Generate readable adversarial documents for RAG poisoning, 
 Agent field evidence (task): Abstract and contributions state the goal is readable documents for RAG poisoning and LLM guard evasion/jailbreak objectives.
 Agent field confidence (task): high
 Agent field sources (task): https://aclanthology.org/2026.findings-eacl.108.pdf
+
 Agent unresolved after preview: none
 
 ### AgiBot World Colosseo: Large-scale Manipulation Platform for Scalable and Intelligent Embodied Systems
@@ -1055,6 +1083,7 @@ Agent verified signal modality: Embodied robot manipulation data, including visi
 Agent field evidence (signal modality): Paper describes robot manipulation tasks across domestic, retail, industrial, restaurant, and office settings with bimanual and visuo-tactile examples.
 Agent field confidence (signal modality): medium
 Agent field sources (signal modality): https://arxiv.org/html/2503.06669v3; https://ieeexplore.ieee.org/document/11247088/
+
 Agent unresolved after preview: none
 
 ### AgiBot World Colosseo: Large-scale Manipulation Platform for Scalable and Intelligent Embodied Systems
@@ -1097,6 +1126,7 @@ Agent verified signal modality: Embodied robot manipulation data, including visi
 Agent field evidence (signal modality): Paper describes robot manipulation tasks across domestic, retail, industrial, restaurant, and office settings with bimanual and visuo-tactile examples.
 Agent field confidence (signal modality): medium
 Agent field sources (signal modality): https://arxiv.org/html/2503.06669v3; https://ieeexplore.ieee.org/document/11247088/
+
 Agent unresolved after preview: none
 
 ### An Image is Worth One Word: Personalizing Text-to-Image Generation using Textual Inversion
@@ -1112,11 +1142,11 @@ Auto matched title: An Image is Worth One Word: Personalizing Text-to-Image Gene
 Auto source URL: https://openreview.net/forum?id=NAQvF08TcyG
 Auto verified fields: year=2023, venue=ICLR
 
-Missing or unresolved: metric
+Missing or unresolved: none
 Suggested next action: inspect paper text or trusted public source for the remaining unresolved fields.
 
 Auto field verification status: source-traced field pass
-Auto unresolved after field pass: metric
+Auto unresolved after field pass: none
 
 Agent field verification status: agent-source-traced
 Agent verified dataset: User-provided concept examples: only 3-5 images per object or style concept.
@@ -1139,7 +1169,13 @@ Agent verified task: Personalized text-to-image generation for user-provided vis
 Agent field evidence (task): OpenReview TL;DR states the task is personalized text-to-image generation.
 Agent field confidence (task): high
 Agent field sources (task): https://openreview.net/forum?id=NAQvF08TcyG
-Agent unresolved after preview: metric
+
+Agent verified metric: CLIP-space cosine similarity for reconstruction/image similarity and prompt/text similarity; user-study rankings/preference
+Agent field evidence (metric): The ICLR paper's Evaluation Metrics section evaluates reconstruction with average pairwise CLIP-space cosine similarity between generated images and concept images, evaluates prompt adherence with CLIP text-image cosine similarity, and adds a user study ranking visual similarity and context/text similarity.
+Agent field confidence (metric): high
+Agent field source tier (metric): tier1_paper_text
+Agent field sources (metric): https://openreview.net/forum?id=NAQvF08TcyG; https://openreview.net/pdf?id=NAQvF08TcyG
+Agent unresolved after preview: none
 
 ### AnyGrasp: Robust and Efficient Grasp Perception in Spatial and Temporal Domains
 
@@ -1185,6 +1221,7 @@ Agent verified task: Robotic grasp perception, dynamic grasp tracking, and grasp
 Agent field evidence (task): Abstract frames the work as grasp perception for robot prehensile manipulation.
 Agent field confidence (task): high
 Agent field sources (task): https://arxiv.org/abs/2212.08333; https://www.semanticscholar.org/paper/6e1c0a5f083db4ad691f54878aed36f284bde019
+
 Agent unresolved after preview: none
 
 ### AnySkill: Learning Open-Vocabulary Physical Skill for Interactive Agents
@@ -1230,6 +1267,7 @@ Agent verified task: Open-vocabulary physical skill learning and interactive hum
 Agent field evidence (task): Abstract states the method learns physically plausible interactions following open-vocabulary instructions.
 Agent field confidence (task): high
 Agent field sources (task): https://openaccess.thecvf.com/content/CVPR2024/papers/Cui_AnySkill_Learning_Open-Vocabulary_Physical_Skill_for_Interactive_Agents_CVPR_2024_paper.pdf
+
 Agent unresolved after preview: none
 
 ### Attention is All you Need
@@ -1276,6 +1314,7 @@ Agent verified venue: Advances in Neural Information Processing Systems 30, 2017
 Agent field evidence (venue): NeurIPS proceedings page lists the 2017 paper in NeurIPS/NIPS.
 Agent field confidence (venue): high
 Agent field sources (venue): https://papers.nips.cc/paper/7181-attention-is-all-you-need; https://arxiv.org/abs/1706.03762
+
 Agent unresolved after preview: none
 
 ### Attention is All you Need
@@ -1322,6 +1361,7 @@ Agent verified venue: Advances in Neural Information Processing Systems 30, 2017
 Agent field evidence (venue): NeurIPS proceedings page lists the 2017 paper in NeurIPS/NIPS.
 Agent field confidence (venue): high
 Agent field sources (venue): https://papers.nips.cc/paper/7181-attention-is-all-you-need; https://arxiv.org/abs/1706.03762
+
 Agent unresolved after preview: none
 
 ### Brain–computer interface control with artificial intelligence copilots
@@ -1366,6 +1406,7 @@ Agent verified task: BCI cursor control and robotic-arm sequential pick-and-plac
 Agent field evidence (task): Abstract describes cursor control and robotic arm pick-and-place tasks.
 Agent field confidence (task): high
 Agent field sources (task): https://www.nature.com/articles/s42256-025-01090-y; https://doi.org/10.5281/zenodo.15165133
+
 Agent unresolved after preview: none
 
 ### Brant: Foundation Model for Intracranial Neural Signal
@@ -1408,6 +1449,7 @@ Agent verified signal modality: Intracranial neural signals, specifically iEEG/S
 Agent field evidence (signal modality): Abstract and introduction describe intracranial neural recordings/iEEG/SEEG.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://papers.neurips.cc/paper_files/paper/2023/file/535915d26859036410b0533804cee788-Paper-Conference.pdf
+
 Agent unresolved after preview: none
 
 ### CONDITIONAL DIFFUSION WITH ORDINAL REGRES- SION: LONGITUDINAL DATA GENERATION FOR NEURODEGENERATIVE DISEASE STUDIES
@@ -1445,6 +1487,7 @@ Agent verified signal modality: Longitudinal Alzheimer's disease biomarker traje
 Agent field evidence (signal modality): OpenReview abstract describes longitudinal sequences conditioned on age and disease severity for neurodegenerative disease progression.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://openreview.net/forum?id=9UGfOJBuL8
+
 Agent unresolved after preview: doi, metric
 
 ### CONDITIONAL DIFFUSION WITH ORDINAL REGRES- SION: LONGITUDINAL DATA GENERATION FOR NEURODEGENERATIVE DISEASE STUDIES
@@ -1482,6 +1525,7 @@ Agent verified signal modality: Longitudinal Alzheimer's disease biomarker traje
 Agent field evidence (signal modality): OpenReview abstract describes longitudinal sequences conditioned on age and disease severity for neurodegenerative disease progression.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://openreview.net/forum?id=9UGfOJBuL8
+
 Agent unresolved after preview: doi, metric
 
 ### Can Language Understand Depth?
@@ -1516,6 +1560,7 @@ Agent verified task: Zero-shot monocular depth estimation using CLIP/DepthCLIP.
 Agent field evidence (task): Semantic Scholar abstract states the paper proposes DepthCLIP for zero-shot monocular depth estimation.
 Agent field confidence (task): high
 Agent field sources (task): https://doi.org/10.1145/3503161.3549201; https://arxiv.org/abs/2207.01077; https://www.semanticscholar.org/paper/9d0afe58801fe9e5537902e853d6e9e385340a92
+
 Agent unresolved after preview: dataset, metric
 
 ### Computational framework to predict and shape human–machine interactions in closed-loop, co-adaptive neural interfaces
@@ -1560,6 +1605,7 @@ Agent verified task: Predict and shape closed-loop co-adaptive human-machine int
 Agent field evidence (task): Title and abstract frame the work as predicting and shaping co-adaptive neural-interface interactions.
 Agent field confidence (task): high
 Agent field sources (task): https://www.nature.com/articles/s42256-026-01194-z
+
 Agent unresolved after preview: none
 
 ### Computational models reveal that intuitive physics underlies visual processing of soft objects
@@ -1604,6 +1650,7 @@ Agent verified task: Model human visual processing of soft-object physical prope
 Agent field evidence (task): Title and methods concern visual processing of soft-object physical properties.
 Agent field confidence (task): high
 Agent field sources (task): https://www.nature.com/articles/s41467-025-61458-x
+
 Agent unresolved after preview: none
 
 ### Does the brain represent words? An evaluation of brain decoding studies of language understanding
@@ -1617,7 +1664,7 @@ Auto matched title: Does the brain represent words? An evaluation of brain decod
 Auto source URL: https://doi.org/10.32470/ccn.2018.1237-0
 Auto verified fields: year=2018, venue=2018 Conference on Cognitive Computational Neuroscience, doi=10.32470/ccn.2018.1237-0
 
-Missing or unresolved: dataset, metric, signal modality
+Missing or unresolved: dataset, metric
 Suggested next action: inspect paper text or trusted public source for the remaining unresolved fields.
 
 Auto field verification status: source-traced field pass
@@ -1627,14 +1674,20 @@ Auto field source (task): Zotero BIB title/abstract/keywords
 Auto verified limitations: source-traced limitation/caveat sentence
 Auto field evidence (limitations): (2018), showing how standard evaluations fail to distinguish between language processing models which deploy different mechanisms and which are optimized to solve very different tasks.
 Auto field source (limitations): Zotero BIB title/abstract/keywords
-Auto unresolved after field pass: dataset, metric, signal modality
+Auto unresolved after field pass: dataset, metric
 
 Agent field verification status: agent-source-traced
 Agent verified method: Evaluation of brain decoding studies of language understanding.
 Agent field evidence (method): Crossref/DOI metadata title explicitly says it is an evaluation of brain decoding studies.
 Agent field confidence (method): medium
 Agent field sources (method): https://doi.org/10.32470/ccn.2018.1237-0; https://api.crossref.org/works/10.32470/ccn.2018.1237-0
-Agent unresolved after preview: dataset, metric, signal modality
+
+Agent verified signal modality: fMRI brain activity/brain imaging responses
+Agent field evidence (signal modality): The paper describes Pereira et al.-style studies using fMRI data from subjects reading sentences, training decoders from subjects' fMRI responses/brain images to model representations, and explicitly refers to decoding fMRI activity.
+Agent field confidence (signal modality): high
+Agent field source tier (signal modality): tier1_paper_text
+Agent field sources (signal modality): https://arxiv.org/abs/1806.00591; https://arxiv.org/pdf/1806.00591
+Agent unresolved after preview: dataset, metric
 
 ### Dynamic memristor-based reservoir computing for high-efficiency temporal signal processing
 
@@ -1678,6 +1731,7 @@ Agent verified task: High-efficiency temporal signal processing, including spoke
 Agent field evidence (task): Abstract frames the system as processing temporal signals.
 Agent field confidence (task): high
 Agent field sources (task): https://www.nature.com/articles/s41467-020-20692-1; https://www.semanticscholar.org/paper/cfb8bc22e6dd6e409b849d3fdd8906378af25796
+
 Agent unresolved after preview: none
 
 ### ECG Electrode Localization: 3D DS Camera System for Use in Diverse Clinical Environments
@@ -1722,6 +1776,7 @@ Agent verified task: Localize ECG electrodes for patient-specific cardiac/body m
 Agent field evidence (task): Abstract states precise ECG electrode positions are needed for diagnostic digital-twin/body models.
 Agent field confidence (task): high
 Agent field sources (task): https://doi.org/10.3390/s23125552; https://api.crossref.org/works/10.3390/s23125552
+
 Agent unresolved after preview: none
 
 ### Electrophysiological Correlates of Semantic Dissimilarity Reflect the Comprehension of Natural, Narrative Speech
@@ -1763,6 +1818,7 @@ Agent verified task: Measure whether EEG responses during natural narrative spee
 Agent field evidence (task): The title and abstract state semantic dissimilarity responses during natural narrative speech comprehension.
 Agent field confidence (task): high
 Agent field sources (task): https://www.biorxiv.org/content/10.1101/193201v1; https://datadryad.org/dataset/doi:10.5061/dryad.070jc; https://openneuro.org/datasets/ds004408/versions/1.0.8; https://www.cell.com/current-biology/fulltext/S0960-9822(18)30146-5
+
 Agent unresolved after preview: limitations
 
 ### End-to-end privacy preserving deep learning on multi-institutional medical imaging
@@ -1803,6 +1859,7 @@ Agent verified task: Privacy-preserving training and encrypted inference for pae
 Agent field evidence (task): Abstract states the case study classifies paediatric chest X-rays while preserving privacy.
 Agent field confidence (task): high
 Agent field sources (task): https://doi.org/10.1038/s42256-021-00337-8; https://portal.fis.tum.de/en/publications/end-to-end-privacy-preserving-deep-learning-on-multi-institutiona/; https://cris.fau.de/publications/290551499/
+
 Agent unresolved after preview: limitations
 
 ### ExBody2: Advanced Expressive Humanoid Whole-Body Control
@@ -1849,6 +1906,7 @@ Agent verified task: Sim-to-real humanoid whole-body tracking/control for expres
 Agent field evidence (task): The paper frames the goal as controlling humanoids to mimic expressive whole-body motions while stable.
 Agent field confidence (task): high
 Agent field sources (task): https://arxiv.org/abs/2412.13196; https://arxiv.org/pdf/2412.13196; https://exbody2.github.io/
+
 Agent unresolved after preview: none
 
 ### FREDF: LEARNING TO FORECAST IN THE FREQUENCY DOMAIN
@@ -1892,6 +1950,7 @@ Agent verified task: Time-series forecasting, with additional imputation and sho
 Agent field evidence (task): Problem definition and experiments are multi-step time-series forecasting.
 Agent field confidence (task): high
 Agent field sources (task): https://arxiv.org/abs/2402.02399; https://arxiv.org/pdf/2402.02399; https://openreview.net/revisions?id=s3juB4ZWzI; https://www.taylorfrancis.com/chapters/edit/10.1201/9781003612742-3/fredf-learning-forecast-frequency-domain-hao-wang-licheng-pan-zhichao-chen-zhengnan-li
+
 Agent unresolved after preview: none
 
 ### How to build a cognitive map
@@ -1924,6 +1983,7 @@ Agent verified task: Explain principles by which cognitive maps are learned, rep
 Agent field evidence (task): Abstract frames the aim as understanding learning and neural representation of cognitive maps.
 Agent field confidence (task): high
 Agent field sources (task): https://doi.org/10.1038/s41593-022-01153-y; https://arxiv.org/abs/2202.01682
+
 Agent unresolved after preview: dataset, limitations, metric
 
 ### Human-in-the-Loop Optimization for Deep Stimulus Encoding in Visual Prostheses
@@ -1967,6 +2027,7 @@ Agent verified task: Personalized stimulus encoding optimization for visual pros
 Agent field evidence (task): The paper goal is optimizing patient-specific stimulation parameters for restored vision.
 Agent field confidence (task): high
 Agent field sources (task): https://proceedings.neurips.cc/paper_files/paper/2023/hash/fb06bc3abcece7b8725a8b83b8fa3632-Abstract-Conference.html; https://proceedings.neurips.cc/paper_files/paper/2023/file/fb06bc3abcece7b8725a8b83b8fa3632-Paper-Conference.pdf; https://arxiv.org/abs/2306.13104; https://github.com/bionicvisionlab/2023-NeurIPS-HILO
+
 Agent unresolved after preview: none
 
 ### Hybrid computing using a neural network with dynamic external memory
@@ -2011,6 +2072,7 @@ Agent verified task: Reasoning, graph traversal/shortest-path/inference, questio
 Agent field evidence (task): Abstract lists natural-language reasoning, graph path finding, link inference, and block puzzle solving.
 Agent field confidence (task): high
 Agent field sources (task): https://doi.org/10.1038/nature20101; https://pubmed.ncbi.nlm.nih.gov/27732574/; https://gwern.net/doc/reinforcement-learning/model-free/2016-graves.pdf
+
 Agent unresolved after preview: none
 
 ### IMPLICIT GAUSSIAN PROCESS REPRESENTATION OF VECTOR FIELDS OVER ARBITRARY LATENT MANI-
@@ -2024,7 +2086,7 @@ Auto matched title: Implicit Gaussian process representation of vector fields ov
 Auto source URL: https://openreview.net/forum?id=YEPlTU5mZC
 Auto verified fields: year=2024, venue=ICLR
 
-Missing or unresolved: doi
+Missing or unresolved: none
 Suggested next action: inspect paper text or trusted public source for the remaining unresolved fields.
 
 Auto field verification status: source-traced field pass
@@ -2040,7 +2102,7 @@ Auto field source (metric): public abstract/title evidence
 Auto verified limitations: source-traced limitation/caveat sentence
 Auto field evidence (limitations): However, these approaches assume that the manifold underlying the data is known, limiting their practical utility.
 Auto field source (limitations): Zotero BIB title/abstract/keywords
-Auto unresolved after field pass: doi
+Auto unresolved after field pass: none
 
 Agent field verification status: agent-source-traced
 Agent verified dataset: Synthetic/geometric vector-field experiments on meshes plus resting-state 256-channel EEG from Alzheimer's patients and healthy controls, downsampled to low-density EEG for reconstruction.
@@ -2051,7 +2113,13 @@ Agent verified method: RVGP, a Riemannian manifold vector-field Gaussian process
 Agent field evidence (method): Abstract states RVGP learns vector signals on latent Riemannian manifolds using connection-Laplacian positional encoding.
 Agent field confidence (method): high
 Agent field sources (method): https://openreview.net/forum?id=YEPlTU5mZC; https://arxiv.org/abs/2309.16746; https://arxiv.org/pdf/2309.16746
-Agent unresolved after preview: doi
+
+Agent verified doi: 10.48550/arXiv.2309.16746
+Agent field evidence (doi): The OpenReview ICLR 2024 page and arXiv page identify the exact title and authors. arXiv displays the arXiv-issued DOI, DBLP records doi=10.48550/ARXIV.2309.16746 for the CoRR record, and DataCite/OpenAlex resolve the same DOI to the exact title.
+Agent field confidence (doi): high
+Agent field source tier (doi): tier0_metadata
+Agent field sources (doi): https://openreview.net/forum?id=YEPlTU5mZC; https://arxiv.org/abs/2309.16746; https://dblp.org/rec/journals/corr/abs-2309-16746.bib; https://api.datacite.org/dois/10.48550/arXiv.2309.16746; https://api.openalex.org/works/doi:10.48550/arXiv.2309.16746
+Agent unresolved after preview: none
 
 ### Improved protein structure prediction using potentials from deep learning
 
@@ -2097,6 +2165,7 @@ Agent verified task: Predict 3D protein structure from amino-acid sequence.
 Agent field evidence (task): Abstract states the goal is determining 3D protein shape from sequence.
 Agent field confidence (task): high
 Agent field sources (task): https://doi.org/10.1038/s41586-019-1923-7; https://dasher.wustl.edu/chem430/readings/nature-577-706-20.pdf; https://www.nature.com/articles/s41586-019-1923-7
+
 Agent unresolved after preview: none
 
 ### Inception loops discover what excites neurons most using deep predictive models
@@ -2141,6 +2210,7 @@ Agent verified task: Discover and validate visual stimuli that maximally excite 
 Agent field evidence (task): Abstract frames the task as identifying optimal sensory inputs for neurons.
 Agent field confidence (task): high
 Agent field sources (task): https://doi.org/10.1038/s41593-019-0517-x; https://pubmed.ncbi.nlm.nih.gov/31686023/; https://xaqlab.com/wp-content/uploads/2019/11/Inception_Walker_plusSupp.pdf
+
 Agent unresolved after preview: none
 
 ### Interactive Search for Image Categories by Mental Matching
@@ -2180,6 +2250,7 @@ Agent verified task: Interactive image category search when the target category 
 Agent field evidence (task): Abstract identifies the page-zero problem for semantic image categories in the user's mind.
 Agent field confidence (task): high
 Agent field sources (task): https://doi.org/10.1109/iccv.2007.4409072; https://ieeexplore.ieee.org/document/4409072/; https://dblp.org/rec/conf/iccv/FerecatuG07; https://www.scilit.com/publications/79f56b0af2b9f96e6be818a6514014b9
+
 Agent unresolved after preview: metric
 
 ### MapGuide: A Simple yet Effective Method to Reconstruct Continuous Language from Brain Activities
@@ -2222,6 +2293,7 @@ Agent verified signal modality: fMRI
 Agent field evidence (signal modality): The paper repeatedly identifies fMRI-recorded brain activity as the input.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://aclanthology.org/2024.naacl-long.211/; https://aclanthology.org/2024.naacl-long.211.pdf; https://arxiv.org/abs/2403.17516; https://arxiv.org/html/2403.17516v2
+
 Agent unresolved after preview: none
 
 ### Mastering Atari, Go, chess and shogi by planning with a learned model
@@ -2266,6 +2338,7 @@ Agent verified task: Model-based reinforcement learning and planning in Atari an
 Agent field evidence (task): Abstract frames MuZero as learning and planning in games without underlying dynamics.
 Agent field confidence (task): high
 Agent field sources (task): https://doi.org/10.1038/s41586-020-03051-4; https://arxiv.org/abs/1911.08265; https://arxiv.org/pdf/1911.08265
+
 Agent unresolved after preview: none
 
 ### Mastering the game of Go with deep neural networks and tree search
@@ -2306,6 +2379,7 @@ Agent verified task: Play full-size Go at professional/superhuman level.
 Agent field evidence (task): Title and abstract define the task as mastering Go.
 Agent field confidence (task): high
 Agent field sources (task): https://doi.org/10.1038/nature16961; https://www.nature.com/articles/nature16961; https://staroceans.org.s3.amazonaws.com/documents/deepmind-mastering-go.pdf; https://www.researchgate.net/publication/292074166_Mastering_the_game_of_Go_with_deep_neural_networks_and_tree_search
+
 Agent unresolved after preview: limitations
 
 ### Mental state decoders: game-changers or wishful thinking?
@@ -2342,6 +2416,7 @@ Agent verified task: Evaluate whether mental-state decoders provide neurophysiol
 Agent field evidence (task): Title and abstract frame the paper as assessing claims about mental-state decoders.
 Agent field confidence (task): high
 Agent field sources (task): https://doi.org/10.1016/j.tics.2024.06.004; https://pubmed.ncbi.nlm.nih.gov/38991876/; https://iannettilab.net/pdfs/mental_state_decoders.pdf
+
 Agent unresolved after preview: dataset, metric
 
 ### ModaVerse: Efficiently Transforming Modalities with LLMs
@@ -2386,6 +2461,7 @@ Agent verified task: Any-to-any multimodal transformation among text, image, vid
 Agent field evidence (task): Abstract states ModaVerse comprehends and transforms images, videos, audio, and text.
 Agent field confidence (task): high
 Agent field sources (task): https://doi.org/10.1109/cvpr52733.2024.02512; https://arxiv.org/abs/2401.06395; https://arxiv.org/pdf/2401.06395; https://github.com/xinke-wang/ModaVerse
+
 Agent unresolved after preview: none
 
 ### MotionFix: Text-Driven 3D Human Motion Editing
@@ -2430,6 +2506,7 @@ Agent verified task: Generate an edited 3D human motion from an input motion and
 Agent field evidence (task): Abstract states the goal is text-driven 3D human motion editing.
 Agent field confidence (task): high
 Agent field sources (task): https://doi.org/10.1145/3680528.3687559; https://dl.acm.org/doi/10.1145/3680528.3687559; https://arxiv.org/abs/2408.00712; https://arxiv.org/pdf/2408.00712
+
 Agent unresolved after preview: none
 
 ### NeuroGen: Activation optimized image synthesis for discovery neuroscience
@@ -2475,6 +2552,7 @@ Agent verified task: Activation-optimized image synthesis for probing and contro
 Agent field evidence (task): Abstract frames the aim as synthesizing images for neuroscience discovery and target brain activation.
 Agent field confidence (task): high
 Agent field sources (task): https://doi.org/10.1016/j.neuroimage.2021.118812; https://pubmed.ncbi.nlm.nih.gov/34936922/; https://arxiv.org/abs/2105.07140; https://www.researchgate.net/publication/357181937_NeuroGen_Activation_optimized_image_synthesis_for_discovery_neuroscience
+
 Agent unresolved after preview: none
 
 ### Neuroscience-Inspired Artificial Intelligence
@@ -2507,6 +2585,7 @@ Agent verified task: Argue how understanding biological brains can inform the de
 Agent field evidence (task): Abstract states the article argues better understanding biological brains could help build intelligent machines.
 Agent field confidence (task): high
 Agent field sources (task): https://doi.org/10.1016/j.neuron.2017.06.011; https://pubmed.ncbi.nlm.nih.gov/28728020/; https://www.cell.com/neuron/abstract/S0896-6273(17)30509-3
+
 Agent unresolved after preview: dataset, limitations, metric
 
 ### Neuroscience-Inspired Artificial Intelligence
@@ -2539,6 +2618,7 @@ Agent verified task: Argue how understanding biological brains can inform the de
 Agent field evidence (task): Abstract states the article argues better understanding biological brains could help build intelligent machines.
 Agent field confidence (task): high
 Agent field sources (task): https://doi.org/10.1016/j.neuron.2017.06.011; https://pubmed.ncbi.nlm.nih.gov/28728020/; https://www.cell.com/neuron/abstract/S0896-6273(17)30509-3
+
 Agent unresolved after preview: dataset, limitations, metric
 
 ### OminiControl: Minimal and Universal Control for Diffusion Transformer
@@ -2552,14 +2632,14 @@ Auto matched title: OminiControl: Minimal and Universal Control for Diffusion Tr
 Auto source URL: https://doi.org/10.1109/iccv51701.2025.01386
 Auto verified fields: year=2025, venue=2025 IEEE/CVF International Conference on Computer Vision (ICCV), doi=10.1109/iccv51701.2025.01386
 
-Missing or unresolved: metric
+Missing or unresolved: none
 Suggested next action: inspect paper text or trusted public source for the remaining unresolved fields.
 
 Auto field verification status: source-traced field pass
 Auto verified method: Transformer, Diffusion/generative model
 Auto field evidence (method): OminiControl: Minimal and Universal Control for Diffusion Transformer.
 Auto field source (method): Zotero BIB title/abstract/keywords
-Auto unresolved after field pass: metric
+Auto unresolved after field pass: none
 
 Agent field verification status: agent-source-traced
 Agent verified dataset: Subjects200K; evaluations cover subject-driven generation and spatially aligned controls such as edge, depth, colorization, deblurring, in-painting and out-painting.
@@ -2578,7 +2658,13 @@ Agent verified task: Controllable text-to-image generation with image conditions
 Agent field evidence (task): Abstract describes integrating image conditions into pre-trained DiT models for subject-driven and spatially aligned conditional generation.
 Agent field confidence (task): high
 Agent field sources (task): https://openaccess.thecvf.com/content/ICCV2025/html/Tan_OminiControl_Minimal_and_Universal_Control_for_Diffusion_Transformer_ICCV_2025_paper.html; https://arxiv.org/abs/2411.15098; https://arxiv.org/html/2411.15098v6
-Agent unresolved after preview: metric
+
+Agent verified metric: FID, SSIM, CLIP-IQA, MAN-IQA, MUSIQ, PSNR, CLIP Text, CLIP Image, F1 score for Canny control, MSE for other spatial controls, and five-criteria subject-driven generation evaluation/user studies
+Agent field evidence (metric): The ICCV CVF paper states that spatially aligned tasks measure generation quality with FID, SSIM, CLIP-IQA, MAN-IQA, MUSIQ and PSNR, alignment with CLIP Text and CLIP Image, controllability with F1 for edge-conditioned generation and MSE for other controls; it also describes a five-criteria subject-driven generation framework and user studies.
+Agent field confidence (metric): high
+Agent field source tier (metric): tier1_paper_text
+Agent field sources (metric): https://openaccess.thecvf.com/content/ICCV2025/html/Tan_OminiControl_Minimal_and_Universal_Control_for_Diffusion_Transformer_ICCV_2025_paper.html; https://openaccess.thecvf.com/content/ICCV2025/papers/Tan_OminiControl_Minimal_and_Universal_Control_for_Diffusion_Transformer_ICCV_2025_paper.pdf
+Agent unresolved after preview: none
 
 ### Online dynamical learning and sequence memory with neuromorphic nanowire networks
 
@@ -2621,6 +2707,7 @@ Agent verified task: Online MNIST digit classification and recall of target digi
 Agent field evidence (task): Abstract reports MNIST classification accuracy and a sequence-memory recall task.
 Agent field confidence (task): high
 Agent field sources (task): https://www.nature.com/articles/s41467-023-42470-5; https://zenodo.org/records/7662887
+
 Agent unresolved after preview: none
 
 ### PIA: Your Personalized Image Animator via Plug-and-Play Modules in Text-to-Image Models
@@ -2634,11 +2721,11 @@ Auto matched title: PIA: Your Personalized Image Animator via Plug-and-Play Modu
 Auto source URL: https://doi.org/10.1109/cvpr52733.2024.00740
 Auto verified fields: year=2024, venue=2024 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), doi=10.1109/cvpr52733.2024.00740
 
-Missing or unresolved: metric
+Missing or unresolved: none
 Suggested next action: inspect paper text or trusted public source for the remaining unresolved fields.
 
 Auto field verification status: source-traced field pass
-Auto unresolved after field pass: metric
+Auto unresolved after field pass: none
 
 Agent field verification status: agent-source-traced
 Agent verified dataset: WebVid10M for training; AnimateBench with 105 image-prompt pairs for evaluation.
@@ -2661,7 +2748,13 @@ Agent verified task: Personalized image animation / image-to-video generation co
 Agent field evidence (task): Abstract says PIA animates personalized images with realistic motions while preserving style and detail.
 Agent field confidence (task): high
 Agent field sources (task): https://arxiv.org/html/2312.13964v2; https://arxiv.org/html/2312.13964v1
-Agent unresolved after preview: metric
+
+Agent verified metric: CLIP score for image alignment and text alignment; user-study preference rate
+Agent field evidence (metric): The CVPR CVF paper's Evaluation Metrics section says quantitative comparison evaluates image alignment and text alignment with CLIP score, and the user study asks users to choose videos matching the text or image best and reports preference rate.
+Agent field confidence (metric): high
+Agent field source tier (metric): tier1_paper_text
+Agent field sources (metric): https://openaccess.thecvf.com/content/CVPR2024/papers/Zhang_PIA_Your_Personalized_Image_Animator_via_Plug-and-Play_Modules_in_Text-to-Image_CVPR_2024_paper.pdf; https://openaccess.thecvf.com/CVPR2024?day=2024-06-19
+Agent unresolved after preview: none
 
 ### Photogrammetry-based stereoscopic optode registration method for functional near-infrared spectroscopy
 
@@ -2704,6 +2797,7 @@ Agent verified task: Spatial registration of fNIRS optodes/channels to neuroanat
 Agent field evidence (task): Paper aims to register fNIRS optodes for anatomical interpretation.
 Agent field confidence (task): high
 Agent field sources (task): https://pmc.ncbi.nlm.nih.gov/articles/PMC7463164/; https://www.researchgate.net/publication/344096936_Photogrammetry-based_stereoscopic_optode_registration_method_for_functional_near-infrared_spectroscopy
+
 Agent unresolved after preview: none
 
 ### PhysHSI: Towards a Real-World Generalizable and Natural Humanoid-Scene Interaction System
@@ -2749,6 +2843,7 @@ Agent verified task: Humanoid-scene interaction for box carrying, sitting, lying
 Agent field evidence (task): Abstract validates four tasks: box carrying, sitting, lying and standing up.
 Agent field confidence (task): high
 Agent field sources (task): https://arxiv.org/abs/2510.11072; https://ar5iv.labs.arxiv.org/html/2510.11072v1; https://why618188.github.io/physhsi/
+
 Agent unresolved after preview: none
 
 ### Predictability of real temporal networks
@@ -2792,6 +2887,7 @@ Agent verified task: Quantify intrinsic predictability limits of temporal networ
 Agent field evidence (task): Discussion states the method quantifies intrinsic predictability and uncovers predictability profiles.
 Agent field confidence (task): high
 Agent field sources (task): https://academic.oup.com/nsr/article/7/5/929/5731923; https://academic.oup.com/nsr/issue/7/5
+
 Agent unresolved after preview: none
 
 ### Predictive processing of scenes and objects
@@ -2824,6 +2920,7 @@ Agent verified task: Review how expectations from scene context and objects shap
 Agent field evidence (task): Search snippet says context-based expectations influence object and scene perception.
 Agent field confidence (task): high
 Agent field sources (task): https://doi.org/10.1038/s44159-023-00254-0; https://repository.ubn.ru.nl/bitstream/handle/2066/298960/1/298960.pdf; https://www.researchgate.net/publication/375884443_Predictive_processing_of_scenes_and_objects
+
 Agent unresolved after preview: dataset, limitations, metric
 
 ### Proposal for an accurate TMS-MRI co-registration process via 3D laser scanning
@@ -2869,6 +2966,7 @@ Agent verified task: Co-register TMS stimulation coil position with MRI anatomy 
 Agent field evidence (task): Abstract states the goal is estimating the projection point beneath the coil into the brain.
 Agent field confidence (task): high
 Agent field sources (task): https://pubmed.ncbi.nlm.nih.gov/30170008/; https://doi.org/10.1016/j.neures.2018.08.012
+
 Agent unresolved after preview: none
 
 ### Real-to-Sim for Highly Cluttered Environments via Physics-Consistent Inter-Object Reasoning
@@ -2912,6 +3010,7 @@ Agent verified task: Reconstruct physically consistent digital twins of cluttere
 Agent field evidence (task): Abstract states goal is reconstructing physically valid 3D scenes for robotic control.
 Agent field confidence (task): high
 Agent field sources (task): https://arxiv.org/html/2602.12633v1
+
 Agent unresolved after preview: none
 
 ### Reverse predictivity for bidirectional comparison of neural networks and biological brains
@@ -2956,6 +3055,7 @@ Agent verified task: Compare artificial visual models and primate brains bidirec
 Agent field evidence (task): Abstract frames the work as a diagnostic for ANN-brain representational comparison.
 Agent field confidence (task): high
 Agent field sources (task): https://www.nature.com/articles/s42256-026-01204-0; https://osf.io/y3qmk/; https://github.com/vital-kolab/reverse_pred
+
 Agent unresolved after preview: none
 
 ### STORM-Net: Simple and Timely Optode Registration Method for Functional Near-Infrared Spectroscopy (fNIRS)
@@ -2998,6 +3098,7 @@ Agent verified task: Automatic subject-specific fNIRS optode/cap co-registration
 Agent field evidence (task): README states STORM-Net is for automatic subject-specific co-registration of fNIRS probe placements.
 Agent field confidence (task): high
 Agent field sources (task): https://github.com/yoterel/STORM-Net; https://doi.org/10.1101/2020.12.29.424683
+
 Agent unresolved after preview: none
 
 ### Self-Calibrating BCIs: Ranking and Recovery of Mental Targets Without Labels
@@ -3044,6 +3145,7 @@ Agent verified task: Label-free self-calibration for ranking and recovering a us
 Agent field evidence (task): Abstract describes recovering mental target faces without labels or pre-trained decoders.
 Agent field confidence (task): high
 Agent field sources (task): https://arxiv.org/html/2506.11151v2; https://openreview.net/forum?id=TtHvmhjNui&noteId=ZCEVgUymx1; https://github.com/jgrizou/neurips-self-calibrating-bci/
+
 Agent unresolved after preview: none
 
 ### Shared Neural Mechanisms of Visual Perception and Imagery
@@ -3076,6 +3178,7 @@ Agent verified task: Review shared and distinct neural mechanisms underlying vis
 Agent field evidence (task): The paper topic is the relation between perceived and imagined visual stimuli.
 Agent field confidence (task): high
 Agent field sources (task): https://www.researchgate.net/publication/331691523_Shared_Neural_Mechanisms_of_Visual_Perception_and_Imagery; https://doi.org/10.1016/j.tics.2019.02.004; https://doi.org/10.31234/osf.io/d8fru
+
 Agent unresolved after preview: dataset, limitations, metric
 
 ### Spatio-temporal correlations and visual signalling in a complete neuronal population
@@ -3116,6 +3219,7 @@ Agent verified task: Analyze how correlated firing affects retinal population co
 Agent field evidence (task): Abstract says the goal is understanding the role of correlated activity in retinal coding of visual stimuli.
 Agent field confidence (task): high
 Agent field sources (task): https://www.nature.com/articles/nature07140; https://doi.org/10.1038/nature07140
+
 Agent unresolved after preview: limitations
 
 ### State-dependent pupil dilation rapidly shifts visual feature selectivity
@@ -3156,6 +3260,7 @@ Agent verified task: Test how pupil-linked behavioral state alters visual featur
 Agent field evidence (task): Abstract describes state-dependent modulation of stimulus selectivity in visual cortex.
 Agent field confidence (task): high
 Agent field sources (task): https://www.nature.com/articles/s41586-022-05270-3; https://gin.g-node.org/cajal/Franke_Willeke_2022
+
 Agent unresolved after preview: limitations
 
 ### Subspace communication in the hippocampal–retrosplenial axis
@@ -3195,6 +3300,7 @@ Agent verified task: Study hippocampal-retrosplenial communication subspaces dur
 Agent field evidence (task): Abstract describes subspaces linking hippocampal inputs to RSC outputs and sleep reactivation.
 Agent field confidence (task): high
 Agent field sources (task): https://www.nature.com/articles/s41586-026-10481-z; https://dandiarchive.org/dandiset/001695/0.260319.2023; https://allensdk.readthedocs.io/en/latest/visual_coding_neuropixels.html
+
 Agent unresolved after preview: limitations
 
 ### Testing the Limits of Fine-Tuning for Improving Visual Cognition in Vision Language Models
@@ -3208,7 +3314,7 @@ Auto matched title: Testing the Limits of Fine-Tuning for Improving Visual Cogni
 Auto source URL: https://proceedings.mlr.press/v267/schulze-buschoff25a.html
 Auto verified fields: year=2025, venue=ICML
 
-Missing or unresolved: doi
+Missing or unresolved: none
 Suggested next action: inspect paper text or trusted public source for the remaining unresolved fields.
 
 Auto field verification status: source-traced field pass
@@ -3224,7 +3330,7 @@ Auto field source (method): Zotero BIB title/abstract/keywords
 Auto verified limitations: source-traced limitation/caveat sentence
 Auto field evidence (limitations): However, we find that task-specific finetuning does not contribute to robust human-like generalization to data with other visual characteristics or to tasks in other cognitive domains..
 Auto field source (limitations): Zotero BIB title/abstract/keywords
-Auto unresolved after field pass: doi
+Auto unresolved after field pass: none
 
 Agent field verification status: agent-source-traced
 Agent verified dataset: Cubeworld datasets for intuitive physics and causal reasoning, plus 100 naturalistic block-tower images from Lerer et al.; human judgments collected for alignment/evaluation.
@@ -3235,7 +3341,13 @@ Agent verified metric: Model accuracy from normalized Yes/No token probabilities
 Agent field evidence (metric): ArXiv methods describe evaluating correctness by Yes/No token probabilities; abstract discusses model performance and human alignment.
 Agent field confidence (metric): high
 Agent field sources (metric): https://proceedings.mlr.press/v267/schulze-buschoff25a.html; https://arxiv.org/html/2502.15678v2; https://openreview.net/forum?id=jSxU7ZGe3B
-Agent unresolved after preview: doi
+
+Agent verified doi: 10.48550/arXiv.2502.15678
+Agent field evidence (doi): PMLR/OpenReview identify the ICML 2025 paper title and authors. arXiv page for the same title and author list displays the arXiv-issued DOI, and DataCite/OpenAlex resolve the DOI to the exact title.
+Agent field confidence (doi): high
+Agent field source tier (doi): tier0_metadata
+Agent field sources (doi): https://proceedings.mlr.press/v267/schulze-buschoff25a.html; https://openreview.net/forum?id=jSxU7ZGe3B; https://arxiv.org/abs/2502.15678; https://api.datacite.org/dois/10.48550/arXiv.2502.15678; https://api.openalex.org/works/doi:10.48550/arXiv.2502.15678
+Agent unresolved after preview: none
 
 ### The Bayesian image retrieval system, PicHunter: theory, implementation, and psychophysical experiments
 
@@ -3275,6 +3387,7 @@ Agent verified task: Interactive content-based image retrieval to identify a use
 Agent field evidence (task): Abstract describes a prototype content-based image retrieval system.
 Agent field confidence (task): high
 Agent field sources (task): https://doi.org/10.1109/83.817596; https://www.researchgate.net/publication/220501904_The_Bayesian_image_retrieval_system_PicHunter_Theory_implementation_and_psychophysical_experiments_vol_9_pg_20_2000; https://www0.cs.ucl.ac.uk/staff/I.Cox/Content/papers/2000/ip00.pdf
+
 Agent unresolved after preview: limitations
 
 ### The Future of Memory: Remembering, Imagining, and the Brain
@@ -3307,6 +3420,7 @@ Agent verified task: Review how memory supports imagination, simulation of futur
 Agent field evidence (task): Abstract states the article examines remembering the past, imagining the future and default-network component processes.
 Agent field confidence (task): high
 Agent field sources (task): https://pmc.ncbi.nlm.nih.gov/articles/PMC3815616/; https://doi.org/10.1016/j.neuron.2012.11.001; https://www.researchgate.net/publication/233768009_The_Future_of_Memory_Remembering_Imagining_and_the_Brain
+
 Agent unresolved after preview: dataset, limitations, metric
 
 ### The features underlying the memorability of objects
@@ -3347,6 +3461,7 @@ Agent verified task: Identify semantic and visual features that explain memorabi
 Agent field evidence (task): Title and abstract define the goal as uncovering features underlying object memorability.
 Agent field confidence (task): high
 Agent field sources (task): https://doi.org/10.1101/2022.04.29.490104; https://doi.org/10.1126/sciadv.add2981; https://www.researchgate.net/publication/370362744_The_features_underlying_the_memorability_of_objects
+
 Agent unresolved after preview: limitations
 
 ### The neural network RTNet exhibits the signatures of human perceptual decision-making
@@ -3391,6 +3506,7 @@ Agent verified task: Perceptual decision-making and digit discrimination under d
 Agent field evidence (task): The paper tests an 8-choice digit discrimination perceptual decision task.
 Agent field confidence (task): high
 Agent field sources (task): https://pmc.ncbi.nlm.nih.gov/articles/PMC12261928/; https://doi.org/10.1038/s41562-024-01914-8
+
 Agent unresolved after preview: none
 
 ### Towards Variable and Coordinated Holistic Co-Speech Motion Generation
@@ -3435,6 +3551,7 @@ Agent verified task: Audio-driven holistic co-speech motion generation for 3D av
 Agent field evidence (task): Abstract states the problem is generating lifelike holistic co-speech motions for 3D avatars.
 Agent field confidence (task): high
 Agent field sources (task): https://arxiv.org/html/2404.00368v1; https://openaccess.thecvf.com/content/CVPR2024/papers/Liu_Towards_Variable_and_Coordinated_Holistic_Co-Speech_Motion_Generation_CVPR_2024_paper.pdf
+
 Agent unresolved after preview: none
 
 ### Towards a “universal translator” for neural dynamics at single-cell, single-spike resolution
@@ -3478,6 +3595,7 @@ Agent verified task: Single-neuron and region-level activity prediction, forward
 Agent field evidence (task): Abstract lists single-neuron, region-level, forward prediction and behavior decoding tasks.
 Agent field confidence (task): high
 Agent field sources (task): https://arxiv.org/abs/2407.14668; https://proceedings.neurips.cc/paper_files/paper/2024/file/934eb45b99eff8f16b5cb8e4d3cb5641-Paper-Conference.pdf
+
 Agent unresolved after preview: none
 
 ### Tracking the Emergence of Conceptual Knowledge during Human Decision Making
@@ -3521,6 +3639,7 @@ Agent verified task: Learning conceptual structure from related fractal patterns
 Agent field evidence (task): Experimental design required participants to predict sun/rain outcomes from fractal patterns and transfer knowledge to new fractals.
 Agent field confidence (task): high
 Agent field sources (task): https://pmc.ncbi.nlm.nih.gov/articles/PMC2791172/; https://pubmed.ncbi.nlm.nih.gov/19778516/
+
 Agent unresolved after preview: none
 
 ### Unsupervised Embedding Learning via Invariant and Spreading Instance Feature
@@ -3560,6 +3679,7 @@ Agent verified task: Unsupervised visual embedding / metric representation learn
 Agent field evidence (task): Abstract says the paper studies unsupervised embedding learning.
 Agent field confidence (task): high
 Agent field sources (task): https://openaccess.thecvf.com/content_CVPR_2019/html/Ye_Unsupervised_Embedding_Learning_via_Invariant_and_Spreading_Instance_Feature_CVPR_2019_paper.html; https://arxiv.org/abs/1904.03436
+
 Agent unresolved after preview: limitations
 
 ### VISION-XL: High Definition Video Inverse Problem Solver using Latent Image Diffusion Models
@@ -3599,6 +3719,7 @@ Agent verified task: High-definition video inverse problems including deblurring
 Agent field evidence (task): Abstract and experiments describe high-definition video inverse problem solving across spatial and spatio-temporal degradations.
 Agent field confidence (task): high
 Agent field sources (task): https://arxiv.org/html/2412.00156; https://openaccess.thecvf.com/content/ICCV2025/papers/Kwon_VISION-XL_High_Definition_Video_Inverse_Problem_Solver_using_Latent_Image_ICCV_2025_paper.pdf
+
 Agent unresolved after preview: limitations
 
 ### What Learning Systems do Intelligent Agents Need? Complementary Learning Systems Theory Updated
@@ -3631,6 +3752,7 @@ Agent verified task: Update CLS theory and relate hippocampal/neocortical learni
 Agent field evidence (task): Abstract says the paper broadens CLS theory and notes relevance to artificial intelligent agents.
 Agent field confidence (task): high
 Agent field sources (task): https://pubmed.ncbi.nlm.nih.gov/27315762/; https://doi.org/10.1016/j.tics.2016.05.004
+
 Agent unresolved after preview: dataset, limitations, metric
 
 ### A 7T fMRI dataset of synthetic images for out-of-distribution modeling of vision
@@ -3673,6 +3795,7 @@ Agent verified metric: Noise-ceiling normalized encoding accuracy, OOD distribut
 Agent field evidence (metric): PMC figure text describes encoding accuracy, OOD distance and zero-shot identification scores.
 Agent field confidence (metric): high
 Agent field sources (metric): https://pmc.ncbi.nlm.nih.gov/articles/PMC12440068/; https://arxiv.org/abs/2503.06286
+
 Agent unresolved after preview: none
 
 ### A Brain-Inspired Way of Reducing the Network Complexity via Concept-Regularized Coding for Emotion Recognition
@@ -3712,6 +3835,7 @@ Agent verified signal modality: Non-neural AI baseline
 Agent field evidence (signal modality): The paper uses facial images for AI emotion recognition, not neural recordings.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://ojs.aaai.org/index.php/AAAI/article/view/27811; https://openreview.net/pdf/3af5daef2d93a4db3d041fd1d9d06490ef3a1e10.pdf
+
 Agent unresolved after preview: limitations
 
 ### A Level Set Theory for Neural Implicit Evolution Under Explicit Flows
@@ -3752,6 +3876,7 @@ Agent verified signal modality: Non-neural AI baseline
 Agent field evidence (signal modality): Computer vision/graphics neural implicit method; no neural signal modality.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://arxiv.org/abs/2204.07159; https://cseweb.ucsd.edu/~ravir/ishiteccv22.pdf
+
 Agent unresolved after preview: limitations
 
 ### A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning
@@ -3796,6 +3921,7 @@ Agent verified signal modality: Non-neural AI baseline
 Agent field evidence (signal modality): Imitation learning/structured prediction algorithm paper; no neural recordings.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://proceedings.mlr.press/v15/ross11a.html; http://proceedings.mlr.press/v15/ross11a/ross11a.pdf
+
 Agent unresolved after preview: none
 
 ### A Vector Quantized Approach for Text to Speech Synthesis on Real-World Spontaneous Speech
@@ -3838,6 +3964,7 @@ Agent verified signal modality: Non-neural AI baseline
 Agent field evidence (signal modality): TTS system trained on speech audio/text; no neural recordings.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://arxiv.org/abs/2302.04215; https://ojs.aaai.org/index.php/AAAI/article/view/26488
+
 Agent unresolved after preview: none
 
 ### A brain machine interface control algorithm designed from a feedback control perspective
@@ -3877,6 +4004,7 @@ Agent verified signal modality: Intracortical spike counts from a 96-electrode U
 Agent field evidence (signal modality): Paper describes thresholded spike events counted per channel as control inputs.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://users.ece.cmu.edu/~byronyu/papers/GiljaEMBS2012.pdf; https://pubmed.ncbi.nlm.nih.gov/23366141/
+
 Agent unresolved after preview: limitations
 
 ### A brain-to-text framework of decoding natural tonal sentences
@@ -3918,6 +4046,7 @@ Agent verified signal modality: High-density ECoG from speech sensorimotor corte
 Agent field evidence (signal modality): Cell Reports preview highlights high-density ECoG grid recordings from ventral sensorimotor cortex.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://doi.org/10.1016/j.celrep.2024.114924; https://www.biorxiv.org/content/10.1101/2024.03.16.585337v3.full-text; https://www.researchgate.net/publication/385467799_A_brain-to-text_framework_for_decoding_natural_tonal_sentences
+
 Agent unresolved after preview: none
 
 ### A distributional code for value in dopamine-based reinforcement learning
@@ -3957,6 +4086,7 @@ Agent verified task: Testing whether dopamine neurons represent future rewards a
 Agent field evidence (task): Abstract states the hypothesis that future rewards are represented as a probability distribution.
 Agent field confidence (task): high
 Agent field sources (task): https://www.nature.com/articles/s41586-019-1924-6; https://doi.org/10.17605/OSF.IO/UX5RG
+
 Agent unresolved after preview: limitations
 
 ### A generalist vision–language foundation model for diverse biomedical tasks
@@ -3996,6 +4126,7 @@ Agent verified signal modality: Non-neural AI baseline
 Agent field evidence (signal modality): Biomedical vision-language AI model using images/text; no neural recordings.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://www.nature.com/articles/s41591-024-03185-2; https://github.com/taokz/BiomedGPT
+
 Agent unresolved after preview: limitations
 
 ### A streaming brain-to-voice neuroprosthesis to restore naturalistic communication
@@ -4035,6 +4166,7 @@ Agent verified signal modality: High-density surface ECoG from speech sensorimot
 Agent field evidence (signal modality): Abstract states high-density surface recordings of speech sensorimotor cortex and generalization to single-unit recordings and EMG.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://www.nature.com/articles/s41593-025-01905-6; https://doi.org/10.7910/DVN/8TQKC8; https://www.researchgate.net/publication/390354721_A_streaming_brain-to-voice_neuroprosthesis_to_restore_naturalistic_communication
+
 Agent unresolved after preview: limitations
 
 ### Accurate digitization of EEG electrode locations by electromagnetic tracking system: The proposed head rotation method and comparison against optical system
@@ -4077,6 +4209,7 @@ Agent verified task: Accurate EEG electrode localization for EEG source estimati
 Agent field evidence (task): Abstract states EEG electrode digitization is crucial for accurate EEG source estimation.
 Agent field confidence (task): high
 Agent field sources (task): https://pmc.ncbi.nlm.nih.gov/articles/PMC11131068/; https://doi.org/10.1016/j.mex.2024.102766
+
 Agent unresolved after preview: none
 
 ### Accurate structure prediction of biomolecular interactions with AlphaFold 3
@@ -4119,6 +4252,7 @@ Agent verified task: Predicting joint 3D structures of biomolecular complexes in
 Agent field evidence (task): Abstract says AF3 predicts joint structures of complexes containing proteins, nucleic acids, small molecules, ions and modified residues.
 Agent field confidence (task): high
 Agent field sources (task): https://www.nature.com/articles/s41586-024-07487-w; https://pubmed.ncbi.nlm.nih.gov/38718835/
+
 Agent unresolved after preview: none
 
 ### Accurate transition state generation with an object-aware equivariant elementary reaction diffusion model
@@ -4158,6 +4292,7 @@ Agent verified task: Generating 3D transition-state structures from reactant and
 Agent field evidence (task): Abstract states the model generates reactant, transition state and product structures for elementary reactions.
 Agent field confidence (task): high
 Agent field sources (task): https://www.nature.com/articles/s43588-023-00563-7; https://arxiv.org/abs/2304.06174; https://gitlab.com/matschreiner/Transition1x
+
 Agent unresolved after preview: limitations
 
 ### Addressing Spatial-Temporal Heterogeneity: General Mixed Time Series Analysis via Latent Continuity Recovery and Alignment
@@ -4200,6 +4335,7 @@ Agent verified signal modality: Non-neural AI baseline
 Agent field evidence (signal modality): The work is general mixed time-series analysis and does not use neural recordings.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://proceedings.neurips.cc/paper_files/paper/2024/file/1feb87871436031bdc0f2beaa62a049b-Paper-Conference.pdf
+
 Agent unresolved after preview: none
 
 ### Adopting a human developmental visual diet yields robust and shape-based AI vision
@@ -4242,6 +4378,7 @@ Agent verified signal modality: Non-neural AI baseline
 Agent field evidence (signal modality): The study trains artificial vision models and uses behavioral/psychophysical inspiration, not neural recordings.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://www.nature.com/articles/s42256-026-01228-6; https://arxiv.org/abs/2507.03168
+
 Agent unresolved after preview: none
 
 ### Algorithmic localization of high-density EEG electrode positions using motion capture
@@ -4283,6 +4420,7 @@ Agent verified task: Automatic localization/interpolation of high-density EEG el
 Agent field evidence (task): Background and conclusion state the goal is precise 3D scalp/electrode measurement for EEG source localization.
 Agent field confidence (task): high
 Agent field sources (task): https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=32853593&retmode=xml; https://doi.org/10.1016/j.jneumeth.2020.108919
+
 Agent unresolved after preview: none
 
 ### Aligning Model and Macaque Inferior Temporal Cortex Representations Improves Model-to-Human Behavioral Alignment and Adversarial Robustness
@@ -4324,6 +4462,7 @@ Agent verified signal modality: Macaque inferior temporal cortex multi-electrode
 Agent field evidence (signal modality): OpenReview keywords and abstract identify primate vision and macaque IT cortex neural population activity.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://openreview.net/forum?id=SMYdcXjJh1q; https://www.biorxiv.org/content/10.1101/2022.07.01.498495v1.full-text
+
 Agent unresolved after preview: none
 
 ### Aligning individual brains with Fused Unbalanced Gromov-Wasserstein
@@ -4367,6 +4506,7 @@ Agent verified signal modality: Human fMRI
 Agent field evidence (signal modality): Dataset consists of functional MRI contrast maps.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://proceedings.neurips.cc/paper_files/paper/2022/file/8906cac4ca58dcaf17e97a0486ad57ca-Paper-Conference.pdf
+
 Agent unresolved after preview: none
 
 ### AlphaFold Protein Structure Database: massively expanding the structural coverage of protein-sequence space with high-accuracy models
@@ -4409,6 +4549,7 @@ Agent verified signal modality: Non-neural AI baseline
 Agent field evidence (signal modality): This is computational protein-structure prediction, not neural data.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://academic.oup.com/nar/article/50/D1/D439/6430488; https://doi.org/10.1093/nar/gkab1061
+
 Agent unresolved after preview: none
 
 ### Are Transformers Effective for Time Series Forecasting?
@@ -4451,6 +4592,7 @@ Agent verified task: Long-term time series forecasting.
 Agent field evidence (task): Abstract and introduction frame the work as long-term time series forecasting.
 Agent field confidence (task): high
 Agent field sources (task): https://ojs.aaai.org/index.php/AAAI/article/view/26317/26089; https://doi.org/10.1609/aaai.v37i9.26317
+
 Agent unresolved after preview: none
 
 ### Attention Is All You Need
@@ -4493,6 +4635,7 @@ Agent verified task: Sequence transduction / neural machine translation.
 Agent field evidence (task): Abstract reports experiments on two machine translation tasks.
 Agent field confidence (task): high
 Agent field sources (task): https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf
+
 Agent unresolved after preview: none
 
 ### BAD: Bidirectional Auto-regressive Diffusion for Text-to-Motion Generation
@@ -4535,6 +4678,7 @@ Agent verified task: Text-to-motion generation, with additional text-guided moti
 Agent field evidence (task): Abstract and introduction define the task as text-to-motion generation.
 Agent field confidence (task): high
 Agent field sources (task): https://arxiv.org/html/2409.10847v1; https://github.com/RohollahHS/BAD; https://doi.org/10.1109/ICASSP49660.2025.10889942
+
 Agent unresolved after preview: none
 
 ### Better models of human high-level visual cortex emerge from natural language supervision with a large and diverse dataset
@@ -4576,6 +4720,7 @@ Agent verified signal modality: Human 7T fMRI
 Agent field evidence (signal modality): NSD is described as an fMRI dataset of participants viewing natural images.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://www.nature.com/articles/s42256-023-00753-y; https://doi.org/10.1038/s42256-023-00753-y
+
 Agent unresolved after preview: limitations
 
 ### Better models of human high-level visual cortex emerge from natural language supervision with a large and diverse dataset
@@ -4617,6 +4762,7 @@ Agent verified signal modality: Human 7T fMRI
 Agent field evidence (signal modality): NSD is described as an fMRI dataset of participants viewing natural images.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://www.nature.com/articles/s42256-023-00753-y; https://doi.org/10.1038/s42256-023-00753-y
+
 Agent unresolved after preview: limitations
 
 ### BeyondMimic: From Motion Tracking to Versatile Humanoid Control via Guided Diffusion
@@ -4661,6 +4807,7 @@ Agent verified task: Humanoid motion tracking and zero-shot task-specific contro
 Agent field evidence (task): Abstract and results list motion tracking, joystick teleoperation, waypoint navigation, inpainting, and obstacle avoidance.
 Agent field confidence (task): high
 Agent field sources (task): https://arxiv.org/pdf/2508.08241; https://arxiv.org/abs/2508.08241
+
 Agent unresolved after preview: none
 
 ### Bidirectional Diffusion Bridge Models
@@ -4703,6 +4850,7 @@ Agent verified task: Bidirectional paired image-to-image translation with a sing
 Agent field evidence (task): Abstract says BDBM facilitates bidirectional translation between two coupled distributions using a single network.
 Agent field confidence (task): high
 Agent field sources (task): https://arxiv.org/abs/2502.09655; https://arxiv.org/pdf/2502.09655; https://doi.org/10.1145/3711896.3736858
+
 Agent unresolved after preview: none
 
 ### Brain Treebank: Large-scale intracranial recordings from naturalistic language stimuli
@@ -4746,6 +4894,7 @@ Agent verified signal modality: Human intracranial electrophysiology / sEEG intr
 Agent field evidence (signal modality): Data acquisition section states sEEG depth probes recorded Intracranial Field Potentials.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://arxiv.org/pdf/2411.08343; https://arxiv.org/html/2411.08343; https://doi.org/10.52202/079017-3060
+
 Agent unresolved after preview: none
 
 ### Brain Treebank: Large-scale intracranial recordings from naturalistic language stimuli
@@ -4789,6 +4938,7 @@ Agent verified signal modality: Human intracranial electrophysiology / sEEG intr
 Agent field evidence (signal modality): Data acquisition section states sEEG depth probes recorded Intracranial Field Potentials.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://arxiv.org/pdf/2411.08343; https://arxiv.org/html/2411.08343; https://doi.org/10.52202/079017-3060
+
 Agent unresolved after preview: none
 
 ### Brain and Cognitive Science Inspired Deep Learning: A Comprehensive Survey
@@ -4823,6 +4973,7 @@ Agent verified signal modality: Non-neural AI baseline
 Agent field evidence (signal modality): This is a literature survey of deep learning methods, not a primary neural recording study.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://ieeexplore.ieee.org/document/10834593/; https://www.computer.org/csdl/journal/tk/2025/04/10834593/23ljNrEYCXu; https://doi.org/10.1109/TKDE.2025.3527551
+
 Agent unresolved after preview: dataset, metric
 
 ### Brain-Machine Coupled Learning Method for Facial Emotion Recognition
@@ -4862,6 +5013,7 @@ Agent verified signal modality: EEG plus facial images
 Agent field evidence (signal modality): Abstract/source snippets explicitly mention electroencephalogram (EEG) signals paired with facial emotion images.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://www.computer.org/csdl/journal/tp/2023/09/10073607/1Lz1esXO4KI; https://doi.org/10.1109/TPAMI.2023.3257846
+
 Agent unresolved after preview: limitations
 
 ### BridgeVoC: Neural Vocoder with Schrödinger Bridge
@@ -4904,6 +5056,7 @@ Agent verified signal modality: Non-neural AI baseline
 Agent field evidence (signal modality): This is a neural vocoder for speech/audio generation, not neural recording data.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://www.ijcai.org/proceedings/2025/0903.pdf; https://doi.org/10.24963/ijcai.2025/903
+
 Agent unresolved after preview: none
 
 ### Bridging Supervised Learning and Reinforcement Learning in Math Reasoning
@@ -4948,6 +5101,7 @@ Agent verified task: LLM math reasoning training with binary-verifier feedback, 
 Agent field evidence (task): Abstract describes Negative-aware Fine-Tuning for LLM math reasoning with binary verifier signals.
 Agent field confidence (task): high
 Agent field sources (task): https://arxiv.org/abs/2505.18116; https://arxiv.org/pdf/2505.18116
+
 Agent unresolved after preview: none
 
 ### Bridging the Gap between Brain and Machine in Interpreting Visual Semantics: Towards Self-adaptive Brain-to-Text Decoding
@@ -4990,6 +5144,7 @@ Agent verified signal modality: Human fMRI
 Agent field evidence (signal modality): Paper describes non-invasive brain recordings from fMRI/BOLD signals.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://openaccess.thecvf.com/content/ICCV2025/papers/Chen_Bridging_the_Gap_between_Brain_and_Machine_in_Interpreting_Visual_ICCV_2025_paper.pdf; https://openaccess.thecvf.com/ICCV2025?day=2025-10-23; https://doi.org/10.1109/iccv51701.2025.02037
+
 Agent unresolved after preview: none
 
 ### CAP-Net: A Unified Network for 6D Pose and Size Estimation of Categorical Articulated Parts from a Single RGB-D Image
@@ -5030,6 +5185,7 @@ Agent verified signal modality: Non-neural AI baseline
 Agent field evidence (signal modality): The task estimates 6D pose and size from a single RGB-D image using RGB-D features and point clouds; it is non-neural computer vision.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://arxiv.org/html/2504.11230v2; https://openaccess.thecvf.com/content/CVPR2025/papers/Huang_CAP-Net_A_Unified_Network_for_6D_Pose_and_Size_Estimation_CVPR_2025_paper.pdf
+
 Agent unresolved after preview: none
 
 ### Category selectivity in human visual cortex: Beyond visual object recognition
@@ -5065,6 +5221,7 @@ Agent verified signal modality: Human neuroimaging evidence, especially fMRI res
 Agent field evidence (signal modality): The paper centers on category-selective responses in human ventral temporal/occipitotemporal cortex measured by neuroimaging studies.
 Agent field confidence (signal modality): medium
 Agent field sources (signal modality): https://pubmed.ncbi.nlm.nih.gov/28377161/; https://repository.ubn.ru.nl/bitstream/handle/2066/178519/1/178519.pdf
+
 Agent unresolved after preview: dataset, metric
 
 ### CheckManual: A New Challenge and Benchmark for Manual-based Appliance Manipulation
@@ -5107,6 +5264,7 @@ Agent verified signal modality: Non-neural AI baseline
 Agent field evidence (signal modality): The work evaluates robotics, vision, and language systems using manuals/CAD/simulation rather than neural data.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://arxiv.org/html/2506.09343v1; https://sites.google.com/view/checkmanual; https://github.com/LYX0501/CheckManual
+
 Agent unresolved after preview: none
 
 ### CoCoG-2: Controllable generation of visual stimuli for understanding human concept representation
@@ -5150,6 +5308,7 @@ Agent verified signal modality: Non-neural AI baseline
 Agent field evidence (signal modality): The work generates visual stimuli from behavioral/concept embeddings and image models; it reports no neural recordings.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://link.springer.com/chapter/10.1007/978-981-96-4001-0_2; https://arxiv.org/html/2407.14949; https://github.com/ncclab-sustech/CoCoG-2
+
 Agent unresolved after preview: none
 
 ### Compact deep neural network models of visual cortex
@@ -5192,6 +5351,7 @@ Agent verified signal modality: Macaque V4 electrophysiology / neural spiking re
 Agent field evidence (signal modality): The dataset consists of neural responses from macaque area V4 to visual images.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://pmc.ncbi.nlm.nih.gov/articles/PMC10690296/
+
 Agent unresolved after preview: none
 
 ### Comparing EEG/ERP-Like and fMRI-Like Techniques for Reading Machine Thoughts
@@ -5236,6 +5396,7 @@ Agent verified task: Decode/classify which cognitive task or algorithm a machine
 Agent field evidence (task): The study is explicitly framed as reading machine thoughts by classifying machine activities from activation images.
 Agent field confidence (task): high
 Agent field sources (task): https://art.uniroma2.it/zanzotto/publications/2010_BI_ZanzottoCroce.pdf; https://link.springer.com/chapter/10.1007/978-3-642-15314-3_13
+
 Agent unresolved after preview: none
 
 ### Convergent multi-modular architecturefor adaptive learning in Drosophila and artificial intelligence
@@ -5270,6 +5431,7 @@ Agent verified signal modality: Drosophila olfactory learning neural-circuit and
 Agent field evidence (signal modality): The biological component concerns Drosophila olfactory learning circuits rather than a single recording modality.
 Agent field confidence (signal modality): medium
 Agent field sources (signal modality): https://pubmed.ncbi.nlm.nih.gov/41244560/; https://www.cell.com/iscience/pdf/S2589-0042%2825%2902060-7.pdf
+
 Agent unresolved after preview: dataset, metric
 
 ### Data-Driven Approaches to Understanding Visual Neuron Activity
@@ -5304,6 +5466,7 @@ Agent verified signal modality: Visual-system neurophysiology / neural activity 
 Agent field evidence (signal modality): The paper focuses on neurophysiological recordings of neural activity throughout the visual pathway under complex visual stimulation.
 Agent field confidence (signal modality): medium
 Agent field sources (signal modality): https://www.annualreviews.org/content/journals/10.1146/annurev-vision-091718-014731
+
 Agent unresolved after preview: dataset, metric
 
 ### Decoding Neuronal Ensembles in the Human Hippocampus
@@ -5347,6 +5510,7 @@ Agent verified signal modality: High-spatial-resolution BOLD fMRI in human hippo
 Agent field evidence (signal modality): The measurements are high-spatial-resolution BOLD fMRI.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://pmc.ncbi.nlm.nih.gov/articles/PMC2670980/; https://doi.org/10.1016/j.cub.2009.02.033
+
 Agent unresolved after preview: none
 
 ### Decoding and synthesizing tonal language speech from brain activity
@@ -5389,6 +5553,7 @@ Agent verified signal modality: Intracranial high-density ECoG, especially 70-15
 Agent field evidence (signal modality): The neural input is intracranial ECoG high-gamma activity.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://pmc.ncbi.nlm.nih.gov/articles/PMC10256166/; https://www.science.org/doi/10.1126/sciadv.adh0478
+
 Agent unresolved after preview: none
 
 ### Decoding the brain: From neural representations to mechanistic models
@@ -5424,6 +5589,7 @@ Agent verified signal modality: General neural activity across modalities, inclu
 Agent field evidence (signal modality): The paper discusses recording from neurons and other signals such as fMRI and EEG; later sections include spikes, fMRI, ECoG, and calcium imaging.
 Agent field confidence (signal modality): medium
 Agent field sources (signal modality): https://pmc.ncbi.nlm.nih.gov/articles/PMC11637322/; https://www.cell.com/cell/fulltext/S0092-8674(24)00980-2
+
 Agent unresolved after preview: dataset, metric
 
 ### Decoding the brain: From neural representations to mechanistic models
@@ -5459,6 +5625,7 @@ Agent verified signal modality: General neural activity across modalities, inclu
 Agent field evidence (signal modality): The paper discusses recording from neurons and other signals such as fMRI and EEG; later sections include spikes, fMRI, ECoG, and calcium imaging.
 Agent field confidence (signal modality): medium
 Agent field sources (signal modality): https://pmc.ncbi.nlm.nih.gov/articles/PMC11637322/; https://www.cell.com/cell/fulltext/S0092-8674(24)00980-2
+
 Agent unresolved after preview: dataset, metric
 
 ### Deep Neural Networks Reveal a Gradient in the Complexity of Neural Representations across the Ventral Stream
@@ -5501,6 +5668,7 @@ Agent verified signal modality: Human BOLD fMRI responses in ventral visual cort
 Agent field evidence (signal modality): The empirical signal is human fMRI BOLD response to natural visual stimuli.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://www.jneurosci.org/content/35/27/10005; https://crcns.org/data-sets/vc/vim-1/about-vim-1; https://www.researchgate.net/publication/281179168_Deep_Neural_Networks_Reveal_a_Gradient_in_the_Complexity_of_Neural_Representations_across_the_Ventral_Stream
+
 Agent unresolved after preview: none
 
 ### Deep Residual Network Predicts Cortical Representation and Organization of Visual Features for Rapid Categorization
@@ -5543,6 +5711,7 @@ Agent verified signal modality: Human BOLD fMRI in visual cortex during natural 
 Agent field evidence (signal modality): The empirical response variable is human fMRI BOLD activity in visual cortex.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://www.nature.com/articles/s41598-018-22160-9
+
 Agent unresolved after preview: none
 
 ### Deep Unsupervised Learning using Nonequilibrium Thermodynamics
@@ -5587,6 +5756,7 @@ Agent verified task: Unsupervised density estimation/generative modeling and con
 Agent field evidence (task): The abstract frames the method as unsupervised modeling of complex datasets via learned reverse diffusion.
 Agent field confidence (task): high
 Agent field sources (task): https://proceedings.mlr.press/v37/sohl-dickstein15.html; https://proceedings.mlr.press/v37/sohl-dickstein15.pdf
+
 Agent unresolved after preview: none
 
 ### Deep Unsupervised Learning using Nonequilibrium Thermodynamics
@@ -5631,6 +5801,7 @@ Agent verified task: Unsupervised density estimation/generative modeling and con
 Agent field evidence (task): The abstract frames the method as unsupervised modeling of complex datasets via learned reverse diffusion.
 Agent field confidence (task): high
 Agent field sources (task): https://proceedings.mlr.press/v37/sohl-dickstein15.html; https://proceedings.mlr.press/v37/sohl-dickstein15.pdf
+
 Agent unresolved after preview: none
 
 ### DiffEditor: Boosting Accuracy and Flexibility on Diffusion-Based Image Editing
@@ -5669,6 +5840,7 @@ Agent verified task: Fine-grained diffusion-based image editing, including objec
 Agent field evidence (task): The abstract and task description list fine-grained image-editing operations such as moving, resizing, dragging, replacing, and pasting.
 Agent field confidence (task): high
 Agent field sources (task): https://openaccess.thecvf.com/content/CVPR2024/papers/Mou_DiffEditor_Boosting_Accuracy_and_Flexibility_on_Diffusion-based_Image_Editing_CVPR_2024_paper.pdf; https://arxiv.org/abs/2402.02583
+
 Agent unresolved after preview: dataset
 
 ### Diffusion Schrödinger Bridge Matching
@@ -5711,6 +5883,7 @@ Agent verified task: Schrodinger bridge / distribution transport and generative 
 Agent field evidence (task): The abstract and experiments frame DSBM as a method for Schrodinger bridge matching and distribution transport/generation.
 Agent field confidence (task): high
 Agent field sources (task): https://proceedings.neurips.cc/paper_files/paper/2023/file/c428adf74782c2092d254329b6b02482-Paper-Conference.pdf; https://openreview.net/forum?id=qy07OHsJT5; https://arxiv.org/abs/2303.16852
+
 Agent unresolved after preview: none
 
 ### Dimensions That Matter – Interpretable Object Dimensions in Humans and Deep Neural Networks
@@ -5754,6 +5927,7 @@ Agent verified signal modality: Non-neural AI baseline
 Agent field evidence (signal modality): The study compares behavioral similarity judgments and DNN representations; it reports no neural recordings.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://2023.ccneuro.org/view_paperbe5a.html?PaperNum=1291; https://2023.ccneuro.org/proceedings/0000763.pdf?s=W&pn=1291; https://repository.ubn.ru.nl/bitstream/handle/2066/297725/297725.pdf?sequence=1
+
 Agent unresolved after preview: none
 
 ### Dimensions That Matter – Interpretable Object Dimensions in Humans and Deep Neural Networks
@@ -5797,6 +5971,7 @@ Agent verified signal modality: Non-neural AI baseline
 Agent field evidence (signal modality): The study compares behavioral similarity judgments and DNN representations; it reports no neural recordings.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://2023.ccneuro.org/view_paperbe5a.html?PaperNum=1291; https://2023.ccneuro.org/proceedings/0000763.pdf?s=W&pn=1291; https://repository.ubn.ru.nl/bitstream/handle/2066/297725/297725.pdf?sequence=1
+
 Agent unresolved after preview: none
 
 ### Direct Diffusion Bridge using Data Consistency for Inverse Problems
@@ -5840,6 +6015,7 @@ Agent verified task: Image inverse-problem reconstruction/restoration with direc
 Agent field evidence (task): The method modifies direct diffusion bridge inference for image inverse problems by imposing data consistency.
 Agent field confidence (task): high
 Agent field sources (task): https://www.proceedings.com/content/075/075280-0313open.pdf; https://openreview.net/forum?id=497CevPdOg
+
 Agent unresolved after preview: none
 
 ### Discovering faster matrix multiplication algorithms with reinforcement learning
@@ -5882,6 +6058,7 @@ Agent verified task: Reinforcement-learning search for efficient tensor decompos
 Agent field evidence (task): AlphaTensor is trained to solve TensorGame and find efficient matrix multiplication algorithms.
 Agent field confidence (task): high
 Agent field sources (task): https://www.nature.com/articles/s41586-022-05172-4; https://pmc.ncbi.nlm.nih.gov/articles/PMC9534758/
+
 Agent unresolved after preview: none
 
 ### Distributed representations of behaviour-derived object dimensions in the human visual system
@@ -5925,6 +6102,7 @@ Agent verified signal modality: fMRI BOLD responses in human visual cortex
 Agent field evidence (signal modality): The study maps behavior-derived object dimensions to fMRI BOLD responses in human visual cortex.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://www.nature.com/articles/s41562-024-01980-y
+
 Agent unresolved after preview: none
 
 ### Distributed representations of behaviour-derived object dimensions in the human visual system
@@ -5968,6 +6146,7 @@ Agent verified signal modality: fMRI BOLD responses in human visual cortex
 Agent field evidence (signal modality): The study maps behavior-derived object dimensions to fMRI BOLD responses in human visual cortex.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://www.nature.com/articles/s41562-024-01980-y
+
 Agent unresolved after preview: none
 
 ### Dynamical flexible inference of nonlinear latent factors and structures in neural population activity
@@ -6011,6 +6190,7 @@ Agent verified task: Flexible inference of low-dimensional nonlinear latent fact
 Agent field evidence (task): Abstract states DFINE models lower-dimensional nonlinear latent factors and structures with flexible inference under missing observations.
 Agent field confidence (task): high
 Agent field sources (task): https://www.nature.com/articles/s41551-023-01106-1
+
 Agent unresolved after preview: none
 
 ### EEG Electrodes and Where to Find Them: Automated Localization From 3D Scans
@@ -6052,6 +6232,7 @@ Agent verified task: Automated localization of EEG electrode positions from 3D s
 Agent field evidence (task): Objective/significance sections emphasize accurate EEG electrode position localization for source localization.
 Agent field confidence (task): high
 Agent field sources (task): https://pubmed.ncbi.nlm.nih.gov/39293479/; https://doi.org/10.1088/1741-2552/ad7c7e
+
 Agent unresolved after preview: none
 
 ### EEG electrode digitization with commercial virtual reality hardware
@@ -6096,6 +6277,7 @@ Agent verified task: EEG electrode digitization / 3D localization for EEG source
 Agent field evidence (task): The paper's stated goal is measuring EEG electrode locations using accessible VR hardware.
 Agent field confidence (task): high
 Agent field sources (task): https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0207516; https://pmc.ncbi.nlm.nih.gov/articles/PMC6248988/
+
 Agent unresolved after preview: none
 
 ### EEG electrode localization with 3D iPhone scanning using point-cloud electrode selection (PC-ES)
@@ -6137,6 +6319,7 @@ Agent verified task: Portable, low-cost EEG scalp electrode localization/digitiz
 Agent field evidence (task): Objective states accurate scalp-electrode localization is instrumental to ESI and the method addresses localization access barriers.
 Agent field confidence (task): high
 Agent field sources (task): https://doi.org/10.1088/1741-2552/ad12db; https://iopscience.iop.org/article/10.1088/1741-2552/ad12db/pdf; https://pubmed.ncbi.nlm.nih.gov/38055968/
+
 Agent unresolved after preview: none
 
 ### Efficient Estimation of Word Representations in Vector Space
@@ -6179,6 +6362,7 @@ Agent verified signal modality: Non-neural AI baseline
 Agent field evidence (signal modality): This is an NLP word-embedding paper over Nepali text, not neural measurements.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://www.researchgate.net/publication/348525097_Efficient_Estimation_of_Nepali_Word_Representations_in_Vector_Space; https://doi.org/10.3126/jiee.v3i1.34327
+
 Agent unresolved after preview: none
 
 ### Efficient processing of natural scenes in visual cortex
@@ -6217,6 +6401,7 @@ Agent verified signal modality: Visual cortex neural circuits / visual-system re
 Agent field evidence (signal modality): The article discusses neural circuits in visual systems and adaptation in visual cortex.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://www.frontiersin.org/journals/cellular-neuroscience/articles/10.3389/fncel.2022.1006703/full
+
 Agent unresolved after preview: metric
 
 ### EgoLM: Multi-Modal Language Model of Egocentric Motions
@@ -6255,6 +6440,7 @@ Agent verified task: Egocentric motion understanding and generation, including m
 Agent field evidence (task): Abstract says it unifies motion narration from video or motion data and motion generation from text or sparse sensor data, plus text from sparse sensors.
 Agent field confidence (task): high
 Agent field sources (task): https://openaccess.thecvf.com/content/CVPR2025/papers/Hong_EgoLM_Multi-Modal_Language_Model_of_Egocentric_Motions_CVPR_2025_paper.pdf; https://arxiv.org/abs/2409.18127
+
 Agent unresolved after preview: limitations
 
 ### EmotionKD: A Cross-Modal Knowledge Distillation Framework for Emotion Recognition Based on Physiological Signals
@@ -6268,14 +6454,14 @@ Auto matched title: EmotionKD: A Cross-Modal Knowledge Distillation Framework fo
 Auto source URL: https://doi.org/10.1145/3581783.3612277
 Auto verified fields: year=2023, venue=Proceedings of the 31st ACM International Conference on Multimedia, doi=10.1145/3581783.3612277
 
-Missing or unresolved: metric
+Missing or unresolved: none
 Suggested next action: inspect paper text or trusted public source for the remaining unresolved fields.
 
 Auto field verification status: source-traced field pass
 Auto verified signal modality: Multimodal neural data
 Auto field evidence (signal modality): EmotionKD: A Cross-Modal Knowledge Distillation Framework for Emotion Recognition Based on Physiological Signals.
 Auto field source (signal modality): Zotero BIB title/abstract/keywords
-Auto unresolved after field pass: metric
+Auto unresolved after field pass: none
 
 Agent field verification status: agent-source-traced
 Agent verified dataset: Two public emotion-recognition datasets (names not visible in trusted accessible abstract).
@@ -6294,7 +6480,13 @@ Agent verified task: Emotion recognition from physiological signals.
 Agent field evidence (task): Title and abstract identify emotion recognition based on physiological signals.
 Agent field confidence (task): high
 Agent field sources (task): https://dl.acm.org/doi/10.1145/3581783.3612277; https://api.openalex.org/works/https://doi.org/10.1145/3581783.3612277
-Agent unresolved after preview: metric
+
+Agent verified metric: Accuracy (Acc) and F1-score for arousal and valence emotion recognition
+Agent field evidence (metric): The paper tables for DEAP and HCI-Tagging compare methods on Arousal and Valence columns labeled Acc and F1-score, after explaining that all methods are evaluated on GSR data for the EmotionNet-Student comparisons.
+Agent field confidence (metric): medium
+Agent field source tier (metric): tier2_author_uploaded_paper_text
+Agent field sources (metric): https://dl.acm.org/doi/10.1145/3581783.3612277; https://www.researchgate.net/publication/375032220_EmotionKD_A_Cross-Modal_Knowledge_Distillation_Framework_for_Emotion_Recognition_Based_on_Physiological_Signals
+Agent unresolved after preview: none
 
 ### EnerVerse-AC: Envisioning Embodied Environments with Action Condition
 
@@ -6337,6 +6529,7 @@ Agent verified signal modality: Non-neural AI baseline
 Agent field evidence (signal modality): Robotics video/action world-model paper, not neural data.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://arxiv.org/abs/2505.09723; https://arxiv.org/html/2505.09723; https://doi.org/10.20944/preprints202505.1193.v1
+
 Agent unresolved after preview: none
 
 ### Explorations of using a convolutional neural network to understand brain activations during movie watching
@@ -6380,6 +6573,7 @@ Agent verified task: Map hierarchical VGG-16 video features to brain activations
 Agent field evidence (task): Abstract states the objective is linking VGG-16 layer activations to brain activations and visual-processing hierarchy.
 Agent field confidence (task): high
 Agent field sources (task): https://academic.oup.com/psyrad/article/doi/10.1093/psyrad/kkae021/7875223; https://pmc.ncbi.nlm.nih.gov/articles/PMC10849516/
+
 Agent unresolved after preview: none
 
 ### Fast neural distance field-based three-dimensional reconstruction method for geometrical parameter extraction of walnut shell from multiview images
@@ -6418,6 +6612,7 @@ Agent verified signal modality: Non-neural AI baseline
 Agent field evidence (signal modality): Agricultural computer-vision/3D reconstruction from images, not neural measurements.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://doi.org/10.1016/j.compag.2024.109189; https://www.researchgate.net/publication/382306439_Fast_neural_distance_field-based_three-dimensional_reconstruction_method_for_geometrical_parameter_extraction_of_walnut_shell_from_multiview_images; https://api.crossref.org/works/10.1016/j.compag.2024.109189
+
 Agent unresolved after preview: limitations
 
 ### Fg-T2M: Fine-Grained Text-Driven Human Motion Generation via Diffusion Model
@@ -6460,6 +6655,7 @@ Agent verified task: Fine-grained text-driven human motion generation / text-to-
 Agent field evidence (task): Abstract and experiments describe text-driven human motion generation.
 Agent field confidence (task): high
 Agent field sources (task): https://openaccess.thecvf.com/content/ICCV2023/papers/Wang_Fg-T2M_Fine-Grained_Text-Driven_Human_Motion_Generation_via_Diffusion_Model_ICCV_2023_paper.pdf; https://doi.org/10.1109/ICCV51070.2023.02014
+
 Agent unresolved after preview: none
 
 ### Flexible Motion In-betweening with Diffusion Models
@@ -6503,6 +6699,7 @@ Agent verified task: Text-conditioned human motion in-betweening / keyframe moti
 Agent field evidence (task): Abstract defines motion in-betweening as generating sequences that interpolate user-provided keyframe constraints.
 Agent field confidence (task): high
 Agent field sources (task): https://dl.acm.org/doi/10.1145/3641519.3657414; https://dl.acm.org/doi/fullHtml/10.1145/3641519.3657414; https://arxiv.org/abs/2405.11126
+
 Agent unresolved after preview: none
 
 ### Flow Matching Posterior Sampling: A Training-free Conditional Generation for Flow Matching
@@ -6545,6 +6742,7 @@ Agent verified task: Training-free conditional generation/posterior sampling for
 Agent field evidence (task): Abstract states FMPS enables posterior sampling for flow matching and extends conditional FMs beyond linear inverse problems.
 Agent field confidence (task): high
 Agent field sources (task): https://arxiv.org/abs/2411.07625; https://arxiv.org/html/2411.07625; https://doi.org/10.1109/tip.2026.3698367
+
 Agent unresolved after preview: none
 
 ### Functional Connectivity of Imagined Speech and Visual Imagery based on Spectral Dynamics
@@ -6587,6 +6785,7 @@ Agent verified signal modality: EEG
 Agent field evidence (signal modality): Title/abstract are EEG-based BCI imagined speech and visual imagery.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://arxiv.org/abs/2012.03520; https://doi.org/10.1109/BCI51272.2021.9385302
+
 Agent unresolved after preview: none
 
 ### Generalized radiograph representation learning via cross-supervision between images and free-text radiology reports
@@ -6600,14 +6799,14 @@ Auto matched title: Generalized radiograph representation learning via cross-sup
 Auto source URL: https://doi.org/10.1038/s42256-021-00425-9
 Auto verified fields: year=2022, venue=Nature Machine Intelligence, doi=10.1038/s42256-021-00425-9
 
-Missing or unresolved: limitations, metric
+Missing or unresolved: limitations
 Suggested next action: inspect paper text or trusted public source for the remaining unresolved fields.
 
 Auto field verification status: source-traced field pass
 Auto verified task: Representation alignment
 Auto field evidence (task): Representation alignment; evidence: Generalized radiograph representation learning via cross-supervision between images and free-text radiology reports.
 Auto field source (task): Zotero BIB title/abstract/keywords
-Auto unresolved after field pass: limitations, metric
+Auto unresolved after field pass: limitations
 
 Agent field verification status: agent-source-traced
 Agent verified dataset: MIMIC-CXR-JPG, NIH Chest X-ray, VinBigData Chest X-Ray Abnormalities Detection, Shenzhen Tuberculosis, and COVID-19 Image Data Collection are listed in data availability; article says evaluation used four well-known X-ray datasets under limited supervision.
@@ -6622,7 +6821,13 @@ Agent verified signal modality: Non-neural AI baseline
 Agent field evidence (signal modality): Radiograph image/text representation learning, not neural signals.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://www.nature.com/articles/s42256-021-00425-9; https://doi.org/10.1038/s42256-021-00425-9; https://www.medrxiv.org/content/10.1101/2021.11.02.21265838v1.full.pdf
-Agent unresolved after preview: limitations, metric
+
+Agent verified metric: Area under the ROC curve (AUC)
+Agent field evidence (metric): Nature Machine Intelligence extended-data captions for NIH ChestX-ray and VinBigData comparisons state that the evaluation metric is Area under the ROC Curve (AUC).
+Agent field confidence (metric): high
+Agent field source tier (metric): tier1_paper_text
+Agent field sources (metric): https://www.nature.com/articles/s42256-021-00425-9
+Agent unresolved after preview: limitations
 
 ### Generating Long Videos of Dynamic Scenes
 
@@ -6664,6 +6869,7 @@ Agent verified signal modality: Non-neural AI baseline: natural video frames/dyn
 Agent field evidence (signal modality): OpenReview keywords are video generation/GAN/generative model/dynamics; there is no neural recording or BCI signal.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://papers.neurips.cc/paper_files/paper/2022/file/ce208d95d020b023cba9e64031db2584-Paper-Conference.pdf; https://arxiv.org/abs/2206.03429; https://openreview.net/forum?id=VnAwNNJiwDb
+
 Agent unresolved after preview: none
 
 ### Glove: Global Vectors for Word Representation
@@ -6706,6 +6912,7 @@ Agent verified signal modality: Non-neural AI baseline: text corpora/NLP word co
 Agent field evidence (signal modality): The method learns word vectors from text co-occurrence counts, not neural measurements.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://aclanthology.org/D14-1162.pdf; https://nlp.stanford.edu/projects/glove/
+
 Agent unresolved after preview: none
 
 ### Grandmaster level in StarCraft II using multi-agent reinforcement learning
@@ -6749,6 +6956,7 @@ Agent verified task: Learn to play full StarCraft II at Grandmaster level using 
 Agent field evidence (task): Title and abstract state the goal: Grandmaster-level StarCraft II using multi-agent reinforcement learning.
 Agent field confidence (task): high
 Agent field sources (task): https://storage.googleapis.com/deepmind-media/research/alphastar/AlphaStar_unformatted.pdf; https://www.nature.com/articles/s41586-019-1724-z
+
 Agent unresolved after preview: none
 
 ### Grounded Language-Image Pre-training
@@ -6787,6 +6995,7 @@ Agent verified signal modality: Non-neural AI baseline: image-text/vision-langua
 Agent field evidence (signal modality): The paper unifies object detection and phrase grounding over images and language.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://openaccess.thecvf.com/content/CVPR2022/html/Li_Grounded_Language-Image_Pre-Training_CVPR_2022_paper.html; https://openaccess.thecvf.com/content/CVPR2022/papers/Li_Grounded_Language-Image_Pre-Training_CVPR_2022_paper.pdf; https://arxiv.org/abs/2112.03857
+
 Agent unresolved after preview: limitations
 
 ### Growing a Neural Network in Breadth, Depth, and Time
@@ -6828,6 +7037,7 @@ Agent verified task: Resource-constrained visual object recognition/classificati
 Agent field evidence (task): The abstract describes optimizing breadth, depth, and time costs jointly with task errors in a recurrent convolutional network.
 Agent field confidence (task): high
 Agent field sources (task): https://arxiv.org/html/2605.25174v1; https://arxiv.org/abs/2605.25174
+
 Agent unresolved after preview: none
 
 ### HSI-GPT: A General-Purpose Large Scene-Motion-Language Model for Human Scene Interaction
@@ -6870,6 +7080,7 @@ Agent verified task: General-purpose scene-motion-language modeling for text-con
 Agent field evidence (task): Abstract and experiments describe a general-purpose large scene-motion-language model supporting multiple HSI-related tasks.
 Agent field confidence (task): high
 Agent field sources (task): https://openaccess.thecvf.com/content/CVPR2025/papers/Wang_HSI-GPT_A_General-Purpose_Large_Scene-Motion-Language_Model_for_Human_Scene_Interaction_CVPR_2025_paper.pdf; https://doi.org/10.1109/CVPR52734.2025.00670
+
 Agent unresolved after preview: none
 
 ### HiDe-PET: Continual Learning via Hierarchical Decomposition of Parameter-Efficient Tuning
@@ -6912,6 +7123,7 @@ Agent verified signal modality: Non-neural AI baseline: image classification dat
 Agent field evidence (signal modality): Benchmarks are image datasets; no neural measurements are used.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://arxiv.org/pdf/2407.05229; https://www.computer.org/csdl/journal/tp/2025/08/10970405/260SjSC9R0k; https://doi.org/10.1109/TPAMI.2025.3562534
+
 Agent unresolved after preview: none
 
 ### High-Resolution Image Reconstruction With Latent Diffusion Models From Human Brain Activity
@@ -6954,6 +7166,7 @@ Agent verified signal modality: Human 7T fMRI brain activity during visual perce
 Agent field evidence (signal modality): Project page and paper state reconstruction from human brain activity obtained via fMRI.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://openaccess.thecvf.com/content/CVPR2023/papers/Takagi_High-Resolution_Image_Reconstruction_With_Latent_Diffusion_Models_From_Human_Brain_CVPR_2023_paper.pdf; https://sites.google.com/view/stablediffusion-with-brain/; https://www.biorxiv.org/content/10.1101/2022.11.18.517004v2.full
+
 Agent unresolved after preview: none
 
 ### High-performance brain-to-text communication via handwriting
@@ -6997,6 +7210,7 @@ Agent verified signal modality: Intracortical motor-cortex microelectrode array 
 Agent field evidence (signal modality): Dryad and Nature describe intracortical neural activity from microelectrode arrays in hand motor cortex.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://www.nature.com/articles/s41586-021-03506-2; https://datadryad.org/dataset/doi:10.5061/dryad.wh70rxwmv; https://pmc.ncbi.nlm.nih.gov/articles/PMC8163299/; https://neuroscience.stanford.edu/news/composing-thoughts-mental-handwriting-produces-brain-activity-can-be-turned-text
+
 Agent unresolved after preview: none
 
 ### Highly accurate protein structure prediction for the human proteome
@@ -7039,6 +7253,7 @@ Agent verified signal modality: Non-neural AI baseline: protein amino-acid seque
 Agent field evidence (signal modality): The paper predicts protein structures from sequence/MSA/template data, not neural signals.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://www.nature.com/articles/s41586-021-03828-1; https://pubmed.ncbi.nlm.nih.gov/34293799/; https://alphafold.ebi.ac.uk/about
+
 Agent unresolved after preview: none
 
 ### Highly accurate protein structure prediction with AlphaFold
@@ -7080,6 +7295,7 @@ Agent verified signal modality: Non-neural AI baseline: protein sequences, MSAs,
 Agent field evidence (signal modality): The inputs are protein sequence/structure bioinformatics data rather than biological neural recordings.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://www.nature.com/articles/s41586-021-03819-2; https://doi.org/10.1038/s41586-021-03819-2
+
 Agent unresolved after preview: none
 
 ### Hippocampal place cells construct reward related sequences through unexplored space
@@ -7122,6 +7338,7 @@ Agent verified signal modality: Rodent hippocampal place-cell electrophysiology/
 Agent field evidence (signal modality): The article records firing of hippocampal place cells in rats.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://elifesciences.org/articles/06063; https://elifesciences.org/articles/06063.pdf; https://doi.org/10.7554/eLife.06063
+
 Agent unresolved after preview: none
 
 ### How to sample the world for understanding the visual system
@@ -7164,6 +7381,7 @@ Agent verified signal modality: Visual stimulus images plus functional MRI/neuro
 Agent field evidence (signal modality): The submission is about visual-system neuroimaging/fMRI datasets and natural-image stimuli.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://openreview.net/forum?id=T9k6KkZoca; https://doi.org/10.32470/rfgh6r8; https://2025.ccneuro.org/poster-sessions/?view=all
+
 Agent unresolved after preview: none
 
 ### How to sample the world for understanding the visual system
@@ -7206,6 +7424,7 @@ Agent verified signal modality: Visual stimulus images plus functional MRI/neuro
 Agent field evidence (signal modality): The submission is about visual-system neuroimaging/fMRI datasets and natural-image stimuli.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://openreview.net/forum?id=T9k6KkZoca; https://doi.org/10.32470/rfgh6r8; https://2025.ccneuro.org/poster-sessions/?view=all
+
 Agent unresolved after preview: none
 
 ### How to sample the world for understanding the visual system
@@ -7248,6 +7467,7 @@ Agent verified signal modality: Visual stimulus images plus functional MRI/neuro
 Agent field evidence (signal modality): The submission is about visual-system neuroimaging/fMRI datasets and natural-image stimuli.
 Agent field confidence (signal modality): high
 Agent field sources (signal modality): https://openreview.net/forum?id=T9k6KkZoca; https://doi.org/10.32470/rfgh6r8; https://2025.ccneuro.org/poster-sessions/?view=all
+
 Agent unresolved after preview: none
 
 ### Human-level control through deep reinforcement learning
@@ -7291,6 +7511,7 @@ Agent verified task: Learn control policies for many Atari 2600 games directly f
 Agent field evidence (task): Nature page describes a deep Q-network learning successful policies from high-dimensional sensory input with end-to-end RL.
 Agent field confidence (task): high
 Agent field sources (task): https://www.nature.com/articles/nature14236; https://doi.org/10.1038/nature14236
+
 Agent unresolved after preview: none
 
 ### Human2Robot: Learning Robot Actions from Paired Human-Robot Videos

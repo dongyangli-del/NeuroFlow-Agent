@@ -46,6 +46,27 @@ FIELD_ALIASES = {
     "year": "year",
 }
 
+SOURCE_TIER_ALIASES = {
+    "tier0": "tier0_metadata",
+    "tier 0": "tier0_metadata",
+    "tier0 metadata": "tier0_metadata",
+    "tier0_metadata": "tier0_metadata",
+    "tier1": "tier1_paper_text",
+    "tier 1": "tier1_paper_text",
+    "tier1 pdf": "tier1_paper_text",
+    "tier1_pdf": "tier1_paper_text",
+    "tier1 paper text": "tier1_paper_text",
+    "tier1_paper_text": "tier1_paper_text",
+    "tier2": "tier2_official_artifact",
+    "tier 2": "tier2_official_artifact",
+    "tier2 official artifact": "tier2_official_artifact",
+    "tier2_official_artifact": "tier2_official_artifact",
+    "tier3": "tier3_grey_literature",
+    "tier 3": "tier3_grey_literature",
+    "tier3 grey literature": "tier3_grey_literature",
+    "tier3_grey_literature": "tier3_grey_literature",
+}
+
 
 @dataclass
 class ManualEntry:
@@ -64,6 +85,7 @@ class AcceptedField:
     evidence: str
     confidence: str
     sources: list[str]
+    source_tier: str = ""
 
 
 @dataclass
@@ -88,6 +110,42 @@ def clean(value: Any) -> str:
 
 def canonical_field(field: str) -> str:
     return FIELD_ALIASES.get(clean(field).lower(), clean(field).lower())
+
+
+def canonical_source_tier(value: Any) -> str:
+    if isinstance(value, list):
+        tiers = [canonical_source_tier(item) for item in value]
+        return ";".join(dict.fromkeys(item for item in tiers if item))
+    text = clean(value).lower().replace("-", " ").replace("_", " ")
+    return SOURCE_TIER_ALIASES.get(text, text.replace(" ", "_"))
+
+
+def canonical_confidence(value: Any) -> str:
+    text = clean(value).lower()
+    if text in {"high", "medium", "low"}:
+        return text
+    try:
+        score = float(text)
+    except ValueError:
+        return text
+    if score >= 0.8:
+        return "high"
+    if score >= 0.5:
+        return "medium"
+    return "low"
+
+
+def source_tier_allows(field_name: str, source_tier: str) -> tuple[bool, str]:
+    tiers = {item.strip() for item in source_tier.split(";") if item.strip()}
+    if not tiers:
+        return True, ""
+    if tiers == {"tier3_grey_literature"}:
+        return False, "grey literature cannot be sole evidence"
+    if field_name == "doi" and not any(item in tiers for item in {"tier0_metadata", "tier1_paper_text"}):
+        return False, "doi requires tier0 metadata or tier1 paper/publisher evidence"
+    if field_name in {"dataset", "metric", "limitations", "signal modality"} and tiers == {"tier2_official_artifact"}:
+        return False, f"{field_name} requires paper text/metadata support, not only official artifact"
+    return True, ""
 
 
 def parse_unresolved(body: list[str]) -> set[str]:
@@ -209,10 +267,15 @@ def validate_record(
         return accepted, rejected
     evidence = record.get("evidence") if isinstance(record.get("evidence"), dict) else {}
     confidence = record.get("confidence") if isinstance(record.get("confidence"), dict) else {}
+    source_tier = record.get("source_tier") if isinstance(record.get("source_tier"), dict) else {}
     sources = as_sources(record.get("sources"))
 
     for raw_field, raw_value in verified_fields.items():
         field_name = canonical_field(raw_field)
+        action = clean(record.get("action", "accept")).lower()
+        if action in {"keep_unresolved", "needs_human"}:
+            rejected.append(RejectedField(idx=idx, title=entry.title, field=field_name, reason=f"action={action}"))
+            continue
         value = clean(raw_value)
         if field_name not in FIELD_ALIASES.values():
             rejected.append(RejectedField(idx=idx, title=entry.title, field=field_name, reason="unknown field"))
@@ -227,12 +290,17 @@ def validate_record(
         if not field_evidence:
             rejected.append(RejectedField(idx=idx, title=entry.title, field=field_name, reason="missing evidence"))
             continue
-        field_confidence = clean(confidence.get(raw_field) or confidence.get(field_name)).lower()
+        field_confidence = canonical_confidence(confidence.get(raw_field) or confidence.get(field_name))
         if field_confidence in REJECTED_CONFIDENCE:
             rejected.append(RejectedField(idx=idx, title=entry.title, field=field_name, reason="low confidence"))
             continue
         if field_confidence not in ALLOWED_CONFIDENCE:
             rejected.append(RejectedField(idx=idx, title=entry.title, field=field_name, reason="missing/invalid confidence"))
+            continue
+        field_source_tier = canonical_source_tier(source_tier.get(raw_field) or source_tier.get(field_name) or record.get("source_tier"))
+        allowed, reason = source_tier_allows(field_name, field_source_tier)
+        if not allowed:
+            rejected.append(RejectedField(idx=idx, title=entry.title, field=field_name, reason=reason))
             continue
         accepted.append(
             AcceptedField(
@@ -243,6 +311,7 @@ def validate_record(
                 evidence=field_evidence,
                 confidence=field_confidence,
                 sources=sources,
+                source_tier=field_source_tier,
             )
         )
     return accepted, rejected
@@ -255,6 +324,10 @@ def validate_normalized_record(
     accepted: list[AcceptedField] = []
     rejected: list[RejectedField] = []
     field_name = canonical_field(clean(record.get("field")))
+    action = clean(record.get("action", "accept")).lower()
+    if action in {"keep_unresolved", "needs_human"}:
+        rejected.append(RejectedField(idx=entry.idx, title=entry.title, field=field_name, reason=f"action={action}"))
+        return accepted, rejected
     value = clean(record.get("value"))
     if field_name not in FIELD_ALIASES.values():
         rejected.append(RejectedField(idx=entry.idx, title=entry.title, field=field_name, reason="unknown field"))
@@ -269,12 +342,17 @@ def validate_normalized_record(
     if not evidence:
         rejected.append(RejectedField(idx=entry.idx, title=entry.title, field=field_name, reason="missing evidence"))
         return accepted, rejected
-    confidence = clean(record.get("confidence")).lower()
+    confidence = canonical_confidence(record.get("confidence"))
     if confidence in REJECTED_CONFIDENCE:
         rejected.append(RejectedField(idx=entry.idx, title=entry.title, field=field_name, reason="low confidence"))
         return accepted, rejected
     if confidence not in ALLOWED_CONFIDENCE:
         rejected.append(RejectedField(idx=entry.idx, title=entry.title, field=field_name, reason="missing/invalid confidence"))
+        return accepted, rejected
+    source_tier = canonical_source_tier(record.get("source_tier"))
+    allowed, reason = source_tier_allows(field_name, source_tier)
+    if not allowed:
+        rejected.append(RejectedField(idx=entry.idx, title=entry.title, field=field_name, reason=reason))
         return accepted, rejected
     accepted.append(
         AcceptedField(
@@ -285,6 +363,7 @@ def validate_normalized_record(
             evidence=evidence,
             confidence=confidence,
             sources=as_sources(record.get("sources")),
+            source_tier=source_tier,
         )
     )
     return accepted, rejected
@@ -334,6 +413,8 @@ def build_preview(
                 lines.append(f"- `{item.field}` -> {item.value}")
                 lines.append(f"  - confidence: {item.confidence}")
                 lines.append(f"  - evidence: {item.evidence}")
+                if item.source_tier:
+                    lines.append(f"  - source tier: {item.source_tier}")
                 if item.sources:
                     lines.append(f"  - sources: {'; '.join(item.sources)}")
             remaining = sorted(remaining_by_idx.get(idx, set()))
@@ -365,6 +446,7 @@ def write_normalized(path: Path, accepted: list[AcceptedField], status_label: st
                         "evidence": item.evidence,
                         "confidence": item.confidence,
                         "sources": item.sources,
+                        "source_tier": item.source_tier,
                         "verification_status": status_label,
                     },
                     ensure_ascii=False,
@@ -378,19 +460,26 @@ def format_unresolved(fields: set[str]) -> str:
     return ", ".join(sorted(fields)) if fields else "none"
 
 
-def strip_previous_agent_lines(body: list[str]) -> list[str]:
-    prefixes = (
-        "Agent field verification status:",
-        "Agent verified ",
-        "Agent field evidence (",
-        "Agent field confidence (",
-        "Agent field sources (",
-        "Agent unresolved after preview:",
-    )
+def strip_previous_agent_lines(body: list[str], updated_fields: set[str] | None = None) -> list[str]:
+    updated_fields = updated_fields or set()
     stripped: list[str] = []
     previous_blank = False
     for line in body:
-        if line.startswith(prefixes):
+        if line.startswith("Agent unresolved after preview:"):
+            continue
+        remove_updated_field = False
+        for field_name in updated_fields:
+            if line.startswith(f"Agent verified {field_name}:") or line.startswith(
+                (
+                    f"Agent field evidence ({field_name}):",
+                    f"Agent field confidence ({field_name}):",
+                    f"Agent field source tier ({field_name}):",
+                    f"Agent field sources ({field_name}):",
+                )
+            ):
+                remove_updated_field = True
+                break
+        if remove_updated_field:
             continue
         if line == "":
             if previous_blank:
@@ -402,9 +491,9 @@ def strip_previous_agent_lines(body: list[str]) -> list[str]:
     return stripped
 
 
-def rewrite_entry_body(body: list[str], remaining: set[str]) -> list[str]:
+def rewrite_entry_body(body: list[str], remaining: set[str], updated_fields: set[str]) -> list[str]:
     rewritten: list[str] = []
-    for line in strip_previous_agent_lines(body):
+    for line in strip_previous_agent_lines(body, updated_fields):
         if line.startswith("Missing or unresolved:"):
             rewritten.append(f"Missing or unresolved: {format_unresolved(remaining)}")
         elif line.startswith("Auto unresolved after field pass:"):
@@ -446,18 +535,24 @@ def apply_manual_review(path: Path, entries: list[ManualEntry], accepted: list[A
         output.append("")
     for entry in entries:
         output.append(f"### {entry.title}")
-        output.extend(rewrite_entry_body(entry.body, remaining_by_idx.get(entry.idx, set())))
         updates = accepted_by_idx.get(entry.idx, [])
+        updated_fields = {item.field for item in updates}
+        rewritten_body = rewrite_entry_body(entry.body, remaining_by_idx.get(entry.idx, set()), updated_fields)
+        output.extend(rewritten_body)
         if updates:
             if output and output[-1] != "":
                 output.append("")
-            output.append(f"Agent field verification status: {status_label}")
+            if not any(line.startswith("Agent field verification status:") for line in rewritten_body):
+                output.append(f"Agent field verification status: {status_label}")
             for item in sorted(updates, key=lambda value: value.field):
                 output.append(f"Agent verified {item.field}: {item.value}")
                 output.append(f"Agent field evidence ({item.field}): {item.evidence}")
                 output.append(f"Agent field confidence ({item.field}): {item.confidence}")
+                if item.source_tier:
+                    output.append(f"Agent field source tier ({item.field}): {item.source_tier}")
                 if item.sources:
                     output.append(f"Agent field sources ({item.field}): {'; '.join(item.sources)}")
+        if updates or any(line.startswith("Agent verified ") for line in rewritten_body):
             output.append(f"Agent unresolved after preview: {format_unresolved(remaining_by_idx.get(entry.idx, set()))}")
         output.append("")
     path.write_text("\n".join(output).rstrip() + "\n", encoding="utf-8")

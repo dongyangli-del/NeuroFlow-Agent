@@ -44,6 +44,38 @@ Rejected candidates were kept unresolved because they were low confidence or emp
 - `EmotionKD: A Cross-Modal Knowledge Distillation Framework for Emotion Recognition Based on Physiological Signals`: metric low confidence.
 - `Generalized radiograph representation learning via cross-supervision between images and free-text radiology reports`: metric low confidence.
 
+## P0 Small-Batch Verification Addendum
+
+Generated: 2026-06-27
+
+This addendum records a targeted follow-up over the 6 remaining DOI fields and the 8 previously rejected low-confidence/empty candidates. The pass used separate metadata, paper-evidence, and grey-literature scout roles, then merged only official/source-traced evidence through `preview_agent_verifications.py`.
+
+- Official candidates checked: 13 unique `(entry, field)` targets.
+- Accepted field updates: 9.
+- Rejected/kept unresolved official candidates: 4.
+- Grey-literature leads checked: 13.
+- Grey-literature leads written to public citation-critical fields: 0.
+- Remaining unresolved fields after P0 small batch: dataset=17, signal modality=0, metric=20, method=0, limitations=33, task=0, doi=4, venue=0.
+- Remaining unresolved total after P0 small batch: 74.
+
+Accepted updates:
+
+- `Accelerating scientific discovery with Co-Scientist`: metric from Nature supplementary paper text.
+- `An Image is Worth One Word: Personalizing Text-to-Image Generation using Textual Inversion`: metric from OpenReview paper text.
+- `Does the brain represent words? An evaluation of brain decoding studies of language understanding`: signal modality from arXiv paper text.
+- `IMPLICIT GAUSSIAN PROCESS REPRESENTATION OF VECTOR FIELDS OVER ARBITRARY LATENT MANI-`: DOI from arXiv/DataCite/OpenAlex/DBLP metadata.
+- `OminiControl: Minimal and Universal Control for Diffusion Transformer`: metric from CVF paper text.
+- `PIA: Your Personalized Image Animator via Plug-and-Play Modules in Text-to-Image Models`: metric from CVF paper text.
+- `Testing the Limits of Fine-Tuning for Improving Visual Cognition in Vision Language Models`: DOI from arXiv/DataCite/OpenAlex metadata.
+- `EmotionKD: A Cross-Modal Knowledge Distillation Framework for Emotion Recognition Based on Physiological Signals`: metric from ACM metadata plus author-uploaded paper text.
+- `Generalized radiograph representation learning via cross-supervision between images and free-text radiology reports`: metric from Nature Machine Intelligence paper text.
+
+Kept unresolved:
+
+- `SecureLLM: New private and confidential interfaces with LLMs`: DOI not found in trusted metadata.
+- `Towards Brain-to-Text Generation: Neural Decoding with Pre-trained Encoder-Decoder Models`: DOI not found in trusted metadata.
+- `CONDITIONAL DIFFUSION WITH ORDINAL REGRES- SION: LONGITUDINAL DATA GENERATION FOR NEURODEGENERATIVE DISEASE STUDIES`: DOI not found in trusted metadata for either duplicate entry.
+
 ## Per-Entry Results
 
 ### Hopfield Networks is All You Need
