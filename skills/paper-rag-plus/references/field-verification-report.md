@@ -17,7 +17,32 @@ This report verifies fields for entries that already passed strict title matchin
 - Auto-verified dataset: 0
 - Auto-verified metric: 30
 - Auto-verified limitations: 54
-- Remaining unresolved fields: dataset=177, signal modality=163, metric=147, method=128, limitations=123, task=102, doi=8, venue=3
+- Remaining unresolved fields before agent batch: dataset=177, signal modality=163, metric=147, method=128, limitations=123, task=102, doi=8, venue=3
+
+## Agent Batch Verification Addendum
+
+Generated: 2026-06-27
+
+This addendum records an agent-assisted source-traced pass over the 177 priority entries. Accepted fields are marked `agent-source-traced`; they are not human-reviewed or expert-reviewed.
+
+- Entries checked: 177
+- Entries with accepted updates: 177
+- Accepted field updates: 768
+- Rejected field candidates: 8
+- Remaining unresolved fields after agent batch: dataset=17, signal modality=1, metric=26, method=0, limitations=33, task=0, doi=6, venue=0
+- Remaining unresolved total after agent batch: 83
+- Public manual-review file updated: `manual-review-needed.md`
+
+Rejected candidates were kept unresolved because they were low confidence or empty:
+
+- `Accelerating scientific discovery with Co-Scientist`: metric low confidence.
+- `An Image is Worth One Word: Personalizing Text-to-Image Generation using Textual Inversion`: metric low confidence.
+- `Does the brain represent words? An evaluation of brain decoding studies of language understanding`: signal modality low confidence.
+- `IMPLICIT GAUSSIAN PROCESS REPRESENTATION OF VECTOR FIELDS OVER ARBITRARY LATENT MANI-`: DOI empty/null.
+- `OminiControl: Minimal and Universal Control for Diffusion Transformer`: metric low confidence.
+- `PIA: Your Personalized Image Animator via Plug-and-Play Modules in Text-to-Image Models`: metric low confidence.
+- `EmotionKD: A Cross-Modal Knowledge Distillation Framework for Emotion Recognition Based on Physiological Signals`: metric low confidence.
+- `Generalized radiograph representation learning via cross-supervision between images and free-text radiology reports`: metric low confidence.
 
 ## Per-Entry Results
 
