@@ -76,6 +76,42 @@ Kept unresolved:
 - `Towards Brain-to-Text Generation: Neural Decoding with Pre-trained Encoder-Decoder Models`: DOI not found in trusted metadata.
 - `CONDITIONAL DIFFUSION WITH ORDINAL REGRES- SION: LONGITUDINAL DATA GENERATION FOR NEURODEGENERATIVE DISEASE STUDIES`: DOI not found in trusted metadata for either duplicate entry.
 
+## Remaining-Field Verification Addendum
+
+Generated: 2026-06-27
+
+This addendum records the full follow-up pass over the remaining 74 unresolved fields. The pass used field-specific agents for DOI, dataset, metric, and limitations; a grey-literature scout for non-authoritative leads; and a reviewer audit over all medium-confidence candidates plus high-risk metric/limitations spot checks.
+
+- Remaining targets checked: 74.
+- Official/source-traced accepted field updates: 49.
+- Medium-confidence candidates reviewed: 11 approved, 0 rejected.
+- High-risk high-confidence spot checks: 23 approved, 0 rejected.
+- Grey-literature leads checked: 29.
+- Grey-literature leads written to public citation-critical fields: 0.
+- Remaining unresolved fields after full remaining-field pass: dataset=1, metric=15, limitations=5, doi=4.
+- Remaining unresolved total after full remaining-field pass: 25.
+
+Residual unresolved entries are retained because trusted sources did not directly support the field, the item is a review/perspective with no paper-specific dataset or metric, the DOI was absent from Tier 0/Tier 1 metadata, or accessible sources did not contain an explicit author limitation / clear experimental boundary:
+
+- `SecureLLM: New private and confidential interfaces with LLMs`: DOI not found in DBLP, CEUR, Semantic Scholar, or Crossref-like trusted metadata.
+- `Towards Brain-to-Text Generation: Neural Decoding with Pre-trained Encoder-Decoder Models`: DOI not found in OpenReview, workshop PDF, or trusted metadata.
+- `CONDITIONAL DIFFUSION WITH ORDINAL REGRES- SION: LONGITUDINAL DATA GENERATION FOR NEURODEGENERATIVE DISEASE STUDIES`: DOI not found in DBLP, OpenReview, or official ICLR metadata for either duplicate entry.
+- `How to build a cognitive map`: metric retained unresolved because the article is a review with no paper-specific evaluation metric.
+- `Mental state decoders: game-changers or wishful thinking?`: metric retained unresolved because trusted sources identify a commentary/review rather than a primary empirical evaluation.
+- `Neuroscience-Inspired Artificial Intelligence`: limitations and metric retained unresolved for both duplicate entries because no explicit author limitation or paper-specific metric was verified from trusted sources.
+- `Predictive processing of scenes and objects`: metric retained unresolved because the item is a review article without a paper-specific evaluation metric.
+- `Shared Neural Mechanisms of Visual Perception and Imagery`: metric retained unresolved because trusted sources describe a review/meta-synthesis rather than a primary evaluation with a single metric.
+- `The Future of Memory: Remembering, Imagining, and the Brain`: limitations and metric retained unresolved because no explicit author limitation or paper-specific metric was verified from trusted sources.
+- `What Learning Systems do Intelligent Agents Need? Complementary Learning Systems Theory Updated`: metric retained unresolved because it is a review/theory update.
+- `Brain and Cognitive Science Inspired Deep Learning: A Comprehensive Survey`: dataset and metric retained unresolved because accessible trusted metadata identifies it as a survey and did not directly support a paper-specific dataset/metric.
+- `Brain-Machine Coupled Learning Method for Facial Emotion Recognition`: limitations retained unresolved because no explicit author limitation or clear experimental-boundary statement was verified from accessible trusted sources.
+- `Category selectivity in human visual cortex: Beyond visual object recognition`: metric retained unresolved because trusted sources identify a conceptual review/argument, not a primary metric-bearing evaluation.
+- `Convergent multi-modular architecturefor adaptive learning in Drosophila and artificial intelligence`: metric retained unresolved because it is a Perspective/review-style article.
+- `Data-Driven Approaches to Understanding Visual Neuron Activity`: metric retained unresolved because the article is a review of modeling approaches and no article-specific evaluation metric was verified.
+- `Decoding the brain: From neural representations to mechanistic models`: metric retained unresolved for both duplicate entries because the item is a Perspective and no paper-specific evaluation metric was verified.
+- `Efficient processing of natural scenes in visual cortex`: metric retained unresolved because the Frontiers page identifies a review article rather than a primary metric-bearing evaluation.
+- `Fast neural distance field-based three-dimensional reconstruction method for geometrical parameter extraction of walnut shell from multiview images`: limitations retained unresolved because no explicit author limitation or clear experimental-boundary statement was verified from accessible trusted sources.
+
 ## Per-Entry Results
 
 ### Hopfield Networks is All You Need
