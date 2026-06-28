@@ -8,5 +8,6 @@ workflow chain, required reads, evidence gates, artifacts, and trace metadata.
 
 from .registry import RuntimeRegistry, build_registry
 from .runner import WorkflowRunner
+from .hooks import WorkflowHookRuntime
 
-__all__ = ["RuntimeRegistry", "WorkflowRunner", "build_registry"]
+__all__ = ["RuntimeRegistry", "WorkflowHookRuntime", "WorkflowRunner", "build_registry"]

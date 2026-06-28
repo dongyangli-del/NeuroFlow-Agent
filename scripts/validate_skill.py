@@ -211,6 +211,74 @@ def validate_runtime_registry() -> None:
         )
 
 
+def validate_runtime_hooks() -> None:
+    cli = ROOT / "scripts" / "neuroflow_runtime" / "cli.py"
+    start = subprocess.run(
+        [
+            sys.executable,
+            str(cli),
+            "hook",
+            "--event",
+            "session_start",
+            "--task",
+            "My EEG reconstruction result is worse than the baseline. What should I check next?",
+        ],
+        cwd=ROOT,
+        check=True,
+        text=True,
+        stdout=subprocess.PIPE,
+    )
+    start_payload = json.loads(start.stdout)
+    if start_payload.get("selected_chain") != "benchmark-to-baseline":
+        fail("session_start hook did not route baseline debugging to benchmark-to-baseline")
+
+    run_id = start_payload.get("run_id", "")
+    with tempfile.NamedTemporaryFile("w", suffix=".md", encoding="utf-8") as artifact:
+        artifact.write("Claim with citation evidence_sources and source-traced metadata.\n")
+        artifact.flush()
+        subprocess.run(
+            [
+                sys.executable,
+                str(cli),
+                "hook",
+                "--event",
+                "pre_artifact",
+                "--artifact",
+                artifact.name,
+                "--kind",
+                "claim",
+            ],
+            cwd=ROOT,
+            check=True,
+            stdout=subprocess.DEVNULL,
+        )
+
+    subprocess.run(
+        [
+            sys.executable,
+            str(cli),
+            "hook",
+            "--event",
+            "post_tool",
+            "--run-id",
+            run_id,
+            "--tool",
+            "web",
+            "--summary",
+            "source-traced paper lookup completed",
+        ],
+        cwd=ROOT,
+        check=True,
+        stdout=subprocess.DEVNULL,
+    )
+    subprocess.run(
+        [sys.executable, str(cli), "hook", "--event", "session_end", "--run-id", run_id],
+        cwd=ROOT,
+        check=True,
+        stdout=subprocess.DEVNULL,
+    )
+
+
 def main() -> None:
     validate_required_files()
     validate_skill_structure()
@@ -222,6 +290,7 @@ def main() -> None:
     validate_public_leakage()
     validate_high_precision_maps()
     validate_runtime_registry()
+    validate_runtime_hooks()
     print("Skill repository validation passed.")
 
 

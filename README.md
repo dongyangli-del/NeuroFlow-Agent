@@ -167,6 +167,18 @@ Runtime runs write private traces and artifact scaffolds under `.private/runs/` 
 
 This runtime layer makes the workflow explicit even when a chat session would otherwise drift into ad hoc reasoning. It gives every deep task a named chain, a private `trace.json`, and a fillable artifact such as `REPRO_CONTRACT.md`, `BENCHMARK_AUDIT.md`, or `PAPER_NARRATIVE.md`.
 
+The runtime also includes explicit workflow hooks inspired by event-driven agent harnesses such as ECC:
+
+```bash
+python3 scripts/neuroflow_runtime/cli.py hook --event session_start --task "My EEG reconstruction result is worse than the baseline"
+python3 scripts/neuroflow_runtime/cli.py hook --event pre_artifact --artifact ARTIFACT.md --kind claim
+python3 scripts/neuroflow_runtime/cli.py hook --event post_tool --run-id RUN_ID --tool web --summary "source-traced lookup completed"
+python3 scripts/neuroflow_runtime/cli.py hook --event session_end --run-id RUN_ID
+python3 scripts/neuroflow_runtime/cli.py hook --event pre_commit
+```
+
+Hooks are explicit CLI adapters, not hidden global shell hooks. They use `NEUROFLOW_HOOK_PROFILE=minimal|standard|strict` and `NEUROFLOW_DISABLED_HOOKS`, write only private traces by default, and avoid automatic web search, public file edits, or multi-agent spawning.
+
 ## Persistent Workflow System
 
 The repository is organized as a compact operating system for research agents:
