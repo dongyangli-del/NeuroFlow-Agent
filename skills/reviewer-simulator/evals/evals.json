@@ -48,6 +48,31 @@
           "text": "Output does not imply the paper has proven robust cross-subject decoding."
         }
       ]
+    },
+    {
+      "id": 3,
+      "prompt": "Do an acceptance-readiness audit before submission. The paper claims online closed-loop EEG-guided stimulation, but evidence is offline replay; baselines are fair; ablations exist; code release is planned but no smoke command is documented.",
+      "expected_output": "A readiness audit that classifies the paper as not submit-ready or submit-with-risk, identifies the offline-to-online claim as the main blocker, separates reproducibility and writing fixes from the protocol defect, and recommends narrowing the claim or adding online evidence.",
+      "files": [
+        "references/review-rubric.md",
+        "references/review-diagnosis.md",
+        "references/acceptance-readiness.md",
+        "references/rebuttal-plan.md"
+      ],
+      "assertions": [
+        {
+          "text": "Output includes an explicit acceptance readiness class."
+        },
+        {
+          "text": "Output treats offline replay evidence as insufficient for an online closed-loop claim."
+        },
+        {
+          "text": "Output separates the protocol defect from reproducibility and writing fixes."
+        },
+        {
+          "text": "Output recommends narrowing the claim or adding online evidence rather than relying on rebuttal wording."
+        }
+      ]
     }
   ]
 }

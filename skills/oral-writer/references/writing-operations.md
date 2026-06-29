@@ -18,11 +18,11 @@ This taxonomy turns common paper-writing requests into explicit NeuroFlow operat
 | `anti-ai-style-latex` | English LaTeX sounds mechanically generated. | Remove boilerplate transitions and vague flourish while preserving LaTeX, claims, variables, and citations. |
 | `anti-ai-style-word` | Chinese or plain text sounds mechanically generated. | Replace empty emphasis with concrete claims, preserve domain terms, and avoid Markdown. |
 | `architecture-figure-plan` | A method description needs a paper architecture figure plan. | Identify modules, data flow, supervision, inference path, and what the figure must prove. |
-| `plot-recommendation` | Experiment results need a figure type. | Choose plots based on comparison structure, variance, metric type, label length, and the intended claim. |
+| `plot-recommendation` | Experiment results need a figure type. | Use `plot-type-selector.md`; choose plots based on comparison structure, variance, metric type, label length, and the intended claim. |
 | `latex-table` | Results should become a LaTeX paper table. | Use `table-writing.md`; preserve numbers, define metric direction, compare only comparable rows, and avoid significance claims without uncertainty. |
 | `figure-title` | A figure needs an English title or caption seed. | State the finding directly and avoid ornamental verbs. |
 | `table-title` | A table needs an English title or caption seed. | Name the comparison, metric, dataset/protocol, and key takeaway when known. |
-| `experiment-analysis` | Results should become a paper paragraph. | Use only supplied values, distinguish main result from ablation/robustness/error analysis, and include uncertainty when available. |
+| `experiment-analysis` | Results should become a paper paragraph. | Use `experiment-analysis.md`; only use supplied values, distinguish main result from ablation/robustness/error analysis, and include uncertainty when available. |
 | `reviewer-view-audit` | The user wants a whole-paper writing and claim review. | Lead with blocking issues, evidence gaps, fairness of baselines, missing ablations, and fixable writing problems. |
 | `model-choice-rationale` | The paper needs a rationale for method/model selection. | Tie model choice to task constraints, data scale, modality, latency, interpretability, and baseline parity. |
 

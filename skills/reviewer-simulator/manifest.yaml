@@ -8,12 +8,16 @@ natural_triggers:
   - "what will reviewers attack"
   - "rebuttal plan"
   - "acceptance risk"
+  - "is this ready to submit"
+  - "acceptance readiness"
   - "is this fixable"
   - "method flaw or writing problem"
   - "root cause"
   - "审稿风险"
   - "帮我模拟 reviewer"
   - "这个问题能救吗"
+  - "能投稿吗"
+  - "投稿前检查"
   - "方法问题还是表述问题"
   - "根因是什么"
 always_load:
@@ -31,11 +35,14 @@ axes:
     claim: Narrow claim-to-evidence audit.
     rebuttal: Response plan and missing evidence triage.
     diagnosis: Root-cause, fixability, and method-versus-presentation classification.
+    acceptance_readiness: Whole-paper submit/delay/scope-down decision.
   fixability:
     quick_revision: Wording, caption, limitation, table clarification, or citation verification.
     feasible_extra_experiment: Small controlled run, ablation, seed sweep, or analysis using existing data.
     major_new_evidence: New dataset, baseline family, human study, online experiment, or full rerun.
     structural_method_risk: Current method or protocol cannot support the main claim.
 on_demand:
+  - condition: whole-paper or pre-submission readiness
+    load: references/acceptance-readiness.md
   - condition: neural data or BCI protocol risk
     load: ../_shared/core/bci-validity.md

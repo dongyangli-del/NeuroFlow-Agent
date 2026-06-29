@@ -168,6 +168,16 @@ python3 ~/.codex/skills/.system/skill-installer/scripts/install-skill-from-githu
 帮我把这些实验结果写成论文 claim。
 ```
 
+常见写作和审稿请求也可以直接用自然语言，不必记 skill 名：
+
+| 自然请求 | NeuroFlow 路由 | 检查内容 |
+|---|---|---|
+| “根据这张结果表写 Results 分析。” | `experiment-to-paper` -> `oral-writer` experiment analysis | 指标方向、可见差距、不确定性、缺失方差和 claim 边界。 |
+| “这组 EEG 结果应该画什么图？” | `experiment-to-paper` -> `oral-writer` plot recommendation | subject/session 可见性、比较结构、方差、协议边界和 caption seed。 |
+| “把这个 figure/table caption 写得更 reviewer-facing。” | `experiment-to-paper` -> `oral-writer` caption/table writing | takeaway、数据集/协议、指标方向、证据边界和 limitation。 |
+| “这篇文章现在能投稿吗？” | `experiment-to-paper` 或 `paper-to-rebuttal` -> `reviewer-simulator` | acceptance readiness、阻断问题、可救性、方法缺陷 vs 表述缺陷、submit/delay 判断。 |
+| “这是方法问题还是表述问题？” | `reviewer-simulator` diagnosis | 根因、缺陷类型、最佳修复、审稿后果和更安全表述。 |
+
 如果需要生成可追踪的 workflow scaffold，可以使用轻量 runtime registry：
 
 ```bash

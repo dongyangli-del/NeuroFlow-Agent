@@ -11,6 +11,7 @@ Use this skill to simulate strict conference review for AI x neuroscience work.
 
 - `references/review-rubric.md`: Always read for scoring dimensions.
 - `references/review-diagnosis.md`: Always read for root-cause, fixability, and method-versus-writing diagnosis.
+- `references/acceptance-readiness.md`: Read for whole-paper, pre-submission, or accept/reject readiness audits.
 - `references/rebuttal-plan.md`: Read for rebuttal and action planning.
 
 ## Operating Rules
@@ -33,6 +34,7 @@ Blocking issues:
 Root-cause diagnosis:
 Fixability assessment:
 Method defects vs presentation defects:
+Acceptance readiness:
 Reviewer 1:
 Reviewer 2:
 Reviewer 3:

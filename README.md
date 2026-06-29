@@ -154,6 +154,16 @@ My EEG reconstruction result is worse than the baseline. What should I check nex
 Help me turn these experiment results into a paper claim.
 ```
 
+Common writing and review requests can stay natural; the orchestrator routes them to the right specialist workflow:
+
+| Natural request | NeuroFlow route | What it checks |
+|---|---|---|
+| "Analyze this result table for the Results section." | `experiment-to-paper` -> `oral-writer` experiment analysis | Metric direction, exact margins, uncertainty, missing variance, and claim scope. |
+| "What plot should I use for these EEG results?" | `experiment-to-paper` -> `oral-writer` plot recommendation | Subject/session visibility, comparison structure, variance, protocol boundary, and caption seed. |
+| "Make this figure/table caption reviewer-facing." | `experiment-to-paper` -> `oral-writer` caption/table writing | Takeaway, dataset/protocol, metric direction, evidence boundary, and limitations. |
+| "Is this paper ready to submit?" | `experiment-to-paper` or `paper-to-rebuttal` -> `reviewer-simulator` | Acceptance readiness, blockers, fixability, method vs presentation defects, and submit/delay decision. |
+| "Is this a method flaw or just bad writing?" | `reviewer-simulator` diagnosis | Root cause, defect type, best repair, reviewer consequence, and safer wording. |
+
 If Codex gives a generic answer, see [Troubleshooting](docs/TROUBLESHOOTING.md). For concrete before/after workflows, see the [Demo Gallery](docs/DEMO_GALLERY.md). AI agents should follow [AGENTS.md](AGENTS.md) first; [AGENT_GUIDE.md](AGENT_GUIDE.md) provides the longer explanation.
 
 For traceable workflow scaffolds, use the lightweight runtime registry:

@@ -12,7 +12,9 @@ Use this skill when the user wants oral-level paper framing, abstract/introducti
 - `references/oral-paper-structure.md`: Always read for thesis and section structure.
 - `references/writing-operations.md`: Always read for writing operation taxonomy, format targets, and operation-specific gates.
 - `references/figure-narrative.md`: Read for figure order, captions, and evidence flow.
+- `references/plot-type-selector.md`: Read when recommending plots or figure types for results.
 - `references/table-writing.md`: Read for LaTeX tables, result-table captions, metric directions, best-value marking, and uncertainty reporting.
+- `references/experiment-analysis.md`: Read when turning results into a paper paragraph or result-section analysis.
 - Use `paper-rag-plus` before novelty or related-work claims.
 - Use `experiment-copilot` to verify that the evidence supports the written claims.
 - Use `reviewer-simulator` to preempt objections before final text.
@@ -30,6 +32,7 @@ Use this skill when the user wants oral-level paper framing, abstract/introducti
 - Respect the target surface: LaTeX output stays clean LaTeX, Word output stays plain text, and direct-copy outputs avoid Markdown decorations.
 - For anti-AI-style cleanup, remove mechanical transitions and vague flourish without changing technical meaning.
 - For experiment analysis, only state trends and conclusions present in the supplied data.
+- For plot recommendations, choose the simplest plot that exposes the comparison, uncertainty, and protocol boundary needed by the intended claim.
 - For result tables, preserve all supplied numbers, define metric direction, mark best values only under comparable protocols, and never imply statistical significance without uncertainty or tests.
 
 ## Workflow

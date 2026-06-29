@@ -75,7 +75,11 @@ axes:
 on_demand:
   - condition: figure or caption work
     load: references/figure-narrative.md
+  - condition: plot recommendation or figure type selection
+    load: references/plot-type-selector.md
   - condition: table or result-table work
     load: references/table-writing.md
+  - condition: experiment-result analysis
+    load: references/experiment-analysis.md
   - condition: reviewer-facing risk
     load: ../_shared/core/reviewer-risk.md
