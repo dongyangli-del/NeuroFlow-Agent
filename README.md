@@ -31,6 +31,14 @@
 
 ---
 
+## Featured Demo: Paper Readiness Package
+
+NeuroFlow includes a real inspected paper-readiness demo, distilled from an EEG-to-language research project rather than fabricated logs.
+
+| Demo | What to inspect | Why it matters |
+|---|---|---|
+| [Vec2Text Paper Readiness Demo](docs/cases/vec2text-paper-readiness.md) | [Example paper artifact](docs/cases/assets/vec2text-paper-demo.pdf), claim boundaries, SOTA protocol audit, reproduction status, negative ablations, and reviewer-facing limitations. | Shows NeuroFlow as an evidence-gated submission harness, not an automatic paper generator. |
+
 ## NeuroFlow at a Glance
 
 NeuroFlow-Agent turns inefficient human-in-the-loop AutoResearch into an evidence-gated research harness for machine learning, brain-computer interfaces, and neuroscience. It is built from lessons learned across strong general skills, open workflow systems, paper-writing skills, reproduction playbooks, reviewer simulators, and real ML x brain research sessions.
@@ -471,6 +479,10 @@ The GitHub Actions validation workflow lives at [.github/workflows/validate.yml]
 ## Demo Cases
 
 Real demos should come from inspected artifacts or user-approved summaries. They are intentionally not fabricated here.
+
+Current inspected demo:
+
+- [Vec2Text paper readiness package](docs/cases/vec2text-paper-readiness.md): an evidence-gated EEG-to-language submission package showing claim boundaries, SOTA protocol audit, reproduction status, negative ablations, PDF compile readiness, and reviewer-facing limitations.
 
 Planned demo slots:
 

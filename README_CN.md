@@ -29,6 +29,14 @@
   </p>
 </div>
 
+## 精选 Demo：Paper Readiness Package
+
+NeuroFlow 包含一个来自真实 inspected artifacts 的论文准备 demo，不是虚构日志，也不是“自动生成论文”的展示。
+
+| Demo | 可以检查什么 | 为什么重要 |
+|---|---|---|
+| [Vec2Text Paper Readiness Demo](docs/cases/vec2text-paper-readiness.md) | [示例论文 PDF](docs/cases/assets/vec2text-paper-demo.pdf)、claim 边界、SOTA 协议审计、复现状态、负结果和 reviewer-facing limitation。 | 展示 NeuroFlow 是 evidence-gated submission harness，而不是 paper factory。 |
+
 ## 一图看懂 NeuroFlow
 
 NeuroFlow-Agent 把低效的 human-in-the-loop AutoResearch 变成一个 evidence-gated research harness，服务于机器学习、脑机接口和神经科学交叉研究。它不是让 agent 从论文、实验日志或 repo 直接跳到漂亮 claim，而是把通用 skills、开源 workflow、论文写作技能、复现 playbook、reviewer simulator 和真实 ML x brain 研究会话中的经验教训，沉淀成可见、可审计、可复用的 workflow。
@@ -293,6 +301,7 @@ make validate
 - [Playbook Catalog](docs/PLAYBOOKS.md)：排错和写作 playbook 索引。
 - [Skill Library Spec](docs/SKILL_LIBRARY_SPEC.md)：完整 10-skill library 的 gap analysis、contracts、task chains 和阶段验收标准。
 - [Demo Gallery](docs/DEMO_GALLERY.md)：常见任务的 before/after workflow 示例。
+- [Vec2Text Paper Readiness Demo](docs/cases/vec2text-paper-readiness.md)：基于真实 inspected artifacts 的 EEG-to-language 投稿准备案例，展示 claim 边界、SOTA 协议审计、复现状态、负结果和 reviewer-facing limitation。
 - [Troubleshooting](docs/TROUBLESHOOTING.md)：Codex 没有自然触发 NeuroFlow 时的安装和验证检查。
 - [Examples](docs/EXAMPLES.md)：真实 demo case 模板和待补案例。
 - [Validation](docs/VALIDATION.md)：验证命令和质量检查。

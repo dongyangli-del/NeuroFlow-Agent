@@ -19,6 +19,7 @@ This project uses date-based release notes until semantic versioned releases beg
 - Added integration templates under `integrations/`.
 - Added cross-model review as a default gate for high-risk claim, citation, experiment, reproduction, and public-memory artifacts.
 - Added git publish safety as a default gate for commit, push, branch deletion, and remote synchronization tasks.
+- Added the Vec2Text paper readiness demo as a public-safe case study distilled from inspected paper, readiness, reproduction, and reviewer-risk artifacts.
 
 ## 2026-06-30
 

@@ -17,6 +17,10 @@ Reusable lesson:
 Files or references updated:
 ```
 
+## Inspected Demo Cases
+
+- [Vec2Text paper readiness package](cases/vec2text-paper-readiness.md): evidence-gated EEG-to-language paper demo distilled from inspected paper, compile, readiness, reproduction, and reviewer-risk artifacts.
+
 ## Planned Demo Cases
 
 - EEG diffusion scale/normalization failure: generated EEG variance explodes despite low denoising loss.

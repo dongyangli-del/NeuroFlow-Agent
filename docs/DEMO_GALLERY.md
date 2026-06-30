@@ -2,6 +2,55 @@
 
 This gallery shows the behavior NeuroFlow should produce in common research sessions. Each demo is intentionally compact: the goal is to make the workflow value visible before users read the full skill library.
 
+## Paper Readiness Package
+
+Full case study: [Vec2Text Paper Readiness Demo](cases/vec2text-paper-readiness.md).
+
+Example paper artifact: [vec2text-paper-demo.pdf](cases/assets/vec2text-paper-demo.pdf).
+
+User asks:
+
+```text
+Prepare this EEG-to-language project as a reviewer-facing paper package.
+```
+
+Naive agent likely does:
+
+- Polish the abstract and related work before checking the evidence chain.
+- Present visual EEG-to-language results as unrestricted sentence reconstruction.
+- Mix same-protocol evidence with task-adjacent SOTA numbers.
+
+NeuroFlow route:
+
+```text
+neuro-orchestrator -> paper-rag-plus -> repro-pack -> experiment-copilot -> reviewer-simulator -> oral-writer
+```
+
+Evidence gates:
+
+- Claim-evidence consistency and safer allowed wording.
+- SOTA protocol comparability and cross-metric boundaries.
+- Split leakage, candidate-bank status, and no-test-target separation.
+- External-code reproduction status and PDF compile status.
+- Negative, no-gain, marginal, and tradeoff ablations remain visible.
+
+Final artifact:
+
+```markdown
+Claim:
+Evidence source:
+Protocol boundary:
+Reproduction status:
+Negative evidence:
+Reviewer risk:
+Final allowed wording:
+Remaining blocker:
+```
+
+Why this prevents a research error:
+
+It shows that a strong paper demo is not automatic paper generation. The useful artifact is a reviewer-facing readiness package that narrows unsupported claims before writing becomes fluent.
+
 ## EEG Reconstruction Baseline Gap
 
 User asks:
