@@ -4,8 +4,8 @@
   </a>
 
   <p>
-    <b>面向 AI x BCI 与 NeuroAI research agents 的自进化工作流系统。</b><br>
-    以 neuro-orchestrator 作为唯一默认入口，显式调度 NeuroFlow pipeline，并把 specialist skills 作为可选模块使用。
+    <b>面向机器学习 x 脑机接口 x 神经科学的领域知识正确 AutoResearch / human-in-the-loop workflow agent。</b><br>
+    NeuroFlow-Agent 吸收优秀通用 skills 库、科研 workflow 和真实项目踩坑经验，维护一个面向顶会与正刊/子刊投稿的技能库、领域知识库和自进化索引图谱。
   </p>
 
   <p>
@@ -31,7 +31,13 @@
 
 ## 一图看懂 NeuroFlow
 
-NeuroFlow-Agent 把低效的 human-in-the-loop AutoResearch 变成一个 evidence-gated research harness，服务于机器学习、脑机接口和神经科学交叉研究。它不是让 agent 从论文、实验日志或 repo 直接跳到漂亮 claim，而是把中间推理、证据检查和人工校验变成可见、可审计、可复用的 workflow。
+NeuroFlow-Agent 把低效的 human-in-the-loop AutoResearch 变成一个 evidence-gated research harness，服务于机器学习、脑机接口和神经科学交叉研究。它不是让 agent 从论文、实验日志或 repo 直接跳到漂亮 claim，而是把通用 skills、开源 workflow、论文写作技能、复现 playbook、reviewer simulator 和真实 ML x brain 研究会话中的经验教训，沉淀成可见、可审计、可复用的 workflow。
+
+这个项目不是一个简单 prompt pack，而是一个持续维护的 workflow-agent 仓库，核心目标有三点：
+
+- **领域知识正确的 AutoResearch**：让 AI agent 在写 claim、设计实验或总结论文之前，先进入 ML x BCI x neuroscience 的有效假设和证据边界。
+- **面向投稿的技能库**：服务机器学习顶会，以及神经科学正刊/子刊投稿场景，覆盖文献 grounding、实验设计、复现、审稿模拟和论文写作。
+- **自进化知识系统**：维护领域知识库、reference index、paper maps、evals 和 workflow memory，并随着用户真实使用持续改进。
 
 这张主图对应四个阶段：
 
@@ -44,11 +50,17 @@ NeuroFlow-Agent 把低效的 human-in-the-loop AutoResearch 变成一个 evidenc
 
 因此，NeuroFlow 更适合作为开源科研工作流层：帮助 AI agents 真正参与 ML x BCI 和 NeuroAI 项目，同时避免 unsupported claims、citation noise、未复现结果和低质量自动论文写作。
 
-这是一个面向 AI x BCI 研究的自进化工作流系统，用于让 agent 在多模态神经解码、EEG 视觉重建、扩散/生成模型、脑语言对齐、闭环脑调控、Physical AI 和 NeuroAI 项目中更像严谨的科研合作者。默认入口是 `neuro-orchestrator`；其他 specialist skills 是由它选择的可选模块。
+这是一个面向 ML x BCI x neuroscience 研究的自进化工作流系统，用于让 agent 在多模态神经解码、EEG 视觉重建、扩散/生成模型、脑语言对齐、闭环脑调控和 NeuroAI 项目中更像严谨的科研合作者。默认入口是 `neuro-orchestrator`；其他 specialist skills 是由它选择的可选模块。
 
-仓库的核心思想不是“做一个简单的 AI 与脑机交叉 skill”，而是把 agent 在垂直科研场景中真正需要被定制的部分沉淀下来。Agent 通常由三部分组成：模型、工具和 workflow。模型和工具越来越像通用基础设施，唯独 workflow 需要根据具体研究领域、实验脆弱点、任务深度、审稿标准和长期项目记忆来定制。因此，本仓库的目标是打造一个由 `neuro-orchestrator` 显式调度、specialist skills 作为可选模块、自进化、记忆重放和记忆巩固能力的 AI x BCI 持久工作流系统。
+仓库的核心思想不是“做一个简单的 AI 与脑机交叉 skill”，而是把 agent 在垂直科研场景中真正需要被定制的部分沉淀下来。Agent 通常由三部分组成：模型、工具和 workflow。模型和工具越来越像通用基础设施，唯独 workflow 需要根据具体研究领域、实验脆弱点、任务深度、审稿标准和长期项目记忆来定制。因此，本仓库的目标是打造一个由 `neuro-orchestrator` 显式调度、specialist skills 作为可选模块、自进化、记忆重放和记忆巩固能力的 ML x BCI 持久工作流系统。
 
 `neuro-orchestrator/SKILL.md` 负责唯一入口和显式 pipeline 路由，`references/` 保存可重放的研究记忆和细分工作流，`scripts/` 保存确定性辅助脚本，`evals/` 保存行为评测 prompt，`docs/` 解释这些机制如何组织成一个可持续迭代的系统。浅层任务可以只读取最小记忆并快速回答；标准任务可以调用一个可选模块并通过证据检查；深度任务可以跨 literature grounding、experiment design、review simulation 和 memory consolidation 显式执行。
+
+| 层级 | NeuroFlow 维护什么 |
+|---|---|
+| 技能库 | 面向机器学习顶会和神经科学正刊/子刊的投稿技能：paper grounding、benchmark audit、experiment design、reproduction、reviewer simulation 和 paper writing。 |
+| 领域知识库 | AI x BCI 与神经科学专属假设、paper maps、dataset/method taxonomy、claim-to-citation memory 和 reviewer-risk playbooks。 |
+| 自进化索引图谱 | manifests、evals、references、runtime traces 和 memory rules，让 workflow 能随着用户真实使用持续改进。 |
 
 ## 为什么核心是 Workflow
 

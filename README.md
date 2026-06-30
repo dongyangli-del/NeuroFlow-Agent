@@ -4,8 +4,8 @@
   </a>
 
   <p>
-    <b>A vertical agent workflow system for AI x brain, behavior, cognition, and embodied intelligence research.</b><br>
-    NeuroFlow-Agent turns frontier AI methods and models into explicit research workflows for neural encoding, decoding, analysis, representation, modulation, cognitive science, psychology, brain-inspired algorithms, and embodied AI.
+    <b>A domain-knowledge-correct AutoResearch and human-in-the-loop workflow agent for ML x BCI x neuroscience.</b><br>
+    NeuroFlow-Agent distills lessons from strong general skill libraries, research workflows, and real project failures into a conference-grade skill library, domain knowledge base, and self-evolving index graph.
   </p>
 
   <p>
@@ -33,7 +33,13 @@
 
 ## NeuroFlow at a Glance
 
-NeuroFlow-Agent turns inefficient human-in-the-loop AutoResearch into an evidence-gated research harness for machine learning, brain-computer interfaces, and neuroscience. Instead of letting an agent jump from raw papers or experiment logs directly to polished claims, NeuroFlow makes the intermediate reasoning visible and auditable.
+NeuroFlow-Agent turns inefficient human-in-the-loop AutoResearch into an evidence-gated research harness for machine learning, brain-computer interfaces, and neuroscience. It is built from lessons learned across strong general skills, open workflow systems, paper-writing skills, reproduction playbooks, reviewer simulators, and real ML x brain research sessions.
+
+The project is not a narrow prompt pack. It is a maintained workflow-agent repository with three goals:
+
+- **Domain-knowledge-correct AutoResearch**: keep AI agents inside valid ML x BCI x neuroscience assumptions before they write claims, design experiments, or summarize papers.
+- **Submission-facing skills**: support work aimed at top machine learning conferences and flagship or specialty neuroscience journals, including claim grounding, experiment design, reproduction, review simulation, and paper writing.
+- **Self-evolving knowledge system**: maintain a domain knowledge base, reference index, paper maps, evals, and workflow memory that can improve as the user works with the agent.
 
 The framework has four visible stages:
 
@@ -50,13 +56,21 @@ This makes NeuroFlow a practical open-source workflow layer for researchers who 
 
 An agent has three practical components: the model, the tools, and the workflow. Models and tools are increasingly shared infrastructure. The vertical layer is the workflow: the domain-specific execution policy that decides which context to replay, which evidence gates are non-negotiable, how deep the task should go, how a result becomes a claim, and what should persist after the session.
 
-NeuroFlow-Agent is built around that thesis. It is not a prompt pack, a generic neuroscience note dump, or a collection of narrow downstream-task helpers. It is a vertical agent workflow system for research at the intersection of AI, brain data, behavior, cognition, psychology, BCI, NeuroAI, brain-inspired algorithms, and embodied intelligence.
+NeuroFlow-Agent is built around that thesis. It is not a prompt pack, a generic neuroscience note dump, or a collection of narrow downstream-task helpers. It is a maintained workflow-agent repository for ML x BCI x neuroscience research, built by absorbing lessons from general-purpose skill libraries and turning them into domain-specific execution policy.
 
-The system is designed to make frontier AI methods usable in fragile scientific settings: multimodal large language models, generative models, representation learning, foundation models, agents, continual learning, reinforcement learning, world models, and embodied AI should be routed through rigorous research workflows before they become experiments, papers, claims, or memory.
+The system is designed to make AutoResearch and human-in-the-loop agent work scientifically useful rather than merely fluent. Frontier ML methods, foundation models, agents, generative models, representation learning, continual learning, and BCI/neuroscience pipelines should be routed through domain evidence gates before they become experiments, papers, claims, or memory.
 
 ## What NeuroFlow-Agent Is
 
-NeuroFlow-Agent is a compact operating layer for rigorous AI x brain research agents. It uses `neuro-orchestrator` as the single default workflow entry point, then selects optional specialist modules for literature grounding, benchmark auditing, reproduction, experiment design, reviewer simulation, writing, and durable memory.
+NeuroFlow-Agent is a compact operating layer for rigorous ML x BCI x neuroscience research agents. It uses `neuro-orchestrator` as the single default workflow entry point, then selects optional specialist modules for literature grounding, benchmark auditing, reproduction, experiment design, reviewer simulation, writing, and durable memory.
+
+The repository combines three layers:
+
+| Layer | What NeuroFlow maintains |
+|---|---|
+| Skill library | Submission-facing skills for top ML conferences and flagship or specialty neuroscience journals: paper grounding, benchmark audit, experiment design, reproduction, reviewer simulation, and paper writing. |
+| Domain knowledge base | AI x BCI and neuroscience-specific assumptions, paper maps, dataset and method taxonomies, claim-to-citation memory, and reviewer-risk playbooks. |
+| Self-evolving index graph | Manifests, evals, references, runtime traces, and memory rules that let the workflow improve as the user repeatedly applies it. |
 
 The project covers a broad research surface:
 
