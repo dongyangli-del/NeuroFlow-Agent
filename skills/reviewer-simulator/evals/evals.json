@@ -97,6 +97,31 @@
           "text": "Output does not use writing style or AI-detector language as verdict evidence."
         }
       ]
+    },
+    {
+      "id": 5,
+      "prompt": "Do a final acceptance-readiness and integrity gate for a paper. The same model wrote the claim ledger, summarized the experiments, and now says the paper is ready. No independent reviewer model has checked citations, metrics, or reproduction evidence.",
+      "expected_output": "A strict review that refuses self-approved final readiness, requires cross-model or independent adversarial review, marks the final gate as required_but_not_run or fail, and lists citation, metric, protocol, and reproduction checks for the reviewer.",
+      "files": [
+        "references/review-rubric.md",
+        "references/review-diagnosis.md",
+        "references/integrity-forensics.md",
+        "../_shared/core/cross-model-review.md"
+      ],
+      "assertions": [
+        {
+          "text": "Output states that final readiness cannot be self-approved by the executor model."
+        },
+        {
+          "text": "Output distinguishes executor and reviewer roles."
+        },
+        {
+          "text": "Output marks the final gate as required_but_not_run, fail, or pass_with_caveats rather than clean pass."
+        },
+        {
+          "text": "Output lists independent checks for citations, metrics, protocol boundaries, and reproduction evidence."
+        }
+      ]
     }
   ]
 }

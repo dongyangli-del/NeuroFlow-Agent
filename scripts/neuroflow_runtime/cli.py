@@ -16,6 +16,7 @@ if str(SCRIPTS_ROOT) not in sys.path:
 
 from neuroflow_runtime import WorkflowHookRuntime, WorkflowRunner, build_registry  # noqa: E402
 from neuroflow_runtime.hooks import result_to_json  # noqa: E402
+from neuroflow_runtime.kb import kb_summary, search_kb  # noqa: E402
 
 
 def print_registry(kind: str) -> None:
@@ -69,6 +70,36 @@ def run_hook(args: argparse.Namespace) -> None:
         raise SystemExit(2)
 
 
+def run_kb(args: argparse.Namespace) -> None:
+    if args.kb_command == "summary":
+        print(json.dumps(kb_summary(REPO_ROOT), ensure_ascii=False, indent=2))
+        return
+    if args.kb_command == "search":
+        hits = search_kb(REPO_ROOT, args.query, limit=args.limit)
+        if args.json:
+            payload = [
+                {
+                    "score": hit.score,
+                    "path": str(hit.path),
+                    "line": hit.line,
+                    "heading": hit.heading,
+                    "snippet": hit.snippet,
+                }
+                for hit in hits
+            ]
+            print(json.dumps(payload, ensure_ascii=False, indent=2))
+            return
+        if not hits:
+            print("No knowledge-base hits found.")
+            return
+        for hit in hits:
+            heading = f" [{hit.heading}]" if hit.heading else ""
+            print(f"{hit.path}:{hit.line}{heading} score={hit.score}")
+            print(f"  {hit.snippet}")
+        return
+    raise SystemExit(f"Unknown kb command: {args.kb_command}")
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="NeuroFlow runtime registry")
     subparsers = parser.add_subparsers(dest="command", required=True)
@@ -94,6 +125,16 @@ def build_parser() -> argparse.ArgumentParser:
     hook_parser.add_argument("--run-id", default="", help="Existing runtime run id")
     hook_parser.add_argument("--tool", default="", help="Tool name for post_tool")
     hook_parser.add_argument("--summary", default="", help="Short tool result summary for post_tool")
+
+    kb_parser = subparsers.add_parser("kb", help="Search and summarize public NeuroFlow knowledge maps")
+    kb_subparsers = kb_parser.add_subparsers(dest="kb_command", required=True)
+
+    kb_search = kb_subparsers.add_parser("search", help="Search public knowledge maps")
+    kb_search.add_argument("query", help="Search query, for example: cross-subject EEG")
+    kb_search.add_argument("--limit", type=int, default=8, help="Maximum number of hits")
+    kb_search.add_argument("--json", action="store_true", help="Emit JSON results")
+
+    kb_subparsers.add_parser("summary", help="Print public knowledge-base summary")
     return parser
 
 
@@ -106,6 +147,8 @@ def main() -> None:
         run_chain(args)
     elif args.command == "hook":
         run_hook(args)
+    elif args.command == "kb":
+        run_kb(args)
     else:
         parser.error(f"Unknown command: {args.command}")
 

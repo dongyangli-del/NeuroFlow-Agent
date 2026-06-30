@@ -9,19 +9,23 @@ natural_triggers:
   - "what experiment should I run"
   - "metric gap"
   - "statistical test"
+  - "independent review"
   - "设计消融"
   - "baseline 比不过"
   - "实验矩阵"
+  - "独立审查"
 always_load:
   - references/experiment-matrix.md
   - ../_shared/core/evidence-gates.md
   - ../_shared/core/source-traceability.md
   - ../_shared/core/output-contracts.md
+  - ../_shared/core/cross-model-review.md
 axes:
   task:
     debugging: Metric gap or failed run diagnosis.
     ablation: Mechanism or component validation.
     paper-claim: Evidence needed before writing a claim.
+    cross_model_review: Independent review for paper-facing experiment matrices.
   modality:
     eeg: Use BCI validity checks for split, time window, normalization, and leakage.
     fmri: Check subject/session split, ROI or voxel target, and preprocessing version.

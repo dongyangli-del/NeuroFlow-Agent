@@ -33,6 +33,7 @@ Use this skill as the single default entry point for NeuroFlow-Agent. It routes 
 - Use the smallest specialist set that adds distinct evidence or validation.
 - Apply research supervision gates before polishing ideas, paper text, figures, benchmarks, or claims.
 - For paper-facing claims, reviews, result tables, citations, or reproduction statements, apply the research-integrity gate: claim-evidence consistency, citation fit, numeric self-consistency, protocol truthfulness, and observability level.
+- For high-risk claim, citation, experiment, benchmark, reproduction, or public-memory artifacts, apply cross-model review by default: executor performs the work, reviewer independently checks it, and the final gate cannot be self-approved by the same model/pass.
 
 ## Task Depths
 
@@ -67,6 +68,7 @@ Primary artifact:
 Optional specialist modules:
 Required first reads:
 Evidence needed:
+Cross-model review:
 Expected artifact:
 Stop condition:
 Memory candidate:

@@ -15,7 +15,7 @@ Use this guide when Codex gives a generic answer instead of applying NeuroFlow.
 Run:
 
 ```bash
-bash install.sh
+python3 scripts/install --target codex --update
 ls -la ~/.codex/skills/neuro-orchestrator
 ls -la ~/.codex/skills/_shared
 ```
@@ -77,5 +77,5 @@ make validate
 | Generic paper-writing answer | `neuro-orchestrator` was not loaded | Restart Codex and use a verification prompt. |
 | Specialist skill answers directly | Single-entry rule was skipped | Route through `neuro-orchestrator`; specialists are optional modules. |
 | Full planning table appears for a tiny task | Preflight was exposed too aggressively | Keep preflight internal for shallow and standard tasks. |
-| Missing shared references | `_shared` was not installed | Re-run `bash install.sh`. |
+| Missing shared references | `_shared` was not installed | Re-run `python3 scripts/install --target codex --update`. |
 | The agent invents dataset facts | Benchmark evidence gate was skipped | Use `eeg-benchmark-hunter` and mark unknown fields as `needs verification`. |

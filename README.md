@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://github.com/dongyangli-del/NeuroFlow-Agent">
-    <img src="docs/NeuroFlow_logo.png" alt="NeuroFlow Agent" width="532">
+    <img src="docs/NeuroFlow_logo.png" alt="NeuroFlow Agent" width="450">
   </a>
 
   <p>
@@ -121,9 +121,11 @@ The orchestrator can answer shallow tasks directly, route standard tasks through
 
 Each high-use skill may also include a `manifest.yaml` that declares status, verification status, natural triggers, default reads, task axes, and on-demand references. `status` describes workflow maturity; `verification_status` describes the evidence behind the workflow or memory, such as `unverified`, `source-traced`, `reproduced`, `user-validated`, or `expert-reviewed`.
 
-Shared workflow primitives live in `skills/_shared/core/` so specialist skills can reuse evidence gates, source traceability, claim discipline, BCI validity checks, reviewer risk checks, research planning protocol, output contracts, and research-integrity forensics without duplicating long instructions.
+Shared workflow primitives live in `skills/_shared/core/` so specialist skills can reuse evidence gates, source traceability, claim discipline, BCI validity checks, reviewer risk checks, research planning protocol, output contracts, research-integrity forensics, and cross-model review without duplicating long instructions.
 
 Research-integrity checks are concrete evidence forensics: every concern should be anchored to a claim, source span, number, citation, table, figure, command, or repository path, with an observability level and false-positive caveat. NeuroFlow does not use writing style or AI-detector signals as verdict evidence.
+
+For high-risk outputs, NeuroFlow treats cross-model review as a default gate rather than a premium add-on: the executor model produces the claim ledger, experiment matrix, reproduction contract, or review; a reviewer model independently checks it; and the final gate cannot be self-approved by the same model or same uninterrupted reasoning pass. If independent review is unavailable, the artifact must say `required_but_not_run` and lower its confidence.
 
 ## Anti Low-Quality AutoResearch
 
@@ -179,15 +181,25 @@ The central artifact is the explicit NeuroFlow pipeline. `neuro-orchestrator` is
 
 ## Quick Start
 
-Install the full NeuroFlow skill library:
+Install the full NeuroFlow skill library for Codex:
 
 ```bash
 git clone https://github.com/dongyangli-del/NeuroFlow-Agent.git
 cd NeuroFlow-Agent
-bash install.sh
+python3 scripts/install --target codex --update
 ```
 
 The installer links every specialist skill into your Codex skills directory and installs the Codex-specific `neuro-orchestrator` override from `skills-codex/`. Restart Codex after installation.
+
+For Claude Code, Cursor, Gemini CLI, OpenCode, and generic `AGENTS.md`-aware tools, see [docs/INSTALL.md](docs/INSTALL.md):
+
+```bash
+python3 scripts/install --target all --check
+python3 scripts/install --target cursor --project /path/to/project --update
+python3 scripts/install --target claude-code --update
+python3 scripts/install --target gemini-cli --project /path/to/project --update
+python3 scripts/install --target opencode --update
+```
 
 To install only the default entry with the Codex skill installer, pass the Codex-specific path explicitly:
 
@@ -228,6 +240,7 @@ For traceable workflow scaffolds, use the lightweight runtime registry:
 ```bash
 python3 scripts/neuroflow_runtime/cli.py list --kind chains
 python3 scripts/neuroflow_runtime/cli.py run --chain paper-to-repro --task "reproduce this paper baseline"
+python3 scripts/neuroflow_runtime/cli.py kb search "cross-subject EEG"
 ```
 
 Runtime runs write private traces and artifact scaffolds under `.private/runs/` by default. They record the selected chain, modules, required reads, evidence gates, and stop condition; the agent still has to fill the artifact with inspected evidence.
@@ -400,11 +413,16 @@ Project-level docs:
 |---|---|
 | [docs/WORKFLOWS.md](docs/WORKFLOWS.md) | Named research loops and operating procedures. |
 | [docs/PLAYBOOKS.md](docs/PLAYBOOKS.md) | Catalog of detailed references and when to load them. |
+| [docs/INSTALL.md](docs/INSTALL.md) | Multi-platform install paths for Codex, Claude Code, Cursor, Gemini CLI, OpenCode, and generic agents. |
+| [docs/KNOWLEDGE_GRAPH.md](docs/KNOWLEDGE_GRAPH.md) | Public knowledge graph entry point, taxonomy diagram, and KB search contract. |
+| [docs/RELEASE.md](docs/RELEASE.md) | Versioned release process and release-note template. |
+| [docs/VERIFICATION_DASHBOARD.md](docs/VERIFICATION_DASHBOARD.md) | Verification status by knowledge category and public map readiness. |
 | [docs/SKILL_LIBRARY_SPEC.md](docs/SKILL_LIBRARY_SPEC.md) | Full 10-skill library gap analysis, contracts, task chains, and phase criteria. |
 | [docs/EXAMPLES.md](docs/EXAMPLES.md) | Demo-case template and planned real examples. |
 | [docs/VALIDATION.md](docs/VALIDATION.md) | Local checks and validation expectations. |
 | [docs/PUBLIC_READY.md](docs/PUBLIC_READY.md) | Public-release checklist and private-memory policy. |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | Rules for adding durable skill memory. |
+| [CHANGELOG.md](CHANGELOG.md) | User-facing changes and release history. |
 | [LICENSE](LICENSE) | MIT license for public use and reuse. |
 | [README_CN.md](README_CN.md) | Chinese project overview. |
 

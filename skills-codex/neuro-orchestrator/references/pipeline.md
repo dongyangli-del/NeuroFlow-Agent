@@ -51,6 +51,7 @@ Memory candidate:
 - Reproduction: environment, data, weights, command, expected output, sanity check.
 - Closed loop: online/offline boundary, safety, calibration, latency, human-subject constraints.
 - Research integrity: claim-evidence consistency, citation fit, numeric self-consistency, protocol truthfulness, observability level.
+- Cross-model review: high-risk claim, citation, experiment, benchmark, reproduction, and public-memory artifacts require an executor/reviewer split or an explicit `required_but_not_run` caveat.
 - Memory: privacy filter and explicit target.
 
 ## Supervision Gates

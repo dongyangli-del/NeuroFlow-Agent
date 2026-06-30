@@ -1,0 +1,212 @@
+#!/usr/bin/env python3
+"""Install NeuroFlow integrations across agent tools."""
+
+from __future__ import annotations
+
+import argparse
+import os
+import shutil
+from dataclasses import dataclass
+from pathlib import Path
+
+
+ROOT = Path(__file__).resolve().parents[1]
+SKILLS = ROOT / "skills"
+CODEX_SKILLS = ROOT / "skills-codex"
+TEMPLATES = ROOT / "integrations"
+MANAGED_MARKER = "neuroflow-managed"
+
+
+@dataclass(frozen=True)
+class TemplateTarget:
+    name: str
+    source: Path
+    dest: Path
+
+
+def home() -> Path:
+    return Path.home()
+
+
+def project_dir(args: argparse.Namespace) -> Path:
+    return Path(args.project).expanduser().resolve() if args.project else ROOT
+
+
+def codex_skills_dir() -> Path:
+    codex_home = Path(os.environ.get("CODEX_HOME", home() / ".codex")).expanduser()
+    return codex_home / "skills"
+
+
+def template_targets(args: argparse.Namespace) -> dict[str, TemplateTarget]:
+    project = project_dir(args)
+    return {
+        "claude-code": TemplateTarget(
+            name="claude-code",
+            source=TEMPLATES / "claude-code/commands/neuroflow.md",
+            dest=home() / ".claude/commands/neuroflow.md",
+        ),
+        "cursor": TemplateTarget(
+            name="cursor",
+            source=TEMPLATES / "cursor/neuroflow-agent.mdc",
+            dest=project / ".cursor/rules/neuroflow-agent.mdc",
+        ),
+        "gemini-cli": TemplateTarget(
+            name="gemini-cli",
+            source=TEMPLATES / "gemini/GEMINI.md",
+            dest=project / "GEMINI.md",
+        ),
+        "opencode": TemplateTarget(
+            name="opencode",
+            source=TEMPLATES / "opencode/AGENTS.md",
+            dest=home() / ".config/opencode/AGENTS.md",
+        ),
+        "generic": TemplateTarget(
+            name="generic",
+            source=TEMPLATES / "generic/AGENTS.md",
+            dest=project / "AGENTS.md",
+        ),
+    }
+
+
+def selected_targets(args: argparse.Namespace) -> list[str]:
+    if "all" in args.target:
+        return ["codex", "claude-code", "cursor", "gemini-cli", "opencode", "generic"]
+    return list(dict.fromkeys(args.target))
+
+
+def log(args: argparse.Namespace, message: str) -> None:
+    if not args.quiet:
+        print(message)
+
+
+def planned(args: argparse.Namespace, message: str) -> None:
+    prefix = "DRY-RUN " if args.dry_run else ""
+    log(args, prefix + message)
+
+
+def safe_write(args: argparse.Namespace, target: TemplateTarget) -> None:
+    if not target.source.exists():
+        raise SystemExit(f"Missing template: {target.source}")
+    text = target.source.read_text(encoding="utf-8")
+    if args.check:
+        if not target.dest.exists():
+            log(args, f"missing {target.name}: {target.dest}")
+            return
+        current = target.dest.read_text(encoding="utf-8", errors="ignore")
+        if current == text:
+            status = "ok"
+        elif MANAGED_MARKER in current:
+            status = "different managed"
+        else:
+            status = "present unmanaged"
+        log(args, f"{status} {target.name}: {target.dest}")
+        return
+    if args.prune:
+        if target.dest.exists():
+            current = target.dest.read_text(encoding="utf-8", errors="ignore")
+            if MANAGED_MARKER in current:
+                planned(args, f"remove {target.name}: {target.dest}")
+                if not args.dry_run:
+                    target.dest.unlink()
+            else:
+                log(args, f"skip unmanaged {target.name}: {target.dest}")
+        return
+    if target.dest.exists():
+        current = target.dest.read_text(encoding="utf-8", errors="ignore")
+        if current == text:
+            log(args, f"ok {target.name}: {target.dest}")
+            return
+        if MANAGED_MARKER not in current and not args.force:
+            log(args, f"skip unmanaged {target.name}: {target.dest} (use --force to overwrite)")
+            return
+        if not args.update and not args.force:
+            log(args, f"skip existing {target.name}: {target.dest} (use --update)")
+            return
+    planned(args, f"write {target.name}: {target.dest}")
+    if not args.dry_run:
+        target.dest.parent.mkdir(parents=True, exist_ok=True)
+        target.dest.write_text(text, encoding="utf-8")
+
+
+def link_skill(args: argparse.Namespace, source: Path, dest: Path) -> None:
+    if args.check:
+        if dest.is_symlink() and dest.resolve() == source.resolve():
+            log(args, f"ok codex: {dest.name}")
+        elif dest.exists():
+            log(args, f"conflict codex: {dest}")
+        else:
+            log(args, f"missing codex: {dest.name}")
+        return
+    if args.prune:
+        if dest.is_symlink() and str(dest.resolve()).startswith(str(ROOT.resolve())):
+            planned(args, f"remove codex symlink: {dest}")
+            if not args.dry_run:
+                dest.unlink()
+        return
+    if dest.is_symlink():
+        if dest.resolve() == source.resolve():
+            log(args, f"ok codex: {dest.name}")
+            return
+        if not args.update:
+            log(args, f"skip codex symlink {dest}: points to {dest.resolve()} (use --update)")
+            return
+        planned(args, f"replace codex symlink: {dest}")
+        if not args.dry_run:
+            dest.unlink()
+    elif dest.exists():
+        log(args, f"skip codex conflict: {dest}")
+        return
+    planned(args, f"link codex: {dest.name} -> {source}")
+    if not args.dry_run:
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        dest.symlink_to(source)
+
+
+def install_codex(args: argparse.Namespace) -> None:
+    dest_root = codex_skills_dir()
+    if not args.check and not args.dry_run:
+        dest_root.mkdir(parents=True, exist_ok=True)
+    shared = SKILLS / "_shared"
+    if shared.exists():
+        link_skill(args, shared, dest_root / "_shared")
+    for skill_src in sorted(SKILLS.iterdir()):
+        if not skill_src.is_dir() or skill_src.name.startswith("_"):
+            continue
+        if not (skill_src / "SKILL.md").exists():
+            continue
+        override = CODEX_SKILLS / skill_src.name
+        source = override if (override / "SKILL.md").exists() else skill_src
+        link_skill(args, source, dest_root / skill_src.name)
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="Install NeuroFlow integrations")
+    parser.add_argument(
+        "--target",
+        action="append",
+        choices=("all", "codex", "claude-code", "cursor", "gemini-cli", "opencode", "generic"),
+        default=[],
+        help="Integration target; may be repeated. Defaults to all.",
+    )
+    parser.add_argument("--project", default="", help="Project directory for Cursor, Gemini, and generic AGENTS.md")
+    parser.add_argument("--check", action="store_true", help="Report installation status without writing")
+    parser.add_argument("--update", action="store_true", help="Refresh managed symlinks and template files")
+    parser.add_argument("--prune", action="store_true", help="Remove NeuroFlow-managed files or symlinks")
+    parser.add_argument("--force", action="store_true", help="Overwrite unmanaged template files")
+    parser.add_argument("--dry-run", action="store_true", help="Show actions without changing files")
+    parser.add_argument("--quiet", action="store_true", help="Reduce output")
+    args = parser.parse_args()
+
+    if not args.target:
+        args.target = ["all"]
+    targets = selected_targets(args)
+    templates = template_targets(args)
+    for target in targets:
+        if target == "codex":
+            install_codex(args)
+        else:
+            safe_write(args, templates[target])
+
+
+if __name__ == "__main__":
+    main()

@@ -12,6 +12,7 @@ Use this skill to simulate strict conference review for AI x neuroscience work.
 - `references/review-rubric.md`: Always read for scoring dimensions.
 - `references/review-diagnosis.md`: Always read for root-cause, fixability, and method-versus-writing diagnosis.
 - `references/integrity-forensics.md`: Read for claim-evidence, citation, numeric, protocol, and reproduction-integrity audits.
+- `../_shared/core/cross-model-review.md`: Read for high-risk paper, claim, experiment, reproduction, or integrity decisions that require independent review.
 - `references/acceptance-readiness.md`: Read for whole-paper, pre-submission, or accept/reject readiness audits.
 - `references/rebuttal-plan.md`: Read for rebuttal and action planning.
 
@@ -24,6 +25,7 @@ Use this skill to simulate strict conference review for AI x neuroscience work.
 - Diagnose the root cause of each major weakness: experimental design, evidence gap, invalid assumption, analysis gap, reproducibility gap, or writing/framing gap.
 - Classify fixability as quick revision, feasible extra experiment, major new evidence, or structural method risk.
 - Do not invent results or assume missing experiments passed.
+- For high-risk acceptance, integrity, claim, experiment, or reproduction judgments, report executor/reviewer separation and do not mark the final gate passed by self-review alone.
 - Use `peer-review`, `scientific-critical-thinking`, and `venue-templates` for deeper review when relevant.
 - Always include concrete experiments or edits that would reduce risk.
 
@@ -37,6 +39,7 @@ Root-cause diagnosis:
 Fixability assessment:
 Method defects vs presentation defects:
 Integrity findings:
+Cross-model review:
 Acceptance readiness:
 Reviewer 1:
 Reviewer 2:

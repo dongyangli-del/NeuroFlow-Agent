@@ -15,6 +15,7 @@ Use this skill to ground AI x neuroscience claims in inspected literature. It sh
 - `references/rag-eval-constraints.md`: Read for citation-critical RAG answers, novelty checks, and reviewer-facing claim support.
 - `references/zotero-import-protocol.md`: Read when importing, updating, or auditing Zotero-derived memory.
 - `references/zotero-library-index.md`: Read for Zotero-derived candidate papers; verify before citation-critical use.
+- `references/papers-index-summary.md`: Read before opening large generated maps or when explaining the public Paper-RAG++ knowledge base.
 - `references/paper-taxonomy.md`, `references/method-map.md`, `references/dataset-map.md`, `references/claim-to-citation.md`: Read selectively for taxonomy, method, dataset, and claim-support retrieval.
 
 ## Operating Rules
@@ -27,6 +28,7 @@ Use this skill to ground AI x neuroscience claims in inspected literature. It sh
 - Treat Zotero-derived maps as retrieval memory, not final citation proof.
 - Record source location, verification status, missing information, and deviations from convention for citation-critical facts.
 - Use a claim ledger for paper-facing claims so each claim has source span, evidence tier, support status, weakest link, and safer wording.
+- For citation-critical claims, use cross-model review: one pass builds the ledger, an independent reviewer checks citation fit, source span, unresolved fields, and claim scope before final wording.
 - For novelty or related-work answers, distinguish prior work, method innovation, application innovation, missing citations, and safer claim wording.
 
 ## Output Formats
@@ -76,4 +78,5 @@ Deviations from convention:
 Reviewer risk:
 Safer wording:
 Claim ledger row:
+Cross-model review:
 ```

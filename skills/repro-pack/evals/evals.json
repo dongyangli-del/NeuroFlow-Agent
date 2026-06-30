@@ -44,6 +44,30 @@
           "text": "Output separates smoke reproduction from full-paper reproduction."
         }
       ]
+    },
+    {
+      "id": 3,
+      "prompt": "The executor ran a repository command and claims the paper table is reproduced. No independent reviewer checked the environment, data path, checkpoint, command, expected output, or whether the command matches the target table.",
+      "expected_output": "A reproduction contract that records the executor run but refuses a clean L3 final approval until independent review checks the command, environment, data, weights, expected output, target-table match, and observability level.",
+      "files": [
+        "references/repro-contract.md",
+        "references/observability-levels.md",
+        "../_shared/core/cross-model-review.md"
+      ],
+      "assertions": [
+        {
+          "text": "Output separates the executor run from reviewer approval."
+        },
+        {
+          "text": "Output does not call the paper table fully reproduced without independent review."
+        },
+        {
+          "text": "Output includes a cross-model review final gate or required_but_not_run status."
+        },
+        {
+          "text": "Output lists environment, data, weights, command, expected output, and target-table match as reviewer checks."
+        }
+      ]
     }
   ]
 }

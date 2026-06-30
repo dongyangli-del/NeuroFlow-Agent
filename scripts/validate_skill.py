@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import json
+import os
 import re
 import subprocess
 import sys
@@ -19,11 +20,16 @@ REQUIRED_FILES = [
     ROOT / "AGENT_GUIDE.md",
     ROOT / "README.md",
     ROOT / "README_CN.md",
+    ROOT / "CHANGELOG.md",
     ROOT / "CONTRIBUTING.md",
     ROOT / "LICENSE",
     ROOT / "SECURITY.md",
     ROOT / "docs" / "DEMO_GALLERY.md",
+    ROOT / "docs" / "INSTALL.md",
+    ROOT / "docs" / "KNOWLEDGE_GRAPH.md",
+    ROOT / "docs" / "RELEASE.md",
     ROOT / "docs" / "TROUBLESHOOTING.md",
+    ROOT / "docs" / "VERIFICATION_DASHBOARD.md",
     ROOT / ".github" / "workflows" / "validate.yml",
     ROOT / "skills-codex" / "neuro-orchestrator" / "SKILL.md",
     SKILL_DIR / "SKILL.md",
@@ -211,6 +217,54 @@ def validate_runtime_registry() -> None:
         )
 
 
+def validate_runtime_kb() -> None:
+    cli = ROOT / "scripts" / "neuroflow_runtime" / "cli.py"
+    result = subprocess.run(
+        [sys.executable, str(cli), "kb", "search", "cross-subject EEG", "--limit", "2", "--json"],
+        cwd=ROOT,
+        check=True,
+        text=True,
+        stdout=subprocess.PIPE,
+    )
+    payload = json.loads(result.stdout)
+    if not isinstance(payload, list):
+        fail("kb search did not return a JSON list")
+    summary = subprocess.run(
+        [sys.executable, str(cli), "kb", "summary"],
+        cwd=ROOT,
+        check=True,
+        text=True,
+        stdout=subprocess.PIPE,
+    )
+    summary_payload = json.loads(summary.stdout)
+    if "entrypoint" not in summary_payload:
+        fail("kb summary missing entrypoint")
+
+
+def validate_installer() -> None:
+    installer = ROOT / "scripts" / "install"
+    if not installer.exists():
+        fail("Missing installer: scripts/install")
+    if not os.access(installer, os.X_OK):
+        fail("scripts/install must be executable")
+    with tempfile.TemporaryDirectory() as tmpdir:
+        subprocess.run(
+            [sys.executable, str(installer), "--target", "cursor", "--project", tmpdir, "--dry-run", "--update", "--quiet"],
+            cwd=ROOT,
+            check=True,
+        )
+        subprocess.run(
+            [sys.executable, str(installer), "--target", "gemini-cli", "--project", tmpdir, "--dry-run", "--update", "--quiet"],
+            cwd=ROOT,
+            check=True,
+        )
+        subprocess.run(
+            [sys.executable, str(installer), "--target", "generic", "--project", tmpdir, "--dry-run", "--update", "--quiet"],
+            cwd=ROOT,
+            check=True,
+        )
+
+
 def validate_runtime_hooks() -> None:
     cli = ROOT / "scripts" / "neuroflow_runtime" / "cli.py"
     start = subprocess.run(
@@ -290,6 +344,8 @@ def main() -> None:
     validate_public_leakage()
     validate_high_precision_maps()
     validate_runtime_registry()
+    validate_runtime_kb()
+    validate_installer()
     validate_runtime_hooks()
     print("Skill repository validation passed.")
 

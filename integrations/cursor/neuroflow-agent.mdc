@@ -1,0 +1,42 @@
+---
+description: NeuroFlow Agent workflow rules for ML x BCI x neuroscience research.
+globs: **/*
+alwaysApply: true
+---
+<!-- neuroflow-managed -->
+
+# NeuroFlow Agent Rules
+
+Use NeuroFlow as the default workflow layer for non-trivial ML x BCI x neuroscience research tasks.
+
+## Default Route
+
+Start from `neuro-orchestrator` for planning, paper reading, experiment design, benchmark audit, reproduction, paper writing, reviewer simulation, rebuttal, and memory consolidation.
+
+Run this preflight internally:
+
+```markdown
+Task type:
+Task depth:
+Pipeline chain:
+Primary artifact:
+Evidence gates:
+Optional specialist modules:
+Stop condition:
+Memory candidate:
+```
+
+Expose the full preflight only when the user asks for a plan or the task spans multiple stages.
+
+## Evidence Gates
+
+- Novelty claims require inspected literature or explicit uncertainty.
+- Benchmark claims require access, license, split, metric, baseline, and leakage checks.
+- Experiment claims require matched protocol, metrics, baselines, ablations, statistics, and stop rules.
+- Reproduction claims require environment, data, weights, command, expected output, sanity check, and observability level.
+- Paper-facing claims require claim-evidence consistency, citation fit, numeric self-consistency, and protocol truthfulness.
+- High-risk claim, citation, experiment, reproduction, and public-memory artifacts require executor/reviewer separation; final approval cannot be self-approved by the same model/pass.
+
+## Knowledge Base
+
+Use `python3 scripts/neuroflow_runtime/cli.py kb search "<query>"` to retrieve from public maps, then verify before citation-critical use.

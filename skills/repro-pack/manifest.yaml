@@ -10,14 +10,17 @@ natural_triggers:
   - "baseline table"
   - "observability level"
   - "what is verified"
+  - "independent review"
   - "复现"
   - "跑通 repo"
   - "复现证据等级"
+  - "独立审查"
 always_load:
   - references/repro-contract.md
   - references/observability-levels.md
   - ../_shared/core/source-traceability.md
   - ../_shared/core/research-integrity.md
+  - ../_shared/core/cross-model-review.md
   - ../_shared/core/output-contracts.md
 axes:
   target:
@@ -26,6 +29,7 @@ axes:
     table: Baseline or metric table reproduction.
     checkpoint: Weight, config, and inference path validation.
     observability: L0/L1/L2/L3 evidence level and upgrade path for the target artifact.
+    cross_model_review: Independent review before L2/L3 or paper-facing reproduction approval.
 on_demand:
   - condition: setup, data, weights, or command failure
     load: references/failure-recovery.md

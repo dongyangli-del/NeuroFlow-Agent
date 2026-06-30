@@ -33,6 +33,7 @@ Shared workflow primitives live under `skills/_shared/core/`. They are resource 
 | `bci-validity.md` | Split, signal alignment, baseline fairness, and interpretation boundaries. |
 | `reviewer-risk.md` | Blocking reviewer risks and rebuttal discipline. |
 | `research-integrity.md` | Span-anchored integrity forensics, observability levels, numeric consistency, and false-positive caveats. |
+| `cross-model-review.md` | Executor/reviewer separation for high-risk claim, citation, experiment, reproduction, and public-memory gates. |
 | `output-contracts.md` | Compact artifacts for next checks, benchmark cards, claim rewrites, and memory candidates. |
 
 High-use skills may include `manifest.yaml` files that declare status, verification status, natural triggers, always-loaded references, task axes, and on-demand shared resources. `status` is workflow maturity; `verification_status` is the confidence level behind the workflow or memory.

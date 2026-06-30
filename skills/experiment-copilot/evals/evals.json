@@ -23,6 +23,30 @@
           "text": "Output includes metric definitions or statistical plan."
         }
       ]
+    },
+    {
+      "id": 2,
+      "prompt": "Design the experiment matrix for a paper claim that our model is robust across subjects and sessions. The executor proposes baselines and metrics, but no independent reviewer has checked leakage, split protocol, baseline parity, statistics, or claim scope.",
+      "expected_output": "An experiment matrix that includes cross-model review as a required gate before paper-facing interpretation, with reviewer checks for leakage, subject/session split, baseline parity, metric definitions, statistics, and claim scope.",
+      "files": [
+        "references/experiment-matrix.md",
+        "references/controls-and-ablations.md",
+        "../_shared/core/cross-model-review.md"
+      ],
+      "assertions": [
+        {
+          "text": "Output separates executor matrix design from reviewer checks."
+        },
+        {
+          "text": "Output marks cross-model review as required before paper-facing interpretation."
+        },
+        {
+          "text": "Output includes leakage, split protocol, baseline parity, metrics, statistics, and claim scope as independent checks."
+        },
+        {
+          "text": "Output does not let the executor self-approve robustness claims."
+        }
+      ]
     }
   ]
 }

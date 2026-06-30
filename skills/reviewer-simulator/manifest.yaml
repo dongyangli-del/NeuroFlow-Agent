@@ -16,6 +16,8 @@ natural_triggers:
   - "integrity risk"
   - "citation mismatch"
   - "numeric inconsistency"
+  - "cross-model review"
+  - "independent review"
   - "审稿风险"
   - "帮我模拟 reviewer"
   - "这个问题能救吗"
@@ -26,6 +28,8 @@ natural_triggers:
   - "科研完整性"
   - "引用不匹配"
   - "数字不一致"
+  - "交叉模型审查"
+  - "独立审查"
 always_load:
   - references/review-rubric.md
   - references/review-diagnosis.md
@@ -34,6 +38,7 @@ always_load:
   - ../_shared/core/claim-discipline.md
   - ../_shared/core/source-traceability.md
   - ../_shared/core/research-integrity.md
+  - ../_shared/core/cross-model-review.md
 axes:
   venue:
     ai: NeurIPS, ICML, ICLR, CVPR, ACL, or AI4Science style evidence pressure.
@@ -45,6 +50,7 @@ axes:
     diagnosis: Root-cause, fixability, and method-versus-presentation classification.
     acceptance_readiness: Whole-paper submit/delay/scope-down decision.
     integrity: Span-anchored integrity forensics for claims, citations, numbers, protocols, and reproduction observability.
+    cross_model_review: Executor/reviewer split for high-risk final gates.
   fixability:
     quick_revision: Wording, caption, limitation, table clarification, or citation verification.
     feasible_extra_experiment: Small controlled run, ablation, seed sweep, or analysis using existing data.

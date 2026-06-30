@@ -139,9 +139,11 @@ Codex 用户不应该依赖系统自动调动多个 skills。默认入口始终�
 
 高频 skill 可以包含 `manifest.yaml`，用于声明功能状态、可信度状态、自然触发词、默认读取文件、任务轴和按需加载的参考片段。`status` 表示 workflow 成熟度；`verification_status` 表示事实或规则的证据状态，例如 `unverified`、`source-traced`、`reproduced`、`user-validated` 或 `expert-reviewed`。
 
-跨 skill 的公共证据门、source traceability、claim discipline、BCI 有效性检查、reviewer risk、research planning protocol、输出契约和 research-integrity forensics 放在 `skills/_shared/core/`，避免每个 skill 重复维护长规则。
+跨 skill 的公共证据门、source traceability、claim discipline、BCI 有效性检查、reviewer risk、research planning protocol、输出契约、research-integrity forensics 和 cross-model review 放在 `skills/_shared/core/`，避免每个 skill 重复维护长规则。
 
 科研完整性检查被当作证据取证，而不是 AI 文本检测：每个风险都要锚定到 claim、source span、数字、引用、表格、图、命令或仓库路径，并标明 observability level 和 false-positive caveat；不能用写作风格作为判定证据。
+
+对于高风险输出，NeuroFlow 把 cross-model review 当作默认 gate，而不是可选亮点：executor model 负责生成 claim ledger、experiment matrix、reproduction contract 或 review；reviewer model 独立审查；最终通过不能由同一个模型或同一段连续推理自我批准。如果暂时没有独立审查，artifact 必须标记 `required_but_not_run` 并降低 confidence。
 
 ## 反低质量 AutoResearch
 
@@ -196,10 +198,20 @@ NeuroFlow 重点规避这些模式：
 ```bash
 git clone https://github.com/dongyangli-del/NeuroFlow-Agent.git
 cd NeuroFlow-Agent
-bash install.sh
+python3 scripts/install --target codex --update
 ```
 
-`install.sh` 会把 specialist skills 链接到 Codex skills 目录，并优先安装 `skills-codex/neuro-orchestrator` 作为 Codex 的同名强入口。安装后重启 Codex。
+`scripts/install --target codex --update` 会把 specialist skills 链接到 Codex skills 目录，并优先安装 `skills-codex/neuro-orchestrator` 作为 Codex 的同名强入口。安装后重启 Codex。
+
+Claude Code、Cursor、Gemini CLI、OpenCode 和通用 `AGENTS.md` agent 的安装方式见 [docs/INSTALL.md](docs/INSTALL.md)：
+
+```bash
+python3 scripts/install --target all --check
+python3 scripts/install --target cursor --project /path/to/project --update
+python3 scripts/install --target claude-code --update
+python3 scripts/install --target gemini-cli --project /path/to/project --update
+python3 scripts/install --target opencode --update
+```
 
 如果只想用 Codex skill installer 安装唯一默认入口，可以显式指定路径：
 
@@ -238,6 +250,7 @@ python3 ~/.codex/skills/.system/skill-installer/scripts/install-skill-from-githu
 ```bash
 python3 scripts/neuroflow_runtime/cli.py list --kind chains
 python3 scripts/neuroflow_runtime/cli.py run --chain paper-to-repro --task "reproduce this paper baseline"
+python3 scripts/neuroflow_runtime/cli.py kb search "cross-subject EEG"
 ```
 
 runtime 默认把私有 trace 和 artifact scaffold 写到 `.private/runs/`，记录选中的 chain、模块、必读文件、证据门和停止条件。它只是执行骨架，具体科研判断仍需要 agent 用真实证据填充。

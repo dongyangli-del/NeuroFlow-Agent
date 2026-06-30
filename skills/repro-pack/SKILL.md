@@ -25,6 +25,7 @@ Use this skill when the user wants to reproduce a paper, repository, benchmark b
 - Separate smoke reproduction from full-paper reproduction.
 - Separate source-traced setup instructions from outputs actually reproduced locally.
 - Assign an observability level before saying what is verified: L0 text-only, L1 source-traced, L2 artifact-checked, or L3 reproduced.
+- For L2/L3 reproduction claims or paper-facing reproduction statements, use cross-model review to check command, environment, data, weights, expected output, and observability level before final approval.
 - List missing assets, ambiguous parameters, and deviations from the paper or repository convention.
 
 ## Workflow
@@ -49,6 +50,7 @@ Minimal command:
 Expected output:
 Source evidence:
 Sanity checks:
+Cross-model review:
 Full reproduction path:
 Failure recovery:
 Missing evidence:

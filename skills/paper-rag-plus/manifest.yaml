@@ -10,11 +10,16 @@ natural_triggers:
   - "claim ledger"
   - "citation mismatch"
   - "verify this citation"
+  - "knowledge graph"
+  - "kb search"
+  - "cross-model review"
   - "literature grounding"
   - "相关工作"
   - "引用依据"
   - "claim 证据表"
   - "核验引用"
+  - "知识图谱"
+  - "交叉模型审查"
 always_load:
   - references/claim-grounding.md
   - references/claim-ledger.md
@@ -22,6 +27,7 @@ always_load:
   - ../_shared/core/source-traceability.md
   - ../_shared/core/claim-discipline.md
   - ../_shared/core/research-integrity.md
+  - ../_shared/core/cross-model-review.md
 axes:
   task:
     claim: Map a claim to inspected citations and weak links.
@@ -29,7 +35,10 @@ axes:
     novelty: Separate closest prior work from method or application novelty.
     dataset: Verify dataset facts before benchmark or reproduction use.
     ledger: Build claim-level evidence rows with source span, evidence tier, support status, weakest link, and safer wording.
+    cross_model_review: Independent review for citation-critical claim ledgers.
 on_demand:
+  - condition: public knowledge graph, paper index summary, or large-map entry point
+    load: references/papers-index-summary.md
   - condition: benchmark, dataset, or split facts
     load: ../_shared/core/bci-validity.md
   - condition: paper-facing claim or rebuttal

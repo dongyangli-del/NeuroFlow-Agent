@@ -69,6 +69,30 @@
           "text": "Output does not invent closest prior work or verified citations."
         }
       ]
+    },
+    {
+      "id": 4,
+      "prompt": "Build a citation-critical claim ledger for a paper submission and decide whether the final claim can be used in the abstract. Only one model has inspected the sources so far; no independent reviewer pass has been run.",
+      "expected_output": "A claim ledger that marks cross-model review as required_but_not_run, lowers confidence, and refuses to final-approve abstract wording until an independent reviewer checks source spans, citation fit, unresolved fields, and claim scope.",
+      "files": [
+        "references/claim-grounding.md",
+        "references/claim-ledger.md",
+        "../_shared/core/cross-model-review.md"
+      ],
+      "assertions": [
+        {
+          "text": "Output separates executor work from reviewer work."
+        },
+        {
+          "text": "Output includes cross_model_review_status or an equivalent final gate marked required_but_not_run."
+        },
+        {
+          "text": "Output does not approve citation-critical abstract wording based only on self-review."
+        },
+        {
+          "text": "Output lists what the independent reviewer must check."
+        }
+      ]
     }
   ]
 }
