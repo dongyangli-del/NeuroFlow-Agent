@@ -21,13 +21,13 @@ The NeuroFlow skill system has one default entry point, `neuro-orchestrator`. It
 skills/
   neuro-orchestrator/             # single entry point, task routing, and session control
   neuro-idea-finder/              # EEG/iEEG/fMRI/MEG/LFP/spike/BCI idea generation
-  paper-rag-plus/                 # literature grounding and claim-to-citation mapping
+  paper-rag-plus/                 # literature grounding, claim ledgers, and claim-to-citation mapping
   eeg-benchmark-hunter/           # open benchmark discovery, license, split, and leakage audits
-  repro-pack/                     # reproducibility contract and failure recovery
+  repro-pack/                     # reproducibility contract, observability, and failure recovery
   continual-learning-designer/    # continual BCI adaptation and personalization design
   experiment-copilot/             # experiment matrix, ablations, controls, statistics
-  reviewer-simulator/             # strict conference review and rebuttal planning
-  oral-writer/                    # oral-level thesis, figure narrative, and paper writing
+  reviewer-simulator/             # strict conference review, integrity forensics, and rebuttal planning
+  oral-writer/                    # oral-level thesis, figure narrative, numeric consistency, and paper writing
   neuro-memory/                   # session compression and long-term memory routing
   ai-bci-research/                # shared AI x BCI domain guardrails and public workflow memory
 ```
@@ -39,6 +39,7 @@ Task enters Neuro-Orchestrator
 -> choose one pipeline chain
 -> invoke optional modules only when their check order is needed
 -> apply evidence gates
+-> apply integrity checks for paper-facing claims, citations, tables, and reproduction statements
 -> produce the requested artifact
 -> decide whether Neuro-Memory should persist the lesson
 -> use ai-bci-research as shared domain constraints throughout

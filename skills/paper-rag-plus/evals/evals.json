@@ -46,6 +46,29 @@
           "text": "Output includes safer wording and verification needed before citation-critical use."
         }
       ]
+    },
+    {
+      "id": 3,
+      "prompt": "Build a claim ledger for this paper claim: Our method is the first EEG-to-image diffusion model to improve cross-subject reconstruction on Dataset X. The supplied evidence is one within-subject table, one qualitative figure, and a candidate citation that uses fMRI instead of EEG.",
+      "expected_output": "A claim ledger that separates novelty, method, dataset, metric, and result claims; marks unsupported cross-subject and first claims; records evidence tier, weakest link, citation fit, reviewer risk, and safer wording.",
+      "files": [
+        "references/claim-grounding.md",
+        "references/claim-ledger.md"
+      ],
+      "assertions": [
+        {
+          "text": "Output includes claim ledger rows with claim type, evidence span, evidence tier, support status, weakest link, and safer wording."
+        },
+        {
+          "text": "Output marks the cross-subject claim unresolved or unsupported because only within-subject evidence is supplied."
+        },
+        {
+          "text": "Output flags the fMRI citation as a modality mismatch for an EEG claim."
+        },
+        {
+          "text": "Output does not invent closest prior work or verified citations."
+        }
+      ]
     }
   ]
 }

@@ -21,6 +21,20 @@ class TraceStep:
 
 
 @dataclass
+class HookEvent:
+    event: str
+    status: str
+    created_at: str
+    hook_id: str = ""
+    profile: str = "standard"
+    warnings: list[str] = field(default_factory=list)
+    selected_chain: str = ""
+    artifact: str = ""
+    blocked_reason: str = ""
+    metadata: dict[str, str] = field(default_factory=dict)
+
+
+@dataclass
 class WorkflowTrace:
     run_id: str
     chain: str
@@ -30,6 +44,7 @@ class WorkflowTrace:
     created_at: str
     stop_condition: str
     steps: list[TraceStep] = field(default_factory=list)
+    hook_events: list[HookEvent] = field(default_factory=list)
     metadata: dict[str, str] = field(default_factory=dict)
 
     @classmethod
@@ -47,6 +62,38 @@ class WorkflowTrace:
 
     def to_dict(self) -> dict[str, object]:
         return asdict(self)
+
+    @classmethod
+    def from_dict(cls, payload: dict[str, object]) -> "WorkflowTrace":
+        steps = [
+            TraceStep(**step)
+            for step in payload.get("steps", [])
+            if isinstance(step, dict)
+        ]
+        hook_events = [
+            HookEvent(**event)
+            for event in payload.get("hook_events", [])
+            if isinstance(event, dict)
+        ]
+        return cls(
+            run_id=str(payload["run_id"]),
+            chain=str(payload["chain"]),
+            task=str(payload["task"]),
+            artifact=str(payload["artifact"]),
+            status=str(payload["status"]),
+            created_at=str(payload["created_at"]),
+            stop_condition=str(payload["stop_condition"]),
+            steps=steps,
+            hook_events=hook_events,
+            metadata=dict(payload.get("metadata", {})),
+        )
+
+    @classmethod
+    def read_json(cls, path: Path) -> "WorkflowTrace":
+        return cls.from_dict(json.loads(path.read_text(encoding="utf-8")))
+
+    def append_hook_event(self, event: HookEvent) -> None:
+        self.hook_events.append(event)
 
     def write_json(self, path: Path) -> None:
         path.parent.mkdir(parents=True, exist_ok=True)

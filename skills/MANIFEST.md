@@ -10,13 +10,13 @@ Specialist skills are optional modules selected by the orchestrator. `ai-bci-res
 |---|---|---|---|
 | `neuro-orchestrator` | Stable | Single NeuroFlow workflow entry point | "what should I check next", "why is this result worse", "help me plan this experiment", "下一步查什么" |
 | `neuro-idea-finder` | Stable | Research idea generator | "new EEG idea", "hypothesis", "fast validation", "研究 idea" |
-| `paper-rag-plus` | Stable | Literature grounding | "support this claim", "closest prior work", "citation map", "相关工作" |
+| `paper-rag-plus` | Stable | Literature grounding and claim ledger | "support this claim", "closest prior work", "claim ledger", "相关工作" |
 | `eeg-benchmark-hunter` | Stable | Benchmark discovery and audit | "find EEG dataset", "is this benchmark fair", "leakage risk", "找 EEG 数据集" |
-| `repro-pack` | Stable | Reproduction contract builder | "make this reproducible", "smoke test", "baseline table", "复现" |
+| `repro-pack` | Stable | Reproduction contract and observability builder | "make this reproducible", "smoke test", "observability level", "复现" |
 | `continual-learning-designer` | Beta | Continual BCI adaptation design | "online adaptation", "cross-session", "forgetting", "持续学习" |
 | `experiment-copilot` | Stable | Experiment design | "design ablations", "baseline is stronger", "metric gap", "实验矩阵" |
-| `reviewer-simulator` | Stable | Review risk audit | "review this claim", "what will reviewers attack", "rebuttal plan", "审稿风险" |
-| `oral-writer` | Beta | Oral-level paper writing | "write abstract", "paper claim", "figure story", "写摘要" |
+| `reviewer-simulator` | Stable | Review risk and integrity audit | "review this claim", "what will reviewers attack", "integrity risk", "审稿风险" |
+| `oral-writer` | Beta | Oral-level paper writing and numeric consistency | "write abstract", "paper claim", "check these numbers", "写摘要" |
 | `neuro-memory` | Stable | Long-term memory consolidation | "make this reusable", "save this lesson", "memory candidate", "沉淀经验" |
 | `ai-bci-research` | Stable | Shared AI x BCI guardrails | "BCI validity", "signal leakage", "closed loop", "脑机接口检查" |
 
@@ -32,6 +32,7 @@ Shared workflow primitives live under `skills/_shared/core/`. They are resource 
 | `claim-discipline.md` | Claim ladder, safer wording, and paper-facing checks. |
 | `bci-validity.md` | Split, signal alignment, baseline fairness, and interpretation boundaries. |
 | `reviewer-risk.md` | Blocking reviewer risks and rebuttal discipline. |
+| `research-integrity.md` | Span-anchored integrity forensics, observability levels, numeric consistency, and false-positive caveats. |
 | `output-contracts.md` | Compact artifacts for next checks, benchmark cards, claim rewrites, and memory candidates. |
 
 High-use skills may include `manifest.yaml` files that declare status, verification status, natural triggers, always-loaded references, task axes, and on-demand shared resources. `status` is workflow maturity; `verification_status` is the confidence level behind the workflow or memory.

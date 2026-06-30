@@ -23,9 +23,28 @@
     <a href="docs/TROUBLESHOOTING.md"><img alt="Troubleshooting" src="https://img.shields.io/badge/docs-troubleshooting-92400e"></a>
     <a href="docs/VALIDATION.md"><img alt="Validation" src="https://img.shields.io/badge/validation-make%20validate-16a34a"></a>
   </p>
+
+  <p>
+    <img src="docs/NeuroFlow_framework.png" alt="NeuroFlow Agent framework: an evidence-gated human-AI research harness for machine learning, BCI, and neuroscience" width="1000">
+  </p>
 </div>
 
 ---
+
+## NeuroFlow at a Glance
+
+NeuroFlow-Agent turns inefficient human-in-the-loop AutoResearch into an evidence-gated research harness for machine learning, brain-computer interfaces, and neuroscience. Instead of letting an agent jump from raw papers or experiment logs directly to polished claims, NeuroFlow makes the intermediate reasoning visible and auditable.
+
+The framework has four visible stages:
+
+| Stage | What it does |
+|---|---|
+| Brain Data | Starts from neural signals, BCI streams, behavioral traces, benchmarks, repositories, papers, or experiment logs. |
+| Evidence Harness | Routes the task through papers, claims, experiments, reproduction, and review gates before artifacts are polished. |
+| Human + AI Loop | Keeps the human researcher and AI agent in a verify-revise loop instead of relying on one-shot prompting. |
+| Research Artifacts | Produces claim ledgers, experiment matrices, reproduction contracts, reviewer-risk maps, and evidence-scoped writing. |
+
+This makes NeuroFlow a practical open-source workflow layer for researchers who want AI agents to help with real ML x BCI and NeuroAI projects without drifting into unsupported claims, citation noise, unreproduced results, or low-quality automated paper writing.
 
 ## Core Thesis: Workflow Is the Vertical Layer
 
@@ -74,13 +93,13 @@ The repository contains several specialist skills, but users should not rely on 
 |---|---|---|---|
 | `neuro-orchestrator` | Stable | Single default entry point; routes tasks, controls depth, chooses the pipeline, and coordinates optional modules. | "what should I check next", "why is this result worse", "help me plan this experiment", "下一步查什么" |
 | `neuro-idea-finder` | Stable | Generates testable AI x neural/cognitive/behavioral hypotheses. | "new EEG idea", "hypothesis", "fast validation", "研究 idea" |
-| `paper-rag-plus` | Stable | Grounds claims in papers, maps claims to citations, and organizes related work. | "support this claim", "closest prior work", "citation map", "相关工作" |
+| `paper-rag-plus` | Stable | Grounds claims in papers, builds claim ledgers, maps claims to citations, and organizes related work. | "support this claim", "closest prior work", "claim ledger", "相关工作" |
 | `eeg-benchmark-hunter` | Stable | Finds and audits open neural, behavioral, and BCI benchmarks, access, licenses, splits, baselines, metrics, and leakage risks. | "find EEG dataset", "is this benchmark fair", "leakage risk", "找 EEG 数据集" |
-| `repro-pack` | Stable | Builds reproduction contracts with environment, data, weights, commands, expected outputs, and recovery paths. | "make this reproducible", "smoke test", "baseline table", "复现" |
+| `repro-pack` | Stable | Builds reproduction contracts with environment, data, weights, commands, expected outputs, recovery paths, and L0/L1/L2/L3 observability levels. | "make this reproducible", "smoke test", "observability level", "复现" |
 | `continual-learning-designer` | Beta | Designs cross-subject/session/device adaptation, streaming calibration, forgetting protocols, and online/offline boundaries. | "online adaptation", "cross-session", "forgetting", "持续学习" |
 | `experiment-copilot` | Stable | Designs experiment matrices, ablations, controls, statistics, and stop rules. | "design ablations", "baseline is stronger", "metric gap", "实验矩阵" |
-| `reviewer-simulator` | Stable | Audits papers, claims, rebuttals, root causes, fixability, and method-vs-presentation risks as strict conference reviewers. | "review this claim", "what will reviewers attack", "is this fixable", "方法问题还是表述问题" |
-| `oral-writer` | Beta | Turns evidence into thesis, figure narrative, scoped claims, reviewer-facing paper text, writing operations, captions, and LaTeX result tables. | "write abstract", "polish this paragraph", "booktabs table", "去 AI 味" |
+| `reviewer-simulator` | Stable | Audits papers, claims, rebuttals, root causes, fixability, method-vs-presentation risks, and research-integrity mismatches as strict conference reviewers. | "review this claim", "what will reviewers attack", "integrity risk", "方法问题还是表述问题" |
+| `oral-writer` | Beta | Turns evidence into thesis, figure narrative, scoped claims, reviewer-facing paper text, writing operations, captions, LaTeX result tables, and numeric consistency checks. | "write abstract", "polish this paragraph", "check these numbers", "去 AI 味" |
 | `neuro-memory` | Stable | Compresses completed sessions into durable workflow, playbook, finding, case, or eval memory. | "make this reusable", "save this lesson", "memory candidate", "沉淀经验" |
 | `ai-bci-research` | Stable | Supplies shared AI x BCI assumptions, failure-mode checks, and public workflow memory; not the default router. | "BCI validity", "signal leakage", "closed loop", "脑机接口检查" |
 
@@ -88,7 +107,27 @@ The orchestrator can answer shallow tasks directly, route standard tasks through
 
 Each high-use skill may also include a `manifest.yaml` that declares status, verification status, natural triggers, default reads, task axes, and on-demand references. `status` describes workflow maturity; `verification_status` describes the evidence behind the workflow or memory, such as `unverified`, `source-traced`, `reproduced`, `user-validated`, or `expert-reviewed`.
 
-Shared workflow primitives live in `skills/_shared/core/` so specialist skills can reuse evidence gates, source traceability, claim discipline, BCI validity checks, reviewer risk checks, research planning protocol, and output contracts without duplicating long instructions.
+Shared workflow primitives live in `skills/_shared/core/` so specialist skills can reuse evidence gates, source traceability, claim discipline, BCI validity checks, reviewer risk checks, research planning protocol, output contracts, and research-integrity forensics without duplicating long instructions.
+
+Research-integrity checks are concrete evidence forensics: every concern should be anchored to a claim, source span, number, citation, table, figure, command, or repository path, with an observability level and false-positive caveat. NeuroFlow does not use writing style or AI-detector signals as verdict evidence.
+
+## Anti Low-Quality AutoResearch
+
+NeuroFlow is designed to resist low-quality AutoResearch: agentic research that produces fluent ideas, paper text, citation lists, or benchmark claims before the evidence has been inspected. The goal is not to slow agents down; it is to stop them from converting weak automation into scientific-looking artifacts.
+
+The core failure modes NeuroFlow guards against are:
+
+| Low-quality AutoResearch pattern | NeuroFlow safeguard |
+|---|---|
+| Claim-first writing: a broad claim is drafted before evidence, baselines, or closest prior work are checked. | `paper-rag-plus` builds claim ledgers with source spans, evidence tiers, support status, weakest links, and safer wording. |
+| Citation laundering: a citation is attached because it is nearby in topic, not because it supports the exact modality, task, dataset, metric, or conclusion. | Claim grounding requires citation fit and marks mismatched or uninspected citations as unresolved. |
+| Numeric drift: abstracts, tables, captions, Results paragraphs, and conclusions silently disagree on values, deltas, ranks, or significance. | `oral-writer` applies numeric self-consistency checks before strengthening result prose or table captions. |
+| Protocol inflation: offline, within-subject, same-session, or qualitative evidence is used to imply online, cross-subject, cross-session, robust, or closed-loop capability. | Evidence gates force protocol truthfulness and reviewer-facing scope boundaries before paper text is polished. |
+| Reproduction theater: a repository link or README command is treated as reproduction proof. | `repro-pack` assigns L0/L1/L2/L3 observability levels and only calls a target reproduced after a documented command produces expected output. |
+| Style-based integrity judgments: fluent or generic writing is treated as proof of misconduct or poor science. | `reviewer-simulator` uses span-anchored integrity forensics and forbids AI-detector or writing-style signals as verdict evidence. |
+| Memory pollution: unresolved summaries, failed matches, or private raw logs become durable project knowledge. | `neuro-memory` requires privacy filtering, verification status, and a target artifact before persistence. |
+
+In practice, this means NeuroFlow should turn an automated research session into explicit intermediate artifacts: claim ledger, benchmark audit, reproduction contract, reviewer-risk map, numeric audit, or memory candidate. A polished paragraph is acceptable only after the relevant evidence gate has made its scope clear.
 
 ## Task Depths and Research Modes
 
@@ -154,6 +193,20 @@ My EEG reconstruction result is worse than the baseline. What should I check nex
 Help me turn these experiment results into a paper claim.
 ```
 
+Common writing and review requests can stay natural; the orchestrator routes them to the right specialist workflow:
+
+| Natural request | NeuroFlow route | What it checks |
+|---|---|---|
+| "Analyze this result table for the Results section." | `experiment-to-paper` -> `oral-writer` experiment analysis | Metric direction, exact margins, uncertainty, missing variance, and claim scope. |
+| "What plot should I use for these EEG results?" | `experiment-to-paper` -> `oral-writer` plot recommendation | Subject/session visibility, comparison structure, variance, protocol boundary, and caption seed. |
+| "Make this figure/table caption reviewer-facing." | `experiment-to-paper` -> `oral-writer` caption/table writing | Takeaway, dataset/protocol, metric direction, evidence boundary, and limitations. |
+| "Is this paper ready to submit?" | `experiment-to-paper` or `paper-to-rebuttal` -> `reviewer-simulator` | Acceptance readiness, blockers, fixability, method vs presentation defects, and submit/delay decision. |
+| "Is this a method flaw or just bad writing?" | `reviewer-simulator` diagnosis | Root cause, defect type, best repair, reviewer consequence, and safer wording. |
+| "Check this paper for integrity risks." | `paper-to-rebuttal` -> `reviewer-simulator` integrity forensics | Span-anchored claim-evidence, citation, numeric, protocol, and reproduction-observability findings. |
+| "Build a claim ledger for this draft." | `paper-rag-plus` claim ledger | Claim type, source span, evidence tier, support status, weakest link, citation fit, and safer wording. |
+| "Are these table numbers consistent with the caption?" | `oral-writer` numeric self-consistency | Preserved values, margins, metric direction, comparable rows, missing uncertainty, and safe wording. |
+| "What has actually been reproduced in this repo?" | `paper-to-repro` -> `repro-pack` observability audit | L0/L1/L2/L3 level, observed artifacts, unobserved surfaces, blockers, and upgrade path. |
+
 If Codex gives a generic answer, see [Troubleshooting](docs/TROUBLESHOOTING.md). For concrete before/after workflows, see the [Demo Gallery](docs/DEMO_GALLERY.md). AI agents should follow [AGENTS.md](AGENTS.md) first; [AGENT_GUIDE.md](AGENT_GUIDE.md) provides the longer explanation.
 
 For traceable workflow scaffolds, use the lightweight runtime registry:
@@ -166,6 +219,18 @@ python3 scripts/neuroflow_runtime/cli.py run --chain paper-to-repro --task "repr
 Runtime runs write private traces and artifact scaffolds under `.private/runs/` by default. They record the selected chain, modules, required reads, evidence gates, and stop condition; the agent still has to fill the artifact with inspected evidence.
 
 This runtime layer makes the workflow explicit even when a chat session would otherwise drift into ad hoc reasoning. It gives every deep task a named chain, a private `trace.json`, and a fillable artifact such as `REPRO_CONTRACT.md`, `BENCHMARK_AUDIT.md`, or `PAPER_NARRATIVE.md`.
+
+The runtime also includes explicit workflow hooks inspired by event-driven agent harnesses such as ECC:
+
+```bash
+python3 scripts/neuroflow_runtime/cli.py hook --event session_start --task "My EEG reconstruction result is worse than the baseline"
+python3 scripts/neuroflow_runtime/cli.py hook --event pre_artifact --artifact ARTIFACT.md --kind claim
+python3 scripts/neuroflow_runtime/cli.py hook --event post_tool --run-id RUN_ID --tool web --summary "source-traced lookup completed"
+python3 scripts/neuroflow_runtime/cli.py hook --event session_end --run-id RUN_ID
+python3 scripts/neuroflow_runtime/cli.py hook --event pre_commit
+```
+
+Hooks are explicit CLI adapters, not hidden global shell hooks. They use `NEUROFLOW_HOOK_PROFILE=minimal|standard|strict` and `NEUROFLOW_DISABLED_HOOKS`, write only private traces by default, and avoid automatic web search, public file edits, or multi-agent spawning.
 
 ## Persistent Workflow System
 

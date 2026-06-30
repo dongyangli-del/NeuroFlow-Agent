@@ -129,6 +129,77 @@
           "text": "Output includes a scoped caption and evidence boundary or table note."
         }
       ]
+    },
+    {
+      "id": 7,
+      "prompt": "帮我推荐这组 EEG 结果应该画什么图：8 个被试、每个被试有 before/after 个体化校准的 cross-session decoding accuracy，我想证明校准减少 session drift，但方差还没算。",
+      "expected_output": "The skill should classify the request as plot-recommendation, choose a subject-level paired plot or small multiples rather than a single averaged bar, and require uncertainty or subject/session visibility before claiming robustness.",
+      "files": [
+        "references/writing-operations.md",
+        "references/figure-narrative.md",
+        "references/plot-type-selector.md"
+      ],
+      "assertions": [
+        {
+          "text": "Output recommends a paired subject-level plot, small multiples, or equivalent subject/session-visible visualization."
+        },
+        {
+          "text": "Output states the metric direction and cross-session protocol boundary."
+        },
+        {
+          "text": "Output does not recommend hiding all subjects in a single averaged bar as the main evidence."
+        },
+        {
+          "text": "Output notes that variance or repeated-condition uncertainty is needed before robustness claims."
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "根据结果写 Results 分析：Ours 86.1, baseline 84.9 on within-subject EEG decoding; cross-subject is not run; latency is not measured; no seed variance.",
+      "expected_output": "The skill should classify the request as experiment-analysis, state only the supported within-subject margin, avoid cross-subject, robustness, significance, or latency claims, and list missing seed variance, cross-subject evaluation, and latency measurement.",
+      "files": [
+        "references/writing-operations.md",
+        "references/experiment-analysis.md"
+      ],
+      "assertions": [
+        {
+          "text": "Output preserves Ours 86.1, baseline 84.9, and within-subject EEG decoding."
+        },
+        {
+          "text": "Output states the visible margin without claiming significance."
+        },
+        {
+          "text": "Output explicitly rejects or scopes cross-subject and latency claims."
+        },
+        {
+          "text": "Output lists missing seed variance or uncertainty as a boundary."
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "Check numeric self-consistency and rewrite the Results sentence. Table: EEGNet 72.3, DeepConvNet 74.1, Ours 75.0 on BCI-IV-2a within-subject accuracy. Caption draft says Ours improves by 5.0 points and significantly outperforms all baselines. No variance or test is reported.",
+      "expected_output": "A numeric audit plus a safe Results sentence that preserves the numbers, computes the visible margins correctly, rejects unsupported significance, and keeps the within-subject protocol boundary.",
+      "files": [
+        "references/writing-operations.md",
+        "references/table-writing.md",
+        "references/numeric-self-consistency.md"
+      ],
+      "assertions": [
+        {
+          "text": "Output preserves 72.3, 74.1, and 75.0 and computes that Ours is 0.9 points above DeepConvNet and 2.7 points above EEGNet."
+        },
+        {
+          "text": "Output flags the caption's 5.0-point improvement as inconsistent with the supplied table."
+        },
+        {
+          "text": "Output avoids claiming statistical significance because no variance or test is reported."
+        },
+        {
+          "text": "Output keeps the claim within BCI-IV-2a within-subject accuracy."
+        }
+      ]
     }
   ]
 }

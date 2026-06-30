@@ -14,7 +14,8 @@ REPO_ROOT = SCRIPTS_ROOT.parent
 if str(SCRIPTS_ROOT) not in sys.path:
     sys.path.insert(0, str(SCRIPTS_ROOT))
 
-from neuroflow_runtime import WorkflowRunner, build_registry  # noqa: E402
+from neuroflow_runtime import WorkflowHookRuntime, WorkflowRunner, build_registry  # noqa: E402
+from neuroflow_runtime.hooks import result_to_json  # noqa: E402
 
 
 def print_registry(kind: str) -> None:
@@ -50,6 +51,24 @@ def run_chain(args: argparse.Namespace) -> None:
     print(json.dumps(payload, ensure_ascii=False, indent=2))
 
 
+def run_hook(args: argparse.Namespace) -> None:
+    registry = build_registry(REPO_ROOT)
+    runtime = WorkflowHookRuntime(registry=registry, root=REPO_ROOT)
+    artifact = Path(args.artifact).expanduser().resolve() if args.artifact else None
+    result = runtime.run(
+        event=args.event,
+        task=args.task,
+        artifact=artifact,
+        kind=args.kind,
+        run_id=args.run_id,
+        tool=args.tool,
+        summary=args.summary,
+    )
+    print(result_to_json(result))
+    if result.status == "blocked":
+        raise SystemExit(2)
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="NeuroFlow runtime registry")
     subparsers = parser.add_subparsers(dest="command", required=True)
@@ -62,6 +81,19 @@ def build_parser() -> argparse.ArgumentParser:
     run_parser.add_argument("--task", required=True, help="User task or run objective")
     run_parser.add_argument("--output-root", default="", help="Override output root; defaults to .private/runs")
     run_parser.add_argument("--dry-run", action="store_true", help="Mark trace as dry-run")
+
+    hook_parser = subparsers.add_parser("hook", help="Run a lightweight NeuroFlow workflow hook")
+    hook_parser.add_argument(
+        "--event",
+        required=True,
+        choices=("session_start", "pre_artifact", "post_tool", "pre_commit", "session_end"),
+    )
+    hook_parser.add_argument("--task", default="", help="Natural-language task for session_start")
+    hook_parser.add_argument("--artifact", default="", help="Artifact path for pre_artifact")
+    hook_parser.add_argument("--kind", default="", help="Artifact kind: claim, memory, reference, or readme")
+    hook_parser.add_argument("--run-id", default="", help="Existing runtime run id")
+    hook_parser.add_argument("--tool", default="", help="Tool name for post_tool")
+    hook_parser.add_argument("--summary", default="", help="Short tool result summary for post_tool")
     return parser
 
 
@@ -72,6 +104,8 @@ def main() -> None:
         print_registry(args.kind)
     elif args.command == "run":
         run_chain(args)
+    elif args.command == "hook":
+        run_hook(args)
     else:
         parser.error(f"Unknown command: {args.command}")
 

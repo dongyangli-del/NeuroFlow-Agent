@@ -63,6 +63,7 @@ Recommended durable artifact names:
 - Experiment claims require matched protocols, metric definitions, baselines, ablations, and stop rules.
 - Reproduction claims require environment, data, weights, commands, expected outputs, and sanity checks.
 - Closed-loop claims require online/offline boundary, safety, calibration, latency, and human-subject constraints.
+- Research-integrity checks require claim-evidence consistency, citation fit, numeric self-consistency, protocol truthfulness, and an explicit observability level.
 - Memory updates require privacy filtering and a target file or eval.
 
 ## Supervision Gates

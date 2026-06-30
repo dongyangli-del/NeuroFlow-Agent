@@ -10,6 +10,7 @@ Use this skill when the user wants to reproduce a paper, repository, benchmark b
 ## First Reads
 
 - `references/repro-contract.md`: Always read for the reproduction contract.
+- `references/observability-levels.md`: Always read for L0/L1/L2/L3 reproduction observability and upgrade paths.
 - `references/failure-recovery.md`: Read when setup, data, weights, or commands fail.
 - Use `paper-rag-plus` for paper facts and claimed metrics.
 - Use `eeg-benchmark-hunter` for dataset access and split verification.
@@ -23,6 +24,7 @@ Use this skill when the user wants to reproduce a paper, repository, benchmark b
 - Do not assume unseen scripts, checkpoints, or dataset availability.
 - Separate smoke reproduction from full-paper reproduction.
 - Separate source-traced setup instructions from outputs actually reproduced locally.
+- Assign an observability level before saying what is verified: L0 text-only, L1 source-traced, L2 artifact-checked, or L3 reproduced.
 - List missing assets, ambiguous parameters, and deviations from the paper or repository convention.
 
 ## Workflow
@@ -39,6 +41,7 @@ Use this skill when the user wants to reproduce a paper, repository, benchmark b
 Target artifact:
 Repository status:
 Verification status:
+Observability level:
 Environment:
 Data:
 Weights:

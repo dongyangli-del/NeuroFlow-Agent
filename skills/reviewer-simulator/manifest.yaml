@@ -8,20 +8,32 @@ natural_triggers:
   - "what will reviewers attack"
   - "rebuttal plan"
   - "acceptance risk"
+  - "is this ready to submit"
+  - "acceptance readiness"
   - "is this fixable"
   - "method flaw or writing problem"
   - "root cause"
+  - "integrity risk"
+  - "citation mismatch"
+  - "numeric inconsistency"
   - "审稿风险"
   - "帮我模拟 reviewer"
   - "这个问题能救吗"
+  - "能投稿吗"
+  - "投稿前检查"
   - "方法问题还是表述问题"
   - "根因是什么"
+  - "科研完整性"
+  - "引用不匹配"
+  - "数字不一致"
 always_load:
   - references/review-rubric.md
   - references/review-diagnosis.md
+  - references/integrity-forensics.md
   - ../_shared/core/reviewer-risk.md
   - ../_shared/core/claim-discipline.md
   - ../_shared/core/source-traceability.md
+  - ../_shared/core/research-integrity.md
 axes:
   venue:
     ai: NeurIPS, ICML, ICLR, CVPR, ACL, or AI4Science style evidence pressure.
@@ -31,11 +43,15 @@ axes:
     claim: Narrow claim-to-evidence audit.
     rebuttal: Response plan and missing evidence triage.
     diagnosis: Root-cause, fixability, and method-versus-presentation classification.
+    acceptance_readiness: Whole-paper submit/delay/scope-down decision.
+    integrity: Span-anchored integrity forensics for claims, citations, numbers, protocols, and reproduction observability.
   fixability:
     quick_revision: Wording, caption, limitation, table clarification, or citation verification.
     feasible_extra_experiment: Small controlled run, ablation, seed sweep, or analysis using existing data.
     major_new_evidence: New dataset, baseline family, human study, online experiment, or full rerun.
     structural_method_risk: Current method or protocol cannot support the main claim.
 on_demand:
+  - condition: whole-paper or pre-submission readiness
+    load: references/acceptance-readiness.md
   - condition: neural data or BCI protocol risk
     load: ../_shared/core/bci-validity.md

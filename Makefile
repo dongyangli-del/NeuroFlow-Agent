@@ -1,6 +1,6 @@
 PYTHON ?= python3
 
-.PHONY: validate index runtime-list runtime-smoke
+.PHONY: validate index runtime-list runtime-smoke hook-smoke
 
 validate:
 	$(PYTHON) scripts/validate_skill.py
@@ -13,3 +13,6 @@ runtime-list:
 
 runtime-smoke:
 	$(PYTHON) scripts/neuroflow_runtime/cli.py run --chain paper-to-repro --task "runtime smoke test" --dry-run
+
+hook-smoke:
+	$(PYTHON) scripts/neuroflow_runtime/cli.py hook --event session_start --task "My EEG reconstruction result is worse than the baseline. What should I check next?"

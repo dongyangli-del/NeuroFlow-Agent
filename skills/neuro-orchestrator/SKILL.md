@@ -32,6 +32,7 @@ Use this skill as the single default entry point for NeuroFlow-Agent. It routes 
 - For code reproduction or implementation, also use existing general engineering skills such as `modern-python`, `python-testing`, or repo-aware tools when relevant.
 - Use the smallest specialist set that adds distinct evidence or validation.
 - Apply research supervision gates before polishing ideas, paper text, figures, benchmarks, or claims.
+- For paper-facing claims, reviews, result tables, citations, or reproduction statements, apply the research-integrity gate: claim-evidence consistency, citation fit, numeric self-consistency, protocol truthfulness, and observability level.
 
 ## Task Depths
 
