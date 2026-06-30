@@ -20,6 +20,30 @@
           "text": "Output explicitly marks missing data or checkpoints as blockers instead of inventing them."
         }
       ]
+    },
+    {
+      "id": 2,
+      "prompt": "Audit the reproduction observability for a repository. The README lists a training command, but the dataset link is private, checkpoints are missing, and no expected output is documented. No command has been run locally.",
+      "expected_output": "A reproduction contract that assigns L1 or L2 depending on inspected files, refuses to call the result reproduced, lists missing data, weights, expected output, and gives an upgrade path to L3.",
+      "files": [
+        "references/repro-contract.md",
+        "references/observability-levels.md",
+        "references/failure-recovery.md"
+      ],
+      "assertions": [
+        {
+          "text": "Output includes observability level, observed artifacts, unobserved surfaces, claim allowed at this level, and upgrade path."
+        },
+        {
+          "text": "Output does not call the repository reproduced because no command has been run locally."
+        },
+        {
+          "text": "Output labels private data, missing checkpoints, and missing expected output as blockers or failure labels."
+        },
+        {
+          "text": "Output separates smoke reproduction from full-paper reproduction."
+        }
+      ]
     }
   ]
 }

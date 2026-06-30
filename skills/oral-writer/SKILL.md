@@ -15,6 +15,7 @@ Use this skill when the user wants oral-level paper framing, abstract/introducti
 - `references/plot-type-selector.md`: Read when recommending plots or figure types for results.
 - `references/table-writing.md`: Read for LaTeX tables, result-table captions, metric directions, best-value marking, and uncertainty reporting.
 - `references/experiment-analysis.md`: Read when turning results into a paper paragraph or result-section analysis.
+- `references/numeric-self-consistency.md`: Read when writing abstracts, Results text, captions, tables, rebuttals, or claims that contain numbers.
 - Use `paper-rag-plus` before novelty or related-work claims.
 - Use `experiment-copilot` to verify that the evidence supports the written claims.
 - Use `reviewer-simulator` to preempt objections before final text.
@@ -34,6 +35,7 @@ Use this skill when the user wants oral-level paper framing, abstract/introducti
 - For experiment analysis, only state trends and conclusions present in the supplied data.
 - For plot recommendations, choose the simplest plot that exposes the comparison, uncertainty, and protocol boundary needed by the intended claim.
 - For result tables, preserve all supplied numbers, define metric direction, mark best values only under comparable protocols, and never imply statistical significance without uncertainty or tests.
+- For any numbered claim, preserve values exactly, check ranks and deltas, and keep metric direction, protocol boundary, uncertainty, and significance wording consistent.
 
 ## Workflow
 
@@ -54,6 +56,7 @@ Writing operation:
 Target surface:
 Contribution stack:
 Evidence-to-claim map:
+Numeric self-consistency:
 Figure narrative:
 Rewritten text or requested writing artifact:
 Operation checks:

@@ -18,6 +18,8 @@ natural_triggers:
   - "booktabs table"
   - "result table"
   - "analyze these results"
+  - "numeric consistency"
+  - "check these numbers"
   - "logic check"
   - "写摘要"
   - "论文 claim"
@@ -33,11 +35,15 @@ natural_triggers:
   - "结果表"
   - "booktabs"
   - "实验分析"
+  - "数字一致性"
+  - "检查数字"
 always_load:
   - references/oral-paper-structure.md
   - references/writing-operations.md
+  - references/numeric-self-consistency.md
   - ../_shared/core/claim-discipline.md
   - ../_shared/core/source-traceability.md
+  - ../_shared/core/research-integrity.md
   - ../_shared/core/output-contracts.md
 axes:
   artifact:
@@ -65,6 +71,7 @@ axes:
     latex_table: Turn supplied results into a LaTeX paper table with booktabs-style structure and scoped caption.
     figure_or_table_title: Generate direct, evidence-scoped figure or table titles.
     experiment_analysis: Convert supplied results into a scoped paper paragraph.
+    numeric_audit: Check values, ranks, deltas, metric direction, uncertainty, significance wording, and protocol boundary.
     reviewer_view_audit: Audit the paper from a strict reviewer perspective.
     model_choice_rationale: Justify model choice from task, data, modality, and baseline constraints.
   surface:
@@ -81,5 +88,7 @@ on_demand:
     load: references/table-writing.md
   - condition: experiment-result analysis
     load: references/experiment-analysis.md
+  - condition: numbered claims, result paragraphs, captions, tables, abstracts, or rebuttals
+    load: references/numeric-self-consistency.md
   - condition: reviewer-facing risk
     load: ../_shared/core/reviewer-risk.md

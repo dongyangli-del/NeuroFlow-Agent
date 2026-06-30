@@ -23,6 +23,7 @@ Use this skill as the single default entry point for NeuroFlow-Agent in Codex. D
 - Name the expected artifact before doing detailed work.
 - Use the smallest pipeline chain that can satisfy the user request.
 - Apply research supervision gates before polishing ideas, paper text, figures, benchmarks, or claims.
+- For paper-facing claims, reviews, result tables, citations, or reproduction statements, apply the research-integrity gate: claim-evidence consistency, citation fit, numeric self-consistency, protocol truthfulness, and observability level.
 
 ## Optional Specialist Modules
 

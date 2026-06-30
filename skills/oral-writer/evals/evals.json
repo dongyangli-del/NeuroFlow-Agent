@@ -176,6 +176,30 @@
           "text": "Output lists missing seed variance or uncertainty as a boundary."
         }
       ]
+    },
+    {
+      "id": 9,
+      "prompt": "Check numeric self-consistency and rewrite the Results sentence. Table: EEGNet 72.3, DeepConvNet 74.1, Ours 75.0 on BCI-IV-2a within-subject accuracy. Caption draft says Ours improves by 5.0 points and significantly outperforms all baselines. No variance or test is reported.",
+      "expected_output": "A numeric audit plus a safe Results sentence that preserves the numbers, computes the visible margins correctly, rejects unsupported significance, and keeps the within-subject protocol boundary.",
+      "files": [
+        "references/writing-operations.md",
+        "references/table-writing.md",
+        "references/numeric-self-consistency.md"
+      ],
+      "assertions": [
+        {
+          "text": "Output preserves 72.3, 74.1, and 75.0 and computes that Ours is 0.9 points above DeepConvNet and 2.7 points above EEGNet."
+        },
+        {
+          "text": "Output flags the caption's 5.0-point improvement as inconsistent with the supplied table."
+        },
+        {
+          "text": "Output avoids claiming statistical significance because no variance or test is reported."
+        },
+        {
+          "text": "Output keeps the claim within BCI-IV-2a within-subject accuracy."
+        }
+      ]
     }
   ]
 }

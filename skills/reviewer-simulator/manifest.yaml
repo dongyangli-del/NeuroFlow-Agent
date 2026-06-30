@@ -13,6 +13,9 @@ natural_triggers:
   - "is this fixable"
   - "method flaw or writing problem"
   - "root cause"
+  - "integrity risk"
+  - "citation mismatch"
+  - "numeric inconsistency"
   - "审稿风险"
   - "帮我模拟 reviewer"
   - "这个问题能救吗"
@@ -20,12 +23,17 @@ natural_triggers:
   - "投稿前检查"
   - "方法问题还是表述问题"
   - "根因是什么"
+  - "科研完整性"
+  - "引用不匹配"
+  - "数字不一致"
 always_load:
   - references/review-rubric.md
   - references/review-diagnosis.md
+  - references/integrity-forensics.md
   - ../_shared/core/reviewer-risk.md
   - ../_shared/core/claim-discipline.md
   - ../_shared/core/source-traceability.md
+  - ../_shared/core/research-integrity.md
 axes:
   venue:
     ai: NeurIPS, ICML, ICLR, CVPR, ACL, or AI4Science style evidence pressure.
@@ -36,6 +44,7 @@ axes:
     rebuttal: Response plan and missing evidence triage.
     diagnosis: Root-cause, fixability, and method-versus-presentation classification.
     acceptance_readiness: Whole-paper submit/delay/scope-down decision.
+    integrity: Span-anchored integrity forensics for claims, citations, numbers, protocols, and reproduction observability.
   fixability:
     quick_revision: Wording, caption, limitation, table clarification, or citation verification.
     feasible_extra_experiment: Small controlled run, ablation, seed sweep, or analysis using existing data.

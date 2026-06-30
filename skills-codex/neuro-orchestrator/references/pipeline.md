@@ -50,6 +50,7 @@ Memory candidate:
 - Experiment: matched protocol, metrics, baselines, ablations, stop rules.
 - Reproduction: environment, data, weights, command, expected output, sanity check.
 - Closed loop: online/offline boundary, safety, calibration, latency, human-subject constraints.
+- Research integrity: claim-evidence consistency, citation fit, numeric self-consistency, protocol truthfulness, observability level.
 - Memory: privacy filter and explicit target.
 
 ## Supervision Gates

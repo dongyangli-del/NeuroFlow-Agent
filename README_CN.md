@@ -23,7 +23,26 @@
     <a href="docs/TROUBLESHOOTING.md"><img alt="Troubleshooting" src="https://img.shields.io/badge/docs-troubleshooting-92400e"></a>
     <a href="docs/VALIDATION.md"><img alt="Validation" src="https://img.shields.io/badge/validation-make%20validate-16a34a"></a>
   </p>
+
+  <p>
+    <img src="docs/NeuroFlow_framework.png" alt="NeuroFlow Agent 框架图：面向机器学习、脑机接口和神经科学的 evidence-gated human-AI research harness" width="1000">
+  </p>
 </div>
+
+## 一图看懂 NeuroFlow
+
+NeuroFlow-Agent 把低效的 human-in-the-loop AutoResearch 变成一个 evidence-gated research harness，服务于机器学习、脑机接口和神经科学交叉研究。它不是让 agent 从论文、实验日志或 repo 直接跳到漂亮 claim，而是把中间推理、证据检查和人工校验变成可见、可审计、可复用的 workflow。
+
+这张主图对应四个阶段：
+
+| 阶段 | 作用 |
+|---|---|
+| Brain Data | 从神经信号、BCI stream、行为数据、benchmark、repo、论文或实验日志开始。 |
+| Evidence Harness | 在生成 polished artifact 前，强制经过 papers、claims、experiments、repro 和 review 等证据门。 |
+| Human + AI Loop | 让研究者和 AI agent 进入 verify-revise 闭环，而不是依赖一次性 prompt。 |
+| Research Artifacts | 输出 claim ledger、experiment matrix、reproduction contract、reviewer-risk map 和证据边界清楚的论文文本。 |
+
+因此，NeuroFlow 更适合作为开源科研工作流层：帮助 AI agents 真正参与 ML x BCI 和 NeuroAI 项目，同时避免 unsupported claims、citation noise、未复现结果和低质量自动论文写作。
 
 这是一个面向 AI x BCI 研究的自进化工作流系统，用于让 agent 在多模态神经解码、EEG 视觉重建、扩散/生成模型、脑语言对齐、闭环脑调控、Physical AI 和 NeuroAI 项目中更像严谨的科研合作者。默认入口是 `neuro-orchestrator`；其他 specialist skills 是由它选择的可选模块。
 
@@ -96,19 +115,39 @@ Codex 用户不应该依赖系统自动调动多个 skills。默认入口始终�
 |---|---|---|---|
 | `neuro-orchestrator` | Stable | 唯一默认入口；判断任务类型和深度，选择 pipeline，并协调可选模块。 | “下一步查什么”, “实验为什么更差”, “帮我规划实验”, “review 这个 claim” |
 | `neuro-idea-finder` | Stable | 生成可验证的 EEG/iEEG/fMRI/MEG/LFP/spike/BCI 创新点。 | “研究 idea”, “hypothesis”, “fast validation” |
-| `paper-rag-plus` | Stable | 做文献 grounding、claim-to-citation mapping 和 related work 组织。 | “相关工作”, “closest prior work”, “citation map” |
+| `paper-rag-plus` | Stable | 做文献 grounding、claim ledger、claim-to-citation mapping 和 related work 组织。 | “相关工作”, “closest prior work”, “claim ledger” |
 | `eeg-benchmark-hunter` | Stable | 发现并审计开源 benchmark、license、split、baseline、metric 和 leakage 风险。 | “找 EEG 数据集”, “benchmark 靠谱吗”, “有没有 leakage” |
-| `repro-pack` | Stable | 生成复现契约：环境、数据、权重、命令、expected output、sanity check 和 failure recovery。 | “复现”, “smoke test”, “baseline table” |
+| `repro-pack` | Stable | 生成复现契约：环境、数据、权重、命令、expected output、sanity check、failure recovery 和 L0/L1/L2/L3 observability。 | “复现”, “smoke test”, “observability level” |
 | `continual-learning-designer` | Beta | 设计跨 subject/session/device adaptation、streaming calibration 和 forgetting protocol。 | “持续学习”, “online adaptation”, “cross-session” |
 | `experiment-copilot` | Stable | 设计实验矩阵、ablation、control、统计检验和 stop rule。 | “设计消融”, “baseline 比不过”, “metric gap” |
-| `reviewer-simulator` | Stable | 按严格会议审稿标准检查 claim、证据、rebuttal 风险、根因、可救性，以及方法缺陷 vs 表述缺陷。 | “审稿风险”, “模拟 reviewer”, “这个问题能救吗”, “方法问题还是表述问题” |
-| `oral-writer` | Beta | 把证据压缩成 Oral 级 thesis、figure narrative、reviewer-facing 论文文本、写作操作、caption 和 LaTeX 结果表。 | “写摘要”, “润色这段”, “booktabs”, “去 AI 味” |
+| `reviewer-simulator` | Stable | 按严格会议审稿标准检查 claim、证据、rebuttal 风险、根因、可救性、方法缺陷 vs 表述缺陷，以及科研完整性错配。 | “审稿风险”, “模拟 reviewer”, “integrity risk”, “方法问题还是表述问题” |
+| `oral-writer` | Beta | 把证据压缩成 Oral 级 thesis、figure narrative、reviewer-facing 论文文本、写作操作、caption、LaTeX 结果表和数字一致性检查。 | “写摘要”, “润色这段”, “检查数字”, “去 AI 味” |
 | `neuro-memory` | Stable | 把完成的 session 压缩成可复用的 workflow、playbook、finding、case 或 eval。 | “沉淀经验”, “make this reusable”, “memory candidate” |
 | `ai-bci-research` | Stable | 提供 AI x BCI 的共享领域假设、有效性检查和长期研究记忆；不是默认路由器。 | “BCI validity”, “signal leakage”, “closed loop” |
 
 高频 skill 可以包含 `manifest.yaml`，用于声明功能状态、可信度状态、自然触发词、默认读取文件、任务轴和按需加载的参考片段。`status` 表示 workflow 成熟度；`verification_status` 表示事实或规则的证据状态，例如 `unverified`、`source-traced`、`reproduced`、`user-validated` 或 `expert-reviewed`。
 
-跨 skill 的公共证据门、source traceability、claim discipline、BCI 有效性检查、reviewer risk、research planning protocol 和输出契约放在 `skills/_shared/core/`，避免每个 skill 重复维护长规则。
+跨 skill 的公共证据门、source traceability、claim discipline、BCI 有效性检查、reviewer risk、research planning protocol、输出契约和 research-integrity forensics 放在 `skills/_shared/core/`，避免每个 skill 重复维护长规则。
+
+科研完整性检查被当作证据取证，而不是 AI 文本检测：每个风险都要锚定到 claim、source span、数字、引用、表格、图、命令或仓库路径，并标明 observability level 和 false-positive caveat；不能用写作风格作为判定证据。
+
+## 反低质量 AutoResearch
+
+NeuroFlow 的目标是抵抗低质量 AutoResearch：agent 在没有真正检查证据之前，就生成流畅的 idea、论文段落、引用列表或 benchmark claim。这里不是为了让 agent 变慢，而是避免把薄弱自动化包装成看起来像科研成果的 artifact。
+
+NeuroFlow 重点规避这些模式：
+
+| 低质量 AutoResearch 模式 | NeuroFlow 的防线 |
+|---|---|
+| 先写 claim：还没检查证据、baseline 或 closest prior work，就先写出很大的结论。 | `paper-rag-plus` 生成 claim ledger，记录 source span、evidence tier、support status、weakest link 和 safer wording。 |
+| 引用漂白：引用只是主题相近，并不真正支持对应 modality、task、dataset、metric 或 conclusion。 | claim grounding 要求 citation fit，不匹配或未检查的引用必须标成 unresolved。 |
+| 数字漂移：abstract、表格、caption、Results 和 conclusion 里的数值、差值、排序或显著性说法互相不一致。 | `oral-writer` 在强化结果表述或 caption 前执行 numeric self-consistency。 |
+| 协议膨胀：用 offline、within-subject、same-session 或 qualitative evidence 暗示 online、cross-subject、cross-session、robust 或 closed-loop 能力。 | evidence gates 要求 protocol truthfulness，在润色论文文本前先限定 claim 边界。 |
+| 复现表演：把 repo 链接或 README 命令当成已经复现的证据。 | `repro-pack` 使用 L0/L1/L2/L3 observability，只有记录环境、命令和 expected output 后才允许称为 reproduced。 |
+| 风格化完整性判断：因为文字流畅、模板化或“像 AI 写的”，就判断科研质量或诚信问题。 | `reviewer-simulator` 使用 span-anchored integrity forensics，禁止把 AI detector 或写作风格当作判定证据。 |
+| 记忆污染：把 unresolved summary、失败匹配或私有原始日志沉淀成长期知识。 | `neuro-memory` 要求 privacy filter、verification status 和明确 target artifact 才能持久化。 |
+
+因此，NeuroFlow 更鼓励自动化科研会话产出显式中间 artifact：claim ledger、benchmark audit、reproduction contract、reviewer-risk map、numeric audit 或 memory candidate。只有相关 evidence gate 已经明确 scope 后，流畅的论文段落才是合格输出。
 
 ## 任务深度
 
@@ -177,6 +216,10 @@ python3 ~/.codex/skills/.system/skill-installer/scripts/install-skill-from-githu
 | “把这个 figure/table caption 写得更 reviewer-facing。” | `experiment-to-paper` -> `oral-writer` caption/table writing | takeaway、数据集/协议、指标方向、证据边界和 limitation。 |
 | “这篇文章现在能投稿吗？” | `experiment-to-paper` 或 `paper-to-rebuttal` -> `reviewer-simulator` | acceptance readiness、阻断问题、可救性、方法缺陷 vs 表述缺陷、submit/delay 判断。 |
 | “这是方法问题还是表述问题？” | `reviewer-simulator` diagnosis | 根因、缺陷类型、最佳修复、审稿后果和更安全表述。 |
+| “检查这篇文章有没有科研完整性风险。” | `paper-to-rebuttal` -> `reviewer-simulator` integrity forensics | span-anchored 的 claim-evidence、引用、数字、协议和复现可观测性问题。 |
+| “给这个 draft 建一个 claim ledger。” | `paper-rag-plus` claim ledger | claim 类型、source span、evidence tier、support status、weakest link、citation fit 和 safer wording。 |
+| “表格数字和 caption 一致吗？” | `oral-writer` numeric self-consistency | 保留数值、margin、指标方向、可比行、缺失不确定性和安全表述。 |
+| “这个 repo 到底复现到了什么程度？” | `paper-to-repro` -> `repro-pack` observability audit | L0/L1/L2/L3 等级、已观察 artifact、未观察表面、blocker 和升级路径。 |
 
 如果需要生成可追踪的 workflow scaffold，可以使用轻量 runtime registry：
 

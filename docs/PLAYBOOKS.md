@@ -4,7 +4,7 @@ Detailed playbooks live inside `skills/ai-bci-research/references/`. This catalo
 
 For full skill-library routing, first read [SKILL_LIBRARY_SPEC.md](SKILL_LIBRARY_SPEC.md) and `skills/MANIFEST.md`.
 
-Shared workflow primitives live in `skills/_shared/core/`. These are not triggerable skills; they are reusable fragments for evidence gates, source traceability, research planning, claim discipline, BCI validity, reviewer risk, and output contracts.
+Shared workflow primitives live in `skills/_shared/core/`. These are not triggerable skills; they are reusable fragments for evidence gates, source traceability, research planning, claim discipline, BCI validity, reviewer risk, research-integrity forensics, and output contracts.
 
 ## Skill-Specific Playbooks
 
@@ -13,10 +13,10 @@ Shared workflow primitives live in `skills/_shared/core/`. These are not trigger
 | `neuro-orchestrator` | `references/pipeline.md`, `references/routing.md`, `references/session-plan.md`, `references/research-supervision-gates.md` |
 | `neuro-idea-finder` | `references/idea-template.md`, `references/modality-opportunity-map.md` |
 | `eeg-benchmark-hunter` | `references/benchmark-card-template.md`, `references/benchmark-risk-checklist.md` |
-| `repro-pack` | `references/repro-contract.md`, `references/failure-recovery.md` |
+| `repro-pack` | `references/repro-contract.md`, `references/observability-levels.md`, `references/failure-recovery.md` |
 | `continual-learning-designer` | `references/continual-bci-design.md`, `references/evaluation-protocol.md` |
-| `reviewer-simulator` | `references/review-rubric.md`, `references/review-diagnosis.md`, `references/rebuttal-plan.md` |
-| `oral-writer` | `references/oral-paper-structure.md`, `references/writing-operations.md`, `references/figure-narrative.md`, `references/table-writing.md` |
+| `reviewer-simulator` | `references/review-rubric.md`, `references/review-diagnosis.md`, `references/integrity-forensics.md`, `references/rebuttal-plan.md` |
+| `oral-writer` | `references/oral-paper-structure.md`, `references/writing-operations.md`, `references/figure-narrative.md`, `references/table-writing.md`, `references/numeric-self-consistency.md` |
 
 ## Manifest-Based Loading
 

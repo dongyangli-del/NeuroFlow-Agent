@@ -73,6 +73,30 @@
           "text": "Output recommends narrowing the claim or adding online evidence rather than relying on rebuttal wording."
         }
       ]
+    },
+    {
+      "id": 4,
+      "prompt": "Run an integrity forensics review. The abstract claims cross-session online EEG decoding with a 5.2% gain. The results table only reports within-session offline accuracy, the caption says 3.1%, and the cited prior work is an fMRI reconstruction paper rather than EEG decoding.",
+      "expected_output": "A span-anchored integrity audit that flags protocol mismatch, numeric inconsistency, and citation mismatch without using AI-text style as evidence.",
+      "files": [
+        "references/review-rubric.md",
+        "references/review-diagnosis.md",
+        "references/integrity-forensics.md"
+      ],
+      "assertions": [
+        {
+          "text": "Output anchors findings to the abstract, table, caption, and citation mismatch."
+        },
+        {
+          "text": "Output assigns an observability level and separates proven mismatch from unresolved information."
+        },
+        {
+          "text": "Output treats online versus offline and cross-session versus within-session mismatch as a substantive integrity risk."
+        },
+        {
+          "text": "Output does not use writing style or AI-detector language as verdict evidence."
+        }
+      ]
     }
   ]
 }
