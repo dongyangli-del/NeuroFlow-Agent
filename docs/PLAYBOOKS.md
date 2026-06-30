@@ -4,7 +4,7 @@ Detailed playbooks live inside `skills/ai-bci-research/references/`. This catalo
 
 For full skill-library routing, first read [SKILL_LIBRARY_SPEC.md](SKILL_LIBRARY_SPEC.md) and `skills/MANIFEST.md`.
 
-Shared workflow primitives live in `skills/_shared/core/`. These are not triggerable skills; they are reusable fragments for evidence gates, source traceability, research planning, claim discipline, BCI validity, reviewer risk, research-integrity forensics, cross-model review, and output contracts.
+Shared workflow primitives live in `skills/_shared/core/`. These are not triggerable skills; they are reusable fragments for evidence gates, source traceability, research planning, claim discipline, BCI validity, reviewer risk, research-integrity forensics, cross-model review, git publish safety, and output contracts.
 
 ## Skill-Specific Playbooks
 

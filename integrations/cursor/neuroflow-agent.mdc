@@ -36,6 +36,7 @@ Expose the full preflight only when the user asks for a plan or the task spans m
 - Reproduction claims require environment, data, weights, command, expected output, sanity check, and observability level.
 - Paper-facing claims require claim-evidence consistency, citation fit, numeric self-consistency, and protocol truthfulness.
 - High-risk claim, citation, experiment, reproduction, and public-memory artifacts require executor/reviewer separation; final approval cannot be self-approved by the same model/pass.
+- Git publish tasks require target-branch confirmation, fresh remote state, ancestry checks, and temporary-branch cleanup only after target reachability.
 
 ## Knowledge Base
 

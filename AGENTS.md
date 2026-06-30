@@ -13,6 +13,7 @@ For any non-trivial AI x BCI, NeuroAI, EEG decoding, neural reconstruction, benc
 5. Name the primary artifact and evidence gates before detailed work.
 6. Use specialist skills only as optional modules selected by `neuro-orchestrator`.
 7. For simple implementation, shell, or documentation tasks, keep the NeuroFlow preflight internal and concise.
+8. For commit, push, branch deletion, or remote synchronization tasks, apply the git publish safety gate: confirm the target branch, fetch remote state, verify ancestry, and do not leave temporary branches unless the user asked for them.
 
 `ai-bci-research` provides shared domain guardrails and public memory. It is not the default workflow router.
 
@@ -26,6 +27,7 @@ Task depth:
 Pipeline chain:
 Primary artifact:
 Evidence gates:
+Git publish safety:
 Optional specialist modules:
 Stop condition:
 Memory candidate:

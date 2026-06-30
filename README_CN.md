@@ -139,11 +139,13 @@ Codex 用户不应该依赖系统自动调动多个 skills。默认入口始终�
 
 高频 skill 可以包含 `manifest.yaml`，用于声明功能状态、可信度状态、自然触发词、默认读取文件、任务轴和按需加载的参考片段。`status` 表示 workflow 成熟度；`verification_status` 表示事实或规则的证据状态，例如 `unverified`、`source-traced`、`reproduced`、`user-validated` 或 `expert-reviewed`。
 
-跨 skill 的公共证据门、source traceability、claim discipline、BCI 有效性检查、reviewer risk、research planning protocol、输出契约、research-integrity forensics 和 cross-model review 放在 `skills/_shared/core/`，避免每个 skill 重复维护长规则。
+跨 skill 的公共证据门、source traceability、claim discipline、BCI 有效性检查、reviewer risk、research planning protocol、输出契约、research-integrity forensics、cross-model review 和 git publish safety 放在 `skills/_shared/core/`，避免每个 skill 重复维护长规则。
 
 科研完整性检查被当作证据取证，而不是 AI 文本检测：每个风险都要锚定到 claim、source span、数字、引用、表格、图、命令或仓库路径，并标明 observability level 和 false-positive caveat；不能用写作风格作为判定证据。
 
 对于高风险输出，NeuroFlow 把 cross-model review 当作默认 gate，而不是可选亮点：executor model 负责生成 claim ledger、experiment matrix、reproduction contract 或 review；reviewer model 独立审查；最终通过不能由同一个模型或同一段连续推理自我批准。如果暂时没有独立审查，artifact 必须标记 `required_but_not_run` 并降低 confidence。
+
+对于仓库交付，NeuroFlow 同样把 git publish 当作 gate，而不是普通 shell 步骤：提交、推送、删分支和同步任务必须确认用户指定的目标分支、拉取最新远程状态、推送前验证 ancestry，并且只有在目标分支已经包含目标提交后才清理临时分支。
 
 ## 反低质量 AutoResearch
 

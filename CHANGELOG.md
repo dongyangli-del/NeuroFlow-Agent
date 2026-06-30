@@ -18,6 +18,7 @@ This project uses date-based release notes until semantic versioned releases beg
   - targets for Codex, Claude Code, Cursor, Gemini CLI, OpenCode, and generic `AGENTS.md`.
 - Added integration templates under `integrations/`.
 - Added cross-model review as a default gate for high-risk claim, citation, experiment, reproduction, and public-memory artifacts.
+- Added git publish safety as a default gate for commit, push, branch deletion, and remote synchronization tasks.
 
 ## 2026-06-30
 

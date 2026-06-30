@@ -23,3 +23,4 @@ Arguments: `$ARGUMENTS`
 - Reproduction statements need L0/L1/L2/L3 observability.
 - Reviewer-facing output needs method-vs-writing diagnosis and integrity findings.
 - Knowledge-base hits are retrieval memory, not final citation proof.
+- Git publish tasks need target-branch confirmation, fresh remote state, ancestry checks, and temporary-branch cleanup only after target reachability.

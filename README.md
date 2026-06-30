@@ -121,11 +121,13 @@ The orchestrator can answer shallow tasks directly, route standard tasks through
 
 Each high-use skill may also include a `manifest.yaml` that declares status, verification status, natural triggers, default reads, task axes, and on-demand references. `status` describes workflow maturity; `verification_status` describes the evidence behind the workflow or memory, such as `unverified`, `source-traced`, `reproduced`, `user-validated`, or `expert-reviewed`.
 
-Shared workflow primitives live in `skills/_shared/core/` so specialist skills can reuse evidence gates, source traceability, claim discipline, BCI validity checks, reviewer risk checks, research planning protocol, output contracts, research-integrity forensics, and cross-model review without duplicating long instructions.
+Shared workflow primitives live in `skills/_shared/core/` so specialist skills can reuse evidence gates, source traceability, claim discipline, BCI validity checks, reviewer risk checks, research planning protocol, output contracts, research-integrity forensics, cross-model review, and git publish safety without duplicating long instructions.
 
 Research-integrity checks are concrete evidence forensics: every concern should be anchored to a claim, source span, number, citation, table, figure, command, or repository path, with an observability level and false-positive caveat. NeuroFlow does not use writing style or AI-detector signals as verdict evidence.
 
 For high-risk outputs, NeuroFlow treats cross-model review as a default gate rather than a premium add-on: the executor model produces the claim ledger, experiment matrix, reproduction contract, or review; a reviewer model independently checks it; and the final gate cannot be self-approved by the same model or same uninterrupted reasoning pass. If independent review is unavailable, the artifact must say `required_but_not_run` and lower its confidence.
+
+For repository delivery, NeuroFlow also treats git publishing as a gate rather than a routine shell step. Commit, push, branch deletion, and sync tasks must confirm the user-named target branch, fetch current remote state, verify ancestry before pushing, and remove temporary branches only after the target branch contains the intended commits.
 
 ## Anti Low-Quality AutoResearch
 

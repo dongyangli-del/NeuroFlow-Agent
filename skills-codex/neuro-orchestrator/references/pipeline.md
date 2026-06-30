@@ -52,6 +52,7 @@ Memory candidate:
 - Closed loop: online/offline boundary, safety, calibration, latency, human-subject constraints.
 - Research integrity: claim-evidence consistency, citation fit, numeric self-consistency, protocol truthfulness, observability level.
 - Cross-model review: high-risk claim, citation, experiment, benchmark, reproduction, and public-memory artifacts require an executor/reviewer split or an explicit `required_but_not_run` caveat.
+- Git publish safety: commit, push, branch deletion, and remote synchronization requests require target-branch confirmation, fresh remote state, ancestry checks, and cleanup of temporary branches only after the target contains the commits.
 - Memory: privacy filter and explicit target.
 
 ## Supervision Gates

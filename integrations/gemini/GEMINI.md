@@ -20,6 +20,7 @@ This project uses NeuroFlow as a domain-knowledge-correct AutoResearch and human
 - For high-risk claim, citation, experiment, reproduction, and public-memory artifacts, separate executor and reviewer roles; do not mark the final gate passed by self-review alone.
 - For results, preserve numbers and check metric direction, deltas, ranks, variance, and protocol boundaries.
 - For reproduction, separate L0 text-only, L1 source-traced, L2 artifact-checked, and L3 reproduced.
+- For commit, push, branch deletion, or remote sync tasks, confirm the user-named target branch, fetch remote state, verify ancestry, and remove temporary branches only after target reachability.
 
 ## Useful Commands
 

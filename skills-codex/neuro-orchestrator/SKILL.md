@@ -25,6 +25,7 @@ Use this skill as the single default entry point for NeuroFlow-Agent in Codex. D
 - Apply research supervision gates before polishing ideas, paper text, figures, benchmarks, or claims.
 - For paper-facing claims, reviews, result tables, citations, or reproduction statements, apply the research-integrity gate: claim-evidence consistency, citation fit, numeric self-consistency, protocol truthfulness, and observability level.
 - For high-risk claim, citation, experiment, benchmark, reproduction, or public-memory artifacts, apply cross-model review by default: executor performs the work, reviewer independently checks it, and the final gate cannot be self-approved by the same model/pass.
+- For commit, push, branch deletion, or remote synchronization requests, apply the git publish safety gate: confirm target branch, fetch remote state, verify ancestry, push to the user-named branch, and clean temporary branches only after the commits are reachable from the target.
 
 ## Optional Specialist Modules
 
@@ -52,6 +53,7 @@ Optional specialist modules:
 Required first reads:
 Evidence gates:
 Cross-model review:
+Git publish safety:
 Work order:
 Stop condition:
 Memory candidate:
@@ -67,3 +69,4 @@ Expose the full preflight only when the user asks for a plan, the task is deep o
 - Calling every specialist for every task.
 - Writing claims before evidence gates.
 - Saving private data, unpublished results, or raw logs into public memory.
+- Claiming a repository is synced before checking the intended local branch, remote branch, latest commit, and temporary branch cleanup.

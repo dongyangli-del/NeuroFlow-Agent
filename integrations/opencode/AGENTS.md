@@ -14,6 +14,7 @@ For any non-trivial research, writing, review, experiment, benchmark, reproducti
 5. Use specialist modules only when they add a distinct check order.
 6. Apply integrity gates before paper-facing claims, citations, result tables, and reproduction statements.
 7. For high-risk claim, citation, experiment, reproduction, and public-memory artifacts, separate executor and reviewer roles; final approval cannot be self-approved by the same model/pass.
+8. For commit, push, branch deletion, or remote sync tasks, confirm the user-named target branch, fetch remote state, verify ancestry, and remove temporary branches only after target reachability.
 
 ## Output Discipline
 

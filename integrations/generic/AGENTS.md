@@ -10,6 +10,7 @@ This repository uses NeuroFlow as the default workflow layer for ML x BCI x neur
 - Choose one pipeline chain and one primary artifact.
 - Apply evidence gates before writing claims, citations, paper text, benchmark conclusions, or reproduction statements.
 - For high-risk claim, citation, experiment, reproduction, and public-memory artifacts, separate executor and reviewer roles; final approval cannot be self-approved by the same model/pass.
+- For commit, push, branch deletion, or remote sync tasks, confirm the user-named target branch, fetch remote state, verify ancestry, and remove temporary branches only after the target contains the commits.
 - Use specialist skills only when their check order or output template is needed.
 
 ## Evidence Gates

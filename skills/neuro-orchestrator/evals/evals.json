@@ -126,6 +126,29 @@
           "text": "Output keeps the full preflight internal unless a multi-stage plan is needed."
         }
       ]
+    },
+    {
+      "id": 6,
+      "prompt": "I noticed you committed on a temporary branch. Do not create an extra branch; push the current work directly to main and delete the extra local and remote branch.",
+      "expected_output": "The agent applies git publish safety: checks current branch and remote state, fetches origin, verifies that the target main can receive the commits, pushes to origin/main rather than the temporary branch, updates local main, deletes the temporary local and remote branch only after the commits are reachable from main, and reports the final commit and branch status.",
+      "files": [
+        "references/pipeline.md",
+        "../_shared/core/git-publish-safety.md"
+      ],
+      "assertions": [
+        {
+          "text": "Output treats the user-named branch main as the target rather than pushing to the current temporary branch."
+        },
+        {
+          "text": "Output fetches or otherwise checks fresh remote state before pushing."
+        },
+        {
+          "text": "Output verifies ancestry or reachability before deleting the temporary branch."
+        },
+        {
+          "text": "Output confirms local main and origin/main point to the intended latest commit before saying the repository is synced."
+        }
+      ]
     }
   ]
 }

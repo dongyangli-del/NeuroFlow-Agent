@@ -65,6 +65,7 @@ Recommended durable artifact names:
 - Closed-loop claims require online/offline boundary, safety, calibration, latency, and human-subject constraints.
 - Research-integrity checks require claim-evidence consistency, citation fit, numeric self-consistency, protocol truthfulness, and an explicit observability level.
 - Cross-model review checks require an executor/reviewer split for high-risk claim, citation, experiment, benchmark, reproduction, and public-memory artifacts, or an explicit `required_but_not_run` caveat.
+- Git publish safety checks require target-branch confirmation, fresh remote state, ancestry checks, user-named branch delivery, and cleanup of temporary branches only after the target branch contains the commits.
 - Memory updates require privacy filtering and a target file or eval.
 
 ## Supervision Gates
