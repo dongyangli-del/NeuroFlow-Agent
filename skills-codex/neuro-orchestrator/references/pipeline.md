@@ -11,10 +11,11 @@ Codex skill triggering is opportunistic, so this entry skill must be able to run
 3. Name the primary artifact.
 4. Load only the needed first reads.
 5. Invoke or emulate optional specialist modules.
-6. Apply research supervision gates from `references/research-supervision-gates.md`.
-7. Apply evidence gates.
-8. Produce the requested artifact.
-9. Decide whether memory should be updated.
+6. For multi-stage work, carry the original user intent and operational anchors into each handoff.
+7. Apply research supervision gates from `references/research-supervision-gates.md`.
+8. Apply evidence gates.
+9. Produce the requested artifact.
+10. Decide whether memory should be updated.
 
 ## Pipeline Chains
 
@@ -39,6 +40,8 @@ Optional specialist modules:
 Required first reads:
 Evidence gates:
 Work order:
+Original user intent:
+Operational anchors:
 Stop condition:
 Memory candidate:
 ```
@@ -53,6 +56,7 @@ Memory candidate:
 - Research integrity: claim-evidence consistency, citation fit, numeric self-consistency, protocol truthfulness, observability level.
 - Cross-model review: high-risk claim, citation, experiment, benchmark, reproduction, and public-memory artifacts require an executor/reviewer split or an explicit `required_but_not_run` caveat.
 - Git publish safety: commit, push, branch deletion, and remote synchronization requests require target-branch confirmation, fresh remote state, ancestry checks, and cleanup of temporary branches only after the target contains the commits.
+- Skill physics: avoid adding or calling overlapping specialists when a reference, shared gate, eval, or sequential handoff is enough; every deep handoff must preserve original user intent and operational anchors.
 - Memory: privacy filter and explicit target.
 
 ## Supervision Gates

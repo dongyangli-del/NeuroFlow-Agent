@@ -8,6 +8,8 @@ Task depth:
 Pipeline chain:
 Primary claim or question:
 Current artifact:
+Original user intent:
+Operational anchors:
 Known constraints:
 Optional specialist modules:
 First reads:
@@ -33,9 +35,12 @@ Memory candidate:
 ```markdown
 From skill:
 To skill:
+Original user intent:
+Operational anchors:
 Claim or question:
 Inspected evidence:
 Missing evidence:
+Next skill should not:
 Required output:
 Validation gate:
 Should feed Neuro-Memory:

@@ -67,6 +67,9 @@ Required manifest fields:
 4. `verification_status`
 5. `purpose`
 6. `natural_triggers`
+7. `anchors`
+8. `outputs.primary`
+9. `routing_boundary`
 
 `status` describes workflow maturity. `verification_status` describes the evidence behind the workflow or memory:
 
@@ -84,6 +87,29 @@ Recommended manifest fields:
 - `axes`: task dimensions such as depth, artifact, modality, audit type, or venue.
 - `on_demand`: conditional references loaded only when the task needs them.
 - `optional_modules`: specialist modules selected by `neuro-orchestrator`.
+- `pipeline_edges`: workflow dependencies with `upstream_skill`, `downstream_skill`, `dependency_type`, `weight`, and `notes`.
+
+`anchors` must contain:
+
+- `verbs`: the actions this skill owns.
+- `objects`: the artifact or research object this skill acts on.
+- `constraints`: the conditions that prevent the skill from becoming a vague catch-all.
+
+`pipeline_edges.dependency_type` must be one of:
+
+| Dependency | Meaning |
+|---|---|
+| `tight` | Downstream quality strongly depends on the upstream artifact being correct. |
+| `loose` | Upstream output helps, but downstream can continue with explicit caveats. |
+| `independent` | The edge is a possible memory or reporting continuation, not a hard dependency. |
+
+Run the skill-physics checks with:
+
+```bash
+make skill-competition
+make skill-competition-report
+make skill-simulate CANDIDATE=path/to/manifest.yaml
+```
 
 Shared fragments live under `skills/_shared/core/` and must remain non-triggerable. They should capture cross-cutting behavior such as evidence gates, source traceability, research planning, claim discipline, BCI validity checks, reviewer risk, and compact output contracts.
 

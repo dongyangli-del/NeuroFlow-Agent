@@ -15,6 +15,23 @@ natural_triggers:
   - "跑通 repo"
   - "复现证据等级"
   - "独立审查"
+anchors:
+  verbs:
+    - reproduce
+    - smoke-test
+    - inventory
+    - verify
+  objects:
+    - runnable command
+    - environment contract
+    - data and weights
+    - expected output
+  constraints:
+    - minimal runnable path first
+    - observability level explicit
+    - no claim of reproduction without run evidence
+outputs:
+  primary: reproduction contract with environment, data, command, expected output, and observability level
 always_load:
   - references/repro-contract.md
   - references/observability-levels.md
@@ -35,3 +52,24 @@ on_demand:
     load: references/failure-recovery.md
   - condition: dataset access or split protocol
     load: ../_shared/core/bci-validity.md
+routing_boundary:
+  do_not_use_when:
+    - The task only asks for a paper summary, citation support, or writing polish.
+    - The user needs a new experiment matrix after a runnable path already exists.
+    - The request is benchmark discovery before a target repository, command, or artifact is selected.
+  prefer_over:
+    - skill: experiment-copilot
+      when: No minimal runnable command, environment, data path, weights, or expected output exists yet.
+    - skill: reviewer-simulator
+      when: The main uncertainty is reproduction observability rather than paper risk.
+  defer_to:
+    - skill: paper-rag-plus
+      when: The paper facts, target table, or claimed metric have not been source-traced.
+    - skill: eeg-benchmark-hunter
+      when: Dataset access, license, or split protocol is unresolved.
+    - skill: experiment-copilot
+      when: A smoke path works and the next step is baseline or ablation design.
+  competes_with:
+    - experiment-copilot
+    - eeg-benchmark-hunter
+    - reviewer-simulator

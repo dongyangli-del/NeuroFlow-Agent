@@ -37,6 +37,23 @@ natural_triggers:
   - "实验分析"
   - "数字一致性"
   - "检查数字"
+anchors:
+  verbs:
+    - write
+    - polish
+    - compress
+    - caption
+  objects:
+    - paper prose
+    - figure narrative
+    - result table
+    - scoped claim
+  constraints:
+    - inspected evidence required
+    - no new facts
+    - preserve citations and numbers
+outputs:
+  primary: evidence-scoped paper text, caption, table, or writing audit
 always_load:
   - references/oral-paper-structure.md
   - references/writing-operations.md
@@ -92,3 +109,24 @@ on_demand:
     load: references/numeric-self-consistency.md
   - condition: reviewer-facing risk
     load: ../_shared/core/reviewer-risk.md
+routing_boundary:
+  do_not_use_when:
+    - The claim, citation, dataset, metric, or result has not been grounded in inspected evidence.
+    - The task is primarily benchmark discovery, split audit, reproduction, or acceptance readiness.
+    - The user wants an independent reviewer judgment rather than writing or rewriting.
+  prefer_over:
+    - skill: reviewer-simulator
+      when: The task is concrete writing, captioning, table wording, translation, shortening, expansion, or style cleanup.
+    - skill: paper-rag-plus
+      when: Evidence is already inspected and the remaining work is paper-facing expression.
+  defer_to:
+    - skill: paper-rag-plus
+      when: Citation fit, novelty, related work, or claim support is unresolved.
+    - skill: experiment-copilot
+      when: The requested claim needs new ablations, statistics, baselines, or controls.
+    - skill: reviewer-simulator
+      when: The task is submit/delay, integrity risk, root-cause diagnosis, or rebuttal strategy.
+  competes_with:
+    - paper-rag-plus
+    - reviewer-simulator
+    - experiment-copilot

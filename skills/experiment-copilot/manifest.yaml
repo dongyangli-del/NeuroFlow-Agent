@@ -14,6 +14,23 @@ natural_triggers:
   - "baseline 比不过"
   - "实验矩阵"
   - "独立审查"
+anchors:
+  verbs:
+    - design
+    - ablate
+    - compare
+    - test
+  objects:
+    - experiment matrix
+    - baseline protocol
+    - ablation plan
+    - statistical check
+  constraints:
+    - runnable facts already known
+    - matched metric definitions
+    - stop rules before claims
+outputs:
+  primary: experiment matrix with baselines, ablations, controls, statistics, and stop rules
 always_load:
   - references/experiment-matrix.md
   - ../_shared/core/evidence-gates.md
@@ -37,3 +54,25 @@ on_demand:
     load: ../_shared/core/reviewer-risk.md
   - condition: deep experiment planning or submission-facing claim
     load: ../_shared/core/research-planning-protocol.md
+routing_boundary:
+  do_not_use_when:
+    - The task only asks for dataset discovery, access, license, or leaderboard facts.
+    - The task is primarily prose rewriting, citation lookup, or acceptance-readiness review.
+    - The repository cannot run yet and needs a reproduction contract first.
+  prefer_over:
+    - skill: oral-writer
+      when: A claim needs ablations, controls, statistics, baselines, or stop rules before wording.
+    - skill: reviewer-simulator
+      when: The user asks what experiment to run rather than whether existing evidence is ready.
+  defer_to:
+    - skill: eeg-benchmark-hunter
+      when: Dataset access, split, license, or standard metric facts are unresolved.
+    - skill: repro-pack
+      when: The first blocker is a runnable command, environment, data, or checkpoint.
+    - skill: oral-writer
+      when: The experiment matrix is complete and the task is paper prose.
+  competes_with:
+    - eeg-benchmark-hunter
+    - repro-pack
+    - oral-writer
+    - reviewer-simulator

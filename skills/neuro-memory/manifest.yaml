@@ -10,6 +10,23 @@ natural_triggers:
   - "case to eval"
   - "沉淀经验"
   - "写入记忆"
+anchors:
+  verbs:
+    - compress
+    - persist
+    - route
+    - validate
+  objects:
+    - reusable lesson
+    - workflow memory
+    - eval case
+    - private note
+  constraints:
+    - work must be complete
+    - privacy filter required
+    - verification state explicit
+outputs:
+  primary: memory candidate with target, privacy status, verification status, and reuse rule
 always_load:
   - references/memory-routing.md
   - references/privacy-policy.md
@@ -28,3 +45,19 @@ on_demand:
     load: references/compression-template.md
   - condition: literature or Zotero memory
     load: references/zotero-memory-policy.md
+routing_boundary:
+  do_not_use_when:
+    - The session has not produced a reusable behavior change, finding, case, eval, or private note.
+    - The user needs active research execution, paper grounding, experiment design, reproduction, or writing.
+    - The content contains private or unpublished material that cannot be safely summarized.
+  prefer_over:
+    - skill: any specialist
+      when: The work is complete and the remaining decision is what should persist.
+  defer_to:
+    - skill: neuro-orchestrator
+      when: The task still needs routing or execution before memory consolidation.
+    - skill: ai-bci-research
+      when: The memory is domain guardrail context rather than session behavior.
+  competes_with:
+    - neuro-orchestrator
+    - ai-bci-research

@@ -12,6 +12,23 @@ natural_triggers:
   - "找 EEG 数据集"
   - "这个 benchmark 靠谱吗"
   - "有没有 leakage"
+anchors:
+  verbs:
+    - find
+    - audit
+    - verify
+    - compare
+  objects:
+    - EEG benchmark
+    - dataset split
+    - metric protocol
+    - leakage risk
+  constraints:
+    - access and license first
+    - subject/session split validity
+    - benchmark facts before experiments
+outputs:
+  primary: benchmark card with access, split, metric, baseline, and leakage status
 always_load:
   - references/benchmark-card-template.md
   - references/benchmark-risk-checklist.md
@@ -29,3 +46,24 @@ on_demand:
     load: ../_shared/core/claim-discipline.md
   - condition: conference-facing benchmark recommendation
     load: ../_shared/core/reviewer-risk.md
+routing_boundary:
+  do_not_use_when:
+    - The benchmark, split, and access facts are already fixed and the user needs ablations or statistics.
+    - The task is repository execution, checkpoint validation, or expected-output reproduction.
+    - The task is only paper prose after benchmark facts are already audited.
+  prefer_over:
+    - skill: experiment-copilot
+      when: Dataset access, license, split, metric, or baseline protocol is unresolved.
+    - skill: paper-rag-plus
+      when: The user asks whether a benchmark can support a claim rather than what a paper says.
+  defer_to:
+    - skill: paper-rag-plus
+      when: The benchmark facts depend on unverified paper claims or citations.
+    - skill: experiment-copilot
+      when: The benchmark is chosen and the next task is an experiment matrix.
+    - skill: repro-pack
+      when: The selected benchmark must be made runnable.
+  competes_with:
+    - experiment-copilot
+    - paper-rag-plus
+    - repro-pack

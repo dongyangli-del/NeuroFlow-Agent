@@ -22,6 +22,7 @@ Use this skill as the single default entry point for NeuroFlow-Agent in Codex. D
 - If a specialist skill is not triggered or not installed, still execute the corresponding pipeline stage from this skill.
 - Name the expected artifact before doing detailed work.
 - Use the smallest pipeline chain that can satisfy the user request.
+- Apply the skill physics gate before adding, promoting, or broadening a skill, and before calling multiple similar specialists in one workflow.
 - Apply research supervision gates before polishing ideas, paper text, figures, benchmarks, or claims.
 - For paper-facing claims, reviews, result tables, citations, or reproduction statements, apply the research-integrity gate: claim-evidence consistency, citation fit, numeric self-consistency, protocol truthfulness, and observability level.
 - For high-risk claim, citation, experiment, benchmark, reproduction, or public-memory artifacts, apply cross-model review by default: executor performs the work, reviewer independently checks it, and the final gate cannot be self-approved by the same model/pass.
@@ -54,6 +55,7 @@ Required first reads:
 Evidence gates:
 Cross-model review:
 Git publish safety:
+Skill physics:
 Work order:
 Stop condition:
 Memory candidate:
@@ -67,6 +69,7 @@ Expose the full preflight only when the user asks for a plan, the task is deep o
 - Waiting for automatic specialist skill triggering before making progress.
 - Waiting for the user to explicitly say workflow, plan, routing, or skill before applying NeuroFlow.
 - Calling every specialist for every task.
+- Adding or invoking overlapping skills when a reference, shared gate, eval, or sequential handoff would reduce routing competition.
 - Writing claims before evidence gates.
 - Saving private data, unpublished results, or raw logs into public memory.
 - Claiming a repository is synced before checking the intended local branch, remote branch, latest commit, and temporary branch cleanup.

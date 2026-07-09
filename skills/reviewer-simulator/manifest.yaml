@@ -30,6 +30,23 @@ natural_triggers:
   - "数字不一致"
   - "交叉模型审查"
   - "独立审查"
+anchors:
+  verbs:
+    - audit
+    - diagnose
+    - challenge
+    - triage
+  objects:
+    - reviewer risk
+    - method flaw
+    - claim defensibility
+    - rebuttal plan
+  constraints:
+    - issues before praise
+    - separate method from presentation
+    - independent final gate
+outputs:
+  primary: reviewer-risk report with root cause, fixability, and blocking evidence gaps
 always_load:
   - references/review-rubric.md
   - references/review-diagnosis.md
@@ -61,3 +78,24 @@ on_demand:
     load: references/acceptance-readiness.md
   - condition: neural data or BCI protocol risk
     load: ../_shared/core/bci-validity.md
+routing_boundary:
+  do_not_use_when:
+    - The user only needs source lookup, citation grounding, or dataset metadata extraction.
+    - The user asks for polished prose without a review, risk, rebuttal, or readiness decision.
+    - The reproduction command, environment, data, or expected output has not been inventoried.
+  prefer_over:
+    - skill: oral-writer
+      when: The task asks whether the paper, claim, method, or rebuttal is defensible.
+    - skill: experiment-copilot
+      when: The task is final acceptance readiness or reviewer risk after an experiment matrix exists.
+  defer_to:
+    - skill: paper-rag-plus
+      when: Citation support or closest-prior-work evidence is missing.
+    - skill: repro-pack
+      when: Reproduction observability is the primary unresolved issue.
+    - skill: oral-writer
+      when: Review issues are resolved and the remaining task is final wording.
+  competes_with:
+    - oral-writer
+    - paper-rag-plus
+    - experiment-copilot

@@ -15,9 +15,10 @@ Specialist skills are optional modules. Use them when a subtask needs their chec
 3. Name the primary artifact before detailed work.
 4. Load only the first-read files needed for the chosen chain.
 5. Use optional specialist modules for distinct subtasks.
-6. Apply the relevant research supervision gates from `references/research-supervision-gates.md`.
-7. Enforce evidence gates before claims, experiments, writing, or memory updates.
-8. End with a stop condition and memory candidate decision.
+6. For multi-stage work, carry the original user intent and operational anchors into each handoff.
+7. Apply the relevant research supervision gates from `references/research-supervision-gates.md`.
+8. Enforce evidence gates before claims, experiments, writing, or memory updates.
+9. End with a stop condition and memory candidate decision.
 
 ## Pipeline Chains
 
@@ -41,6 +42,8 @@ Primary artifact:
 Optional specialist modules:
 Required first reads:
 Evidence gates:
+Original user intent:
+Operational anchors:
 Stop condition:
 Memory candidate:
 ```
@@ -66,6 +69,7 @@ Recommended durable artifact names:
 - Research-integrity checks require claim-evidence consistency, citation fit, numeric self-consistency, protocol truthfulness, and an explicit observability level.
 - Cross-model review checks require an executor/reviewer split for high-risk claim, citation, experiment, benchmark, reproduction, and public-memory artifacts, or an explicit `required_but_not_run` caveat.
 - Git publish safety checks require target-branch confirmation, fresh remote state, ancestry checks, user-named branch delivery, and cleanup of temporary branches only after the target branch contains the commits.
+- Skill physics checks require avoiding overlapping specialists when a reference, shared gate, eval, or sequential handoff is enough; every deep handoff preserves original user intent and operational anchors.
 - Memory updates require privacy filtering and a target file or eval.
 
 ## Supervision Gates

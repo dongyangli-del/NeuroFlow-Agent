@@ -12,6 +12,23 @@ natural_triggers:
   - "下一步查什么"
   - "实验不 work"
   - "帮我规划 paper"
+anchors:
+  verbs:
+    - route
+    - classify
+    - plan
+    - gate
+  objects:
+    - research workflow
+    - pipeline chain
+    - primary artifact
+    - specialist handoff
+  constraints:
+    - single default entry point
+    - smallest useful chain
+    - evidence gates before output
+outputs:
+  primary: routed workflow plan or executed artifact contract
 always_load:
   - references/pipeline.md
   - ../_shared/core/evidence-gates.md
@@ -39,3 +56,58 @@ optional_modules:
   - oral-writer
   - neuro-memory
   - ai-bci-research
+pipeline_edges:
+  - upstream_skill: paper-rag-plus
+    downstream_skill: oral-writer
+    dependency_type: tight
+    weight: 0.95
+    notes: Paper prose depends on inspected evidence and citation fit.
+  - upstream_skill: paper-rag-plus
+    downstream_skill: repro-pack
+    dependency_type: loose
+    weight: 0.55
+    notes: Reproduction targets often depend on source-traced paper facts, but repo checks can proceed independently once target artifacts are named.
+  - upstream_skill: eeg-benchmark-hunter
+    downstream_skill: experiment-copilot
+    dependency_type: tight
+    weight: 0.90
+    notes: Experiment matrices need verified dataset, split, metric, and baseline facts.
+  - upstream_skill: repro-pack
+    downstream_skill: experiment-copilot
+    dependency_type: loose
+    weight: 0.60
+    notes: Smoke paths improve experiment planning but do not replace design checks.
+  - upstream_skill: experiment-copilot
+    downstream_skill: reviewer-simulator
+    dependency_type: tight
+    weight: 0.85
+    notes: Reviewer readiness depends on completed evidence, ablation, and statistics checks.
+  - upstream_skill: reviewer-simulator
+    downstream_skill: oral-writer
+    dependency_type: loose
+    weight: 0.60
+    notes: Review diagnosis should shape final wording without turning review into prose generation.
+  - upstream_skill: oral-writer
+    downstream_skill: neuro-memory
+    dependency_type: independent
+    weight: 0.20
+    notes: Writing artifacts may create memory candidates only after privacy and reuse checks.
+  - upstream_skill: reviewer-simulator
+    downstream_skill: neuro-memory
+    dependency_type: independent
+    weight: 0.25
+    notes: Reviewer-risk lessons may persist when they generalize beyond the current artifact.
+routing_boundary:
+  do_not_use_when:
+    - A user explicitly asks for a named specialist and no routing decision is needed.
+    - The task is a trivial shell, formatting, or one-line explanation request.
+  prefer_over:
+    - skill: any specialist
+      when: The user request is broad, multi-stage, vague, or does not name a concrete artifact.
+  defer_to:
+    - skill: named specialist
+      when: The user names a specialist skill and the request is narrow enough for that skill alone.
+  competes_with:
+    - ai-bci-research
+    - oral-writer
+    - reviewer-simulator

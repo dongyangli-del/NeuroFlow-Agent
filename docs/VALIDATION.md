@@ -13,6 +13,8 @@ The current validation checks:
 - `SKILL.md` has required frontmatter keys;
 - `evals/evals.json` is valid JSON;
 - optional `manifest.yaml` files include required routing and verification fields;
+- high-use manifests include routeable anchors, primary output contracts, routing boundaries, and workflow dependency edges;
+- the skill-competition scorecard can be generated as JSON and includes pair, skill, library, and pipeline-edge diagnostics;
 - the lightweight runtime registry can list chains and create a dry-run private trace scaffold;
 - local Markdown links resolve;
 - large generated files are not accidentally committed;
@@ -28,3 +30,11 @@ make validate
 ```
 
 Future validation should add deeper schema checks for eval structure, `agents/openai.yaml`, manifest path references, allowed `verification_status` values, and optional smoke tests for bundled scripts.
+
+Before adding a new top-level skill, simulate the candidate manifest:
+
+```bash
+make skill-simulate CANDIDATE=path/to/manifest.yaml
+```
+
+If the candidate competes strongly with an existing skill, keep the behavior as a reference, shared gate, eval, or runtime check until its anchors and output contract are genuinely distinct.

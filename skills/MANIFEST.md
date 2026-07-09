@@ -35,9 +35,10 @@ Shared workflow primitives live under `skills/_shared/core/`. They are resource 
 | `research-integrity.md` | Span-anchored integrity forensics, observability levels, numeric consistency, and false-positive caveats. |
 | `cross-model-review.md` | Executor/reviewer separation for high-risk claim, citation, experiment, reproduction, and public-memory gates. |
 | `git-publish-safety.md` | Target-branch, remote-state, ancestry, and cleanup checks for commit, push, branch deletion, and sync tasks. |
+| `skill-physics.md` | Skill promotion, routing-boundary, local-competition, and handoff-anchor rules. |
 | `output-contracts.md` | Compact artifacts for next checks, benchmark cards, claim rewrites, and memory candidates. |
 
-High-use skills may include `manifest.yaml` files that declare status, verification status, natural triggers, always-loaded references, task axes, and on-demand shared resources. `status` is workflow maturity; `verification_status` is the confidence level behind the workflow or memory.
+High-use skills may include `manifest.yaml` files that declare status, verification status, natural triggers, anchors, primary output contracts, always-loaded references, task axes, routing boundaries, and on-demand shared resources. `status` is workflow maturity; `verification_status` is the confidence level behind the workflow or memory. `anchors` records the verbs, objects, and constraints that make a skill routeable. `routing_boundary` records `do_not_use_when`, `prefer_over`, `defer_to`, and `competes_with` so similar skills do not silently compete. `pipeline_edges` records tight, loose, or independent dependencies between skills so multi-step workflows can be audited for fragility.
 
 Allowed verification statuses:
 

@@ -333,6 +333,29 @@ def validate_runtime_hooks() -> None:
     )
 
 
+def validate_skill_competition() -> None:
+    script = ROOT / "scripts" / "audit_skill_competition.py"
+    if not script.exists():
+        fail("Missing skill competition audit: scripts/audit_skill_competition.py")
+    subprocess.run([sys.executable, str(script)], cwd=ROOT, check=True)
+    result = subprocess.run(
+        [sys.executable, str(script), "--json"],
+        cwd=ROOT,
+        check=True,
+        text=True,
+        stdout=subprocess.PIPE,
+    )
+    payload = json.loads(result.stdout)
+    for key in ("library_scorecard", "pair_scorecards", "skill_scorecards", "pipeline_edges"):
+        if key not in payload:
+            fail(f"skill competition scorecard missing {key}")
+    library = payload["library_scorecard"]
+    if not library.get("top_pairs"):
+        fail("skill competition scorecard missing top pair diagnostics")
+    if library.get("pipeline_fragility_index", 0) <= 0:
+        fail("skill competition scorecard did not read pipeline edges")
+
+
 def main() -> None:
     validate_required_files()
     validate_skill_structure()
@@ -347,6 +370,7 @@ def main() -> None:
     validate_runtime_kb()
     validate_installer()
     validate_runtime_hooks()
+    validate_skill_competition()
     print("Skill repository validation passed.")
 
 

@@ -83,6 +83,27 @@ NeuroFlow-Agent 把低效的 human-in-the-loop AutoResearch 变成一个 evidenc
 
 这个仓库把这些 workflow 固化下来，让之后的 Codex 会话能从正确假设开始，并且能把新的实验经验回放、压缩、巩固到下一轮工作中。
 
+## Skill Physics：更少但更清晰的 Skills
+
+NeuroFlow 不追求把每个有用行为都升级成新的顶层 skill。Evolvent 的研究笔记 [More Skills, Worse Results? The Hidden Physics of Agent Skill Libraries](https://evolvent.co/en/research/agent-physics-skill-part1) 指出，skill library 会因为局部语义竞争而变得不可靠：相似 skills 越多，路由越容易在多步 pipeline 中选错。
+
+NeuroFlow 把这个启发变成项目规则：
+
+- `neuro-orchestrator` 保持唯一 pre-routing 入口。
+- specialist skills 保持少量、高区分度、artifact-specific。
+- 新经验优先沉淀为 reference、shared core gate、eval、case study 或 runtime check，而不是立刻新建 skill。
+- 高频 manifest 必须声明可路由 anchors、primary output contract、`do_not_use_when`、`prefer_over`、`defer_to` 和 `competes_with`。
+- workflow edges 要声明 handoff 是 `tight`、`loose` 还是 `independent`，这样多步 pipeline 可以被审计 fragility。
+- 深度 handoff 必须保留原始用户意图和 operational anchors，避免 workflow 中段漂移。
+
+本地审计命令：
+
+```bash
+make skill-competition
+make skill-competition-report
+make skill-simulate CANDIDATE=path/to/manifest.yaml
+```
+
 ## 持久工作流系统
 
 ```mermaid

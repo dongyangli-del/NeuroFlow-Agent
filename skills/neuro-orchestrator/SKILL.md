@@ -31,6 +31,7 @@ Use this skill as the single default entry point for NeuroFlow-Agent. It routes 
 - Use `neuro-memory` after meaningful sessions to consolidate reusable behavior.
 - For code reproduction or implementation, also use existing general engineering skills such as `modern-python`, `python-testing`, or repo-aware tools when relevant.
 - Use the smallest specialist set that adds distinct evidence or validation.
+- Apply the skill physics gate before adding, promoting, or broadening a skill, and before calling multiple similar specialists in one workflow.
 - Apply research supervision gates before polishing ideas, paper text, figures, benchmarks, or claims.
 - For paper-facing claims, reviews, result tables, citations, or reproduction statements, apply the research-integrity gate: claim-evidence consistency, citation fit, numeric self-consistency, protocol truthfulness, and observability level.
 - For high-risk claim, citation, experiment, benchmark, reproduction, or public-memory artifacts, apply cross-model review by default: executor performs the work, reviewer independently checks it, and the final gate cannot be self-approved by the same model/pass.
@@ -71,6 +72,7 @@ Required first reads:
 Evidence needed:
 Cross-model review:
 Git publish safety:
+Skill physics:
 Expected artifact:
 Stop condition:
 Memory candidate:

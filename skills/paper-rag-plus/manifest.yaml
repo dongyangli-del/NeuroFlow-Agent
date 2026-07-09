@@ -20,6 +20,23 @@ natural_triggers:
   - "核验引用"
   - "知识图谱"
   - "交叉模型审查"
+anchors:
+  verbs:
+    - ground
+    - verify
+    - map
+    - cite
+  objects:
+    - claim ledger
+    - citation support
+    - paper fact
+    - related work
+  constraints:
+    - inspected sources only
+    - evidence tier explicit
+    - no invented citations
+outputs:
+  primary: source-traced claim ledger or paper fact card
 always_load:
   - references/claim-grounding.md
   - references/claim-ledger.md
@@ -43,3 +60,22 @@ on_demand:
     load: ../_shared/core/bci-validity.md
   - condition: paper-facing claim or rebuttal
     load: ../_shared/core/reviewer-risk.md
+routing_boundary:
+  do_not_use_when:
+    - The user mainly wants polished prose, captions, or abstract writing after evidence is already inspected.
+    - The user needs runnable commands, environment checks, or reproduction observability.
+    - The user needs a full reviewer simulation rather than citation or source grounding.
+  prefer_over:
+    - skill: oral-writer
+      when: Citations, novelty, dataset facts, or claim support have not been inspected.
+    - skill: reviewer-simulator
+      when: The blocker is source fit or citation support rather than review strategy.
+  defer_to:
+    - skill: oral-writer
+      when: Evidence is already inspected and the task is wording, structure, caption, or table prose.
+    - skill: repro-pack
+      when: The question is whether a repository, command, checkpoint, or table can run.
+  competes_with:
+    - oral-writer
+    - reviewer-simulator
+    - eeg-benchmark-hunter

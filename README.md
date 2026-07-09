@@ -68,6 +68,27 @@ NeuroFlow-Agent is built around that thesis. It is not a prompt pack, a generic 
 
 The system is designed to make AutoResearch and human-in-the-loop agent work scientifically useful rather than merely fluent. Frontier ML methods, foundation models, agents, generative models, representation learning, continual learning, and BCI/neuroscience pipelines should be routed through domain evidence gates before they become experiments, papers, claims, or memory.
 
+## Skill Physics: Fewer, Sharper Skills
+
+NeuroFlow intentionally avoids turning every useful behavior into a new top-level skill. Evolvent's research note [More Skills, Worse Results? The Hidden Physics of Agent Skill Libraries](https://evolvent.co/en/research/agent-physics-skill-part1) argues that skill libraries can fail from local semantic competition: adding similar skills makes routing less reliable, especially in multi-step pipelines.
+
+NeuroFlow applies that lesson as a project rule:
+
+- `neuro-orchestrator` stays the single pre-routing entry point.
+- Specialist skills remain few, high-contrast, and artifact-specific.
+- Reusable behavior should usually become a reference, shared core gate, eval, case study, or runtime check before it becomes a new skill.
+- High-use manifests must declare routeable anchors, a primary output contract, `do_not_use_when`, `prefer_over`, `defer_to`, and `competes_with`.
+- Workflow edges declare whether handoffs are `tight`, `loose`, or `independent`, so multi-step pipelines can be audited for fragility.
+- Deep handoffs must carry the original user intent and operational anchors so the middle of the workflow does not drift.
+
+Run the local competition audit with:
+
+```bash
+make skill-competition
+make skill-competition-report
+make skill-simulate CANDIDATE=path/to/manifest.yaml
+```
+
 ## What NeuroFlow-Agent Is
 
 NeuroFlow-Agent is a compact operating layer for rigorous ML x BCI x neuroscience research agents. It uses `neuro-orchestrator` as the single default workflow entry point, then selects optional specialist modules for literature grounding, benchmark auditing, reproduction, experiment design, reviewer simulation, writing, and durable memory.
