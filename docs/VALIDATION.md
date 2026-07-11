@@ -6,12 +6,19 @@ Run validation before committing skill changes:
 make validate
 ```
 
+Install runtime and test dependencies first:
+
+```bash
+python -m pip install -e '.[dev]'
+```
+
 The current validation checks:
 
 - required repository and skill files exist;
 - `AGENT_GUIDE.md`, `LICENSE`, `SECURITY.md`, the Codex-specific `neuro-orchestrator`, and the GitHub Actions validation workflow exist;
 - `SKILL.md` has required frontmatter keys;
-- `evals/evals.json` is valid JSON;
+- `evals/evals.json` is valid schema-v2 JSON with unique executable case IDs;
+- protected evals and the SQLite/Alembic evolution schema are valid;
 - optional `manifest.yaml` files include required routing and verification fields;
 - high-use manifests include routeable anchors, primary output contracts, routing boundaries, and workflow dependency edges;
 - the skill-competition scorecard can be generated as JSON and includes pair, skill, library, and pipeline-edge diagnostics;
@@ -29,7 +36,17 @@ make index
 make validate
 ```
 
-Future validation should add deeper schema checks for eval structure, `agents/openai.yaml`, manifest path references, allowed `verification_status` values, and optional smoke tests for bundled scripts.
+Run executable checks with:
+
+```bash
+make test
+make eval
+make evolution-smoke
+```
+
+`make test` runs unit and end-to-end tests in temporary repositories and enforces at least 80% runtime coverage. `make eval` executes the protected eval partition through deterministic mock providers. `make evolution-smoke` exercises feedback, candidate privacy, patch integrity, pre-shadow approval, hidden-holdout enforcement, promotion, and rollback without modifying tracked project files.
+
+Future validation should add deeper checks for `agents/openai.yaml`, manifest path references, and provider-specific live smoke tests.
 
 Before adding a new top-level skill, simulate the candidate manifest:
 

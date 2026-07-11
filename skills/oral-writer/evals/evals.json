@@ -12,15 +12,32 @@
       ],
       "assertions": [
         {
-          "text": "Output does not invent results or citations."
+          "text": "Output does not invent results or citations.",
+          "type": "llm_rubric",
+          "dimension": "safety",
+          "critical": true,
+          "weight": 1.0
         },
         {
-          "text": "Output maps claims to evidence and marks missing evidence."
+          "text": "Output maps claims to evidence and marks missing evidence.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output includes a figure narrative and reviewer objection preemption."
+          "text": "Output includes a figure narrative and reviewer objection preemption.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         }
-      ]
+      ],
+      "partition": "regression",
+      "tags": [
+        "oral-writer"
+      ],
+      "repeats": 3
     },
     {
       "id": 2,
@@ -32,15 +49,32 @@
       ],
       "assertions": [
         {
-          "text": "Output preserves BCI-IV-2a, EEGNet, 2.1%, the cross-subject limitation, and the formula."
+          "text": "Output preserves BCI-IV-2a, EEGNet, 2.1%, the cross-subject limitation, and the formula.",
+          "type": "llm_rubric",
+          "dimension": "retention",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output does not invent citations, extra datasets, or stronger claims."
+          "text": "Output does not invent citations, extra datasets, or stronger claims.",
+          "type": "llm_rubric",
+          "dimension": "safety",
+          "critical": true,
+          "weight": 1.0
         },
         {
-          "text": "Output treats the natural polishing request as an oral-writer workflow even though the user did not mention workflow or skill."
+          "text": "Output treats the natural polishing request as an oral-writer workflow even though the user did not mention workflow or skill.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         }
-      ]
+      ],
+      "partition": "regression",
+      "tags": [
+        "oral-writer"
+      ],
+      "repeats": 3
     },
     {
       "id": 3,
@@ -52,15 +86,32 @@
       ],
       "assertions": [
         {
-          "text": "Output removes or scopes vague hype rather than replacing it with new hype."
+          "text": "Output removes or scopes vague hype rather than replacing it with new hype.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output marks missing evidence for robustness, generality, and significance."
+          "text": "Output marks missing evidence for robustness, generality, and significance.",
+          "type": "llm_rubric",
+          "dimension": "generalization",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output does not introduce new experiments or citations."
+          "text": "Output does not introduce new experiments or citations.",
+          "type": "llm_rubric",
+          "dimension": "retention",
+          "critical": false,
+          "weight": 1.0
         }
-      ]
+      ],
+      "partition": "regression",
+      "tags": [
+        "oral-writer"
+      ],
+      "repeats": 3
     },
     {
       "id": 4,
@@ -72,15 +123,32 @@
       ],
       "assertions": [
         {
-          "text": "Output only uses Method A, Method B, Ours, 72.3, 74.1, 75.0, and within-subject accuracy."
+          "text": "Output only uses Method A, Method B, Ours, 72.3, 74.1, 75.0, and within-subject accuracy.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output does not claim statistical significance or robustness without variance."
+          "text": "Output does not claim statistical significance or robustness without variance.",
+          "type": "llm_rubric",
+          "dimension": "retention",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output names the missing uncertainty or variance as a limitation."
+          "text": "Output names the missing uncertainty or variance as a limitation.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         }
-      ]
+      ],
+      "partition": "regression",
+      "tags": [
+        "oral-writer"
+      ],
+      "repeats": 3
     },
     {
       "id": 5,
@@ -93,15 +161,32 @@
       ],
       "assertions": [
         {
-          "text": "Output mentions cross-session EEG decoding and individualized calibration."
+          "text": "Output mentions cross-session EEG decoding and individualized calibration.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output avoids unsupported claims such as proven robustness or universal generalization."
+          "text": "Output avoids unsupported claims such as proven robustness or universal generalization.",
+          "type": "llm_rubric",
+          "dimension": "safety",
+          "critical": true,
+          "weight": 1.0
         },
         {
-          "text": "Output uses a direct title/caption style rather than a long explanation unless requested."
+          "text": "Output uses a direct title/caption style rather than a long explanation unless requested.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         }
-      ]
+      ],
+      "partition": "regression",
+      "tags": [
+        "oral-writer"
+      ],
+      "repeats": 3
     },
     {
       "id": 6,
@@ -114,21 +199,46 @@
       ],
       "assertions": [
         {
-          "text": "Output preserves BCI-IV-2a, within-subject accuracy, EEGNet 72.3, DeepConvNet 74.1, and Ours 75.0."
+          "text": "Output preserves BCI-IV-2a, within-subject accuracy, EEGNet 72.3, DeepConvNet 74.1, and Ours 75.0.",
+          "type": "llm_rubric",
+          "dimension": "retention",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output uses booktabs-style LaTeX with top, mid, and bottom rules."
+          "text": "Output uses booktabs-style LaTeX with top, mid, and bottom rules.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output marks or states the metric direction for accuracy."
+          "text": "Output marks or states the metric direction for accuracy.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output does not claim statistical significance, robustness, or generalization without variance or tests."
+          "text": "Output does not claim statistical significance, robustness, or generalization without variance or tests.",
+          "type": "llm_rubric",
+          "dimension": "generalization",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output includes a scoped caption and evidence boundary or table note."
+          "text": "Output includes a scoped caption and evidence boundary or table note.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         }
-      ]
+      ],
+      "partition": "regression",
+      "tags": [
+        "oral-writer"
+      ],
+      "repeats": 3
     },
     {
       "id": 7,
@@ -141,18 +251,39 @@
       ],
       "assertions": [
         {
-          "text": "Output recommends a paired subject-level plot, small multiples, or equivalent subject/session-visible visualization."
+          "text": "Output recommends a paired subject-level plot, small multiples, or equivalent subject/session-visible visualization.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output states the metric direction and cross-session protocol boundary."
+          "text": "Output states the metric direction and cross-session protocol boundary.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output does not recommend hiding all subjects in a single averaged bar as the main evidence."
+          "text": "Output does not recommend hiding all subjects in a single averaged bar as the main evidence.",
+          "type": "llm_rubric",
+          "dimension": "retention",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output notes that variance or repeated-condition uncertainty is needed before robustness claims."
+          "text": "Output notes that variance or repeated-condition uncertainty is needed before robustness claims.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         }
-      ]
+      ],
+      "partition": "regression",
+      "tags": [
+        "oral-writer"
+      ],
+      "repeats": 3
     },
     {
       "id": 8,
@@ -164,18 +295,39 @@
       ],
       "assertions": [
         {
-          "text": "Output preserves Ours 86.1, baseline 84.9, and within-subject EEG decoding."
+          "text": "Output preserves Ours 86.1, baseline 84.9, and within-subject EEG decoding.",
+          "type": "llm_rubric",
+          "dimension": "retention",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output states the visible margin without claiming significance."
+          "text": "Output states the visible margin without claiming significance.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output explicitly rejects or scopes cross-subject and latency claims."
+          "text": "Output explicitly rejects or scopes cross-subject and latency claims.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output lists missing seed variance or uncertainty as a boundary."
+          "text": "Output lists missing seed variance or uncertainty as a boundary.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         }
-      ]
+      ],
+      "partition": "regression",
+      "tags": [
+        "oral-writer"
+      ],
+      "repeats": 3
     },
     {
       "id": 9,
@@ -188,18 +340,40 @@
       ],
       "assertions": [
         {
-          "text": "Output preserves 72.3, 74.1, and 75.0 and computes that Ours is 0.9 points above DeepConvNet and 2.7 points above EEGNet."
+          "text": "Output preserves 72.3, 74.1, and 75.0 and computes that Ours is 0.9 points above DeepConvNet and 2.7 points above EEGNet.",
+          "type": "llm_rubric",
+          "dimension": "retention",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output flags the caption's 5.0-point improvement as inconsistent with the supplied table."
+          "text": "Output flags the caption's 5.0-point improvement as inconsistent with the supplied table.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output avoids claiming statistical significance because no variance or test is reported."
+          "text": "Output avoids claiming statistical significance because no variance or test is reported.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output keeps the claim within BCI-IV-2a within-subject accuracy."
+          "text": "Output keeps the claim within BCI-IV-2a within-subject accuracy.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         }
-      ]
+      ],
+      "partition": "regression",
+      "tags": [
+        "oral-writer"
+      ],
+      "repeats": 3
     }
-  ]
+  ],
+  "schema_version": 2
 }

@@ -6,7 +6,6 @@ import re
 from dataclasses import dataclass
 from pathlib import Path
 
-
 KB_FILES = (
     "docs/KNOWLEDGE_GRAPH.md",
     "docs/VERIFICATION_DASHBOARD.md",

@@ -7,6 +7,8 @@ env/
 dist/
 build/
 *.egg-info/
+.coverage
+htmlcov/
 
 # Local private memory overlays. Keep personal papers, unpublished findings,
 # private repository notes, raw logs, and sensitive project state here.

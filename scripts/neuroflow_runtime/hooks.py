@@ -4,25 +4,19 @@ from __future__ import annotations
 
 import json
 import os
-import re
 import subprocess
-import sys
 from dataclasses import asdict, dataclass, field
 from datetime import UTC, datetime
 from pathlib import Path
 
+from .privacy import sanitize_remote_text, sensitive_labels
 from .registry import RuntimeRegistry, WorkflowChain
 from .runner import WorkflowRunner
-from .trace import HookEvent, WorkflowTrace
+from .trace import HookEvent, RouteCandidate, WorkflowTrace
 
 VALID_EVENTS = {"session_start", "pre_artifact", "post_tool", "pre_commit", "session_end"}
 VALID_PROFILES = {"minimal", "standard", "strict"}
 PUBLIC_ARTIFACT_KINDS = {"claim", "memory", "reference", "readme"}
-PRIVATE_PATH_PATTERNS = (
-    re.compile("/" + r"vePFS-[^\s)>\"]+"),
-    re.compile("/" + r"home/ldy(?:/|\b)"),
-    re.compile("/" + r"Users/[^/\s)>\"]+"),
-)
 
 
 @dataclass(frozen=True)
@@ -79,7 +73,13 @@ class WorkflowHookRuntime:
 
     def session_start(self, task: str, hook_id: str, profile: str) -> HookResult:
         if not task.strip():
-            return self._result("session_start", "warning", hook_id=hook_id, profile=profile, warnings=["Missing task text."])
+            return self._result(
+                "session_start",
+                "warning",
+                hook_id=hook_id,
+                profile=profile,
+                warnings=["Missing task text."],
+            )
         chain = self.select_chain(task)
         runner = WorkflowRunner(registry=self.registry, root=self.root)
         result = runner.run(chain_name=chain.name, task=task, dry_run=False)
@@ -94,6 +94,11 @@ class WorkflowHookRuntime:
         )
         result.trace.append_hook_event(event)
         result.trace.metadata["hook_profile"] = profile
+        result.trace.route_candidates = [
+            RouteCandidate(chain=name, score=float(score), reasons=reasons)
+            for name, score, reasons in self.rank_chains(task)
+        ]
+        result.trace.selected_route = chain.name
         result.trace.write_json(result.trace_path)
         return self._from_event(event, trace=str(result.trace_path), run_id=result.trace.run_id)
 
@@ -110,17 +115,26 @@ class WorkflowHookRuntime:
         else:
             warnings.append("Artifact path is missing or does not exist; evidence gate can only run in advisory mode.")
         lower = artifact_text.lower()
-        has_source_trace = any(marker in lower for marker in ("source-traced", "citation", "doi", "arxiv", "evidence_sources"))
+        source_markers = ("source-traced", "citation", "doi", "arxiv", "evidence_sources")
+        has_source_trace = any(marker in lower for marker in source_markers)
         has_unresolved = any(marker in lower for marker in ("unresolved", "todo", "manual-review", "人工核验"))
-        leaks_private_path = any(pattern.search(artifact_text) for pattern in PRIVATE_PATH_PATTERNS)
+        sensitive = sensitive_labels(artifact_text)
         if artifact_text and not has_source_trace and normalized_kind in PUBLIC_ARTIFACT_KINDS:
             warnings.append("Public artifact lacks an obvious citation/source-trace marker.")
         if has_unresolved:
             warnings.append("Artifact still contains unresolved review markers.")
-        if leaks_private_path:
-            blocked_reason = "Public artifact appears to contain a private local path."
+        if sensitive:
+            blocked_reason = f"Public artifact appears to contain sensitive material: {', '.join(sensitive)}."
         status = "blocked" if blocked_reason else ("warning" if warnings else "ok")
-        event = self._event("pre_artifact", status, hook_id, profile, warnings=warnings, artifact=artifact_path, blocked_reason=blocked_reason)
+        event = self._event(
+            "pre_artifact",
+            status,
+            hook_id,
+            profile,
+            warnings=warnings,
+            artifact=artifact_path,
+            blocked_reason=blocked_reason,
+        )
         self._append_to_latest_trace(event)
         return self._from_event(event)
 
@@ -147,8 +161,7 @@ class WorkflowHookRuntime:
             ["make", "validate"],
             cwd=self.root,
             text=True,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
+            capture_output=True,
             timeout=120,
             check=False,
         )
@@ -172,33 +185,94 @@ class WorkflowHookRuntime:
     def session_end(self, run_id: str, hook_id: str, profile: str) -> HookResult:
         trace_path = self._trace_path(run_id)
         warnings = []
+        memory_candidate = "no"
+        unresolved = "none"
+        next_actions = "No unresolved workflow action."
+        if trace_path:
+            trace = WorkflowTrace.read_json(trace_path)
+            failed_steps = [step.name for step in trace.steps if step.status in {"failed", "blocked"}]
+            gate_warnings = [
+                event.event for event in trace.hook_events if event.status in {"warning", "blocked"}
+            ]
+            reusable_signal = bool(failed_steps or gate_warnings or trace.outcome.get("memory_candidate"))
+            memory_candidate = "yes" if reusable_signal else "no"
+            if failed_steps or gate_warnings:
+                unresolved = ", ".join(failed_steps + gate_warnings)
+                next_actions = "Resolve failed stages or hook warnings before proposing durable memory."
         metadata = {
-            "next_actions": "Review warnings, fill artifact evidence sections, and decide whether neuro-memory should persist a finding.",
-            "memory_candidate": "yes",
-            "unresolved": "check artifact notes and hook warnings",
+            "next_actions": next_actions,
+            "memory_candidate": memory_candidate,
+            "unresolved": unresolved,
         }
         if not trace_path:
             warnings.append("No run trace found for session_end.")
-        event = self._event("session_end", "warning" if warnings else "ok", hook_id, profile, warnings=warnings, metadata=metadata)
+        event = self._event(
+            "session_end",
+            "warning" if warnings else "ok",
+            hook_id,
+            profile,
+            warnings=warnings,
+            metadata=metadata,
+        )
         if trace_path:
-            self._append_event(trace_path, event)
+            feedback = []
+            if memory_candidate == "yes":
+                try:
+                    from .evolution import EvolutionEngine
+
+                    feedback = EvolutionEngine(self.root).ingest_trace(trace_path)
+                    event.metadata["feedback_ids"] = ",".join(item.id for item in feedback)
+                except Exception as exc:
+                    event.status = "warning"
+                    event.warnings.append(f"Feedback ingestion failed: {exc}")
+            persisted_trace = WorkflowTrace.read_json(trace_path)
+            persisted_trace.feedback_ids = sorted(
+                set(persisted_trace.feedback_ids) | {item.id for item in feedback}
+            )
+            persisted_trace.append_hook_event(event)
+            if feedback:
+                persisted_trace.append_hook_event(
+                    self._event(
+                        "feedback_ingest",
+                        "ok",
+                        "hook:feedback_ingest",
+                        profile,
+                        metadata={"feedback_count": str(len(feedback))},
+                    )
+                )
+            persisted_trace.write_json(trace_path)
         return self._from_event(event, trace=str(trace_path) if trace_path else "", run_id=run_id)
 
     def select_chain(self, task: str) -> WorkflowChain:
+        return self.registry.get_chain(self.rank_chains(task)[0][0])
+
+    def rank_chains(self, task: str) -> list[tuple[str, int, list[str]]]:
         text = task.lower()
-        chain_scores = {
-            "paper-to-repro": self._score(text, "reproduce", "repro", "runnable", "repo", "code", "smoke", "复现"),
-            "benchmark-to-baseline": self._score(text, "baseline", "benchmark", "dataset", "metric", "leakage", "split", "worse", "差", "数据集"),
-            "experiment-to-paper": self._score(text, "claim", "paper claim", "write", "abstract", "result", "figure", "table", "投稿", "论文"),
-            "paper-to-rebuttal": self._score(text, "reviewer", "rebuttal", "review", "response", "审稿", "反驳"),
-            "continual-adaptation": self._score(text, "continual", "online", "streaming", "adaptation", "cross-session", "个性化", "持续"),
-            "session-to-memory": self._score(text, "memory", "save this", "make reusable", "沉淀", "经验"),
-            "idea-to-experiment": self._score(text, "idea", "hypothesis", "plan experiment", "ablation", "实验计划", "想法"),
+        triggers = {
+            "paper-to-repro": ("reproduce", "repro", "runnable", "repo", "code", "smoke", "复现"),
+            "benchmark-to-baseline": (
+                "baseline", "benchmark", "dataset", "metric", "leakage", "split", "worse", "差", "数据集",
+            ),
+            "experiment-to-paper": (
+                "claim", "paper claim", "write", "abstract", "result", "figure", "table", "投稿", "论文",
+            ),
+            "paper-to-rebuttal": ("reviewer", "rebuttal", "review", "response", "审稿", "反驳"),
+            "continual-adaptation": (
+                "continual", "online", "streaming", "adaptation", "cross-session", "个性化", "持续",
+            ),
+            "session-to-memory": ("memory", "save this", "make reusable", "沉淀", "经验"),
+            "idea-to-experiment": ("idea", "hypothesis", "plan experiment", "ablation", "实验计划", "想法"),
         }
-        selected = max(chain_scores, key=lambda name: (chain_scores[name], name))
-        if chain_scores[selected] == 0:
-            selected = "idea-to-experiment"
-        return self.registry.get_chain(selected)
+        ranked = []
+        for name, needles in triggers.items():
+            matches = [needle for needle in needles if needle in text]
+            ranked.append((name, len(matches), [f"matched:{needle}" for needle in matches]))
+        ranked.sort(key=lambda item: (item[1], item[0]), reverse=True)
+        if ranked[0][1] == 0:
+            ranked = [("idea-to-experiment", 0, ["default:unclassified"])] + [
+                item for item in ranked if item[0] != "idea-to-experiment"
+            ]
+        return ranked
 
     def profile(self) -> str:
         raw = os.environ.get("NEUROFLOW_HOOK_PROFILE", "standard").strip().lower()
@@ -293,9 +367,7 @@ class WorkflowHookRuntime:
 
     def _sanitize_summary(self, summary: str) -> str:
         clean = summary.strip().replace("\n", " ")
-        for pattern in PRIVATE_PATH_PATTERNS:
-            clean = pattern.sub("[private-path]", clean)
-        return clean[:500]
+        return sanitize_remote_text(clean, max_chars=500)
 
 
 def result_to_json(result: HookResult) -> str:

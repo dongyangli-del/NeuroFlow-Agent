@@ -12,18 +12,39 @@
       ],
       "assertions": [
         {
-          "text": "Output leads with blocking issues."
+          "text": "Output leads with blocking issues.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output separates reviewer personas from author action plan."
+          "text": "Output separates reviewer personas from author action plan.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output flags offline versus online closed-loop validity."
+          "text": "Output flags offline versus online closed-loop validity.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output avoids claiming missing experiments succeeded."
+          "text": "Output avoids claiming missing experiments succeeded.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         }
-      ]
+      ],
+      "partition": "regression",
+      "tags": [
+        "reviewer-simulator"
+      ],
+      "repeats": 3
     },
     {
       "id": 2,
@@ -36,18 +57,39 @@
       ],
       "assertions": [
         {
-          "text": "Output identifies the missing cross-subject evidence as more than a wording-only problem."
+          "text": "Output identifies the missing cross-subject evidence as more than a wording-only problem.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output includes root cause, defect type, fixability, reviewer consequence, and best repair."
+          "text": "Output includes root cause, defect type, fixability, reviewer consequence, and best repair.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output distinguishes claim narrowing from adding a real cross-subject experiment."
+          "text": "Output distinguishes claim narrowing from adding a real cross-subject experiment.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output does not imply the paper has proven robust cross-subject decoding."
+          "text": "Output does not imply the paper has proven robust cross-subject decoding.",
+          "type": "llm_rubric",
+          "dimension": "retention",
+          "critical": false,
+          "weight": 1.0
         }
-      ]
+      ],
+      "partition": "regression",
+      "tags": [
+        "reviewer-simulator"
+      ],
+      "repeats": 3
     },
     {
       "id": 3,
@@ -61,18 +103,39 @@
       ],
       "assertions": [
         {
-          "text": "Output includes an explicit acceptance readiness class."
+          "text": "Output includes an explicit acceptance readiness class.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output treats offline replay evidence as insufficient for an online closed-loop claim."
+          "text": "Output treats offline replay evidence as insufficient for an online closed-loop claim.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output separates the protocol defect from reproducibility and writing fixes."
+          "text": "Output separates the protocol defect from reproducibility and writing fixes.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output recommends narrowing the claim or adding online evidence rather than relying on rebuttal wording."
+          "text": "Output recommends narrowing the claim or adding online evidence rather than relying on rebuttal wording.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         }
-      ]
+      ],
+      "partition": "regression",
+      "tags": [
+        "reviewer-simulator"
+      ],
+      "repeats": 3
     },
     {
       "id": 4,
@@ -85,18 +148,39 @@
       ],
       "assertions": [
         {
-          "text": "Output anchors findings to the abstract, table, caption, and citation mismatch."
+          "text": "Output anchors findings to the abstract, table, caption, and citation mismatch.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output assigns an observability level and separates proven mismatch from unresolved information."
+          "text": "Output assigns an observability level and separates proven mismatch from unresolved information.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output treats online versus offline and cross-session versus within-session mismatch as a substantive integrity risk."
+          "text": "Output treats online versus offline and cross-session versus within-session mismatch as a substantive integrity risk.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output does not use writing style or AI-detector language as verdict evidence."
+          "text": "Output does not use writing style or AI-detector language as verdict evidence.",
+          "type": "llm_rubric",
+          "dimension": "retention",
+          "critical": false,
+          "weight": 1.0
         }
-      ]
+      ],
+      "partition": "regression",
+      "tags": [
+        "reviewer-simulator"
+      ],
+      "repeats": 3
     },
     {
       "id": 5,
@@ -110,18 +194,40 @@
       ],
       "assertions": [
         {
-          "text": "Output states that final readiness cannot be self-approved by the executor model."
+          "text": "Output states that final readiness cannot be self-approved by the executor model.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output distinguishes executor and reviewer roles."
+          "text": "Output distinguishes executor and reviewer roles.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output marks the final gate as required_but_not_run, fail, or pass_with_caveats rather than clean pass."
+          "text": "Output marks the final gate as required_but_not_run, fail, or pass_with_caveats rather than clean pass.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output lists independent checks for citations, metrics, protocol boundaries, and reproduction evidence."
+          "text": "Output lists independent checks for citations, metrics, protocol boundaries, and reproduction evidence.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         }
-      ]
+      ],
+      "partition": "regression",
+      "tags": [
+        "reviewer-simulator"
+      ],
+      "repeats": 3
     }
-  ]
+  ],
+  "schema_version": 2
 }

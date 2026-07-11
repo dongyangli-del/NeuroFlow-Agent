@@ -11,15 +11,33 @@
       ],
       "assertions": [
         {
-          "text": "Output marks unknown dataset facts as needs verification."
+          "text": "Output marks unknown dataset facts as needs verification.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output includes license, split protocol, baseline, metric, and leakage-risk fields."
+          "text": "Output includes license, split protocol, baseline, metric, and leakage-risk fields.",
+          "type": "llm_rubric",
+          "dimension": "safety",
+          "critical": true,
+          "weight": 1.0
         },
         {
-          "text": "Output separates benchmark suitability from unsupported broad claims."
+          "text": "Output separates benchmark suitability from unsupported broad claims.",
+          "type": "llm_rubric",
+          "dimension": "safety",
+          "critical": true,
+          "weight": 1.0
         }
-      ]
+      ],
+      "partition": "regression",
+      "tags": [
+        "eeg-benchmark-hunter"
+      ],
+      "repeats": 3
     }
-  ]
+  ],
+  "schema_version": 2
 }

@@ -1,13 +1,18 @@
-"""Lightweight NeuroFlow runtime registry.
+"""NeuroFlow workflow runtime and semi-automatic evolution control plane."""
 
-The runtime turns the repository's manifest-backed skill library into a small
-executable registry. It intentionally avoids heavyweight service dependencies:
-Codex still performs the reasoning, while this package records the selected
-workflow chain, required reads, evidence gates, artifacts, and trace metadata.
-"""
-
+from .evolution import EvolutionEngine
+from .hooks import WorkflowHookRuntime
+from .promotion import PromotionController
 from .registry import RuntimeRegistry, build_registry
 from .runner import WorkflowRunner
-from .hooks import WorkflowHookRuntime
+from .storage import EvolutionStore
 
-__all__ = ["RuntimeRegistry", "WorkflowHookRuntime", "WorkflowRunner", "build_registry"]
+__all__ = [
+    "EvolutionEngine",
+    "EvolutionStore",
+    "PromotionController",
+    "RuntimeRegistry",
+    "WorkflowHookRuntime",
+    "WorkflowRunner",
+    "build_registry",
+]

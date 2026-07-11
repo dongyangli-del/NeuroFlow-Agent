@@ -1,0 +1,48 @@
+name: continual-learning-designer
+version: 0.3.0
+status: beta
+verification_status: source-traced
+purpose: Design subject, session, and device adaptation protocols with retention, calibration, and online safety boundaries.
+natural_triggers:
+  - "continual learning"
+  - "online adaptation"
+  - "cross-session"
+  - "forgetting"
+  - "持续学习"
+anchors:
+  verbs:
+    - adapt
+    - retain
+    - calibrate
+  objects:
+    - stream protocol
+    - adaptation policy
+    - forgetting evaluation
+  constraints:
+    - temporal order must be explicit
+    - online and offline claims must be separated
+    - leakage through adaptation is forbidden
+outputs:
+  primary: continual adaptation plan with stream, memory, update, retention, calibration, and safety protocol
+always_load:
+  - references/continual-bci-design.md
+  - references/evaluation-protocol.md
+  - ../_shared/core/bci-validity.md
+  - ../_shared/core/evidence-gates.md
+routing_boundary:
+  do_not_use_when:
+    - The task concerns a static benchmark without adaptation or temporal deployment.
+  prefer_over:
+    - skill: experiment-copilot
+      when: The primary question is how learning changes over subjects, sessions, devices, or time.
+  defer_to:
+    - skill: neuro-orchestrator
+      when: The request spans literature, experiments, review, and memory.
+  competes_with:
+    - experiment-copilot
+pipeline_edges:
+  - upstream_skill: continual-learning-designer
+    downstream_skill: experiment-copilot
+    dependency_type: tight
+    weight: 1.0
+    notes: The stream and update protocol constrain the experiment matrix.

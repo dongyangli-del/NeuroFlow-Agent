@@ -11,15 +11,33 @@
       ],
       "assertions": [
         {
-          "text": "Output includes no-adaptation and simple adaptation baselines."
+          "text": "Output includes no-adaptation and simple adaptation baselines.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output includes forgetting, transfer, and calibration metrics."
+          "text": "Output includes forgetting, transfer, and calibration metrics.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output separates offline replay from online BCI claims."
+          "text": "Output separates offline replay from online BCI claims.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         }
-      ]
+      ],
+      "partition": "regression",
+      "tags": [
+        "continual-learning-designer"
+      ],
+      "repeats": 3
     }
-  ]
+  ],
+  "schema_version": 2
 }

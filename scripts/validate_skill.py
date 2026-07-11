@@ -24,6 +24,10 @@ REQUIRED_FILES = [
     ROOT / "CONTRIBUTING.md",
     ROOT / "LICENSE",
     ROOT / "SECURITY.md",
+    ROOT / "pyproject.toml",
+    ROOT / "alembic.ini",
+    ROOT / "migrations" / "versions" / "0001_evolution_control_plane.py",
+    ROOT / "evals" / "protected.json",
     ROOT / "docs" / "DEMO_GALLERY.md",
     ROOT / "docs" / "INSTALL.md",
     ROOT / "docs" / "KNOWLEDGE_GRAPH.md",
@@ -84,6 +88,48 @@ def validate_json() -> None:
     for evals_json in sorted(eval_files):
         with open(evals_json, encoding="utf-8") as f:
             json.load(f)
+
+
+def validate_eval_schema() -> None:
+    migration = ROOT / "scripts" / "migrate_evals.py"
+    subprocess.run([sys.executable, str(migration), "--check"], cwd=ROOT, check=True, stdout=subprocess.DEVNULL)
+    scripts_root = ROOT / "scripts"
+    if str(scripts_root) not in sys.path:
+        sys.path.insert(0, str(scripts_root))
+    from neuroflow_runtime.evals import load_eval_cases
+    from neuroflow_runtime.models import EvalPartition
+
+    cases = load_eval_cases(ROOT)
+    identifiers = [case.id for case in cases]
+    if len(identifiers) != len(set(identifiers)):
+        fail("Executable eval ids must be unique across the repository")
+    if not cases or not all(case.assertions for case in cases):
+        fail("Every executable eval case must contain at least one assertion")
+    if not any(case.partition == EvalPartition.PROTECTED for case in cases):
+        fail("Executable eval library is missing a protected partition")
+
+
+def validate_evolution_control_plane() -> None:
+    scripts_root = ROOT / "scripts"
+    if str(scripts_root) not in sys.path:
+        sys.path.insert(0, str(scripts_root))
+    from alembic import command
+    from alembic.config import Config
+    from sqlalchemy import inspect
+    from neuroflow_runtime.storage import EvolutionStore
+
+    with tempfile.TemporaryDirectory() as tmpdir:
+        database = Path(tmpdir) / "evolution.db"
+        database_url = f"sqlite:///{database}"
+        config = Config(str(ROOT / "alembic.ini"))
+        config.set_main_option("script_location", str(ROOT / "migrations"))
+        config.set_main_option("sqlalchemy.url", database_url)
+        command.upgrade(config, "head")
+        store = EvolutionStore(ROOT, database_url)
+        tables = set(inspect(store.engine).get_table_names())
+        required = {"feedback_events", "evolution_candidates", "eval_runs", "promotion_decisions"}
+        if not required.issubset(tables):
+            fail(f"Evolution migration is missing tables: {sorted(required - tables)}")
 
 
 def validate_manifests() -> None:
@@ -361,12 +407,14 @@ def main() -> None:
     validate_skill_structure()
     validate_skill_frontmatter()
     validate_json()
+    validate_eval_schema()
     validate_manifests()
     validate_local_links()
     validate_no_large_files()
     validate_public_leakage()
     validate_high_precision_maps()
     validate_runtime_registry()
+    validate_evolution_control_plane()
     validate_runtime_kb()
     validate_installer()
     validate_runtime_hooks()

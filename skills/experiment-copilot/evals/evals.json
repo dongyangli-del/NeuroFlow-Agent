@@ -11,18 +11,39 @@
       ],
       "assertions": [
         {
-          "text": "Output separates must-run, should-run, and nice-to-have experiments."
+          "text": "Output separates must-run, should-run, and nice-to-have experiments.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output includes leakage checks and baseline parity."
+          "text": "Output includes leakage checks and baseline parity.",
+          "type": "llm_rubric",
+          "dimension": "safety",
+          "critical": true,
+          "weight": 1.0
         },
         {
-          "text": "Output includes negative controls and stop rules."
+          "text": "Output includes negative controls and stop rules.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output includes metric definitions or statistical plan."
+          "text": "Output includes metric definitions or statistical plan.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         }
-      ]
+      ],
+      "partition": "regression",
+      "tags": [
+        "experiment-copilot"
+      ],
+      "repeats": 3
     },
     {
       "id": 2,
@@ -35,18 +56,40 @@
       ],
       "assertions": [
         {
-          "text": "Output separates executor matrix design from reviewer checks."
+          "text": "Output separates executor matrix design from reviewer checks.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output marks cross-model review as required before paper-facing interpretation."
+          "text": "Output marks cross-model review as required before paper-facing interpretation.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output includes leakage, split protocol, baseline parity, metrics, statistics, and claim scope as independent checks."
+          "text": "Output includes leakage, split protocol, baseline parity, metrics, statistics, and claim scope as independent checks.",
+          "type": "llm_rubric",
+          "dimension": "safety",
+          "critical": true,
+          "weight": 1.0
         },
         {
-          "text": "Output does not let the executor self-approve robustness claims."
+          "text": "Output does not let the executor self-approve robustness claims.",
+          "type": "llm_rubric",
+          "dimension": "retention",
+          "critical": false,
+          "weight": 1.0
         }
-      ]
+      ],
+      "partition": "regression",
+      "tags": [
+        "experiment-copilot"
+      ],
+      "repeats": 3
     }
-  ]
+  ],
+  "schema_version": 2
 }

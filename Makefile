@@ -1,9 +1,24 @@
 PYTHON ?= python3
 
-.PHONY: validate index runtime-list runtime-smoke hook-smoke kb-search skill-competition skill-competition-report skill-simulate install-check
+.PHONY: validate lint test eval evolution-smoke evolution-report index runtime-list runtime-smoke hook-smoke kb-search skill-competition skill-competition-report skill-simulate install-check
 
 validate:
 	$(PYTHON) scripts/validate_skill.py
+
+lint:
+	$(PYTHON) -m ruff check scripts/neuroflow_runtime scripts/migrate_evals.py migrations tests
+
+test:
+	$(PYTHON) -m pytest --cov=neuroflow_runtime --cov-report=term --cov-fail-under=80
+
+eval:
+	$(PYTHON) scripts/neuroflow_runtime/cli.py eval run --partition protected --executor-provider mock --reviewer-provider mock
+
+evolution-smoke:
+	$(PYTHON) -m pytest tests/test_evolution.py tests/test_promotion.py
+
+evolution-report:
+	$(PYTHON) scripts/neuroflow_runtime/cli.py report evolution
 
 index:
 	cd skills/ai-bci-research && $(PYTHON) scripts/update_knowledge_index.py --root .

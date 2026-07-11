@@ -11,15 +11,33 @@
       ],
       "assertions": [
         {
-          "text": "Each idea includes hypothesis, required data, strongest baseline, primary metric, key risk, and fastest validation experiment."
+          "text": "Each idea includes hypothesis, required data, strongest baseline, primary metric, key risk, and fastest validation experiment.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output does not claim novelty or cite papers without routing to literature grounding."
+          "text": "Output does not claim novelty or cite papers without routing to literature grounding.",
+          "type": "llm_rubric",
+          "dimension": "generalization",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output includes leakage, subject/session, or modality-alignment risks where relevant."
+          "text": "Output includes leakage, subject/session, or modality-alignment risks where relevant.",
+          "type": "llm_rubric",
+          "dimension": "safety",
+          "critical": true,
+          "weight": 1.0
         }
-      ]
+      ],
+      "partition": "regression",
+      "tags": [
+        "neuro-idea-finder"
+      ],
+      "repeats": 3
     }
-  ]
+  ],
+  "schema_version": 2
 }

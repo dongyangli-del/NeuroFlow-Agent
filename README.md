@@ -266,17 +266,18 @@ Common writing and review requests can stay natural; the orchestrator routes the
 
 If Codex gives a generic answer, see [Troubleshooting](docs/TROUBLESHOOTING.md). For concrete before/after workflows, see the [Demo Gallery](docs/DEMO_GALLERY.md). AI agents should follow [AGENTS.md](AGENTS.md) first; [AGENT_GUIDE.md](AGENT_GUIDE.md) provides the longer explanation.
 
-For traceable workflow scaffolds, use the lightweight runtime registry:
+For traceable workflows and the semi-automatic evolution control plane, install the runtime and use the CLI:
 
 ```bash
+python3 -m pip install -e '.[dev]'
 python3 scripts/neuroflow_runtime/cli.py list --kind chains
-python3 scripts/neuroflow_runtime/cli.py run --chain paper-to-repro --task "reproduce this paper baseline"
+python3 scripts/neuroflow_runtime/cli.py run --chain paper-to-repro --task "reproduce this paper baseline" --dry-run
 python3 scripts/neuroflow_runtime/cli.py kb search "cross-subject EEG"
 ```
 
-Runtime runs write private traces and artifact scaffolds under `.private/runs/` by default. They record the selected chain, modules, required reads, evidence gates, and stop condition; the agent still has to fill the artifact with inspected evidence.
+Runtime runs write private traces and artifacts under `.private/runs/` by default. Trace schema v2 records route candidates, skill versions, stage outcomes, artifact hashes, evidence-gate results, cost, failure tags, and final outcomes. Use `--execute` with a configured OpenAI-compatible, Anthropic, or Ollama provider to execute stages; without it the runtime creates a reviewable scaffold.
 
-This runtime layer makes the workflow explicit even when a chat session would otherwise drift into ad hoc reasoning. It gives every deep task a named chain, a private `trace.json`, and a fillable artifact such as `REPRO_CONTRACT.md`, `BENCHMARK_AUDIT.md`, or `PAPER_NARRATIVE.md`.
+Completed traces can enter a measured evolution loop: feedback ingestion, failure clustering, candidate patch generation, exact-parent evaluation, independent review, risk-gated promotion, and rollback. Non-low-risk patches require human approval before shadow execution and again before promotion; only non-executable low-risk evals and source-traced references are eligible for explicit `semi-auto` promotion. See [Semi-Automatic Evolution](docs/EVOLUTION.md).
 
 The runtime also includes explicit workflow hooks inspired by event-driven agent harnesses such as ECC:
 
@@ -486,7 +487,13 @@ Run local validation before committing changes:
 make validate
 ```
 
-The validator checks required files, `SKILL.md` frontmatter, eval JSON syntax, local Markdown links, and accidental large files.
+The validator checks required files, `SKILL.md` frontmatter, executable eval schema, Alembic migrations, local Markdown links, and accidental large files. Run the complete local suite with:
+
+```bash
+make validate
+make test
+make eval
+```
 
 When reference files change, rebuild the compact index:
 
@@ -495,7 +502,7 @@ make index
 make validate
 ```
 
-The GitHub Actions validation workflow lives at [.github/workflows/validate.yml](.github/workflows/validate.yml) and runs `make validate` on push and pull requests.
+The GitHub Actions validation workflow lives at [.github/workflows/validate.yml](.github/workflows/validate.yml) and runs structural validation, tests, and the protected eval partition on push and pull requests.
 
 ## Demo Cases
 

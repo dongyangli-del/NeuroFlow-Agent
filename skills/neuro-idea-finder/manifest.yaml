@@ -1,0 +1,47 @@
+name: neuro-idea-finder
+version: 0.3.0
+status: stable
+verification_status: user-validated
+purpose: Produce falsifiable AI x BCI idea cards with a strongest baseline, cheap kill test, and evidence gaps.
+natural_triggers:
+  - "research idea"
+  - "hypothesis"
+  - "fast validation"
+  - "研究 idea"
+anchors:
+  verbs:
+    - hypothesize
+    - falsify
+    - rank
+  objects:
+    - idea card
+    - hypothesis
+    - kill test
+  constraints:
+    - AI x BCI or NeuroAI scope
+    - falsifiable claim required
+    - strongest baseline required
+outputs:
+  primary: ranked idea cards with hypothesis, data, baseline, risk, and fastest validation
+always_load:
+  - references/idea-template.md
+  - references/modality-opportunity-map.md
+  - ../_shared/core/research-planning-protocol.md
+  - ../_shared/core/output-contracts.md
+routing_boundary:
+  do_not_use_when:
+    - The task is to ground an existing claim, reproduce a repository, or write a finished paper section.
+  prefer_over:
+    - skill: experiment-copilot
+      when: The user needs a hypothesis before an experiment matrix exists.
+  defer_to:
+    - skill: neuro-orchestrator
+      when: The request spans multiple research stages.
+  competes_with:
+    - experiment-copilot
+pipeline_edges:
+  - upstream_skill: neuro-idea-finder
+    downstream_skill: paper-rag-plus
+    dependency_type: tight
+    weight: 1.0
+    notes: Idea novelty must be checked before experiment commitment.

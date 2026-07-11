@@ -13,21 +13,46 @@
       ],
       "assertions": [
         {
-          "text": "Output treats neuro-orchestrator as the single default entry point."
+          "text": "Output treats neuro-orchestrator as the single default entry point.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output includes required first reads and expected artifact."
+          "text": "Output includes required first reads and expected artifact.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output routes literature, experiment, reviewer, and memory work to optional specialist modules."
+          "text": "Output routes literature, experiment, reviewer, and memory work to optional specialist modules.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output applies idea commitment and paper logic supervision gates before committing to claims."
+          "text": "Output applies idea commitment and paper logic supervision gates before committing to claims.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output includes a memory candidate decision."
+          "text": "Output includes a memory candidate decision.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         }
-      ]
+      ],
+      "partition": "regression",
+      "tags": [
+        "neuro-orchestrator"
+      ],
+      "repeats": 3
     },
     {
       "id": 2,
@@ -41,18 +66,39 @@
       ],
       "assertions": [
         {
-          "text": "Output classifies task depth as deep or persistent."
+          "text": "Output classifies task depth as deep or persistent.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output names neuro-idea-finder, paper-rag-plus, eeg-benchmark-hunter, experiment-copilot, reviewer-simulator, oral-writer, and neuro-memory as optional modules when appropriate."
+          "text": "Output names neuro-idea-finder, paper-rag-plus, eeg-benchmark-hunter, experiment-copilot, reviewer-simulator, oral-writer, and neuro-memory as optional modules when appropriate.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output includes evidence gates before novelty, benchmark, experiment, and oral-writing claims."
+          "text": "Output includes evidence gates before novelty, benchmark, experiment, and oral-writing claims.",
+          "type": "llm_rubric",
+          "dimension": "generalization",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output includes supervision gates for idea commitment, benchmark substance, figure narrative, and pre-submission review."
+          "text": "Output includes supervision gates for idea commitment, benchmark substance, figure narrative, and pre-submission review.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         }
-      ]
+      ],
+      "partition": "regression",
+      "tags": [
+        "neuro-orchestrator"
+      ],
+      "repeats": 3
     },
     {
       "id": 3,
@@ -66,18 +112,39 @@
       ],
       "assertions": [
         {
-          "text": "Output separates paper verification, reproduction contract, benchmark access, and experiment matrix responsibilities."
+          "text": "Output separates paper verification, reproduction contract, benchmark access, and experiment matrix responsibilities.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output does not treat missing data as available."
+          "text": "Output does not treat missing data as available.",
+          "type": "llm_rubric",
+          "dimension": "retention",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output includes expected artifact and stop condition."
+          "text": "Output includes expected artifact and stop condition.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output applies benchmark substance or pre-submission severity gates before recommending paper-facing claims."
+          "text": "Output applies benchmark substance or pre-submission severity gates before recommending paper-facing claims.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         }
-      ]
+      ],
+      "partition": "regression",
+      "tags": [
+        "neuro-orchestrator"
+      ],
+      "repeats": 3
     },
     {
       "id": 4,
@@ -90,18 +157,39 @@
       ],
       "assertions": [
         {
-          "text": "Output does not wait for the user to say workflow, plan, routing, or skill."
+          "text": "Output does not wait for the user to say workflow, plan, routing, or skill.",
+          "type": "llm_rubric",
+          "dimension": "retention",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output starts from neuro-orchestrator or clearly applies its internal preflight."
+          "text": "Output starts from neuro-orchestrator or clearly applies its internal preflight.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output keeps the preflight concise instead of forcing the full template for a next-check request."
+          "text": "Output keeps the preflight concise instead of forcing the full template for a next-check request.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output checks split, metric, baseline parity, leakage, normalization, checkpoint choice, and evaluator consistency before proposing model changes."
+          "text": "Output checks split, metric, baseline parity, leakage, normalization, checkpoint choice, and evaluator consistency before proposing model changes.",
+          "type": "llm_rubric",
+          "dimension": "safety",
+          "critical": true,
+          "weight": 1.0
         }
-      ]
+      ],
+      "partition": "regression",
+      "tags": [
+        "neuro-orchestrator"
+      ],
+      "repeats": 3
     },
     {
       "id": 5,
@@ -114,18 +202,39 @@
       ],
       "assertions": [
         {
-          "text": "Output routes through experiment-to-paper or an equivalent neuro-orchestrator preflight."
+          "text": "Output routes through experiment-to-paper or an equivalent neuro-orchestrator preflight.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output checks evidence, ablations, statistics, and reviewer risk before writing a strong claim."
+          "text": "Output checks evidence, ablations, statistics, and reviewer risk before writing a strong claim.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output scopes claim language instead of inventing unsupported significance or generality."
+          "text": "Output scopes claim language instead of inventing unsupported significance or generality.",
+          "type": "llm_rubric",
+          "dimension": "safety",
+          "critical": true,
+          "weight": 1.0
         },
         {
-          "text": "Output keeps the full preflight internal unless a multi-stage plan is needed."
+          "text": "Output keeps the full preflight internal unless a multi-stage plan is needed.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         }
-      ]
+      ],
+      "partition": "regression",
+      "tags": [
+        "neuro-orchestrator"
+      ],
+      "repeats": 3
     },
     {
       "id": 6,
@@ -137,18 +246,40 @@
       ],
       "assertions": [
         {
-          "text": "Output treats the user-named branch main as the target rather than pushing to the current temporary branch."
+          "text": "Output treats the user-named branch main as the target rather than pushing to the current temporary branch.",
+          "type": "llm_rubric",
+          "dimension": "safety",
+          "critical": true,
+          "weight": 1.0
         },
         {
-          "text": "Output fetches or otherwise checks fresh remote state before pushing."
+          "text": "Output fetches or otherwise checks fresh remote state before pushing.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         },
         {
-          "text": "Output verifies ancestry or reachability before deleting the temporary branch."
+          "text": "Output verifies ancestry or reachability before deleting the temporary branch.",
+          "type": "llm_rubric",
+          "dimension": "safety",
+          "critical": true,
+          "weight": 1.0
         },
         {
-          "text": "Output confirms local main and origin/main point to the intended latest commit before saying the repository is synced."
+          "text": "Output confirms local main and origin/main point to the intended latest commit before saying the repository is synced.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
         }
-      ]
+      ],
+      "partition": "regression",
+      "tags": [
+        "neuro-orchestrator"
+      ],
+      "repeats": 3
     }
-  ]
+  ],
+  "schema_version": 2
 }

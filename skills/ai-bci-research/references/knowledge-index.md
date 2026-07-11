@@ -121,6 +121,13 @@
 - ## Submission Readiness Checklist
 - ## Rebuttal Workflow
 
+## references/workflows/evolution-loop.md
+- # Verified Evolution Loop
+- ## Trigger
+- ## Check Order
+- ## Acceptance Criteria
+- ## Failure Modes
+
 ## references/workflows/skill-factory.md
 - # Skill Factory Workflow
 - ## Trigger

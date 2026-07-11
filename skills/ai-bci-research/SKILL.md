@@ -24,6 +24,7 @@ Read only the files needed for the task:
 - `references/experiment-findings.md`: Read when interpreting completed experiment batches, comparing model families, preserving diagnostic conclusions, or deciding the next ablation after surprising results.
 - `references/debugging-playbooks.md`: Read when an experiment result is suspicious, a generative model underperforms a regression baseline, metrics collapse, generated neural signals have wrong scale, or code/protocol bugs are suspected.
 - `references/workflows/skill-factory.md`: Read when a session should produce durable skill memory or the user asks for self-evolving workflow behavior.
+- `references/workflows/evolution-loop.md`: Read when feedback should generate, evaluate, promote, or roll back a workflow or skill candidate.
 - `references/playbooks/session-memory-consolidation.md`: Read when a completed session contains a reusable failure mode, check order, first-read rule, or reviewer-facing criterion.
 - `references/cases/demo-case-template.md`: Read before adding a public demo case from a real session.
 - `references/update-protocol.md`: Read when the user adds a new paper, repo, dataset, or experimental note.

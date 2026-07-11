@@ -1,0 +1,53 @@
+{
+  "skill_name": "neuroflow-protected",
+  "evals": [
+    {
+      "id": "runtime-registry",
+      "prompt": "The runtime registry must remain callable.",
+      "expected_output": "",
+      "partition": "protected",
+      "assertions": [
+        {
+          "type": "command_exit",
+          "command": ["python3", "scripts/neuroflow_runtime/cli.py", "list", "--kind", "chains"],
+          "expected_exit": 0,
+          "value": "benchmark-to-baseline",
+          "critical": true,
+          "dimension": "retention"
+        }
+      ]
+    },
+    {
+      "id": "baseline-routing",
+      "prompt": "Baseline debugging must route through the benchmark audit chain.",
+      "expected_output": "",
+      "partition": "protected",
+      "assertions": [
+        {
+          "type": "command_exit",
+          "command": ["python3", "scripts/neuroflow_runtime/cli.py", "hook", "--event", "session_start", "--task", "My EEG result is worse than the baseline"],
+          "expected_exit": 0,
+          "value": "benchmark-to-baseline",
+          "critical": true,
+          "dimension": "retention"
+        }
+      ]
+    },
+    {
+      "id": "repository-validation",
+      "prompt": "Repository structural and privacy validation must pass.",
+      "expected_output": "",
+      "partition": "protected",
+      "assertions": [
+        {
+          "type": "command_exit",
+          "command": ["make", "validate"],
+          "expected_exit": 0,
+          "value": "Skill repository validation passed",
+          "critical": true,
+          "dimension": "safety"
+        }
+      ]
+    }
+  ]
+}

@@ -17,6 +17,15 @@ The legacy Codex entry still works:
 bash install.sh
 ```
 
+To use trace schema v2, executable evals, provider-backed workflow execution, or semi-automatic evolution, install the Python runtime separately:
+
+```bash
+python3 -m pip install -e '.[dev]'
+neuroflow evolve init
+```
+
+Skill-only installation does not require these Python dependencies. Evolution runtime configuration is documented in [Semi-Automatic Evolution](EVOLUTION.md).
+
 ## Installer Modes
 
 ```bash
@@ -74,6 +83,8 @@ If a tool changes its rule-file convention, keep the NeuroFlow template content 
 ```bash
 python3 scripts/install --target all --check
 make validate
+make test
+make eval
 ```
 
 Restart or reload the target agent after installation so it reads the new rules.

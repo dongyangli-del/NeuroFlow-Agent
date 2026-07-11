@@ -1,0 +1,46 @@
+name: ai-bci-research
+version: 0.3.0
+status: stable
+verification_status: user-validated
+purpose: Supply shared AI x BCI validity, signal, leakage, safety, and public-memory guardrails without competing as a workflow router.
+natural_triggers:
+  - "BCI validity"
+  - "signal leakage"
+  - "closed loop"
+  - "brain decoding"
+anchors:
+  verbs:
+    - constrain
+    - validate
+    - scope
+  objects:
+    - BCI protocol
+    - neural signal claim
+    - domain guardrail
+  constraints:
+    - not a default router
+    - domain validity only
+    - public memory must exclude private research details
+outputs:
+  primary: domain guardrails and evidence boundaries injected into another workflow artifact
+always_load:
+  - references/research-profile.md
+  - ../_shared/core/bci-validity.md
+  - ../_shared/core/evidence-gates.md
+routing_boundary:
+  do_not_use_when:
+    - A multi-stage task still needs routing by neuro-orchestrator.
+  prefer_over:
+    - skill: any specialist
+      when: The missing check is specifically BCI validity, leakage, signal interpretation, or closed-loop safety.
+  defer_to:
+    - skill: neuro-orchestrator
+      when: The user requests a plan, workflow, paper, benchmark, reproduction, or memory consolidation.
+  competes_with:
+    - neuro-orchestrator
+pipeline_edges:
+  - upstream_skill: ai-bci-research
+    downstream_skill: reviewer-simulator
+    dependency_type: loose
+    weight: 0.45
+    notes: Domain guardrails inform but do not replace independent reviewer assessment.

@@ -70,23 +70,35 @@ See [SKILL_LIBRARY_SPEC.md](SKILL_LIBRARY_SPEC.md) for the gap analysis, promoti
 | paper-to-rebuttal | `paper-rag-plus` -> `reviewer-simulator` -> `oral-writer` |
 | session-to-memory | `neuro-memory` with `ai-bci-research` guardrails |
 
-## Runtime Registry
+## Runtime and Evolution Registry
 
-NeuroFlow includes a lightweight runtime registry inspired by workflow-platform patterns such as named workflow registration and trace export. It does not replace Codex or the skill instructions. It makes the selected workflow explicit and creates a private run scaffold that future agents can inspect.
+NeuroFlow includes a local-first runtime and semi-automatic evolution control plane. It does not replace Codex or the skill instructions. It makes stage ownership explicit, records versioned outcomes, and turns verified failures into reviewable candidates.
 
 ```bash
 python3 scripts/neuroflow_runtime/cli.py list --kind all
 python3 scripts/neuroflow_runtime/cli.py run \
   --chain paper-to-repro \
-  --task "reproduce this paper baseline"
+  --task "reproduce this paper baseline" \
+  --dry-run
 ```
 
 The runtime writes private outputs under `.private/runs/` by default:
 
-- `trace.json`: chain name, task, steps, modules, required reads, evidence gates, and stop condition.
-- `artifacts/<ARTIFACT>.md`: a fillable scaffold such as `REPRO_CONTRACT.md`, `BENCHMARK_AUDIT.md`, or `PAPER_NARRATIVE.md`.
+- `trace.json`: trace schema v2 with routes, versions, stages, evidence-gate results, cost, failures, and outcome.
+- `artifacts/<ARTIFACT>.md`: a scaffold or provider-executed artifact such as `REPRO_CONTRACT.md`, `BENCHMARK_AUDIT.md`, or `PAPER_NARRATIVE.md`.
 
 Runtime traces are execution scaffolds, not scientific conclusions. A run becomes trustworthy only after the agent fills the artifact with inspected evidence and applies the relevant evidence gates.
+
+## Verified Evolution Loop
+
+1. Ingest user correction, gate failure, tool failure, reviewer objection, or eval regression as structured feedback.
+2. Cluster failures and propose the smallest patch plus an incident eval.
+3. For medium/high/critical diffs, require human approval before shadow execution; then replay the unchanged parent and candidate from the same recorded Git revision against regression, protected, and hidden-holdout partitions.
+4. Reject safety failures, retention regressions, insufficient improvement, or excessive cost.
+5. Auto-promote only low-risk source-traced additions in explicit `semi-auto` mode; require human approval for skills, routing, pipelines, and code.
+6. Run a canary validation after applying the patch and retain a reverse-applicable rollback target.
+
+See [Semi-Automatic Evolution](EVOLUTION.md) for provider configuration, CLI commands, risk rules, and operational invariants.
 
 ## Persistent Memory Loop
 

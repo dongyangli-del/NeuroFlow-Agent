@@ -276,17 +276,18 @@ python3 ~/.codex/skills/.system/skill-installer/scripts/install-skill-from-githu
 | “表格数字和 caption 一致吗？” | `oral-writer` numeric self-consistency | 保留数值、margin、指标方向、可比行、缺失不确定性和安全表述。 |
 | “这个 repo 到底复现到了什么程度？” | `paper-to-repro` -> `repro-pack` observability audit | L0/L1/L2/L3 等级、已观察 artifact、未观察表面、blocker 和升级路径。 |
 
-如果需要生成可追踪的 workflow scaffold，可以使用轻量 runtime registry：
+如果需要生成可追踪 workflow 或运行半自动自进化控制面，先安装 runtime 依赖：
 
 ```bash
+python3 -m pip install -e '.[dev]'
 python3 scripts/neuroflow_runtime/cli.py list --kind chains
-python3 scripts/neuroflow_runtime/cli.py run --chain paper-to-repro --task "reproduce this paper baseline"
+python3 scripts/neuroflow_runtime/cli.py run --chain paper-to-repro --task "reproduce this paper baseline" --dry-run
 python3 scripts/neuroflow_runtime/cli.py kb search "cross-subject EEG"
 ```
 
-runtime 默认把私有 trace 和 artifact scaffold 写到 `.private/runs/`，记录选中的 chain、模块、必读文件、证据门和停止条件。它只是执行骨架，具体科研判断仍需要 agent 用真实证据填充。
+runtime 默认把私有 trace 和 artifact 写到 `.private/runs/`。trace schema v2 记录候选路由、skill 版本、stage outcome、artifact hash、证据门结果、成本、failure tag 和最终 outcome。配置 OpenAI-compatible、Anthropic 或 Ollama provider 后可用 `--execute` 执行各 stage；不指定时仍生成可审计 scaffold。
 
-这个 runtime 层的价值是让深度任务即使在普通对话中也有显式 chain、私有 `trace.json` 和可填写的 artifact，例如 `REPRO_CONTRACT.md`、`BENCHMARK_AUDIT.md` 或 `PAPER_NARRATIVE.md`，减少 agent 忘记 workflow 或跳过证据门的概率。
+完成的 trace 可以进入可测量自进化闭环：反馈摄取、失败聚类、候选 patch、同一 parent revision 对比、独立 reviewer、风险分级晋级和回滚。非低风险 patch 在 shadow 执行前和最终晋级前都需要人工审批；只有不可执行的低风险 eval 与 source-traced reference 才能在显式 `semi-auto` 模式自动晋级。完整说明见 [Semi-Automatic Evolution](docs/EVOLUTION.md)。
 
 runtime 还提供受 ECC 这类事件驱动 agent harness 启发的显式 workflow hooks：
 

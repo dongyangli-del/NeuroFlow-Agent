@@ -14,8 +14,14 @@ For any non-trivial AI x BCI, NeuroAI, EEG decoding, neural reconstruction, benc
 6. Use specialist skills only as optional modules selected by `neuro-orchestrator`.
 7. For simple implementation, shell, or documentation tasks, keep the NeuroFlow preflight internal and concise.
 8. For commit, push, branch deletion, or remote synchronization tasks, apply the git publish safety gate: confirm the target branch, fetch remote state, verify ancestry, and do not leave temporary branches unless the user asked for them.
+9. For workflow or skill evolution, record structured feedback, generate the smallest candidate patch plus an incident eval, compare it with the parent on protected and held-out cases, and retain a rollback path.
+10. Never let a candidate modify protected evals, inspect hidden holdout prompts, self-approve public memory, or automatically promote skill, routing, pipeline, or code changes.
 
 `ai-bci-research` provides shared domain guardrails and public memory. It is not the default workflow router.
+
+## Evolution Runtime
+
+The semi-automatic control plane is documented in `docs/EVOLUTION.md`. Its default mode is `shadow`. Low-risk automatic promotion requires an explicit `NEUROFLOW_EVOLUTION_MODE=semi-auto`; all high-risk changes require human approval. Promotion never commits or pushes.
 
 ## Preflight Behavior
 
