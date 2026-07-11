@@ -9,10 +9,10 @@
   </p>
 
   <p>
-    <img alt="自进化" src="https://img.shields.io/badge/system-self--evolving-0f766e">
-    <img alt="工作流中心" src="https://img.shields.io/badge/design-workflow--centric-2563eb">
-    <img alt="唯一入口" src="https://img.shields.io/badge/entry-neuro--orchestrator-7c3aed">
-    <img alt="任务深度" src="https://img.shields.io/badge/tasks-shallow%20to%20deep-16a34a">
+    <a href="docs/EVOLUTION.md"><img alt="自进化" src="https://img.shields.io/badge/system-self--evolving-0f766e"></a>
+    <a href="docs/WORKFLOWS.md#agent-workflow-thesis"><img alt="工作流中心" src="https://img.shields.io/badge/design-workflow--centric-2563eb"></a>
+    <a href="docs/WORKFLOWS.md#complete-skill-system"><img alt="唯一入口" src="https://img.shields.io/badge/entry-neuro--orchestrator-7c3aed"></a>
+    <a href="docs/WORKFLOWS.md#task-depth-routing"><img alt="任务深度" src="https://img.shields.io/badge/tasks-shallow%20to%20deep-16a34a"></a>
   </p>
 
   <p>

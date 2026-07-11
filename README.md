@@ -9,10 +9,10 @@
   </p>
 
   <p>
-    <img alt="Self-evolving" src="https://img.shields.io/badge/system-self--evolving-0f766e">
-    <img alt="Workflow-centric" src="https://img.shields.io/badge/design-workflow--centric-2563eb">
-    <img alt="Single entry" src="https://img.shields.io/badge/entry-neuro--orchestrator-7c3aed">
-    <img alt="Task depth" src="https://img.shields.io/badge/tasks-shallow%20to%20deep-16a34a">
+    <a href="docs/EVOLUTION.md"><img alt="Self-evolving" src="https://img.shields.io/badge/system-self--evolving-0f766e"></a>
+    <a href="docs/WORKFLOWS.md#agent-workflow-thesis"><img alt="Workflow-centric" src="https://img.shields.io/badge/design-workflow--centric-2563eb"></a>
+    <a href="docs/WORKFLOWS.md#complete-skill-system"><img alt="Single entry" src="https://img.shields.io/badge/entry-neuro--orchestrator-7c3aed"></a>
+    <a href="docs/WORKFLOWS.md#task-depth-routing"><img alt="Task depth" src="https://img.shields.io/badge/tasks-shallow%20to%20deep-16a34a"></a>
   </p>
 
   <p>
