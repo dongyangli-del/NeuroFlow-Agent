@@ -29,6 +29,21 @@ Read only the files needed for the task:
 - `references/cases/demo-case-template.md`: Read before adding a public demo case from a real session.
 - `references/update-protocol.md`: Read when the user adds a new paper, repo, dataset, or experimental note.
 
+### Private Overlay
+
+Only when the user explicitly asks to use personalized project history, read the
+minimum necessary ignored file from the repository-level `.private/references/`
+overlay:
+
+- `research-profile.private.md`: personal mission, research trajectory, and project-specific assumptions.
+- `papers-index.private.md`: personal paper map, unpublished positioning, and project-specific citation context.
+- `repositories.private.md`: private repository map, local project context, and implementation notes.
+- `writing-style.private.md`: personalized writing preferences and paper-specific style memory.
+- `bci-workflows.private.md`: project-specific BCI workflows and protocol memory.
+
+Do not read these files for ordinary public or general-domain requests. Never
+copy their contents into tracked public references, logs, reports, or commits.
+
 ## Operating Rules
 
 - If the user asks for a broad workflow, paper plan, benchmark plan, reproduction plan, experiment matrix, review, writing, or memory consolidation, hand off to `neuro-orchestrator` and provide AI x BCI guardrails as supporting context.
