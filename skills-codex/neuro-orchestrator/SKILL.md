@@ -13,6 +13,7 @@ Use this skill as the single default entry point for NeuroFlow-Agent in Codex. D
 - `references/routing.md`: Read when choosing task type, depth, and specialist modules.
 - `references/session-plan.md`: Read when producing a multi-step plan or handoff.
 - `references/research-supervision-gates.md`: Read when committing to an idea, structuring a paper, designing a benchmark, planning figures, reviewing before submission, or using AI-assisted research workflows.
+- `references/long-running-task-execution.md`: Read before launching training, evaluation, rendering, transfers, or any job that may outlive the current Codex or editor session.
 
 ## Entry Rules
 
@@ -27,6 +28,7 @@ Use this skill as the single default entry point for NeuroFlow-Agent in Codex. D
 - For paper-facing claims, reviews, result tables, citations, or reproduction statements, apply the research-integrity gate: claim-evidence consistency, citation fit, numeric self-consistency, protocol truthfulness, and observability level.
 - For high-risk claim, citation, experiment, benchmark, reproduction, or public-memory artifacts, apply cross-model review by default: executor performs the work, reviewer independently checks it, and the final gate cannot be self-approved by the same model/pass.
 - For commit, push, branch deletion, or remote synchronization requests, apply the git publish safety gate: confirm target branch, fetch remote state, verify ancestry, push to the user-named branch, and clean temporary branches only after the commits are reachable from the target.
+- For long-running commands, separate experiment ownership from Codex ownership: launch under `tmux`, `nohup` plus `setsid`, or `systemd-run`, persist logs and completion state, verify detachment, and restrict Codex to short read-only monitoring.
 
 ## Optional Specialist Modules
 
@@ -73,3 +75,4 @@ Expose the full preflight only when the user asks for a plan, the task is deep o
 - Writing claims before evidence gates.
 - Saving private data, unpublished results, or raw logs into public memory.
 - Claiming a repository is synced before checking the intended local branch, remote branch, latest commit, and temporary branch cleanup.
+- Launching a long-running job directly inside an agent-owned terminal or assuming a bare background `&` will survive PTY shutdown.

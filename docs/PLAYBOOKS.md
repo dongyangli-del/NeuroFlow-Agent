@@ -36,6 +36,11 @@ Read `skills/neuro-orchestrator/references/research-supervision-gates.md` when a
 
 ## Experiment Debugging
 
+Before launching a long-running experiment, render, evaluation, or transfer from
+Codex, read `skills-codex/neuro-orchestrator/references/long-running-task-execution.md`.
+It defines the required detached process ownership, log/PID/completion artifacts,
+monitoring boundary, and truthful checkpoint recovery policy.
+
 Read `references/debugging-playbooks.md` when metrics collapse, generated EEG has the wrong scale, a generative model badly underperforms a deterministic baseline, or run outputs appear in the wrong directory.
 
 Current playbooks include:

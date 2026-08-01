@@ -291,6 +291,58 @@
         "neuro-orchestrator"
       ],
       "repeats": 3
+    },
+    {
+      "id": 8,
+      "prompt": "Start this multi-hour EEG training and evaluation now, keep reporting progress, and make sure it continues if VSCode or Codex disconnects.",
+      "expected_output": "The agent launches the long job under tmux, nohup plus setsid, or systemd-run instead of an agent-owned PTY; persists a log, PID or session identifier, and completion marker; verifies the independent process tree; and limits subsequent Codex work to short read-only monitoring. It does not treat a best-model-only checkpoint as exact resume state.",
+      "files": [
+        "references/long-running-task-execution.md"
+      ],
+      "assertions": [
+        {
+          "text": "Output launches the long job under tmux, nohup plus setsid, or systemd-run rather than keeping it attached to the agent execution session.",
+          "type": "llm_rubric",
+          "dimension": "safety",
+          "critical": true,
+          "weight": 1.0
+        },
+        {
+          "text": "Output persists a log, a PID or tmux session identifier, and a completion or exit-status marker.",
+          "type": "llm_rubric",
+          "dimension": "retention",
+          "critical": true,
+          "weight": 1.0
+        },
+        {
+          "text": "Output verifies that the supervisor and worker process ownership no longer depends on the Codex or IDE PTY.",
+          "type": "llm_rubric",
+          "dimension": "safety",
+          "critical": true,
+          "weight": 1.0
+        },
+        {
+          "text": "Output uses only short read-only monitoring after launch and states that a cancelled monitor must not affect the job.",
+          "type": "llm_rubric",
+          "dimension": "efficiency",
+          "critical": false,
+          "weight": 1.0
+        },
+        {
+          "text": "Output distinguishes an inference-only best checkpoint from an exact resumable checkpoint containing optimizer, scheduler, EMA or scaler when applicable, and RNG progress.",
+          "type": "llm_rubric",
+          "dimension": "adaptivity",
+          "critical": false,
+          "weight": 1.0
+        }
+      ],
+      "partition": "incident",
+      "tags": [
+        "neuro-orchestrator",
+        "long-running-task",
+        "process-lifecycle"
+      ],
+      "repeats": 3
     }
   ],
   "schema_version": 2
