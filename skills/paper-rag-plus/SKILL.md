@@ -9,6 +9,7 @@ Use this skill to ground AI x neuroscience claims in inspected literature. It sh
 
 ## First Reads
 
+- `../_shared/core/proportional-execution.md`: Always read first to keep retrieval, ledgers, review, and output fields proportional to the claim being grounded.
 - `references/paper-entry-template.md`: Read before adding or summarizing papers.
 - `references/claim-grounding.md`: Read when mapping claims to citations or reviewer-facing evidence.
 - `references/claim-ledger.md`: Read when building claim-to-citation maps, novelty support, or integrity-sensitive paper memory.
@@ -28,7 +29,7 @@ Use this skill to ground AI x neuroscience claims in inspected literature. It sh
 - Treat Zotero-derived maps as retrieval memory, not final citation proof.
 - Record source location, verification status, missing information, and deviations from convention for citation-critical facts.
 - Use a claim ledger for paper-facing claims so each claim has source span, evidence tier, support status, weakest link, and safer wording.
-- For citation-critical claims, use cross-model review: one pass builds the ledger, an independent reviewer checks citation fit, source span, unresolved fields, and claim scope before final wording.
+- For citation-critical claims entering a final paper-facing artifact, use one cross-model review at the consequential milestone to check citation fit, source span, unresolved fields, and claim scope.
 - For novelty or related-work answers, distinguish prior work, method innovation, application innovation, missing citations, and safer claim wording.
 
 ## Output Formats

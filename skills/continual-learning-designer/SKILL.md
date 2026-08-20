@@ -9,6 +9,7 @@ Use this skill when the user needs a continual, adaptive, personalized, or onlin
 
 ## First Reads
 
+- `../_shared/core/proportional-execution.md`: Always read first to keep checks, handoffs, and output fields proportional to the requested design.
 - `references/continual-bci-design.md`: Always read for design fields.
 - `references/evaluation-protocol.md`: Read for forgetting, transfer, calibration, and online/offline evaluation.
 - Use `experiment-copilot` to convert the design into experiments.

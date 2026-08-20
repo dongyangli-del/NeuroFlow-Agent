@@ -9,6 +9,7 @@ Use this skill to simulate strict conference review for AI x neuroscience work.
 
 ## First Reads
 
+- `../_shared/core/proportional-execution.md`: Always read first to keep review depth tied to consequential evidence gaps and allow a clean pass.
 - `references/review-rubric.md`: Always read for scoring dimensions.
 - `references/review-diagnosis.md`: Always read for root-cause, fixability, and method-versus-writing diagnosis.
 - `references/integrity-forensics.md`: Read for claim-evidence, citation, numeric, protocol, and reproduction-integrity audits.
@@ -25,9 +26,10 @@ Use this skill to simulate strict conference review for AI x neuroscience work.
 - Diagnose the root cause of each major weakness: experimental design, evidence gap, invalid assumption, analysis gap, reproducibility gap, or writing/framing gap.
 - Classify fixability as quick revision, feasible extra experiment, major new evidence, or structural method risk.
 - Do not invent results or assume missing experiments passed.
-- For high-risk acceptance, integrity, claim, experiment, or reproduction judgments, report executor/reviewer separation and do not mark the final gate passed by self-review alone.
+- For final high-risk acceptance, integrity, claim, experiment, or reproduction judgments, report executor/reviewer separation and do not mark the consequential gate passed by self-review alone.
+- Return a clear pass when no evidence-backed blocker exists; do not manufacture objections or repeat review on an unchanged artifact.
 - Use `peer-review`, `scientific-critical-thinking`, and `venue-templates` for deeper review when relevant.
-- Always include concrete experiments or edits that would reduce risk.
+- When an evidence-backed risk exists, include the smallest concrete experiment or edit that would reduce it.
 
 ## Required Output
 

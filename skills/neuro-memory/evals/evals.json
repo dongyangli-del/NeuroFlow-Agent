@@ -88,6 +88,38 @@
         "neuro-memory"
       ],
       "repeats": 3
+    },
+    {
+      "id": 3,
+      "prompt": "End a session where a local variable typo was fixed and its focused test passed. The fix exposed no reusable workflow, scientific-semantic change, privacy lesson, or recurring failure pattern. Decide what should persist.",
+      "expected_output": "The skill decides that no repository or durable memory update is needed, reports that decision concisely, and does not create a case, eval, versioned artifact, or recovery document for the routine fix.",
+      "files": [
+        "references/memory-routing.md",
+        "../_shared/core/proportional-execution.md"
+      ],
+      "assertions": [
+        {
+          "text": "Output explicitly chooses no repository or durable memory update for the routine successful fix.",
+          "type": "llm_rubric",
+          "dimension": "efficiency",
+          "critical": false,
+          "weight": 1.0
+        },
+        {
+          "text": "Output does not create a case, eval, versioned artifact, recovery document, or other permanent process artifact.",
+          "type": "llm_rubric",
+          "dimension": "efficiency",
+          "critical": false,
+          "weight": 1.0
+        }
+      ],
+      "partition": "incident",
+      "tags": [
+        "neuro-memory",
+        "anti-overdefense",
+        "no-memory"
+      ],
+      "repeats": 3
     }
   ],
   "schema_version": 2

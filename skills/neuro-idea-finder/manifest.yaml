@@ -1,5 +1,5 @@
 name: neuro-idea-finder
-version: 0.3.0
+version: 0.3.1
 status: stable
 verification_status: user-validated
 purpose: Produce falsifiable AI x BCI idea cards with a strongest baseline, cheap kill test, and evidence gaps.
@@ -24,6 +24,7 @@ anchors:
 outputs:
   primary: ranked idea cards with hypothesis, data, baseline, risk, and fastest validation
 always_load:
+  - ../_shared/core/proportional-execution.md
   - references/idea-template.md
   - references/modality-opportunity-map.md
   - ../_shared/core/research-planning-protocol.md

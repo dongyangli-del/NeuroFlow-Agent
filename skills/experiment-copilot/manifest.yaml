@@ -1,5 +1,5 @@
 name: experiment-copilot
-version: 0.2.0
+version: 0.2.1
 status: stable
 verification_status: source-traced
 purpose: Convert claims into executable experiment matrices, ablations, controls, statistics, and stop rules.
@@ -32,6 +32,7 @@ anchors:
 outputs:
   primary: experiment matrix with baselines, ablations, controls, statistics, and stop rules
 always_load:
+  - ../_shared/core/proportional-execution.md
   - references/experiment-matrix.md
   - ../_shared/core/evidence-gates.md
   - ../_shared/core/source-traceability.md

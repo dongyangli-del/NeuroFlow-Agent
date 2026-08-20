@@ -1,5 +1,5 @@
 name: eeg-benchmark-hunter
-version: 0.2.0
+version: 0.2.1
 status: stable
 verification_status: source-traced
 purpose: Find and audit neural, behavioral, and BCI benchmarks for access, license, splits, metrics, baselines, and leakage.
@@ -30,6 +30,7 @@ anchors:
 outputs:
   primary: benchmark card with access, split, metric, baseline, and leakage status
 always_load:
+  - ../_shared/core/proportional-execution.md
   - references/benchmark-card-template.md
   - references/benchmark-risk-checklist.md
   - ../_shared/core/bci-validity.md

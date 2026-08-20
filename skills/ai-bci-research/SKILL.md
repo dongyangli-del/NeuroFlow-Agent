@@ -13,6 +13,7 @@ For any multi-step workflow, route through `neuro-orchestrator` first. This skil
 
 Read only the files needed for the task:
 
+- `../_shared/core/proportional-execution.md`: Always read first to keep checks, handoffs, artifacts, and memory proportional to the requested deliverable.
 - `references/research-profile.md`: Always read first for public mission, scope, and non-negotiable assumptions.
 - `references/papers-index.md`: Read for public paper-positioning templates, citation discipline, baselines, novelty framing, or literature-to-project mapping.
 - `references/repositories.md`: Read for public repo-memory templates, repo-aware edits, dataset setup, or implementation planning.

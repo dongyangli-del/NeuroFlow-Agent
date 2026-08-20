@@ -1,6 +1,6 @@
 # Cross-Model Review Gate
 
-Use this gate for high-risk research tasks where the executor should not self-approve the final scientific judgment.
+Use this gate for final, consequential research decisions where the executor should not self-approve the scientific judgment. Do not turn intermediate drafting or routine debugging into a review loop.
 
 ## Core Rule
 
@@ -10,21 +10,19 @@ Separate execution from adjudication:
 - **Reviewer model**: independently checks the executor output against evidence, protocol, numbers, citations, and missing information.
 - **Final gate**: cannot be marked passed by the same model or same uninterrupted reasoning pass that produced the executor output.
 
-If no independent reviewer model or second-pass reviewer is available, mark `cross_model_review_status: required_but_not_run` and downgrade the final confidence.
+If an independent reviewer is required but unavailable, mark `cross_model_review_status: required_but_not_run` and downgrade the final confidence. Do not automatically substitute repeated self-review.
 
-## Required For
+## Required For Final Decisions
 
-Use cross-model review by default for:
+Use cross-model review at the final claim-bearing or promotion milestone for:
 
-- claim-to-citation mapping;
-- novelty or related-work positioning;
-- citation-critical paper facts;
-- experiment plans that support paper-facing claims;
-- benchmark, split, leakage, baseline, or metric audits;
-- reproduction claims and observability upgrades;
-- numeric result interpretation;
-- reviewer-risk, integrity, or acceptance-readiness decisions;
-- any artifact that could enter a paper, rebuttal, release note, or public knowledge base.
+- claim-to-citation, novelty, or related-work judgments entering a paper or rebuttal;
+- experiment, benchmark, split, leakage, metric, or numeric interpretations supporting a public claim;
+- L2/L3 reproduction claims or release-facing reproducibility statements;
+- acceptance-readiness, research-integrity, public-memory, or workflow-promotion decisions;
+- any case where the user or project explicitly requires independent review.
+
+Do not require it for exploratory notes, intermediate drafts, routine code fixes, ordinary experiment debugging, or an unchanged artifact that already passed the same gate. Review once at the consequential milestone; repeat only after a material artifact change or unresolved blocking disagreement.
 
 ## Review Contract
 
@@ -47,6 +45,7 @@ Confidence after review:
 - Check reproduction observability: L0 text-only, L1 source-traced, L2 artifact-checked, or L3 reproduced.
 - Look for claim inflation, citation laundering, protocol inflation, and missing negative controls.
 - Record disagreements instead of silently rewriting the executor output.
+- Return `pass` when no evidence-backed blocker exists; do not manufacture findings to appear adversarial.
 
 ## Fail Conditions
 
@@ -60,4 +59,4 @@ The final gate should fail when:
 
 ## Fallback
 
-When only one model is available, simulate independence with a separate adversarial review pass after clearing local context as much as possible. Label it `same-model-second-pass`, not true cross-model review.
+When only one model is available, use a separate diagnostic pass only if the user requests it or the consequential decision cannot responsibly proceed without another check. Label it `same-model-second-pass`, not true cross-model review; otherwise record `required_but_not_run` and continue with appropriately scoped confidence.

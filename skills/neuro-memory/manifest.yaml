@@ -1,5 +1,5 @@
 name: neuro-memory
-version: 0.2.0
+version: 0.2.1
 status: stable
 verification_status: user-validated
 purpose: Compress meaningful sessions into reusable workflow, playbook, finding, case, eval, or private memory with explicit verification state.
@@ -28,6 +28,7 @@ anchors:
 outputs:
   primary: memory candidate with target, privacy status, verification status, and reuse rule
 always_load:
+  - ../_shared/core/proportional-execution.md
   - references/memory-routing.md
   - references/privacy-policy.md
   - ../_shared/core/source-traceability.md

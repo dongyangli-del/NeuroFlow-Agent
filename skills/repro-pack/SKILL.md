@@ -9,6 +9,7 @@ Use this skill when the user wants to reproduce a paper, repository, benchmark b
 
 ## First Reads
 
+- `../_shared/core/proportional-execution.md`: Always read first to keep reproduction checks, recovery, and output fields proportional to the target artifact.
 - `references/repro-contract.md`: Always read for the reproduction contract.
 - `references/observability-levels.md`: Always read for L0/L1/L2/L3 reproduction observability and upgrade paths.
 - `references/failure-recovery.md`: Read when setup, data, weights, or commands fail.
@@ -25,7 +26,7 @@ Use this skill when the user wants to reproduce a paper, repository, benchmark b
 - Separate smoke reproduction from full-paper reproduction.
 - Separate source-traced setup instructions from outputs actually reproduced locally.
 - Assign an observability level before saying what is verified: L0 text-only, L1 source-traced, L2 artifact-checked, or L3 reproduced.
-- For L2/L3 reproduction claims or paper-facing reproduction statements, use cross-model review to check command, environment, data, weights, expected output, and observability level before final approval.
+- For final L2/L3 reproduction claims or release-facing reproduction statements, use one cross-model review to check command, environment, data, weights, expected output, and observability level before approval.
 - List missing assets, ambiguous parameters, and deviations from the paper or repository convention.
 
 ## Workflow

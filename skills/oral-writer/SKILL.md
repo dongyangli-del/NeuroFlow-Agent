@@ -9,6 +9,7 @@ Use this skill when the user wants oral-level paper framing, abstract/introducti
 
 ## First Reads
 
+- `../_shared/core/proportional-execution.md`: Always read first to keep rewriting, checks, and output fields proportional to the requested writing operation.
 - `references/oral-paper-structure.md`: Always read for thesis and section structure.
 - `references/writing-operations.md`: Always read for writing operation taxonomy, format targets, and operation-specific gates.
 - `references/figure-narrative.md`: Read for figure order, captions, and evidence flow.

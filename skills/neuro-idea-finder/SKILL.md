@@ -9,6 +9,7 @@ Use this skill when the user asks for new research ideas, hypotheses, project di
 
 ## First Reads
 
+- `../_shared/core/proportional-execution.md`: Always read first to keep idea count, evidence checks, and follow-on work proportional to the request.
 - `references/idea-template.md`: Always read for required idea-card fields.
 - `references/modality-opportunity-map.md`: Read to choose signal modality, task family, and opportunity axis.
 - Use `ai-bci-research` for shared domain guardrails.

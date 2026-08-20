@@ -1,5 +1,5 @@
 name: ai-bci-research
-version: 0.3.0
+version: 0.3.1
 status: stable
 verification_status: user-validated
 purpose: Supply shared AI x BCI validity, signal, leakage, safety, and public-memory guardrails without competing as a workflow router.
@@ -24,6 +24,7 @@ anchors:
 outputs:
   primary: domain guardrails and evidence boundaries injected into another workflow artifact
 always_load:
+  - ../_shared/core/proportional-execution.md
   - references/research-profile.md
   - ../_shared/core/bci-validity.md
   - ../_shared/core/evidence-gates.md

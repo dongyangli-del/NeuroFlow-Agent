@@ -9,6 +9,7 @@ Use this skill when the user needs candidate datasets, benchmarks, leaderboards,
 
 ## First Reads
 
+- `../_shared/core/proportional-execution.md`: Always read first to keep benchmark checks and output fields tied to the requested claim.
 - `references/benchmark-card-template.md`: Always read for dataset and benchmark fields.
 - `references/benchmark-risk-checklist.md`: Read for access, license, leakage, and adaptation risks.
 - Use `paper-rag-plus` to verify dataset facts and associated papers.

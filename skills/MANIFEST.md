@@ -26,6 +26,7 @@ Shared workflow primitives live under `skills/_shared/core/`. They are resource 
 
 | Shared file | Use |
 |---|---|
+| `proportional-execution.md` | Live-uncertainty, reachability, minimal-validation, and stop rules that prevent optional confidence work from displacing the deliverable. |
 | `evidence-gates.md` | Novelty, benchmark, experiment, reproduction, closed-loop, and memory gates. |
 | `source-traceability.md` | Source location, verification status, missing information, and deviations from convention. |
 | `research-planning-protocol.md` | Research question, assumptions, failure modes, and decision gates for deep tasks. |

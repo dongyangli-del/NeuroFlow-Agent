@@ -1,5 +1,5 @@
 name: paper-rag-plus
-version: 0.2.0
+version: 0.2.1
 status: stable
 verification_status: source-traced
 purpose: Ground claims, citations, dataset facts, method facts, and related work in inspected literature and traceable sources.
@@ -38,6 +38,7 @@ anchors:
 outputs:
   primary: source-traced claim ledger or paper fact card
 always_load:
+  - ../_shared/core/proportional-execution.md
   - references/claim-grounding.md
   - references/claim-ledger.md
   - references/rag-eval-constraints.md

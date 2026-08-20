@@ -9,6 +9,7 @@ Use this skill to decide what a completed AI x neuroscience session should prese
 
 ## First Reads
 
+- `../_shared/core/proportional-execution.md`: Always read first so routine work and recoverable failures do not become permanent memory artifacts.
 - `references/memory-routing.md`: Always read first for memory type decisions.
 - `references/compression-template.md`: Read when producing a memory candidate.
 - `references/privacy-policy.md`: Read when content may contain private paths, unpublished details, credentials, participant information, or raw logs.

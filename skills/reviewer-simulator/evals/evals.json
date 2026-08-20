@@ -227,6 +227,46 @@
         "reviewer-simulator"
       ],
       "repeats": 3
+    },
+    {
+      "id": 6,
+      "prompt": "Review this final result summary once. Every numeric claim matches the supplied table, citations point to inspected source spans, protocol boundaries are explicit, and no unresolved fields remain. Return the evidence-based verdict; do not invent an objection merely to appear strict.",
+      "expected_output": "The reviewer returns a clear pass, briefly names the evidence checked, and stops. It does not manufacture blockers, demand unrelated experiments, or begin another review cycle on the unchanged artifact.",
+      "files": [
+        "references/review-diagnosis.md",
+        "../_shared/core/proportional-execution.md",
+        "../_shared/core/cross-model-review.md"
+      ],
+      "assertions": [
+        {
+          "text": "Output gives a clear pass because no evidence-backed blocker exists.",
+          "type": "llm_rubric",
+          "dimension": "efficiency",
+          "critical": false,
+          "weight": 1.0
+        },
+        {
+          "text": "Output does not manufacture weaknesses, unrelated experiments, or another review cycle for the unchanged artifact.",
+          "type": "llm_rubric",
+          "dimension": "efficiency",
+          "critical": false,
+          "weight": 1.0
+        },
+        {
+          "text": "Output remains evidence-based by briefly naming the checked claim, number, citation, and protocol boundaries.",
+          "type": "llm_rubric",
+          "dimension": "retention",
+          "critical": false,
+          "weight": 1.0
+        }
+      ],
+      "partition": "incident",
+      "tags": [
+        "reviewer-simulator",
+        "anti-overdefense",
+        "clean-pass"
+      ],
+      "repeats": 3
     }
   ],
   "schema_version": 2

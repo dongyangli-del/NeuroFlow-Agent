@@ -1,5 +1,5 @@
 name: reviewer-simulator
-version: 0.3.0
+version: 0.3.1
 status: stable
 verification_status: source-traced
 purpose: Audit AI x brain papers, claims, rebuttals, and experiment plans as strict conference reviewers with root-cause and fixability diagnosis.
@@ -48,6 +48,7 @@ anchors:
 outputs:
   primary: reviewer-risk report with root cause, fixability, and blocking evidence gaps
 always_load:
+  - ../_shared/core/proportional-execution.md
   - references/review-rubric.md
   - references/review-diagnosis.md
   - references/integrity-forensics.md

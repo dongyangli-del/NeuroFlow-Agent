@@ -13,16 +13,19 @@ Specialist skills are optional modules. Use them when a subtask needs their chec
 1. Classify the user request by task type and depth.
 2. Choose one pipeline chain.
 3. Name the primary artifact before detailed work.
-4. Load only the first-read files needed for the chosen chain.
-5. Use optional specialist modules for distinct subtasks.
-6. For multi-stage work, carry the original user intent and operational anchors into each handoff.
-7. Apply the relevant research supervision gates from `references/research-supervision-gates.md`.
-8. Enforce evidence gates before claims, experiments, writing, or memory updates.
-9. End with a stop condition and memory candidate decision.
+4. Apply the proportional-execution gate and remove stages that do not resolve a live uncertainty for this artifact.
+5. Load only the first-read files needed for the chosen chain.
+6. Use optional specialist modules for distinct subtasks.
+7. For multi-stage work, carry the original user intent and operational anchors into each handoff.
+8. Apply the relevant research supervision gates from `references/research-supervision-gates.md`.
+9. Enforce evidence gates before claims, experiments, writing, or memory updates.
+10. Stop after the requested artifact and smallest relevant validation pass; default to no memory update unless the lesson is reusable.
 
 ## Pipeline Chains
 
-| Chain | Use when | Required stages |
+Pipeline chains are available routes, not mandatory stage lists. Shallow and standard tasks may stop after the stage that produces and validates the requested artifact.
+
+| Chain | Use when | Possible stages |
 |---|---|---|
 | idea-to-experiment | A rough idea should become a testable plan. | idea card -> literature grounding -> experiment matrix -> reviewer risk -> memory decision |
 | paper-to-repro | A paper or repository should become runnable. | paper facts -> reproduction contract -> data/weight access -> smoke run plan -> memory decision |
@@ -48,7 +51,7 @@ Stop condition:
 Memory candidate:
 ```
 
-Recommended durable artifact names:
+Use durable artifact files only when the user requests persistence or a later handoff needs them. Possible names:
 
 - `NEUROFLOW_PLAN.md`
 - `LITERATURE_GROUNDING.md`
@@ -67,10 +70,14 @@ Recommended durable artifact names:
 - Reproduction claims require environment, data, weights, commands, expected outputs, and sanity checks.
 - Closed-loop claims require online/offline boundary, safety, calibration, latency, and human-subject constraints.
 - Research-integrity checks require claim-evidence consistency, citation fit, numeric self-consistency, protocol truthfulness, and an explicit observability level.
-- Cross-model review checks require an executor/reviewer split for high-risk claim, citation, experiment, benchmark, reproduction, and public-memory artifacts, or an explicit `required_but_not_run` caveat.
+- Cross-model review checks require one executor/reviewer split at a final consequential claim, reproduction, public-memory, or promotion milestone, or an explicit `required_but_not_run` caveat; intermediate and unchanged artifacts do not repeat the gate.
 - Git publish safety checks require target-branch confirmation, fresh remote state, ancestry checks, user-named branch delivery, and cleanup of temporary branches only after the target branch contains the commits.
 - Skill physics checks require avoiding overlapping specialists when a reference, shared gate, eval, or sequential handoff is enough; every deep handoff preserves original user intent and operational anchors.
 - Memory updates require privacy filtering and a target file or eval.
+
+## Completion Rule
+
+Finish when the primary artifact exists and the smallest validation tied to its live uncertainty passes. Optional confidence work is non-blocking and must not start another review, artifact, or memory loop.
 
 ## Supervision Gates
 

@@ -1,6 +1,6 @@
 # Output Contracts
 
-Use the smallest contract that satisfies the task. Do not force a full planning table for shallow tasks.
+Use the smallest contract that satisfies the task. These templates are field menus for complete artifacts, not mandatory headings for every response. Do not force a full planning table for shallow tasks.
 
 ## Next Check
 

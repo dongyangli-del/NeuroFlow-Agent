@@ -1,5 +1,5 @@
 name: repro-pack
-version: 0.2.0
+version: 0.2.1
 status: stable
 verification_status: source-traced
 purpose: Build minimal runnable reproduction contracts with source-traced environment, data, weights, commands, outputs, and blockers.
@@ -33,6 +33,7 @@ anchors:
 outputs:
   primary: reproduction contract with environment, data, command, expected output, and observability level
 always_load:
+  - ../_shared/core/proportional-execution.md
   - references/repro-contract.md
   - references/observability-levels.md
   - ../_shared/core/source-traceability.md

@@ -1,5 +1,5 @@
 name: continual-learning-designer
-version: 0.3.0
+version: 0.3.1
 status: beta
 verification_status: source-traced
 purpose: Design subject, session, and device adaptation protocols with retention, calibration, and online safety boundaries.
@@ -25,6 +25,7 @@ anchors:
 outputs:
   primary: continual adaptation plan with stream, memory, update, retention, calibration, and safety protocol
 always_load:
+  - ../_shared/core/proportional-execution.md
   - references/continual-bci-design.md
   - references/evaluation-protocol.md
   - ../_shared/core/bci-validity.md

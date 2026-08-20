@@ -9,6 +9,7 @@ Use this skill as the single default entry point for NeuroFlow-Agent in Codex. D
 
 ## First Reads
 
+- `../../skills/_shared/core/proportional-execution.md`: Always read first to keep the pipeline, checks, handoffs, output, and memory proportional to the requested artifact.
 - `references/pipeline.md`: Always read first for the single-entry pipeline and artifact contract.
 - `references/routing.md`: Read when choosing task type, depth, and specialist modules.
 - `references/session-plan.md`: Read when producing a multi-step plan or handoff.
@@ -23,10 +24,11 @@ Use this skill as the single default entry point for NeuroFlow-Agent in Codex. D
 - If a specialist skill is not triggered or not installed, still execute the corresponding pipeline stage from this skill.
 - Name the expected artifact before doing detailed work.
 - Use the smallest pipeline chain that can satisfy the user request.
+- End the workflow when the primary artifact exists and the smallest relevant validation passes; leave optional confidence work as a non-blocking suggestion.
 - Apply the skill physics gate before adding, promoting, or broadening a skill, and before calling multiple similar specialists in one workflow.
 - Apply research supervision gates before polishing ideas, paper text, figures, benchmarks, or claims.
 - For paper-facing claims, reviews, result tables, citations, or reproduction statements, apply the research-integrity gate: claim-evidence consistency, citation fit, numeric self-consistency, protocol truthfulness, and observability level.
-- For high-risk claim, citation, experiment, benchmark, reproduction, or public-memory artifacts, apply cross-model review by default: executor performs the work, reviewer independently checks it, and the final gate cannot be self-approved by the same model/pass.
+- For final, consequential claim, citation, experiment, benchmark, reproduction, or public-memory decisions, apply one cross-model review at the claim-bearing or promotion milestone; do not review intermediate or unchanged artifacts by default.
 - For commit, push, branch deletion, or remote synchronization requests, apply the git publish safety gate: confirm target branch, fetch remote state, verify ancestry, push to the user-named branch, and clean temporary branches only after the commits are reachable from the target.
 - For long-running commands, separate experiment ownership from Codex ownership: launch under `tmux`, `nohup` plus `setsid`, or `systemd-run`, persist logs and completion state, verify detachment, and restrict Codex to short read-only monitoring.
 

@@ -9,6 +9,7 @@ Use this skill when a research claim needs an executable experiment plan.
 
 ## First Reads
 
+- `../_shared/core/proportional-execution.md`: Always read first to keep experiments and review gates tied to live uncertainties in the claim.
 - `references/experiment-matrix.md`: Always read for matrix structure.
 - `references/controls-and-ablations.md`: Read for baselines, controls, and ablation design.
 - `references/statistics-and-stop-rules.md`: Read when results need confidence intervals, significance tests, or stop criteria.
@@ -21,7 +22,7 @@ Use this skill when a research claim needs an executable experiment plan.
 - Check leakage, normalization, checkpoint selection, metric definitions, and split protocol.
 - Trace key parameters, metrics, baselines, and dataset choices to a paper, config, log, dataset page, or user-validated source.
 - List missing information and deviations from convention before paper-facing interpretation.
-- For paper-facing experiment plans, use cross-model review: executor drafts the matrix, reviewer independently checks baseline parity, leakage, split protocol, metrics, statistics, and claim scope.
+- For a final paper-facing experiment plan, use one cross-model review at the consequential milestone: the reviewer checks baseline parity, leakage, split protocol, metrics, statistics, and claim scope.
 - Use `statistical-analysis`, `ablation-planner`, and `experiment-results-notebook` when deeper analysis is needed.
 
 ## Required Output

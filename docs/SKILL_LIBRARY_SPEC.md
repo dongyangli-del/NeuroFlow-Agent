@@ -111,7 +111,7 @@ make skill-competition-report
 make skill-simulate CANDIDATE=path/to/manifest.yaml
 ```
 
-Shared fragments live under `skills/_shared/core/` and must remain non-triggerable. They should capture cross-cutting behavior such as evidence gates, source traceability, research planning, claim discipline, BCI validity checks, reviewer risk, and compact output contracts.
+Shared fragments live under `skills/_shared/core/` and must remain non-triggerable. They should capture cross-cutting behavior such as proportional execution, evidence gates, source traceability, research planning, claim discipline, BCI validity checks, reviewer risk, and compact output contracts.
 
 ## Phased Implementation
 

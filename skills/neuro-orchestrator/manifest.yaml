@@ -1,5 +1,5 @@
 name: neuro-orchestrator
-version: 0.2.0
+version: 0.2.1
 status: stable
 verification_status: user-validated
 purpose: Single NeuroFlow entry point for routing research tasks into the smallest useful workflow.
@@ -30,6 +30,7 @@ anchors:
 outputs:
   primary: routed workflow plan or executed artifact contract
 always_load:
+  - ../_shared/core/proportional-execution.md
   - references/pipeline.md
   - ../_shared/core/evidence-gates.md
   - ../_shared/core/source-traceability.md
